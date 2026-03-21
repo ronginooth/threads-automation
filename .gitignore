@@ -4,3 +4,9 @@ __pycache__/
 data/scheduler.log
 data/scheduler_error.log
 data/trends_raw_*.json
+data/stats.csv
+data/posted_log.json
+data/queue/*.md
+!data/queue/sample_post.md
+data/posted/*.md
+data/report_*.md
