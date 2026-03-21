@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+data/scheduler.log
+data/scheduler_error.log
+data/trends_raw_*.json

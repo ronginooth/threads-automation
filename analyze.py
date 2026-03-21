@@ -1,0 +1,103 @@
+"""
+バズ分析スクリプト
+stats.csv を読み込んでバズった投稿の型と傾向をレポート出力する
+"""
+import csv
+import json
+from datetime import datetime
+from pathlib import Path
+
+STATS_FILE = Path(__file__).parent / "data" / "stats.csv"
+REPORT_DIR = Path(__file__).parent / "data"
+
+
+def load_stats() -> list[dict]:
+    if not STATS_FILE.exists():
+        print("stats.csv がありません。先に stats.py を実行してください。")
+        return []
+    with open(STATS_FILE, encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def score(row: dict) -> float:
+    """エンゲージメントスコアを計算（いいね×3 + リプ×5 + リポスト×4 + インプ×0.1）"""
+    return (
+        int(row.get("likes", 0)) * 3
+        + int(row.get("replies", 0)) * 5
+        + int(row.get("reposts", 0)) * 4
+        + int(row.get("quotes", 0)) * 4
+        + int(row.get("views", 0)) * 0.1
+    )
+
+
+def run():
+    rows = load_stats()
+    if not rows:
+        return
+
+    # スコア計算
+    for row in rows:
+        row["score"] = score(row)
+
+    # スコア降順ソート
+    sorted_rows = sorted(rows, key=lambda r: r["score"], reverse=True)
+
+    total = len(rows)
+    avg_views = sum(int(r.get("views", 0)) for r in rows) / total
+    avg_likes = sum(int(r.get("likes", 0)) for r in rows) / total
+    avg_replies = sum(int(r.get("replies", 0)) for r in rows) / total
+    top3 = sorted_rows[:3]
+    bottom3 = sorted_rows[-3:]
+
+    report_lines = [
+        f"# Threads バズ分析レポート",
+        f"生成日時: {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+        f"分析対象: {total}件の投稿",
+        "",
+        "## 平均パフォーマンス",
+        f"- 平均インプレッション: {avg_views:.1f}",
+        f"- 平均いいね: {avg_likes:.1f}",
+        f"- 平均リプライ: {avg_replies:.1f}",
+        "",
+        "## バズった投稿 TOP3",
+    ]
+
+    for i, row in enumerate(top3, 1):
+        report_lines += [
+            f"### {i}位（スコア: {row['score']:.1f}）",
+            f"**投稿**: {row['text_preview']}...",
+            f"- インプ: {row['views']} / いいね: {row['likes']} / リプ: {row['replies']} / リポスト: {row['reposts']}",
+            f"- 投稿日時: {row['posted_at']}",
+            "",
+        ]
+
+    report_lines += [
+        "## 伸びなかった投稿 BOTTOM3",
+    ]
+    for i, row in enumerate(bottom3, 1):
+        report_lines += [
+            f"### {i}位（スコア: {row['score']:.1f}）",
+            f"**投稿**: {row['text_preview']}...",
+            f"- インプ: {row['views']} / いいね: {row['likes']} / リプ: {row['replies']}",
+            "",
+        ]
+
+    report_lines += [
+        "## 次サイクルへの示唆",
+        "- TOP3の投稿の共通点（書き出しの型・文体・長さ）を次の投稿生成に反映してください",
+        "- BOTTOM3の投稿のパターンは避けるか改善を検討してください",
+        "",
+        "---",
+        "このレポートをClaudeに渡して「次の週の投稿を生成して」と依頼するとサイクルが回ります。",
+    ]
+
+    report = "\n".join(report_lines)
+    report_file = REPORT_DIR / f"report_{datetime.now().strftime('%Y-%m-%d')}.md"
+    report_file.write_text(report, encoding="utf-8")
+
+    print(report)
+    print(f"\n✅ レポートを保存: {report_file}")
+
+
+if __name__ == "__main__":
+    run()

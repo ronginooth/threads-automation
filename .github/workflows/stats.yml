@@ -1,0 +1,36 @@
+name: Threads 統計収集
+
+on:
+  schedule:
+    # JST 23:00 = UTC 14:00
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: コードを取得
+        uses: actions/checkout@v4
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: パッケージインストール
+        run: pip install requests python-dotenv
+
+      - name: 統計収集
+        env:
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+        run: python stats.py
+
+      - name: stats.csvをコミット
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/stats.csv data/posted_log.json
+          git diff --staged --quiet || git commit -m "stats: $(date +'%Y-%m-%d')"
+          git push
