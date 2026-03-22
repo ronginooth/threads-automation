@@ -4,8 +4,533 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Threads コメント一覧</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, sans-serif;
+      background: #f5f5f5;
+      padding: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 18px; margin-bottom: 4px; color: #111; }
+    .updated { font-size: 12px; color: #888; margin-bottom: 16px; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .post-ref {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+      border-left: 3px solid #ddd;
+      padding-left: 8px;
+    }
+    .post-ref .label {
+      font-weight: bold;
+      margin-right: 6px;
+    }
+    .post-ref a { color: #555; text-decoration: none; }
+    .comment-box {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+    }
+    .username { font-weight: bold; font-size: 13px; color: #333; }
+    .comment-text { font-size: 14px; color: #222; margin: 4px 0; line-height: 1.5; }
+    .time { font-size: 11px; color: #aaa; }
+    .drafts-title { font-size: 12px; font-weight: bold; color: #555; margin-bottom: 8px; }
+    .draft {
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .draft:active { background: #f0f0f0; }
+    .draft-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: #888;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .draft p { font-size: 14px; color: #222; line-height: 1.5; }
+    .empty { text-align: center; color: #aaa; padding: 40px 0; font-size: 14px; }
+  </style>
+  <script>
+    // タップでテキストをクリップボードにコピー
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.draft').forEach(el => {
+        el.addEventListener('click', () => {
+          const text = el.querySelector('p').textContent;
+          navigator.clipboard.writeText(text).then(() => {
+            el.style.background = '#e8f5e9';
+            setTimeout(() => el.style.background = '', 800);
+          });
+        });
+      });
+    });
+  </script>
 </head>
 <body>
-  <p>初回実行前です。GitHub Actionsを実行してください。</p>
+  <h1>📩 Threads コメント</h1>
+  <p class="updated">更新: 2026-03-22 15:24 JST</p>
+  
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DWLDKwKjH8i" target="_blank">研究歴20年で気づいたこと。
+
+論文が書けない最大の理由は、
+英語力でも、データの量でも、AIの性能でもなく、
+
+「何を…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@airlie_hyndland</span>
+                <p class="comment-text">いやいや、とびっきりのデータがあれば翻訳機でかける。</p>
+                <span class="time">03/22 14:36</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DWI78A_lMfp" target="_blank">論文をAIに書かせるとき、
+設計図なしでいきなり「書いて」と頼むのは、
+
+大工に設計図を渡さずに「家を建てて」と頼むのと…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@umineko_soratob</span>
+                <p class="comment-text">というかAIに論文は書かせないですね。校閲してもらうことはありますが、、、</p>
+                <span class="time">03/21 17:50</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DWCukMJkgK5" target="_blank">査読に通った論文を54本分析した研究がある。
+
+結果：論文の57%が「22〜33段落」で構成されていて、平均は約28段落…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@vogelwald080</span>
+                <p class="comment-text">知らなかったです。</p>
+                <span class="time">03/19 08:00</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DWBy2lOE5Kl" target="_blank">論文を書くとき、AIに何を使ってますか？
+
+① ChatGPT
+② Claude
+③ Gemini
+④ Copilot
+…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@maangie.jp</span>
+                <p class="comment-text">最近は④は使ってないなあ(マカーだから</p>
+                <span class="time">03/19 00:49</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DWAtaLJEyQD" target="_blank">査読コメント「minor revision」って書いてあるのに
+全然minorじゃない件。
+
+あれ、何がminorなんで…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@satowmk</span>
+                <p class="comment-text">他人の論文に厳しい評価つけることをなんとなく躊躇するけど、実際には指摘すべきことは多いあるいは大きい場合、かも</p>
+                <span class="time">03/19 08:27</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DWAtaLJEyQD" target="_blank">査読コメント「minor revision」って書いてあるのに
+全然minorじゃない件。
+
+あれ、何がminorなんで…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@khuntakbn</span>
+                <p class="comment-text">その人の基準では？</p>
+                <span class="time">03/18 13:37</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DWAJtceARZO" target="_blank">論文のIntroduction、自力で書くと何日かかりますか？
+
+私は以前、丸3日かけて書いたIntroductionを…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@pika2pika22</span>
+                <p class="comment-text">とりあえず1日でざっと全文(resultはザックリ)書いてみて、後から微修正するって感じでしたね。書いたうちの1報は後からだいぶ変えたことがあります</p>
+                <span class="time">03/18 22:40</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVe4QpRkycf" target="_blank">わたしの論文書く順序
+1️⃣アブストラクト（ざっと）
+2️⃣方法
+3️⃣結果
+4️⃣ディスカッション
+5️⃣最後にアブス…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@airlie_hyndland</span>
+                <p class="comment-text">まあ、まずはタイトルですね。本文を書き進めているうちに少し変わりますが。なかなかタイトルはむずいですよ。</p>
+                <span class="time">03/05 15:48</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVe4QpRkycf" target="_blank">わたしの論文書く順序
+1️⃣アブストラクト（ざっと）
+2️⃣方法
+3️⃣結果
+4️⃣ディスカッション
+5️⃣最後にアブス…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@ronginooth_ai</span>
+                <p class="comment-text">イントロが抜けていました！
+イントロは1️⃣と2️⃣の間かなぁ。</p>
+                <span class="time">03/05 09:27</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVYPitck0jH" target="_blank">夕方になると頭がぼーっとしてエネルギー不足なのか眠くなる。
+クレアチンが効くよという話を信じて買ってみます！…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@jshanxj</span>
+                <p class="comment-text">無酸素系の瞬発力、高強度のエネルギーを必要としていないと意味無いと思うよ</p>
+                <span class="time">03/03 07:42</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVTgugHEwrc" target="_blank">初めて英語論文を書く若手の皆さん。
+これだけは覚えておいてください。
+AIを使うなら「構造化ライティングの型」を絶対に手…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@ronginooth_ai</span>
+                <p class="comment-text">https://note.com/ronginooth_ai/n/n6e9b15c7eea3</p>
+                <span class="time">02/28 23:25</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVTgPonE2j2" target="_blank">AIに英語論文を書かせる時、修正地獄から抜け出して「週末を完全に取り戻す」ためにやったこと。
+① AIへの「いい感じに書…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@ronginooth_ai</span>
+                <p class="comment-text">https://note.com/ronginooth_ai/n/n6e9b15c7eea3</p>
+                <span class="time">02/28 23:21</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVTf1HpkwWH" target="_blank">「自分のデータ（具体）」を「論文の構造（抽象）」に一度預け、また「英語の文章（具体）」として吐き出させる。
+この抽象化と…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@ronginooth_ai</span>
+                <p class="comment-text">https://note.com/ronginooth_ai/n/n6e9b15c7eea3</p>
+                <span class="time">02/28 23:17</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVSo40kE6S6" target="_blank">学生くん「週末ずっとAIと格闘したのに論文が半ページしか進みません…」
+画面を見ると、ChatGPTに「〇〇についていい…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@ronginooth_ai</span>
+                <p class="comment-text">本日23:59までにみた方がいいです!
+https://note.com/ronginooth_ai/n/n6e9b15c7eea3</p>
+                <span class="time">02/28 15:17</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="post-ref">
+                <span class="label">投稿</span>
+                <a href="https://www.threads.com/@ronginooth_ai/post/DVSn5NEkwur" target="_blank">昨日ChatGPTと共に書き上げた論文のイントロを
+今日うんざりした気持ちで消して一から書き直す
+
+土日が丸ごと溶け、1…</a>
+              </div>
+              <div class="comment-box">
+                <span class="username">@ronginooth_ai</span>
+                <p class="comment-text">https://note.com/ronginooth_ai/n/n6e9b15c7eea3</p>
+                <span class="time">02/28 15:08</span>
+              </div>
+              <div class="drafts-section">
+                <p class="drafts-title">リプライ案</p>
+                
+                <div class="draft">
+                  <span class="draft-label">案1</span>
+                  <p>（生成失敗）</p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案2</span>
+                  <p></p>
+                </div>
+                <div class="draft">
+                  <span class="draft-label">案3</span>
+                  <p></p>
+                </div>
+              </div>
+            </div>
 </body>
 </html>
