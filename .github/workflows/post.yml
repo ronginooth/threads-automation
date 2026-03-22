@@ -7,6 +7,9 @@ on:
     - cron: "*/15 * * * *"
   workflow_dispatch:  # 手動実行ボタン
 
+permissions:
+  contents: write
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -28,3 +31,11 @@ jobs:
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_APP_ID: ${{ secrets.THREADS_APP_ID }}
         run: python post.py
+
+      - name: 投稿済みファイルをGitHubから削除
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A data/queue/
+          git commit -m "post: 投稿済みファイルをキューから削除 $(date +'%Y-%m-%d %H:%M UTC')" || echo "変更なし（投稿なし）"
+          git push || echo "pushスキップ"
