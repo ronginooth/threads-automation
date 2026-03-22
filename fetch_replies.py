@@ -36,6 +36,19 @@ def get_my_posts(limit: int = 25) -> list:
     return res.json().get("data", [])
 
 
+def get_my_username() -> str:
+    """自分のThreadsユーザー名を取得"""
+    res = requests.get(
+        f"{BASE_URL}/me",
+        params={
+            "fields": "username",
+            "access_token": TOKEN,
+        },
+    )
+    res.raise_for_status()
+    return res.json().get("username", "")
+
+
 def get_replies(post_id: str) -> list:
     """投稿に対するコメント（リプライ）を取得"""
     res = requests.get(
@@ -218,6 +231,14 @@ def build_html(comment_blocks: list) -> str:
 
 
 def run():
+    # 自分のユーザー名を取得して自己リプライを除外
+    try:
+        my_username = get_my_username()
+        print(f"自分のユーザー名: @{my_username}")
+    except Exception as e:
+        print(f"ユーザー名取得エラー: {e}")
+        my_username = ""
+
     seen = load_seen()
     posts = get_my_posts(limit=25)
 
@@ -242,6 +263,12 @@ def run():
 
             comment_text = reply.get("text", "")
             username = reply.get("username", "unknown")
+
+            # 自分のリプライはスキップ
+            if my_username and username == my_username:
+                new_seen.add(reply_id)
+                continue
+
             ts = reply.get("timestamp", "")
 
             # JSTに変換
@@ -255,9 +282,10 @@ def run():
 
             try:
                 drafts = generate_reply_drafts(post_text, comment_text)
+                print(f"  リプライ案生成完了: {len(drafts)}件")
             except Exception as e:
                 print(f"  リプライ案生成エラー: {e}")
-                drafts = ["（生成失敗）", "", ""]
+                drafts = [f"（生成失敗: {e}）", "（手動で入力してください）", ""]
 
             comment_blocks.append({
                 "post_text": post_text,
