@@ -6,8 +6,10 @@ import os
 import re
 import shutil
 import json
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+JST = timezone(timedelta(hours=9))
 from threads_api import create_post, publish_post
 
 QUEUE_DIR = Path(__file__).parent / "data" / "queue"
@@ -25,10 +27,28 @@ def save_log(log: list):
     LOG_FILE.write_text(json.dumps(log, ensure_ascii=False, indent=2))
 
 
+def parse_scheduled_time(path: Path):
+    """frontmatterのscheduled:フィールドをJSTのdatetimeとして返す。なければNone"""
+    content = path.read_text(encoding="utf-8")
+    match = re.search(r'^scheduled:\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2})', content, re.MULTILINE)
+    if match:
+        try:
+            return datetime.strptime(match.group(1).strip(), "%Y-%m-%d %H:%M").replace(tzinfo=JST)
+        except ValueError:
+            return None
+    return None
+
+
 def get_next_post() -> Path | None:
-    """キューから最も古いファイルを返す"""
+    """スケジュール時刻を過ぎた最も古いファイルを返す"""
+    now = datetime.now(JST)
     files = sorted(QUEUE_DIR.glob("*.md"))
-    return files[0] if files else None
+    for f in files:
+        scheduled = parse_scheduled_time(f)
+        if scheduled is None or scheduled <= now:
+            return f
+    print(f"投稿時刻未到達のためスキップ（現在 {now.strftime('%H:%M JST')}）")
+    return None
 
 
 def parse_post_file(path: Path) -> str:

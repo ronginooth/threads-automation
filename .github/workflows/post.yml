@@ -2,12 +2,9 @@ name: Threads 自動投稿
 
 on:
   schedule:
-    # JST 08:00 = UTC 23:00（前日）
-    - cron: "0 23 * * *"
-    # JST 12:00 = UTC 03:00
-    - cron: "0 3 * * *"
-    # JST 17:00 = UTC 08:00
-    - cron: "0 8 * * *"
+    # 15分ごとに実行（GitHub cronのスキップ対策）
+    # post.py側でscheduled:時刻をチェックし、時刻未到達はスキップする
+    - cron: "*/15 * * * *"
   workflow_dispatch:  # 手動実行ボタン
 
 jobs:
