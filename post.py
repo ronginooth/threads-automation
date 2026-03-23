@@ -1,6 +1,11 @@
 """
 投稿スクリプト
 data/queue/ にある .md ファイルを1件取り出してThreadsに投稿する
+
+安全装置:
+- KILL_SWITCH: data/KILL_SWITCH ファイルが存在したら全投稿を停止
+- 1日の投稿上限: MAX_DAILY_POSTS 件を超えたらその日は停止
+- 最低投稿間隔: MIN_INTERVAL_MINUTES 分未満なら投稿しない
 """
 import os
 import re
@@ -15,6 +20,10 @@ from threads_api import create_post, publish_post
 QUEUE_DIR = Path(__file__).parent / "data" / "queue"
 POSTED_DIR = Path(__file__).parent / "data" / "posted"
 LOG_FILE = Path(__file__).parent / "data" / "posted_log.json"
+KILL_SWITCH = Path(__file__).parent / "data" / "KILL_SWITCH"
+
+MAX_DAILY_POSTS = 10
+MIN_INTERVAL_MINUTES = 60
 
 
 def load_log() -> list:
@@ -59,7 +68,55 @@ def parse_post_file(path: Path) -> str:
     return content.strip()
 
 
+def check_kill_switch() -> bool:
+    """KILL_SWITCHファイルが存在したらTrueを返す"""
+    if KILL_SWITCH.exists():
+        print("🛑 KILL_SWITCH が有効です。全投稿を停止中。")
+        print("   解除するには data/KILL_SWITCH を削除してください。")
+        return True
+    return False
+
+
+def check_daily_limit() -> bool:
+    """今日の投稿数が上限を超えていたらTrueを返す"""
+    log = load_log()
+    today = datetime.now(JST).strftime("%Y-%m-%d")
+    today_count = sum(1 for e in log if e["posted_at"][:10] == today)
+    if today_count >= MAX_DAILY_POSTS:
+        print(f"⚠️ 本日の投稿上限に達しました（{today_count}/{MAX_DAILY_POSTS}件）")
+        return True
+    return False
+
+
+def check_min_interval() -> bool:
+    """前回投稿からの間隔が短すぎたらTrueを返す"""
+    log = load_log()
+    if not log:
+        return False
+    last_posted = log[-1].get("posted_at", "")
+    if not last_posted:
+        return False
+    try:
+        last_time = datetime.fromisoformat(last_posted)
+        now = datetime.now()
+        diff_minutes = (now - last_time).total_seconds() / 60
+        if diff_minutes < MIN_INTERVAL_MINUTES:
+            print(f"⏳ 前回投稿から{diff_minutes:.0f}分。最低{MIN_INTERVAL_MINUTES}分の間隔が必要です。")
+            return True
+    except Exception:
+        pass
+    return False
+
+
 def run():
+    # 安全チェック
+    if check_kill_switch():
+        return
+    if check_daily_limit():
+        return
+    if check_min_interval():
+        return
+
     post_file = get_next_post()
     if not post_file:
         print("キューに投稿がありません。")

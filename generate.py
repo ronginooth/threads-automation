@@ -37,20 +37,42 @@ def get_next_monday() -> datetime:
     return today + timedelta(days=days_ahead)
 
 
+def get_latest_directives() -> str:
+    """最新のアナリスト指示書セクションを抽出"""
+    report = get_latest_report()
+    # レポート内の「アナリスト指示書」セクションを探す
+    marker = "## アナリスト指示書"
+    idx = report.find(marker)
+    if idx != -1:
+        # 次の「---」または末尾までを抽出
+        end = report.find("---", idx)
+        return report[idx:end] if end != -1 else report[idx:]
+    return ""
+
+
 def generate_posts() -> str:
     report = get_latest_report()
     trends = get_latest_trends()
+    directives = get_latest_directives()
     client = anthropic.Anthropic()
 
+    directives_section = ""
+    if directives:
+        directives_section = f"""
+## アナリスト指示書（前サイクルの分析から導かれた具体的なフィードバック）
+{directives}
+→ この指示に従って生成すること。特に「伸びているパターン」は優先的に使い、「控える」と書かれたパターンは避けること。
+"""
+
     prompt = f"""あなたはThreads（SNS）の投稿文ライターです。
-以下の「バズ分析レポート」と「トレンドレポート」を踏まえて、次の1週間分（7日×3投稿=21本）の投稿文を生成してください。
+以下の「バズ分析レポート」「トレンドレポート」「アナリスト指示書」を踏まえて、次の1週間分（7日×3投稿=21本）の投稿文を生成してください。
 
 ## バズ分析レポート（自分の過去投稿の実績）
 {report}
 
 ## トレンドレポート（同ジャンル・他ジャンルのバズ投稿から抽出した新しい型）
 {trends}
-
+{directives_section}
 ## 投稿のルール
 - アカウント: @ronginooth_ai（研究歴20年のPhD、AIを使った論文執筆の効率化を発信）
 - 1投稿あたり200文字以内
@@ -58,6 +80,8 @@ def generate_posts() -> str:
 - トレンドレポートの「次サイクルで試すべき新しい型」を最低3本は取り入れる
 - 宣伝・自己紹介型は使わない
 - 各投稿に「型」ラベルをつける（例: あるある型・失敗談型・質問型・二択型・気づき型）
+- **同じテーマ・同じ構造の投稿が3本以上連続しないように分散させる**
+- **過去にバズった投稿と似すぎた内容は避ける（新しい切り口で書く）**
 
 ## 出力フォーマット
 以下のフォーマットで21本を出力してください。
