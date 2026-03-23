@@ -42,13 +42,16 @@ if __name__ == "__main__":
     print("週次サイクル開始")
     print("=" * 50)
 
-    print("\n① 統計収集中...")
+    print("\n① アカウント分析（初回 or 更新時のみ）...")
+    run("prepare.py")
+
+    print("\n② 統計収集中...")
     run("stats.py")
 
-    print("\n② バズ分析中（アナリスト指示書付き）...")
+    print("\n③ バズ分析中（アナリスト指示書付き）...")
     run("analyze.py")
 
-    print("\n③ トレンド収集中...")
+    print("\n④ トレンド収集中...")
     run("trends.py")
 
     next_monday = get_next_monday()
@@ -56,12 +59,12 @@ if __name__ == "__main__":
     if skip_generate:
         report_path = BASE / "data" / f"report_{datetime.now().strftime('%Y-%m-%d')}.md"
         print("\n" + "=" * 50)
-        print("④ 以下をClaudeに貼って次週の投稿文を生成してください")
+        print("⑤ 以下をClaudeに貼って次週の投稿文を生成してください")
         print("=" * 50)
         print(f"""
 ---コピーここから---
 以下の分析レポートを読んで、来週（{next_monday}〜）の
-Threads投稿文を7日×3投稿=21本生成してください。
+Threads投稿文を生成してください。
 
 【バズ分析レポート】
 {report_path.read_text(encoding="utf-8") if report_path.exists() else "（レポートファイルを確認してください）"}
@@ -69,12 +72,12 @@ Threads投稿文を7日×3投稿=21本生成してください。
 """)
         print("生成後: python3 approve.py posts/{next_monday}_week")
     else:
-        print("\n④ 投稿文を自動生成中（Claude API）...")
+        print("\n⑤ 投稿文を自動生成中（Claude API）...")
         rc = run("generate.py")
         if rc != 0:
             print("❌ 生成に失敗しました。手動で実行してください: python3 generate.py")
         else:
-            print("\n⑤ 品質チェック中...")
+            print("\n⑥ 品質チェック中...")
             week_dir = BASE / "posts" / f"{next_monday}_week"
             if week_dir.exists():
                 # approve → queue に入れてからチェック

@@ -7,10 +7,20 @@ import sys
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
+import yaml
 
-QUEUE_DIR = Path(__file__).parent / "data" / "queue"
+BASE = Path(__file__).parent
+QUEUE_DIR = BASE / "data" / "queue"
+CONFIG_FILE = BASE / "config.yml"
 
-TIMES = ["07:00", "10:00", "13:00", "17:00", "21:00"]
+DEFAULT_TIMES = ["07:00", "10:00", "13:00", "17:00", "21:00"]
+
+
+def load_times() -> list[str]:
+    if CONFIG_FILE.exists():
+        config = yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
+        return config.get("times", DEFAULT_TIMES)
+    return DEFAULT_TIMES
 
 
 def parse_posts(content: str) -> list[dict]:
@@ -55,7 +65,8 @@ def run():
     created = 0
     for post in posts:
         date = week_start + timedelta(days=post["day"] - 1)
-        time_str = TIMES[(post["num"] - 1) % len(TIMES)]
+        times = load_times()
+        time_str = times[(post["num"] - 1) % len(times)]
         type_slug = post["type"].replace(" ", "_") or f"post{post['num']}"
         filename = f"{date.strftime('%Y-%m-%d')}_{post['num']}_{type_slug}.md"
         filepath = QUEUE_DIR / filename

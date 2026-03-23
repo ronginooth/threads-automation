@@ -1,0 +1,33 @@
+# Threads自動投稿の設定ファイル
+# アカウントやテーマを変えるときはここだけ編集する
+
+# Threadsアカウント
+account: "@ronginooth_ai"
+
+# Xアカウント（トーン・ペルソナの自動分析に使用）
+x_account: "@ronginooth"
+
+# 売りたいnote記事のURL
+note_url: "https://note.com/ronginooth_ai/n/n6e9b15c7eea3"
+
+# 投稿時間（1日の投稿枠）
+times:
+  - "07:00"
+  - "10:00"
+  - "13:00"
+  - "17:00"
+  - "21:00"
+
+# 1投稿あたりの最大文字数
+max_chars: 200
+
+# 3層構造の配分（週あたり）
+layers:
+  L1_共感: 21
+  L2_教育: 10
+  L3_導線: 4
+
+# note記事のローカルコピー検索先（Obsidian vault等）
+vault_search_paths:
+  - "/Users/makino/local-vaults/Amane-works"
+  - "/Users/makino/local-vaults/claude-code-starter-kit"

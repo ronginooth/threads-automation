@@ -1,20 +1,26 @@
 """
 投稿文生成スクリプト
-直近の分析レポートを読んでClaudeに次週35本の投稿文を生成させる
+config.yml + data/account_profile.md を読んで次週の投稿文を生成する
 生成結果は posts/YYYY-MM-DD_week/ に保存（queue には入れない）
 レビュー後に approve.py でキューに移動する
+
+前提: python3 prepare.py を先に実行して account_profile.md を生成しておく
 """
 import os
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
+import yaml
 import anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
 
-REPORT_DIR = Path(__file__).parent / "data"
-POSTS_DIR = Path(__file__).parent / "posts"
+BASE = Path(__file__).parent
+REPORT_DIR = BASE / "data"
+POSTS_DIR = BASE / "posts"
+CONFIG_FILE = BASE / "config.yml"
+PROFILE_FILE = BASE / "data" / "account_profile.md"
 
 
 def get_latest_report() -> str:
@@ -50,11 +56,48 @@ def get_latest_directives() -> str:
     return ""
 
 
+def load_config() -> dict:
+    if CONFIG_FILE.exists():
+        return yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
+    return {}
+
+
+def load_profile() -> str:
+    if PROFILE_FILE.exists():
+        return PROFILE_FILE.read_text(encoding="utf-8")
+    return ""
+
+
+def build_time_format(times: list[str]) -> str:
+    """config.ymlのtimesから出力フォーマットのサンプルを組み立てる"""
+    labels = {0: "朝", 1: "朝", 2: "昼", 3: "夕", 4: "夜"}
+    lines = []
+    for i, t in enumerate(times):
+        label = labels.get(i, "")
+        lines.append(f"### Day1-投稿{i+1}（{label}{t}）型: ○○型 | L1\n---\n（投稿文）\n---")
+    return "\n\n".join(lines)
+
+
 def generate_posts() -> str:
+    config = load_config()
+    profile = load_profile()
     report = get_latest_report()
     trends = get_latest_trends()
     directives = get_latest_directives()
     client = anthropic.Anthropic()
+
+    # configから値を取得（デフォルト付き）
+    account = config.get("account", "@ronginooth_ai")
+    note_url = config.get("note_url", "")
+    max_chars = config.get("max_chars", 200)
+    times = config.get("times", ["07:00", "10:00", "13:00", "17:00", "21:00"])
+    layers = config.get("layers", {"L1_共感": 21, "L2_教育": 10, "L3_導線": 4})
+    posts_per_day = len(times)
+    total_posts = posts_per_day * 7
+
+    l1_count = layers.get("L1_共感", 21)
+    l2_count = layers.get("L2_教育", 10)
+    l3_count = layers.get("L3_導線", 4)
 
     directives_section = ""
     if directives:
@@ -64,9 +107,19 @@ def generate_posts() -> str:
 → この指示に従って生成すること。特に「伸びているパターン」は優先的に使い、「控える」と書かれたパターンは避けること。
 """
 
-    prompt = f"""あなたはThreads（SNS）の投稿文ライターです。
-以下の「バズ分析レポート」「トレンドレポート」「アナリスト指示書」を踏まえて、次の1週間分（7日×5投稿=35本）の投稿文を生成してください。
+    profile_section = ""
+    if profile:
+        profile_section = f"""
+## アカウントプロフィール（AIが分析した結果）
+{profile}
+→ このプロフィールのペルソナ・トーン・教育テーマ・導線パターンに従って生成すること。
+"""
 
+    time_format = build_time_format(times)
+
+    prompt = f"""あなたはThreads（SNS）の投稿文ライターです。
+以下の情報を踏まえて、次の1週間分（7日×{posts_per_day}投稿={total_posts}本）の投稿文を生成してください。
+{profile_section}
 ## バズ分析レポート（自分の過去投稿の実績）
 {report}
 
@@ -74,8 +127,8 @@ def generate_posts() -> str:
 {trends}
 {directives_section}
 ## 投稿のルール
-- アカウント: @ronginooth_ai（研究歴20年のPhD、AIを使った論文執筆の効率化を発信）
-- 1投稿あたり200文字以内
+- アカウント: {account}
+- 1投稿あたり{max_chars}文字以内
 - バズった型を優先: 「自分の失敗・本音を先に見せてから質問で終わる」
 - トレンドレポートの「次サイクルで試すべき新しい型」を最低3本は取り入れる
 - 宣伝型は使わない（「買ってください」「お得」「限定」「セール」等の購買を煽る表現は禁止）
@@ -84,63 +137,30 @@ def generate_posts() -> str:
 - **過去にバズった投稿と似すぎた内容は避ける（新しい切り口で書く）**
 
 ## 投稿の3層構造（重要）
-35本を以下の3層に分けて生成すること:
+{total_posts}本を以下の3層に分けて生成すること:
 
-### L1（共感・保存）— 週21本（60%）
-フォロワー増加の主エンジン。既存の型を使う。
+### L1（共感・保存）— 週{l1_count}本（{l1_count*100//total_posts}%）
+フォロワー増加の主エンジン。
 型: あるある型・失敗談型・質問型・二択型・気づき型・びっくり+根拠型
 
-### L2（教育）— 週10本（29%）
-「この人は知識が深い」と思わせる投稿。noteの有料内容の断片を1つだけ見せる。
-以下のテーマから選ぶ:
-1. 査読論文は実は28段落に分解できるという事実
-2. AIに「構造（設計図）」を渡すことで出力の質が激変すること
-3. Introduction/Methods/Results/Discussionそれぞれの書き方のコツ
-4. ChatGPTに丸投げしても上手くいかない理由（構造がないから）
-5. 文献管理ツール（Zotero）とAIを連携させるメリット
-6. 「ゼロから書く」vs「型を埋める作業」の時間差
-7. 査読コメントで指摘される典型的な問題と構造化での解決法
+### L2（教育）— 週{l2_count}本（{l2_count*100//total_posts}%）
+「この人は知識が深い」と思わせる投稿。有料コンテンツの断片を1つだけ見せる。
+→ プロフィールの「L2（教育）テーマリスト」から選ぶこと。
 型は「気づき型」「体験談型」をベースにするが、核心には1つの専門的なノウハウを含めること。
 
-### L3（導線）— 週4本（11%）
+### L3（導線）— 週{l3_count}本（{l3_count*100//total_posts}%）
 noteの存在を自然に知らせる。体験談・気づきの結末で触れるだけ。
+→ プロフィールの「L3（導線）パターン」を参考にすること。
 ルール:
 - 1日に最大1本（それ以上は宣伝臭くなる）
 - 連日で出さない（最低1日空ける）
 - 「noteにまとめてます」「noteに書きました」程度の言及に留める
-- noteのURL（https://note.com/ronginooth_ai/n/n6e9b15c7eea3）は入れても入れなくてもよい
-パターン例:
-- 体験談の結末: 「〜の方法、noteに全手順まとめてあります」
-- 質問への回答: 「よく聞かれるので、28段落テンプレ+プロンプト集をnoteにまとめました」
-- 成果報告: 「このテンプレで書いた論文が通った。noteに設計図を公開してます」
+{f'- noteのURL（{note_url}）は入れても入れなくてもよい' if note_url else ''}
 
 ## 出力フォーマット
-以下のフォーマットで35本を出力してください。型の後に「| L1」「| L2」「| L3」のレイヤーラベルを必ず付けること。
+以下のフォーマットで{total_posts}本を出力してください。型の後に「| L1」「| L2」「| L3」のレイヤーラベルを必ず付けること。
 
-### Day1-投稿1（朝07:00）型: ○○型 | L1
----
-（投稿文）
----
-
-### Day1-投稿2（朝10:00）型: ○○型 | L2
----
-（投稿文）
----
-
-### Day1-投稿3（昼13:00）型: ○○型 | L1
----
-（投稿文）
----
-
-### Day1-投稿4（夕17:00）型: ○○型 | L1
----
-（投稿文）
----
-
-### Day1-投稿5（夜21:00）型: ○○型 | L1
----
-（投稿文）
----
+{time_format}
 
 （Day1〜Day7まで繰り返し）
 
