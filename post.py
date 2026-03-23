@@ -22,7 +22,7 @@ POSTED_DIR = Path(__file__).parent / "data" / "posted"
 LOG_FILE = Path(__file__).parent / "data" / "posted_log.json"
 KILL_SWITCH = Path(__file__).parent / "data" / "KILL_SWITCH"
 
-MAX_DAILY_POSTS = 10
+MAX_DAILY_POSTS = 5
 MIN_INTERVAL_MINUTES = 60
 
 
