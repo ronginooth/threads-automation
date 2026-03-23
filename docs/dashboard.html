@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threads Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 20px 16px 16px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+    .header h1 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header .updated {
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* ===== NAV TABS ===== */
+    .nav {
+      display: flex;
+      background: #111;
+      border-bottom: 1px solid #222;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-tab {
+      flex: 1;
+      min-width: 80px;
+      padding: 12px 8px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #666;
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .nav-tab.active {
+      color: #4fc3f7;
+      border-bottom-color: #4fc3f7;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      display: none;
+      padding: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .section.active { display: block; }
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== STATS ROW ===== */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      background: #161616;
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+      border: 1px solid #222;
+    }
+    .stat-card.kill {
+      background: #2d1111;
+      border-color: #c62828;
+      color: #ef5350;
+      font-weight: 700;
+      font-size: 14px;
+      grid-column: span 3;
+      padding: 16px;
+    }
+    .stat-num {
+      font-size: 24px;
+      font-weight: 800;
+      color: #4fc3f7;
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 10px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    /* ===== ACTION ITEMS ===== */
+    .action-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: #161616;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border: 1px solid #222;
+    }
+    .action-icon { font-size: 18px; flex-shrink: 0; }
+    .action-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+    .action-desc { font-size: 12px; color: #888; line-height: 1.5; }
+    .action-desc code {
+      background: #222;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #4fc3f7;
+    }
+
+    /* ===== ANALYSIS CARDS ===== */
+    .rank-card {
+      background: #161616;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border: 1px solid #222;
+    }
+    .rank-card.top { border-left: 3px solid #4caf50; }
+    .rank-card.bottom { border-left: 3px solid #ef5350; }
+    .rank-badge {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .rank-text {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .rank-metrics {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #888;
+    }
+    .rank-metrics .score {
+      color: #4fc3f7;
+      font-weight: 700;
+    }
+
+    /* ===== QUEUE ===== */
+    .queue-card {
+      background: #161616;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border: 1px solid #222;
+    }
+    .queue-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .queue-time {
+      font-size: 12px;
+      color: #4fc3f7;
+      font-weight: 600;
+    }
+    .queue-type {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #222;
+      color: #aaa;
+    }
+    .queue-body {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .queue-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #333;
+      color: #aaa;
+      background: #1a1a1a;
+    }
+    .btn:active { background: #222; }
+    .btn-edit { color: #4fc3f7; border-color: #4fc3f7; }
+    .btn-delete { color: #ef5350; border-color: #ef5350; }
+
+    /* ===== POSTED ===== */
+    .posted-card {
+      background: #161616;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border: 1px solid #222;
+    }
+    .posted-time {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .posted-text {
+      font-size: 13px;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .posted-metrics {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #888;
+    }
+    .posted-metrics .score {
+      color: #4fc3f7;
+      font-weight: 700;
+    }
+    .posted-metrics .no-data {
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ===== COMMON ===== */
+    .empty {
+      text-align: center;
+      color: #555;
+      padding: 40px 0;
+      font-size: 13px;
+    }
+    .card {
+      background: #161616;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>📊 Threads Dashboard</h1>
+    <p class="updated">更新: 2026-03-23 16:40 JST</p>
+  </div>
+
+  <nav class="nav">
+    <button class="nav-tab active" onclick="showTab('overview')">概要</button>
+    <button class="nav-tab" onclick="showTab('analysis')">分析</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (15)</button>
+    <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
+  </nav>
+
+  <!-- 概要 -->
+  <div id="overview" class="section active">
+    
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">15</div>
+        <div class="stat-label">キュー残数</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">今日の投稿</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">累計投稿</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">平均インプ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0.0</div>
+        <div class="stat-label">平均いいね</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0.0</div>
+        <div class="stat-label">平均リプライ</div>
+      </div>
+      
+    </div>
+    <div class="section-title">⚡ やること</div>
+    
+        <div class="action-item">
+          <span class="action-icon">🟡</span>
+          <div>
+            <div class="action-title">統計データなし</div>
+            <div class="action-desc">まだ投稿後の統計が収集されていません。明日のJST 23:00に自動収集されます</div>
+          </div>
+        </div>
+  </div>
+
+  <!-- 分析 -->
+  <div id="analysis" class="section">
+    <div class="section-title">📈 バズ分析</div>
+    <div class="card"><p class="empty">統計データがまだありません</p></div>
+  </div>
+
+  <!-- キュー -->
+  <div id="queue" class="section">
+    <div class="section-title">📋 投稿キュー</div>
+    
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-24 08:00</span>
+            <span class="queue-type type-メイン">メイン</span>
+          </div>
+          <p class="queue-body">Introductionを自力で書く → 1日〜1週間<br><br>設計図を用意してAIに「型を埋めさせる」 → 30分〜1時間<br><br>この差、信じられますか？<br><br>でも実際にやってみたら、本当にそうなった。<br><br>ポイントは「AIの性能」じゃなくて「構造」。<br><br>皆さんが「これで論文の効率が劇的に変わった」という<br>方法やツールがあったら教えてください。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-24_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-24_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-24 12:00</span>
+            <span class="queue-type type-失敗談">失敗談</span>
+          </div>
+          <p class="queue-body">火曜の朝、先週書いた自分の論文原稿を読み返す。<br><br>「これ誰が書いたの？」ってなる。<br><br>丸2日かけた文章を全消しして、<br>また白紙から書き直したことが3回あります。<br><br>同じ経験ある人いますか？</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-24_2_casual.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-24_2_casual.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-24 15:00</span>
+            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
+          </div>
+          <p class="queue-body">「この実験が失敗するとしたら、原因は何か？」<br><br>これを実験開始前に全員で考えるのが「プレモーテム」。<br>Natureが2024年に研究者への実践を推奨した手法。<br>（Nature, 2024）<br><br>最初は「縁起が悪い」と思って抵抗があった。<br><br>やってみたら、見落としていた交絡因子が事前に2つ出てきた。<br>あのまま実験を始めていたらと思うと、ぞっとする。<br><br>ビジネスでは標準のプロセスが、研究室にはほぼ入って</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-24_3_question.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-24_3_question.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-25 08:00</span>
+            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
+          </div>
+          <p class="queue-body">「科研費は研究の質で決まる」<br><br>そう信じていたが、2018年のPNASに掲載された研究がそれを崩した。<br><br>同じNIH申請書を異なる審査員2人が評価したとき、<br>スコアの一致率はわずか34%。<br><br>審査員が変われば、採択と不採択がひっくり返ることがある。<br>（Pier et al., 2018, PNAS）<br><br>「落ちたのは研究が悪いから」は、<br>半分以上が間違いかもしれない。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-25_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-25_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-25 12:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">博士2年目、Introductionに3週間かけた。<br><br>白紙を見つめて、書いては消す。<br>「英語が弱いのか」「データが足りないのか」と悩み続けた。<br><br>後から気づいたのは、ただ「何を書くか決まっていなかった」だけだった。<br><br>段落の数と順番を先に決めてから書き始めたら、<br>同じ量が3日で書けた。<br><br>あのとき3週間使ったのは、「書く力」じゃなくて「設計の不在」だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-25_2_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-25_2_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-25 15:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br><br>「なんでweばっかり使ってるの？」<br><br>——先生が禁止って言ってました<br><br>「Methodsは受動態が標準だよ。誰がそんなこと教えたの」<br><br>APA Manualにも Swales &amp; Feak にも書いてある。<br>&quot;We measured X&quot; より &quot;X was measured&quot; が正しい。<br><br>誰か</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-25_3_aruaru.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-25_3_aruaru.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-26 08:00</span>
+            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
+          </div>
+          <p class="queue-body">論文を引用した著者の約7割は、その論文を読んでいない。<br><br>引用エラーの「伝播パターン」から逆算した研究がある。<br>（Simkin &amp; Roychowdhury, 2003, Complex Systems）<br><br>同じ誤字・誤記が複数の論文に連鎖している現象から、<br>実際に原文を読んでいるのは全体の20〜30%と推計された。<br><br>「よく引用されている＝正しい」ではなく、<br>「よく引用されている＝よく孫引きされ</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-26_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-26_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-26 12:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">査読で「この引用元を確認してください」と言われた。<br><br>確認したら、私が引用した論文が、<br>さらに古い論文の言い換えだったと気づいた。<br><br>誰かの孫引きを、また孫引きしていた。<br><br>「有名な論文だから大丈夫」で済ませた自分のミス。<br>一次文献に当たるのを面倒くさがった結果だった。<br><br>それ以来、重要な引用は必ず原文を確認している。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-26_2_failure.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-26_2_failure.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-26 15:00</span>
+            <span class="queue-type type-二択">二択</span>
+          </div>
+          <p class="queue-body">研究アイデアが生まれるのはどこ？<br><br>文献の矛盾を読んでいるとき → ❤️<br>シャワー中・移動中・寝る前 → 🔥<br><br>私は圧倒的に🔥です。<br><br>一番いいアイデアはメモできないタイミングに限って出てくる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-26_3_twochoice.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-26_3_twochoice.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-27 08:00</span>
+            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
+          </div>
+          <p class="queue-body">博士課程学生の41%が、不安または抑うつの症状を経験している。<br><br>一般人口と比べて2.43倍の高さ。<br><br>これはNature Biotechnologyに掲載された研究の数字。<br>（Evans et al., 2018, Nature Biotechnology）<br><br>「研究に向いていないのかも」「自分だけ苦しい」ではなく、<br>構造的にそうなりやすい環境に置かれているという話。<br><br>個人の問題ではなく、シス</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-27_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-27_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-27 12:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">学振に落ちた。かなり落ち込んでいた。<br><br>研究室の先輩に話したら、<br><br>「採択率何パーセントか知ってる？」<br><br>——20〜30%くらいですか<br><br>「落ちた人の方が圧倒的に多い世界で、<br>なんで自分のせいだと思うの？」<br><br>それから、不採択通知が来るたびに<br>まず採択率を調べることにしている。<br><br>比べる相手は同期じゃなくて、数字でいい。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-27_2_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-27_2_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-27 15:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">科研費、1回落ちた。<br><br>翌年、タイトルだけ変えて出し直した。<br><br>採択された。<br><br>（正確には中身も少しブラッシュアップしたけど）<br><br>審査員は申請書を5〜10分しか見ない。<br>最初に目に入るタイトルで印象が決まる。<br><br>研究の中身より先に「読みたい」と思わせる言葉を選ぶ。<br>それだけで結果が変わることがある。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-27_3_aruaru.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-27_3_aruaru.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-28 08:00</span>
+            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
+          </div>
+          <p class="queue-body">「初期に研究費の申請で落ちた研究者は、10年後に採択組を上回る」<br><br>2019年、Nature Communicationsに掲載された研究がある。<br>（Wang et al., 2019, Nature Communications）<br><br>NIHの初期申請で惜敗（僅差で不採択）した研究者を追跡すると、<br>10年後の論文数・被引用数が「かろうじて採択」組より高かった。<br><br>失敗直後は落ち込む。でも長期で見る</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-28_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-28_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-28 12:00</span>
+            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
+          </div>
+          <p class="queue-body">撤回された論文の多くは、撤回後も引用され続けている。<br><br>Retraction Watchのデータ分析によると、<br>撤回後5年以上が経過しても年間引用数がほとんど変わらないケースが多い。<br><br>「引用されている＝正確」ではなく、<br>「引用されている＝広まっている」にすぎない。<br><br>論文を引用する前にRetraction Watchで確認する。<br>これを習慣にすると、間違った根拠を使うリスクが下がる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-28_2_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-28_2_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-28 15:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着いたら座長に挨拶しろ。<br>他の演者の発表には質問しろ。<br>うまく答えられなかった相手には、後で声をかけろ。<br>帰る前に座長にお礼を言え」<br><br>——それって研究と関係ありますか？<br><br>「その人が来年、お前の論文を査読するかもしれない。<br>ポストが空いたとき、陰でお前を推してくれるかもしれない。<br>科学者の前に、人間だ</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-28_3_question.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-28_3_question.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+  </div>
+
+  <!-- 投稿済み -->
+  <div id="posted" class="section">
+    <div class="section-title">✅ 投稿済み（直近20件）</div>
+    <p class="empty">投稿履歴がありません</p>
+  </div>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

@@ -30,10 +30,13 @@ jobs:
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
         run: python stats.py
 
-      - name: stats.csvをコミット
+      - name: ダッシュボード更新
+        run: python dashboard.py
+
+      - name: 変更をコミット
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/stats.csv data/posted_log.json
-          git diff --staged --quiet || git commit -m "stats: $(date +'%Y-%m-%d')"
+          git add data/stats.csv data/posted_log.json docs/dashboard.html
+          git diff --staged --quiet || git commit -m "stats+dashboard: $(date +'%Y-%m-%d')"
           git push
