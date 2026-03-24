@@ -271,13 +271,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-23 16:52 JST</p>
+    <p class="updated">更新: 2026-03-24 23:56 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (28)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (22)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
   </nav>
 
@@ -286,23 +286,23 @@
     
     <div class="stats-row">
       <div class="stat-card">
-        <div class="stat-num">28</div>
+        <div class="stat-num">22</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">5</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">5</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">45</div>
         <div class="stat-label">平均インプ</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0.0</div>
+        <div class="stat-num">0.3</div>
         <div class="stat-label">平均いいね</div>
       </div>
       <div class="stat-card">
@@ -314,10 +314,10 @@
     <div class="section-title">⚡ やること</div>
     
         <div class="action-item">
-          <span class="action-icon">🟡</span>
+          <span class="action-icon">🟢</span>
           <div>
-            <div class="action-title">統計データなし</div>
-            <div class="action-desc">まだ投稿後の統計が収集されていません。明日のJST 23:00に自動収集されます</div>
+            <div class="action-title">問題なし</div>
+            <div class="action-desc">すべて正常に稼働中です</div>
           </div>
         </div>
   </div>
@@ -325,79 +325,46 @@
   <!-- 分析 -->
   <div id="analysis" class="section">
     <div class="section-title">📈 バズ分析</div>
-    <div class="card"><p class="empty">統計データがまだありません</p></div>
+    
+        <div class="rank-card top">
+          <div class="rank-badge">🥇 TOP1</div>
+          <p class="rank-text">火曜の朝、先週書いた自分の論文原稿を読み返す。  「これ誰が書いたの？」ってなる。  丸2日かけた文</p>
+          <div class="rank-metrics">
+            <span>👁 88</span>
+            <span>❤️ 0</span>
+            <span>💬 0</span>
+            <span>🔄 0</span>
+            <span class="score">スコア 9</span>
+          </div>
+        </div>
+        <div class="rank-card top">
+          <div class="rank-badge">🥈 TOP2</div>
+          <p class="rank-text">「この実験が失敗するとしたら、原因は何か？」  これを実験開始前に全員で考えるのが「プレモーテム」。</p>
+          <div class="rank-metrics">
+            <span>👁 23</span>
+            <span>❤️ 1</span>
+            <span>💬 0</span>
+            <span>🔄 0</span>
+            <span class="score">スコア 5</span>
+          </div>
+        </div>
+        <div class="rank-card top">
+          <div class="rank-badge">🥉 TOP3</div>
+          <p class="rank-text">Introductionを自力で書く → 1日〜1週間  設計図を用意してAIに「型を埋めさせる」 </p>
+          <div class="rank-metrics">
+            <span>👁 25</span>
+            <span>❤️ 0</span>
+            <span>💬 0</span>
+            <span>🔄 0</span>
+            <span class="score">スコア 2</span>
+          </div>
+        </div>
   </div>
 
   <!-- キュー -->
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
     
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-23 17:00</span>
-            <span class="queue-type type-あるある">あるある</span>
-          </div>
-          <p class="queue-body">日曜の夜、「明日から論文書くぞ」と決意する。<br><br>月曜の朝、まずメールチェックする。<br><br>気づいたら昼。<br><br>「午後からやろう」と思って文献を開く。<br><br>気づいたら水曜。<br><br>これ、わたしだけじゃないですよね？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-23_1_aruaru.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-23_1_aruaru.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-23 19:00</span>
-            <span class="queue-type type-二択">二択</span>
-          </div>
-          <p class="queue-body">論文の英語、どっちで書いてる？<br><br>最初から英語で書く → ❤️<br>日本語で書いてから翻訳する → 🔥<br><br>わたしは20年間ずっと🔥派だったけど、<br>AIに「型を渡して英語で埋めさせる」方式にしたら<br>最初から英語で書くより速くなりました。<br><br>どっち派か教えてください。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-23_2_twochoice.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-23_2_twochoice.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-23 21:00</span>
-            <span class="queue-type type-気づき">気づき</span>
-          </div>
-          <p class="queue-body">論文を書くのが遅い人と速い人、<br>何が違うか20年かけてやっと分かった。<br><br>速い人は「書く前に構造を決めている」。<br>遅い人は「書きながら構造を考えている」。<br><br>たったこれだけの差なのに、<br>かかる時間は3倍以上違う。<br><br>わたしは10年間ずっと遅い側でした。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-23_3_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-23_3_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-24 08:00</span>
-            <span class="queue-type type-メイン">メイン</span>
-          </div>
-          <p class="queue-body">Introductionを自力で書く → 1日〜1週間<br><br>設計図を用意してAIに「型を埋めさせる」 → 30分〜1時間<br><br>この差、信じられますか？<br><br>でも実際にやってみたら、本当にそうなった。<br><br>ポイントは「AIの性能」じゃなくて「構造」。<br><br>皆さんが「これで論文の効率が劇的に変わった」という<br>方法やツールがあったら教えてください。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-24_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-24_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-24 12:00</span>
-            <span class="queue-type type-失敗談">失敗談</span>
-          </div>
-          <p class="queue-body">火曜の朝、先週書いた自分の論文原稿を読み返す。<br><br>「これ誰が書いたの？」ってなる。<br><br>丸2日かけた文章を全消しして、<br>また白紙から書き直したことが3回あります。<br><br>同じ経験ある人いますか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-24_2_casual.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-24_2_casual.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-24 15:00</span>
-            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
-          </div>
-          <p class="queue-body">「この実験が失敗するとしたら、原因は何か？」<br><br>これを実験開始前に全員で考えるのが「プレモーテム」。<br>Natureが2024年に研究者への実践を推奨した手法。<br>（Nature, 2024）<br><br>最初は「縁起が悪い」と思って抵抗があった。<br><br>やってみたら、見落としていた交絡因子が事前に2つ出てきた。<br>あのまま実験を始めていたらと思うと、ぞっとする。<br><br>ビジネスでは標準のプロセスが、研究室にはほぼ入って</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-24_3_question.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-24_3_question.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
         <div class="queue-card">
           <div class="queue-header">
             <span class="queue-time">2026-03-24 17:00</span>
@@ -645,7 +612,53 @@
   <!-- 投稿済み -->
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
-    <p class="empty">投稿履歴がありません</p>
+    
+        <div class="posted-card">
+          <div class="posted-time">2026-03-24T10:07</div>
+          <p class="posted-text">「この実験が失敗するとしたら、原因は何か？」<br><br>これを実験開始前に全員で考えるのが「プレモーテム」。<br>Natureが2024年に研究者への実践を推奨した手法。<br>（Nature, 2024）<br><br>最初は「縁起が悪い」と思って抵抗があった。<br><br>やってみたら、見落としていた交絡因子が事前に2つ出てきた。<br>あのまま実験を始めていたらと思うと、ぞっとする。<br><br>ビジネスでは標準のプロセスが、研究室にはほぼ入って</p>
+          
+            <div class="posted-metrics">
+              <span>👁 23</span>
+              <span>❤️ 1</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 5</span>
+            </div>
+        </div>
+        <div class="posted-card">
+          <div class="posted-time">2026-03-24T09:06</div>
+          <p class="posted-text">火曜の朝、先週書いた自分の論文原稿を読み返す。<br><br>「これ誰が書いたの？」ってなる。<br><br>丸2日かけた文章を全消しして、<br>また白紙から書き直したことが3回あります。<br><br>同じ経験ある人いますか？</p>
+          
+            <div class="posted-metrics">
+              <span>👁 88</span>
+              <span>❤️ 0</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 9</span>
+            </div>
+        </div>
+        <div class="posted-card">
+          <div class="posted-time">2026-03-24T07:19</div>
+          <p class="posted-text">Introductionを自力で書く → 1日〜1週間<br><br>設計図を用意してAIに「型を埋めさせる」 → 30分〜1時間<br><br>この差、信じられますか？<br><br>でも実際にやってみたら、本当にそうなった。<br><br>ポイントは「AIの性能」じゃなくて「構造」。<br><br>皆さんが「これで論文の効率が劇的に変わった」という<br>方法やツールがあったら教えてください。</p>
+          
+            <div class="posted-metrics">
+              <span>👁 25</span>
+              <span>❤️ 0</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 2</span>
+            </div>
+        </div>
+        <div class="posted-card">
+          <div class="posted-time">2026-03-24T05:14</div>
+          <p class="posted-text">論文を書くのが遅い人と速い人、<br>何が違うか20年かけてやっと分かった。<br><br>速い人は「書く前に構造を決めている」。<br>遅い人は「書きながら構造を考えている」。<br><br>たったこれだけの差なのに、<br>かかる時間は3倍以上違う。<br><br>わたしは10年間ずっと遅い側でした。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
+        <div class="posted-card">
+          <div class="posted-time">2026-03-24T03:41</div>
+          <p class="posted-text">論文の英語、どっちで書いてる？<br><br>最初から英語で書く → ❤️<br>日本語で書いてから翻訳する → 🔥<br><br>わたしは20年間ずっと🔥派だったけど、<br>AIに「型を渡して英語で埋めさせる」方式にしたら<br>最初から英語で書くより速くなりました。<br><br>どっち派か教えてください。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
   </div>
 
   <script>
