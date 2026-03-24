@@ -37,7 +37,7 @@ jobs:
           THREADS_ACCESS_TOKEN_RONGINOOTH_AI: ${{ secrets.THREADS_ACCESS_TOKEN_RONGINOOTH_AI }}
           THREADS_USER_ID_RONGINOOTH_AI: ${{ secrets.THREADS_USER_ID_RONGINOOTH_AI }}
           THREADS_APP_ID: ${{ secrets.THREADS_APP_ID }}
-        run: python post.py --config configs/${{ matrix.config }}.yml
+        run: python scripts/post.py --config configs/${{ matrix.config }}.yml
 
       - name: 投稿済みファイルをGitHubから削除
         run: |

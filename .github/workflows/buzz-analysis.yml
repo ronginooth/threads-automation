@@ -30,12 +30,12 @@ jobs:
       - name: アカウント発見
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python discover_accounts.py --config configs/${{ matrix.config }}.yml
+        run: python scripts/discover_accounts.py --config configs/${{ matrix.config }}.yml
 
       - name: バズ分析
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python buzz_analysis.py --config configs/${{ matrix.config }}.yml
+        run: python scripts/buzz_analysis.py --config configs/${{ matrix.config }}.yml
 
       - name: 分析結果をコミット
         run: |

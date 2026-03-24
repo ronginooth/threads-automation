@@ -7,7 +7,10 @@ import sys
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
-from account_context import get_context
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from lib.account_context import get_context
 
 
 def parse_posts(content: str) -> list[dict]:

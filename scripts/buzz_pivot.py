@@ -14,9 +14,12 @@ import csv
 import json
 from datetime import datetime, timedelta
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from dotenv import load_dotenv
 import anthropic
-from account_context import get_context
+from lib.account_context import get_context
 
 load_dotenv()
 
@@ -147,7 +150,7 @@ def save_pivot_log(log: list, pivot_log_file):
 def run_quality_check():
     """品質チェックを実行（importして直接呼ぶ）"""
     try:
-        from quality_check import check_queue
+        from scripts.quality_check import check_queue
         print("\n品質チェック中...")
         check_queue()
     except Exception as e:

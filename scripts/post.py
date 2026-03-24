@@ -14,9 +14,12 @@ import json
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 JST = timezone(timedelta(hours=9))
-from threads_api import create_post, publish_post
-from account_context import get_context
+from lib.threads_api import create_post, publish_post
+from lib.account_context import get_context
 
 MAX_DAILY_POSTS = 5
 MIN_INTERVAL_MINUTES = 60

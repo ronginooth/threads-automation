@@ -12,11 +12,15 @@ import re
 import json
 import math
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from collections import Counter
 from datetime import datetime
 from dotenv import load_dotenv
 import anthropic
-from account_context import get_context
+from lib.account_context import get_context
 
 load_dotenv()
 

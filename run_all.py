@@ -20,18 +20,18 @@ PYTHON = sys.executable
 
 # コマンド名 → スクリプトファイルの対応
 COMMANDS = {
-    "post": "post.py",
-    "generate": "generate.py",
-    "approve": "approve.py",
-    "stats": "stats.py",
-    "weekly": "weekly.py",
-    "prepare": "prepare.py",
-    "discover": "discover_accounts.py",
-    "buzz": "buzz_analysis.py",
-    "dashboard": "dashboard.py",
-    "quality": "quality_check.py",
-    "fetch": "fetch_replies.py",
-    "pivot": "buzz_pivot.py",
+    "post": "scripts/post.py",
+    "generate": "scripts/generate.py",
+    "approve": "scripts/approve.py",
+    "stats": "scripts/stats.py",
+    "weekly": "scripts/weekly.py",
+    "prepare": "scripts/prepare.py",
+    "discover": "scripts/discover_accounts.py",
+    "buzz": "scripts/buzz_analysis.py",
+    "dashboard": "scripts/dashboard.py",
+    "quality": "scripts/quality_check.py",
+    "fetch": "scripts/fetch_replies.py",
+    "pivot": "scripts/buzz_pivot.py",
 }
 
 

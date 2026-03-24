@@ -33,10 +33,10 @@ jobs:
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN_RONGINOOTH_AI: ${{ secrets.THREADS_ACCESS_TOKEN_RONGINOOTH_AI }}
           THREADS_USER_ID_RONGINOOTH_AI: ${{ secrets.THREADS_USER_ID_RONGINOOTH_AI }}
-        run: python stats.py --config configs/${{ matrix.config }}.yml
+        run: python scripts/stats.py --config configs/${{ matrix.config }}.yml
 
       - name: ダッシュボード更新
-        run: python dashboard.py --config configs/${{ matrix.config }}.yml
+        run: python scripts/dashboard.py --config configs/${{ matrix.config }}.yml
 
       - name: 変更をコミット
         run: |

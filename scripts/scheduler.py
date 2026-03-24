@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 import yaml
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent
 PYTHON = sys.executable
 CONFIGS_DIR = BASE / "configs"
 
@@ -31,11 +31,11 @@ def run_for_all(script: str):
 
 
 def run_post():
-    run_for_all("post.py")
+    run_for_all("scripts/post.py")
 
 
 def run_stats():
-    run_for_all("stats.py")
+    run_for_all("scripts/stats.py")
 
 
 # 投稿スケジュール（1日5回 — 各アカウントのtimesはpost.py内で制御）

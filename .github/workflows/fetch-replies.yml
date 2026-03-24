@@ -34,7 +34,7 @@ jobs:
           THREADS_ACCESS_TOKEN_RONGINOOTH_AI: ${{ secrets.THREADS_ACCESS_TOKEN_RONGINOOTH_AI }}
           THREADS_USER_ID_RONGINOOTH_AI: ${{ secrets.THREADS_USER_ID_RONGINOOTH_AI }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python fetch_replies.py --config configs/${{ matrix.config }}.yml
+        run: python scripts/fetch_replies.py --config configs/${{ matrix.config }}.yml
 
       - name: HTMLをGitHubにpush
         run: |

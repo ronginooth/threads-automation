@@ -16,9 +16,13 @@ import json
 import re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from account_context import get_context
 
-BASE = Path(__file__).parent
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from lib.account_context import get_context
+
+BASE = Path(__file__).resolve().parent.parent
 DOCS_DIR = BASE / "docs"
 
 GITHUB_REPO = "ronginooth/threads-automation"

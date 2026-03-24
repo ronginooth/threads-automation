@@ -6,7 +6,11 @@ import csv
 import json
 from datetime import datetime
 from pathlib import Path
-from account_context import get_context
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from lib.account_context import get_context
 
 
 def load_stats(stats_file) -> list[dict]:

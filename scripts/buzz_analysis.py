@@ -9,17 +9,21 @@ Claude Web Searchでバズ投稿を検索・分析し、投稿の「型」を抽
   python3 buzz_analysis.py --niche '研究者×AI'
 """
 import os
+import sys
 import json
 import argparse
 from pathlib import Path
 from datetime import datetime
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import anthropic
 import yaml
 from dotenv import load_dotenv
 
 load_dotenv()
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent
 BUZZ_DIR = BASE / "data" / "buzz"
 ACCOUNTS_FILE = BUZZ_DIR / "accounts.json"
 PATTERNS_DIR = BUZZ_DIR / "patterns"

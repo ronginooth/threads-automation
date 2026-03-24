@@ -10,9 +10,13 @@ import os
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import anthropic
 from dotenv import load_dotenv
-from account_context import get_context
+from lib.account_context import get_context
 
 load_dotenv()
 

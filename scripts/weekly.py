@@ -12,7 +12,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent
 PYTHON = sys.executable
 
 
@@ -37,10 +37,10 @@ if __name__ == "__main__":
     print("=" * 50)
 
     print("\n① 統計収集中...")
-    run("stats.py", config_path)
+    run("scripts/stats.py", config_path)
 
     print("\n② ダッシュボード更新中...")
-    run("dashboard.py", config_path)
+    run("scripts/dashboard.py", config_path)
 
     print("\n" + "=" * 50)
     print("週次サイクル完了")

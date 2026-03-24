@@ -10,15 +10,19 @@ import requests
 import anthropic
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from dotenv import load_dotenv
-from account_context import get_context
+from lib.account_context import get_context
 
 load_dotenv()
 
 BASE_URL = "https://graph.threads.net/v1.0"
 JST = timezone(timedelta(hours=9))
 
-DOCS_DIR = Path(__file__).parent / "docs"
+DOCS_DIR = Path(__file__).resolve().parent.parent / "docs"
 
 
 def get_my_posts(token: str, user_id: str, limit: int = 25) -> list:

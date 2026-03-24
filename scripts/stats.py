@@ -6,8 +6,12 @@ import json
 import csv
 from datetime import datetime
 from pathlib import Path
-from threads_api import get_insights
-from account_context import get_context
+
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from lib.threads_api import get_insights
+from lib.account_context import get_context
 
 HEADERS = ["thread_id", "file", "text_preview", "posted_at", "collected_at",
            "views", "likes", "replies", "reposts", "quotes"]

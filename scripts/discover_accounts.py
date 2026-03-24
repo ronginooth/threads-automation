@@ -13,14 +13,17 @@ import json
 import argparse
 from pathlib import Path
 from datetime import datetime
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from dotenv import load_dotenv
 import anthropic
 import yaml
-from account_context import AccountContext
+from lib.account_context import AccountContext
 
 load_dotenv()
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent.parent
 
 
 def load_accounts(accounts_file) -> dict:

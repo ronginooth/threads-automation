@@ -3,7 +3,7 @@
 config YAMLを読み込み、パス・トークン・設定を一元管理する
 
 使い方:
-  from account_context import get_context
+  from lib.account_context import get_context
   ctx = get_context()  # --config 引数を自動パース
   # ctx.queue_dir, ctx.token, ctx.config["account"] 等でアクセス
 """
@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BASE = Path(__file__).parent
+BASE = Path(__file__).parent.parent
 
 
 class AccountContext:
