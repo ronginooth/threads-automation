@@ -11,65 +11,63 @@ import anthropic
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
+from account_context import get_context
 
 load_dotenv()
 
-TOKEN = os.getenv("THREADS_ACCESS_TOKEN")
-USER_ID = os.getenv("THREADS_USER_ID")
 BASE_URL = "https://graph.threads.net/v1.0"
 JST = timezone(timedelta(hours=9))
 
 DOCS_DIR = Path(__file__).parent / "docs"
-SEEN_FILE = Path(__file__).parent / "data" / "seen_comments.json"
 
 
-def get_my_posts(limit: int = 25) -> list:
+def get_my_posts(token: str, user_id: str, limit: int = 25) -> list:
     res = requests.get(
-        f"{BASE_URL}/{USER_ID}/threads",
+        f"{BASE_URL}/{user_id}/threads",
         params={
             "fields": "id,text,timestamp,permalink",
             "limit": limit,
-            "access_token": TOKEN,
+            "access_token": token,
         },
     )
     res.raise_for_status()
     return res.json().get("data", [])
 
 
-def get_my_username() -> str:
+def get_my_username(token: str) -> str:
     """自分のThreadsユーザー名を取得"""
     res = requests.get(
         f"{BASE_URL}/me",
         params={
             "fields": "username",
-            "access_token": TOKEN,
+            "access_token": token,
         },
     )
     res.raise_for_status()
     return res.json().get("username", "")
 
 
-def get_replies(post_id: str) -> list:
+def get_replies(post_id: str, token: str) -> list:
     """投稿に対するコメント（リプライ）を取得"""
     res = requests.get(
         f"{BASE_URL}/{post_id}/replies",
         params={
             "fields": "id,text,timestamp,username",
-            "access_token": TOKEN,
+            "access_token": token,
         },
     )
     res.raise_for_status()
     return res.json().get("data", [])
 
 
-def load_seen() -> set:
-    if SEEN_FILE.exists():
-        return set(json.loads(SEEN_FILE.read_text()))
+def load_seen(seen_file) -> set:
+    if seen_file.exists():
+        return set(json.loads(seen_file.read_text()))
     return set()
 
 
-def save_seen(seen: set):
-    SEEN_FILE.write_text(json.dumps(list(seen), ensure_ascii=False))
+def save_seen(seen: set, seen_file):
+    seen_file.write_text(json.dumps(list(seen), ensure_ascii=False))
 
 
 def generate_reply_drafts(post_text: str, comment_text: str) -> list[str]:
@@ -230,17 +228,20 @@ def build_html(comment_blocks: list) -> str:
 </html>"""
 
 
-def run():
+def run(ctx=None):
+    if ctx is None:
+        ctx = get_context()
+
     # 自分のユーザー名を取得して自己リプライを除外
     try:
-        my_username = get_my_username()
+        my_username = get_my_username(ctx.token)
         print(f"自分のユーザー名: @{my_username}")
     except Exception as e:
         print(f"ユーザー名取得エラー: {e}")
         my_username = ""
 
-    seen = load_seen()
-    posts = get_my_posts(limit=25)
+    seen = load_seen(ctx.seen_file)
+    posts = get_my_posts(ctx.token, ctx.user_id, limit=25)
 
     comment_blocks = []
     new_seen = set(seen)
@@ -251,7 +252,7 @@ def run():
         permalink = post.get("permalink", "#")
 
         try:
-            replies = get_replies(post_id)
+            replies = get_replies(post_id, ctx.token)
         except Exception as e:
             print(f"  replies取得エラー {post_id}: {e}")
             continue
@@ -302,8 +303,9 @@ def run():
     (DOCS_DIR / "replies.html").write_text(html, encoding="utf-8")
     print(f"✅ {len(comment_blocks)}件のコメントを更新 → docs/replies.html")
 
-    save_seen(new_seen)
+    save_seen(new_seen, ctx.seen_file)
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)

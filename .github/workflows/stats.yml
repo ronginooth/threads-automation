@@ -12,6 +12,9 @@ permissions:
 jobs:
   stats:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config: [ronginooth_ai]  # アカウント追加時はここに追記
     steps:
       - name: コードを取得
         uses: actions/checkout@v4
@@ -22,21 +25,23 @@ jobs:
           python-version: "3.13"
 
       - name: パッケージインストール
-        run: pip install requests python-dotenv
+        run: pip install requests python-dotenv pyyaml
 
       - name: 統計収集
         env:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
-        run: python stats.py
+          THREADS_ACCESS_TOKEN_RONGINOOTH_AI: ${{ secrets.THREADS_ACCESS_TOKEN_RONGINOOTH_AI }}
+          THREADS_USER_ID_RONGINOOTH_AI: ${{ secrets.THREADS_USER_ID_RONGINOOTH_AI }}
+        run: python stats.py --config configs/${{ matrix.config }}.yml
 
       - name: ダッシュボード更新
-        run: python dashboard.py
+        run: python dashboard.py --config configs/${{ matrix.config }}.yml
 
       - name: 変更をコミット
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data/stats.csv data/posted_log.json docs/dashboard.html
-          git diff --staged --quiet || git commit -m "stats+dashboard: $(date +'%Y-%m-%d')"
+          git add data/${{ matrix.config }}/ docs/dashboard.html
+          git diff --staged --quiet || git commit -m "stats+dashboard: ${{ matrix.config }} $(date +'%Y-%m-%d')"
           git push

@@ -12,6 +12,9 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config: [ronginooth_ai]  # アカウント追加時はここに追記
     steps:
       - name: コードを取得
         uses: actions/checkout@v4
@@ -22,19 +25,21 @@ jobs:
           python-version: "3.13"
 
       - name: パッケージインストール
-        run: pip install requests python-dotenv anthropic
+        run: pip install requests python-dotenv anthropic pyyaml
 
       - name: コメント取得 & リプライ案生成
         env:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN_RONGINOOTH_AI: ${{ secrets.THREADS_ACCESS_TOKEN_RONGINOOTH_AI }}
+          THREADS_USER_ID_RONGINOOTH_AI: ${{ secrets.THREADS_USER_ID_RONGINOOTH_AI }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python fetch_replies.py
+        run: python fetch_replies.py --config configs/${{ matrix.config }}.yml
 
       - name: HTMLをGitHubにpush
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/replies.html data/seen_comments.json
-          git commit -m "replies: コメント一覧を更新 $(date +'%Y-%m-%d %H:%M UTC')" || echo "変更なし"
+          git add docs/replies.html data/${{ matrix.config }}/seen_comments.json
+          git commit -m "replies: ${{ matrix.config }} $(date +'%Y-%m-%d %H:%M UTC')" || echo "変更なし"
           git push || echo "pushスキップ"

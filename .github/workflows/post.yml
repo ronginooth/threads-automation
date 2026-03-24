@@ -13,6 +13,11 @@ permissions:
 jobs:
   post:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config: [ronginooth_ai]  # アカウント追加時はここに追記
+    concurrency:
+      group: threads-post-${{ matrix.config }}
     steps:
       - name: コードを取得
         uses: actions/checkout@v4
@@ -23,19 +28,21 @@ jobs:
           python-version: "3.13"
 
       - name: パッケージインストール
-        run: pip install requests python-dotenv
+        run: pip install requests python-dotenv pyyaml
 
       - name: 投稿実行
         env:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN_RONGINOOTH_AI: ${{ secrets.THREADS_ACCESS_TOKEN_RONGINOOTH_AI }}
+          THREADS_USER_ID_RONGINOOTH_AI: ${{ secrets.THREADS_USER_ID_RONGINOOTH_AI }}
           THREADS_APP_ID: ${{ secrets.THREADS_APP_ID }}
-        run: python post.py
+        run: python post.py --config configs/${{ matrix.config }}.yml
 
       - name: 投稿済みファイルをGitHubから削除
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A data/queue/
-          git commit -m "post: 投稿済みファイルをキューから削除 $(date +'%Y-%m-%d %H:%M UTC')" || echo "変更なし（投稿なし）"
+          git add -A data/${{ matrix.config }}/
+          git commit -m "post: ${{ matrix.config }} 投稿済み $(date +'%Y-%m-%d %H:%M UTC')" || echo "変更なし"
           git push || echo "pushスキップ"

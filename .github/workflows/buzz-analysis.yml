@@ -1,0 +1,46 @@
+# このワークフローは無効化済み
+# バズ分析はClaude Codeセッション内で手動実行する（API課金削減のため）
+# 必要なら workflow_dispatch で手動実行可能
+name: バズ分析（手動のみ）
+
+on:
+  workflow_dispatch:  # 手動実行のみ
+
+permissions:
+  contents: write
+
+jobs:
+  buzz:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config: [ronginooth_ai]
+    steps:
+      - name: コードを取得
+        uses: actions/checkout@v4
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: パッケージインストール
+        run: pip install requests python-dotenv anthropic pyyaml
+
+      - name: アカウント発見
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python discover_accounts.py --config configs/${{ matrix.config }}.yml
+
+      - name: バズ分析
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python buzz_analysis.py --config configs/${{ matrix.config }}.yml
+
+      - name: 分析結果をコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/buzz/
+          git diff --staged --quiet || git commit -m "buzz: ${{ matrix.config }} バズ分析更新 $(date +'%Y-%m-%d')"
+          git push || echo "pushスキップ"

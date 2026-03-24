@@ -16,15 +16,9 @@ import json
 import re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from account_context import get_context
 
 BASE = Path(__file__).parent
-QUEUE_DIR = BASE / "data" / "queue"
-POSTED_DIR = BASE / "data" / "posted"
-LOG_FILE = BASE / "data" / "posted_log.json"
-STATS_FILE = BASE / "data" / "stats.csv"
-REJECT_LOG = BASE / "data" / "rejected_log.json"
-PIVOT_LOG = BASE / "data" / "pivot_log.json"
-KILL_SWITCH = BASE / "data" / "KILL_SWITCH"
 DOCS_DIR = BASE / "docs"
 
 GITHUB_REPO = "ronginooth/threads-automation"
@@ -38,8 +32,8 @@ JST = timezone(timedelta(hours=9))
 # データ読み込み
 # ========================================
 
-def load_queue() -> list[dict]:
-    files = sorted(QUEUE_DIR.glob("*.md"))
+def load_queue(queue_dir) -> list[dict]:
+    files = sorted(queue_dir.glob("*.md"))
     posts = []
     for f in files:
         content = f.read_text(encoding="utf-8")
@@ -60,29 +54,29 @@ def load_queue() -> list[dict]:
     return posts
 
 
-def load_posted_log() -> list[dict]:
-    if LOG_FILE.exists():
-        return json.loads(LOG_FILE.read_text())
+def load_posted_log(log_file) -> list[dict]:
+    if log_file.exists():
+        return json.loads(log_file.read_text())
     return []
 
 
-def load_stats() -> list[dict]:
-    if not STATS_FILE.exists():
+def load_stats(stats_file) -> list[dict]:
+    if not stats_file.exists():
         return []
-    with open(STATS_FILE, encoding="utf-8") as f:
+    with open(stats_file, encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
-def load_latest_report() -> str:
-    reports = sorted(BASE.glob("data/report_*.md"))
+def load_latest_report(data_dir) -> str:
+    reports = sorted(data_dir.glob("report_*.md"))
     if reports:
         return reports[-1].read_text(encoding="utf-8")
     return ""
 
 
-def load_reject_log() -> list:
-    if REJECT_LOG.exists():
-        return json.loads(REJECT_LOG.read_text())
+def load_reject_log(reject_log) -> list:
+    if reject_log.exists():
+        return json.loads(reject_log.read_text())
     return []
 
 
@@ -109,7 +103,7 @@ def escape(text: str) -> str:
             .replace("\n", "<br>"))
 
 
-def build_summary_cards(queue, posted_log, stats_rows) -> str:
+def build_summary_cards(queue, posted_log, stats_rows, kill_switch) -> str:
     queue_count = len(queue)
     posted_today = 0
     today_str = datetime.now(JST).strftime("%Y-%m-%d")
@@ -118,7 +112,7 @@ def build_summary_cards(queue, posted_log, stats_rows) -> str:
             posted_today += 1
 
     total_posted = len(posted_log)
-    kill_active = KILL_SWITCH.exists()
+    kill_active = kill_switch.exists()
 
     # 統計の平均
     avg_views = 0
@@ -274,7 +268,7 @@ def build_posted_section(posted_log, stats_rows) -> str:
     return cards
 
 
-def build_actions_section(queue, posted_log, stats_rows, reject_log) -> str:
+def build_actions_section(queue, posted_log, stats_rows, reject_log, kill_switch) -> str:
     items = []
 
     # キュー残数チェック
@@ -284,8 +278,8 @@ def build_actions_section(queue, posted_log, stats_rows, reject_log) -> str:
         items.append(("🟡", "キュー残数に注意", f"残り{len(queue)}件。今週中に補充を検討"))
 
     # KILL_SWITCH
-    if KILL_SWITCH.exists():
-        items.append(("🔴", "KILL_SWITCH 有効", "投稿が停止中です。解除するには <code>data/KILL_SWITCH</code> を削除"))
+    if kill_switch.exists():
+        items.append(("🔴", "KILL_SWITCH 有効", f"投稿が停止中です。解除するには <code>{kill_switch}</code> を削除"))
 
     # 棄却ログ
     if reject_log:
@@ -322,15 +316,15 @@ def build_actions_section(queue, posted_log, stats_rows, reject_log) -> str:
     return html
 
 
-def build_html() -> str:
-    queue = load_queue()
-    posted_log = load_posted_log()
-    stats_rows = load_stats()
-    reject_log = load_reject_log()
+def build_html(ctx) -> str:
+    queue = load_queue(ctx.queue_dir)
+    posted_log = load_posted_log(ctx.log_file)
+    stats_rows = load_stats(ctx.stats_file)
+    reject_log = load_reject_log(ctx.reject_log)
     now_str = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
 
-    summary = build_summary_cards(queue, posted_log, stats_rows)
-    actions = build_actions_section(queue, posted_log, stats_rows, reject_log)
+    summary = build_summary_cards(queue, posted_log, stats_rows, ctx.kill_switch)
+    actions = build_actions_section(queue, posted_log, stats_rows, reject_log, ctx.kill_switch)
     analysis = build_analysis_section(stats_rows)
     queue_html = build_queue_section(queue)
     posted_html = build_posted_section(posted_log, stats_rows)
@@ -656,9 +650,12 @@ def build_html() -> str:
 </html>"""
 
 
-def run():
+def run(ctx=None):
+    if ctx is None:
+        ctx = get_context()
+
     DOCS_DIR.mkdir(exist_ok=True)
-    html = build_html()
+    html = build_html(ctx)
     output = DOCS_DIR / "dashboard.html"
     output.write_text(html, encoding="utf-8")
     print(f"✅ ダッシュボード生成: {output}")
@@ -666,4 +663,5 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)

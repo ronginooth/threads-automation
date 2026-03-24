@@ -1,94 +1,52 @@
 """
-週次手動スクリプト
-日曜夜に実行する: python3 weekly.py
+週次スクリプト（Threads APIのみ）
+統計収集とダッシュボード更新を実行する
 
-やること:
-1. 統計収集（最新データ更新）
-2. バズ分析レポート生成（アナリスト指示書付き）
-3. トレンド収集
-4. 投稿文の自動生成（Claude API）
-5. 品質チェック（スコア採点 + 類似度 + パターン偏り）
-6. 承認待ちとして表示
+Anthropic APIを使う作業（投稿生成・品質チェック・トレンド分析等）は
+Claude Codeセッション内で手動実行する
 
 使い方:
-  python3 weekly.py          → 全ステップ実行
-  python3 weekly.py --skip-generate  → 生成をスキップ（手動でClaudeに貼る場合）
+  python3 weekly.py --config configs/ronginooth_ai.yml
 """
 import subprocess
 import sys
 from pathlib import Path
-from datetime import datetime, timedelta
 
 BASE = Path(__file__).parent
 PYTHON = sys.executable
 
 
-def run(script: str, *args):
-    cmd = [PYTHON, str(BASE / script)] + list(args)
+def run(script: str, config_path: str, *args):
+    cmd = [PYTHON, str(BASE / script), "--config", config_path] + list(args)
     result = subprocess.run(cmd, capture_output=False)
     return result.returncode
 
 
-def get_next_monday() -> str:
-    today = datetime.now()
-    days = 7 - today.weekday()
-    return (today + timedelta(days=days)).strftime("%Y-%m-%d")
-
-
 if __name__ == "__main__":
-    skip_generate = "--skip-generate" in sys.argv
+    # --config 引数を取得
+    config_path = None
+    for i, arg in enumerate(sys.argv):
+        if arg == "--config" and i + 1 < len(sys.argv):
+            config_path = sys.argv[i + 1]
+    if not config_path:
+        print("使い方: python3 weekly.py --config configs/ronginooth_ai.yml")
+        sys.exit(1)
 
     print("=" * 50)
-    print("週次サイクル開始")
+    print(f"週次サイクル開始: {config_path}")
     print("=" * 50)
 
-    print("\n① アカウント分析（初回 or 更新時のみ）...")
-    run("prepare.py")
+    print("\n① 統計収集中...")
+    run("stats.py", config_path)
 
-    print("\n② 統計収集中...")
-    run("stats.py")
-
-    print("\n③ バズ分析中（アナリスト指示書付き）...")
-    run("analyze.py")
-
-    print("\n④ トレンド収集中...")
-    run("trends.py")
-
-    next_monday = get_next_monday()
-
-    if skip_generate:
-        report_path = BASE / "data" / f"report_{datetime.now().strftime('%Y-%m-%d')}.md"
-        print("\n" + "=" * 50)
-        print("⑤ 以下をClaudeに貼って次週の投稿文を生成してください")
-        print("=" * 50)
-        print(f"""
----コピーここから---
-以下の分析レポートを読んで、来週（{next_monday}〜）の
-Threads投稿文を生成してください。
-
-【バズ分析レポート】
-{report_path.read_text(encoding="utf-8") if report_path.exists() else "（レポートファイルを確認してください）"}
----コピーここまで---
-""")
-        print("生成後: python3 approve.py posts/{next_monday}_week")
-    else:
-        print("\n⑤ 投稿文を自動生成中（Claude API）...")
-        rc = run("generate.py")
-        if rc != 0:
-            print("❌ 生成に失敗しました。手動で実行してください: python3 generate.py")
-        else:
-            print("\n⑥ 品質チェック中...")
-            week_dir = BASE / "posts" / f"{next_monday}_week"
-            if week_dir.exists():
-                # approve → queue に入れてからチェック
-                print(f"  → approve.py {week_dir}")
-                run("approve.py", str(week_dir))
-
-                print("\n  → quality_check.py でキュー内を品質チェック")
-                run("quality_check.py")
-            else:
-                print(f"  ⚠️ {week_dir} が見つかりません。generate.pyの出力を確認してください。")
+    print("\n② ダッシュボード更新中...")
+    run("dashboard.py", config_path)
 
     print("\n" + "=" * 50)
     print("週次サイクル完了")
+    print("")
+    print("以下はClaude Codeセッション内で実行してください:")
+    print("  - 投稿生成・品質チェック・承認")
+    print("  - トレンド収集・バズ分析")
+    print("  - プロフィール更新")
     print("=" * 50)

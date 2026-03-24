@@ -1,49 +1,43 @@
-"""Threads API の共通処理"""
-import os
+"""Threads API の共通処理（マルチアカウント対応）"""
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
-
-TOKEN = os.getenv("THREADS_ACCESS_TOKEN")
-USER_ID = os.getenv("THREADS_USER_ID")
 BASE_URL = "https://graph.threads.net/v1.0"
 
 
-def create_post(text: str) -> str:
+def create_post(text: str, token: str, user_id: str) -> str:
     """投稿コンテナを作成してpost_idを返す"""
     res = requests.post(
-        f"{BASE_URL}/{USER_ID}/threads",
+        f"{BASE_URL}/{user_id}/threads",
         params={
             "media_type": "TEXT",
             "text": text,
-            "access_token": TOKEN,
+            "access_token": token,
         },
     )
     res.raise_for_status()
     return res.json()["id"]
 
 
-def publish_post(creation_id: str) -> str:
+def publish_post(creation_id: str, token: str, user_id: str) -> str:
     """コンテナを公開してthread_idを返す"""
     res = requests.post(
-        f"{BASE_URL}/{USER_ID}/threads_publish",
+        f"{BASE_URL}/{user_id}/threads_publish",
         params={
             "creation_id": creation_id,
-            "access_token": TOKEN,
+            "access_token": token,
         },
     )
     res.raise_for_status()
     return res.json()["id"]
 
 
-def get_insights(thread_id: str) -> dict:
+def get_insights(thread_id: str, token: str) -> dict:
     """投稿のインサイト（いいね・インプ等）を取得"""
     res = requests.get(
         f"{BASE_URL}/{thread_id}/insights",
         params={
             "metric": "views,likes,replies,reposts,quotes",
-            "access_token": TOKEN,
+            "access_token": token,
         },
     )
     res.raise_for_status()
@@ -51,14 +45,28 @@ def get_insights(thread_id: str) -> dict:
     return {item["name"]: item["values"][0]["value"] for item in data}
 
 
-def get_my_posts(limit: int = 25) -> list:
+def get_my_posts(token: str, user_id: str, limit: int = 25) -> list:
     """自分の最近の投稿一覧を取得"""
     res = requests.get(
-        f"{BASE_URL}/{USER_ID}/threads",
+        f"{BASE_URL}/{user_id}/threads",
         params={
             "fields": "id,text,timestamp,permalink",
             "limit": limit,
-            "access_token": TOKEN,
+            "access_token": token,
+        },
+    )
+    res.raise_for_status()
+    return res.json().get("data", [])
+
+
+def get_user_posts(target_user_id: str, token: str, limit: int = 25) -> list:
+    """公開ユーザーの投稿一覧を取得（バズ分析用）"""
+    res = requests.get(
+        f"{BASE_URL}/{target_user_id}/threads",
+        params={
+            "fields": "id,text,timestamp,permalink",
+            "limit": limit,
+            "access_token": token,
         },
     )
     res.raise_for_status()

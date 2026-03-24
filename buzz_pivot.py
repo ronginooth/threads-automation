@@ -16,21 +16,17 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
 import anthropic
+from account_context import get_context
 
 load_dotenv()
-
-BASE = Path(__file__).parent
-STATS_FILE = BASE / "data" / "stats.csv"
-QUEUE_DIR = BASE / "data" / "queue"
-PIVOT_LOG = BASE / "data" / "pivot_log.json"
 
 PIVOT_COUNT = 3  # 1つのバズ投稿から生成する派生数
 
 
-def load_stats() -> list[dict]:
-    if not STATS_FILE.exists():
+def load_stats(stats_file) -> list[dict]:
+    if not stats_file.exists():
         return []
-    with open(STATS_FILE, encoding="utf-8") as f:
+    with open(stats_file, encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
@@ -44,9 +40,9 @@ def score(row: dict) -> float:
     )
 
 
-def get_top_posts(n: int = 1) -> list[dict]:
+def get_top_posts(stats_file, pivot_log_file, n: int = 1) -> list[dict]:
     """スコア上位n件の投稿を返す"""
-    rows = load_stats()
+    rows = load_stats(stats_file)
     if not rows:
         print("stats.csv がありません。先に stats.py を実行してください。")
         return []
@@ -55,7 +51,7 @@ def get_top_posts(n: int = 1) -> list[dict]:
     sorted_rows = sorted(rows, key=lambda r: r["score"], reverse=True)
 
     # 既にピボット済みの投稿を除外
-    pivoted = load_pivot_log()
+    pivoted = load_pivot_log(pivot_log_file)
     pivoted_ids = {p["source_thread_id"] for p in pivoted}
 
     candidates = [r for r in sorted_rows if r["thread_id"] not in pivoted_ids]
@@ -105,7 +101,7 @@ JSON配列で返してください。
     raise ValueError(f"派生投稿の解析に失敗: {response_text}")
 
 
-def save_to_queue(posts: list[dict], source_text: str) -> list[str]:
+def save_to_queue(posts: list[dict], source_text: str, queue_dir) -> list[str]:
     """派生投稿をキューに保存"""
     saved = []
     now = datetime.now()
@@ -121,7 +117,7 @@ def save_to_queue(posts: list[dict], source_text: str) -> list[str]:
         text = post.get("text", "")
 
         filename = f"{scheduled_date.strftime('%Y-%m-%d')}_pivot_{pivot_type}.md"
-        filepath = QUEUE_DIR / filename
+        filepath = queue_dir / filename
 
         content = f"""---
 type: pivot_{pivot_type}
@@ -138,14 +134,14 @@ source: "{source_text[:40]}..."
     return saved
 
 
-def load_pivot_log() -> list:
-    if PIVOT_LOG.exists():
-        return json.loads(PIVOT_LOG.read_text())
+def load_pivot_log(pivot_log_file) -> list:
+    if pivot_log_file.exists():
+        return json.loads(pivot_log_file.read_text())
     return []
 
 
-def save_pivot_log(log: list):
-    PIVOT_LOG.write_text(json.dumps(log, ensure_ascii=False, indent=2))
+def save_pivot_log(log: list, pivot_log_file):
+    pivot_log_file.write_text(json.dumps(log, ensure_ascii=False, indent=2))
 
 
 def run_quality_check():
@@ -158,7 +154,10 @@ def run_quality_check():
         print(f"品質チェックエラー: {e}")
 
 
-def run():
+def run(ctx=None):
+    if ctx is None:
+        ctx = get_context()
+
     # 引数解析
     top_n = 1
     manual_text = None
@@ -172,17 +171,19 @@ def run():
         elif args[i] == "--text" and i + 1 < len(args):
             manual_text = args[i + 1]
             i += 2
+        elif args[i] == "--config" and i + 1 < len(args):
+            i += 2  # skip --config arg (already parsed by get_context)
         else:
             i += 1
 
-    pivot_log = load_pivot_log()
+    pivot_log = load_pivot_log(ctx.pivot_log)
 
     if manual_text:
         # 手動指定テキストから派生
         print(f"指定テキストから派生投稿を生成します")
         print(f"  元: {manual_text[:60]}…")
         posts = generate_pivot_posts(manual_text)
-        saved = save_to_queue(posts, manual_text)
+        saved = save_to_queue(posts, manual_text, ctx.queue_dir)
         pivot_log.append({
             "source_thread_id": "manual",
             "source_text": manual_text[:100],
@@ -191,7 +192,7 @@ def run():
         })
     else:
         # stats.csvからTOP投稿を検出
-        top_posts = get_top_posts(top_n)
+        top_posts = get_top_posts(ctx.stats_file, ctx.pivot_log, top_n)
         if not top_posts:
             print("バズピボットの対象となる投稿がありません。")
             return
@@ -206,9 +207,8 @@ def run():
 
             # posted_log.jsonから全文を取得
             full_text = source_text
-            log_file = BASE / "data" / "posted_log.json"
-            if log_file.exists():
-                log = json.loads(log_file.read_text())
+            if ctx.log_file.exists():
+                log = json.loads(ctx.log_file.read_text())
                 for entry in log:
                     if entry.get("thread_id") == thread_id:
                         full_text = entry.get("text", source_text)
@@ -216,7 +216,7 @@ def run():
 
             try:
                 posts = generate_pivot_posts(full_text)
-                saved = save_to_queue(posts, full_text)
+                saved = save_to_queue(posts, full_text, ctx.queue_dir)
                 pivot_log.append({
                     "source_thread_id": thread_id,
                     "source_text": full_text[:100],
@@ -228,7 +228,7 @@ def run():
             except Exception as e:
                 print(f"  ❌ 生成失敗: {e}")
 
-    save_pivot_log(pivot_log)
+    save_pivot_log(pivot_log, ctx.pivot_log)
 
     # 品質チェック
     run_quality_check()
@@ -239,4 +239,5 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)

@@ -16,24 +16,20 @@ from pathlib import Path
 
 JST = timezone(timedelta(hours=9))
 from threads_api import create_post, publish_post
-
-QUEUE_DIR = Path(__file__).parent / "data" / "queue"
-POSTED_DIR = Path(__file__).parent / "data" / "posted"
-LOG_FILE = Path(__file__).parent / "data" / "posted_log.json"
-KILL_SWITCH = Path(__file__).parent / "data" / "KILL_SWITCH"
+from account_context import get_context
 
 MAX_DAILY_POSTS = 5
 MIN_INTERVAL_MINUTES = 60
 
 
-def load_log() -> list:
-    if LOG_FILE.exists():
-        return json.loads(LOG_FILE.read_text())
+def load_log(log_file) -> list:
+    if log_file.exists():
+        return json.loads(log_file.read_text())
     return []
 
 
-def save_log(log: list):
-    LOG_FILE.write_text(json.dumps(log, ensure_ascii=False, indent=2))
+def save_log(log: list, log_file):
+    log_file.write_text(json.dumps(log, ensure_ascii=False, indent=2))
 
 
 def parse_scheduled_time(path: Path):
@@ -48,10 +44,10 @@ def parse_scheduled_time(path: Path):
     return None
 
 
-def get_next_post() -> Path | None:
+def get_next_post(queue_dir) -> Path | None:
     """スケジュール時刻を過ぎた最も古いファイルを返す"""
     now = datetime.now(JST)
-    files = sorted(QUEUE_DIR.glob("*.md"))
+    files = sorted(queue_dir.glob("*.md"))
     for f in files:
         scheduled = parse_scheduled_time(f)
         if scheduled is None or scheduled <= now:
@@ -68,18 +64,18 @@ def parse_post_file(path: Path) -> str:
     return content.strip()
 
 
-def check_kill_switch() -> bool:
+def check_kill_switch(kill_switch) -> bool:
     """KILL_SWITCHファイルが存在したらTrueを返す"""
-    if KILL_SWITCH.exists():
+    if kill_switch.exists():
         print("🛑 KILL_SWITCH が有効です。全投稿を停止中。")
-        print("   解除するには data/KILL_SWITCH を削除してください。")
+        print(f"   解除するには {kill_switch} を削除してください。")
         return True
     return False
 
 
-def check_daily_limit() -> bool:
+def check_daily_limit(log_file) -> bool:
     """今日の投稿数が上限を超えていたらTrueを返す"""
-    log = load_log()
+    log = load_log(log_file)
     today = datetime.now(JST).strftime("%Y-%m-%d")
     today_count = sum(1 for e in log if e["posted_at"][:10] == today)
     if today_count >= MAX_DAILY_POSTS:
@@ -88,9 +84,9 @@ def check_daily_limit() -> bool:
     return False
 
 
-def check_min_interval() -> bool:
+def check_min_interval(log_file) -> bool:
     """前回投稿からの間隔が短すぎたらTrueを返す"""
-    log = load_log()
+    log = load_log(log_file)
     if not log:
         return False
     last_posted = log[-1].get("posted_at", "")
@@ -108,16 +104,19 @@ def check_min_interval() -> bool:
     return False
 
 
-def run():
+def run(ctx=None):
+    if ctx is None:
+        ctx = get_context()
+
     # 安全チェック
-    if check_kill_switch():
+    if check_kill_switch(ctx.kill_switch):
         return
-    if check_daily_limit():
+    if check_daily_limit(ctx.log_file):
         return
-    if check_min_interval():
+    if check_min_interval(ctx.log_file):
         return
 
-    post_file = get_next_post()
+    post_file = get_next_post(ctx.queue_dir)
     if not post_file:
         print("キューに投稿がありません。")
         return
@@ -131,22 +130,22 @@ def run():
     print(f"本文:\n{text}\n")
 
     try:
-        creation_id = create_post(text)
-        thread_id = publish_post(creation_id)
+        creation_id = create_post(text, ctx.token, ctx.user_id)
+        thread_id = publish_post(creation_id, ctx.token, ctx.user_id)
         print(f"✅ 投稿完了 thread_id: {thread_id}")
 
         # ログに記録
-        log = load_log()
+        log = load_log(ctx.log_file)
         log.append({
             "thread_id": thread_id,
             "file": post_file.name,
             "text": text,
             "posted_at": datetime.now().isoformat(),
         })
-        save_log(log)
+        save_log(log, ctx.log_file)
 
         # ファイルをpostedに移動
-        dest = POSTED_DIR / post_file.name
+        dest = ctx.posted_dir / post_file.name
         shutil.move(str(post_file), str(dest))
         print(f"📁 {post_file.name} → posted/")
 
@@ -155,4 +154,5 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)

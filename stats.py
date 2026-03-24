@@ -7,39 +7,40 @@ import csv
 from datetime import datetime
 from pathlib import Path
 from threads_api import get_insights
-
-LOG_FILE = Path(__file__).parent / "data" / "posted_log.json"
-STATS_FILE = Path(__file__).parent / "data" / "stats.csv"
+from account_context import get_context
 
 HEADERS = ["thread_id", "file", "text_preview", "posted_at", "collected_at",
            "views", "likes", "replies", "reposts", "quotes"]
 
 
-def load_log() -> list:
-    if not LOG_FILE.exists():
+def load_log(log_file) -> list:
+    if not log_file.exists():
         print("posted_log.json がありません。まず投稿してください。")
         return []
-    return json.loads(LOG_FILE.read_text())
+    return json.loads(log_file.read_text())
 
 
-def load_existing_stats() -> set:
+def load_existing_stats(stats_file) -> set:
     """すでに記録済みのthread_idセット"""
-    if not STATS_FILE.exists():
+    if not stats_file.exists():
         return set()
-    with open(STATS_FILE, encoding="utf-8") as f:
+    with open(stats_file, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         return {row["thread_id"] for row in reader}
 
 
-def run():
-    log = load_log()
+def run(ctx=None):
+    if ctx is None:
+        ctx = get_context()
+
+    log = load_log(ctx.log_file)
     if not log:
         return
 
-    existing = load_existing_stats()
-    is_new_file = not STATS_FILE.exists()
+    existing = load_existing_stats(ctx.stats_file)
+    is_new_file = not ctx.stats_file.exists()
 
-    with open(STATS_FILE, "a", newline="", encoding="utf-8") as f:
+    with open(ctx.stats_file, "a", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=HEADERS)
         if is_new_file:
             writer.writeheader()
@@ -48,7 +49,7 @@ def run():
             thread_id = entry["thread_id"]
             print(f"収集中: {thread_id} ({entry['file']})")
             try:
-                insights = get_insights(thread_id)
+                insights = get_insights(thread_id, ctx.token)
                 row = {
                     "thread_id": thread_id,
                     "file": entry["file"],
@@ -70,4 +71,5 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)

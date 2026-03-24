@@ -10,21 +10,13 @@ config.yml のnote URLとXアカウントを分析し、
 import os
 import re
 import subprocess
-import yaml
 import json
 from pathlib import Path
 from dotenv import load_dotenv
 import anthropic
+from account_context import get_context
 
 load_dotenv()
-
-BASE = Path(__file__).parent
-CONFIG_FILE = BASE / "config.yml"
-PROFILE_FILE = BASE / "data" / "account_profile.md"
-
-
-def load_config() -> dict:
-    return yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
 
 
 def find_note_content(note_url: str, search_paths: list[str]) -> str:
@@ -161,16 +153,21 @@ def analyze_with_claude(config: dict, note_content: str, x_posts: str) -> str:
     return message.content[0].text
 
 
-def run():
+def run(ctx=None):
     import sys
     force = "--force" in sys.argv
 
-    if PROFILE_FILE.exists() and not force:
-        print(f"✅ プロフィールは既に存在します: {PROFILE_FILE}")
-        print("   再分析するには: python3 prepare.py --force")
+    if ctx is None:
+        ctx = get_context()
+
+    config = ctx.config
+    profile_file = ctx.profile_file
+
+    if profile_file.exists() and not force:
+        print(f"✅ プロフィールは既に存在します: {profile_file}")
+        print("   再分析するには: python3 prepare.py --config <config> --force")
         return
 
-    config = load_config()
     print(f"アカウント分析開始: {config['account']}")
 
     # 1. note記事の内容を取得
@@ -201,12 +198,13 @@ def run():
     profile = analyze_with_claude(config, note_content, x_posts)
 
     # 4. 保存
-    PROFILE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    PROFILE_FILE.write_text(profile, encoding="utf-8")
-    print(f"\n✅ プロフィール保存: {PROFILE_FILE}")
+    profile_file.parent.mkdir(parents=True, exist_ok=True)
+    profile_file.write_text(profile, encoding="utf-8")
+    print(f"\n✅ プロフィール保存: {profile_file}")
     print("   内容を確認して、必要なら手動で修正してください。")
     print("   次回の generate.py はこのプロフィールを使います。")
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)

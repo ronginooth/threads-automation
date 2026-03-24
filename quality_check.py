@@ -16,14 +16,9 @@ from collections import Counter
 from datetime import datetime
 from dotenv import load_dotenv
 import anthropic
+from account_context import get_context
 
 load_dotenv()
-
-BASE = Path(__file__).parent
-QUEUE_DIR = BASE / "data" / "queue"
-POSTED_DIR = BASE / "data" / "posted"
-LOG_FILE = BASE / "data" / "posted_log.json"
-REJECT_LOG = BASE / "data" / "rejected_log.json"
 
 SCORE_THRESHOLD = 7.0
 SIMILARITY_THRESHOLD = 0.85
@@ -106,19 +101,19 @@ def cosine_similarity(text_a: str, text_b: str) -> float:
     return dot / (norm_a * norm_b)
 
 
-def load_past_texts(limit: int = 100) -> list[str]:
+def load_past_texts(log_file, posted_dir, limit: int = 100) -> list[str]:
     """過去の投稿テキストを取得（posted/ + posted_log.json）"""
     texts = []
 
     # posted_log.jsonから
-    if LOG_FILE.exists():
-        log = json.loads(LOG_FILE.read_text())
+    if log_file.exists():
+        log = json.loads(log_file.read_text())
         for entry in log[-limit:]:
             if entry.get("text"):
                 texts.append(entry["text"])
 
     # posted/フォルダから
-    posted_files = sorted(POSTED_DIR.glob("*.md"))[-limit:]
+    posted_files = sorted(posted_dir.glob("*.md"))[-limit:]
     for f in posted_files:
         content = f.read_text(encoding="utf-8")
         content = re.sub(r"^---.*?---\s*", "", content, flags=re.DOTALL)
@@ -145,19 +140,19 @@ def check_similarity(new_text: str, past_texts: list[str]) -> tuple[float, str]:
 # 3. パターンローテーションチェック
 # ========================================
 
-def get_recent_types(n: int = 10) -> list[str]:
+def get_recent_types(posted_dir, queue_dir, n: int = 10) -> list[str]:
     """キューと投稿済みファイルから直近n件のtypeを取得"""
     types = []
 
     # posted/から
-    for f in sorted(POSTED_DIR.glob("*.md")):
+    for f in sorted(posted_dir.glob("*.md")):
         content = f.read_text(encoding="utf-8")
         match = re.search(r'^type:\s*(.+)$', content, re.MULTILINE)
         if match:
             types.append(match.group(1).strip())
 
     # queue/から（scheduled順）
-    queue_files = sorted(QUEUE_DIR.glob("*.md"))
+    queue_files = sorted(queue_dir.glob("*.md"))
     for f in queue_files:
         content = f.read_text(encoding="utf-8")
         match = re.search(r'^type:\s*(.+)$', content, re.MULTILINE)
@@ -167,9 +162,9 @@ def get_recent_types(n: int = 10) -> list[str]:
     return types[-n:]
 
 
-def check_pattern_rotation(new_type: str) -> dict:
+def check_pattern_rotation(new_type: str, posted_dir, queue_dir) -> dict:
     """パターンの偏りをチェック"""
-    recent = get_recent_types(10)
+    recent = get_recent_types(posted_dir, queue_dir, 10)
     result = {"ok": True, "warning": "", "recent_types": recent}
 
     if not recent:
@@ -208,17 +203,7 @@ def parse_body(path: Path) -> str:
     return re.sub(r"^---.*?---\s*", "", content, flags=re.DOTALL).strip()
 
 
-def load_reject_log() -> list:
-    if REJECT_LOG.exists():
-        return json.loads(REJECT_LOG.read_text())
-    return []
-
-
-def save_reject_log(log: list):
-    REJECT_LOG.write_text(json.dumps(log, ensure_ascii=False, indent=2))
-
-
-def check_file(path: Path, past_texts: list[str] | None = None) -> dict:
+def check_file(path: Path, ctx, past_texts: list[str] | None = None) -> dict:
     """1ファイルの品質チェックを実行"""
     fm = parse_frontmatter(path)
     body = parse_body(path)
@@ -251,7 +236,7 @@ def check_file(path: Path, past_texts: list[str] | None = None) -> dict:
 
     # 2. 類似度チェック
     if past_texts is None:
-        past_texts = load_past_texts()
+        past_texts = load_past_texts(ctx.log_file, ctx.posted_dir)
 
     if past_texts:
         max_sim, most_similar = check_similarity(body, past_texts)
@@ -266,7 +251,7 @@ def check_file(path: Path, past_texts: list[str] | None = None) -> dict:
 
     # 3. パターンローテーション
     if post_type:
-        rotation = check_pattern_rotation(post_type)
+        rotation = check_pattern_rotation(post_type, ctx.posted_dir, ctx.queue_dir)
         result["rotation"] = rotation
         if not rotation["ok"]:
             result["reasons"].append(rotation["warning"])
@@ -275,15 +260,22 @@ def check_file(path: Path, past_texts: list[str] | None = None) -> dict:
     return result
 
 
-def check_queue():
+def check_queue(ctx=None):
     """キュー内の全投稿を品質チェック"""
-    files = sorted(QUEUE_DIR.glob("*.md"))
+    if ctx is None:
+        ctx = get_context()
+
+    files = sorted(ctx.queue_dir.glob("*.md"))
     if not files:
         print("キューに投稿がありません。")
         return
 
-    past_texts = load_past_texts()
-    reject_log = load_reject_log()
+    past_texts = load_past_texts(ctx.log_file, ctx.posted_dir)
+
+    # reject_log
+    reject_log = []
+    if ctx.reject_log.exists():
+        reject_log = json.loads(ctx.reject_log.read_text())
 
     print(f"品質チェック開始: {len(files)}件")
     print(f"過去投稿: {len(past_texts)}件をロード済み")
@@ -294,7 +286,7 @@ def check_queue():
 
     for f in files:
         print(f"\n📝 {f.name}")
-        result = check_file(f, past_texts)
+        result = check_file(f, ctx, past_texts)
 
         if result["passed"]:
             print(f"  ✅ 合格")
@@ -310,13 +302,14 @@ def check_queue():
                 "similarity": result.get("max_similarity"),
             })
 
-    save_reject_log(reject_log)
+    ctx.reject_log.write_text(json.dumps(reject_log, ensure_ascii=False, indent=2))
 
     print("\n" + "=" * 50)
     print(f"結果: ✅ {passed}件合格 / ❌ {failed}件不合格")
     if failed > 0:
-        print(f"詳細は data/rejected_log.json を確認してください。")
+        print(f"詳細は {ctx.reject_log} を確認してください。")
 
 
 if __name__ == "__main__":
-    check_queue()
+    ctx = get_context()
+    check_queue(ctx)

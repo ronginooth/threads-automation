@@ -6,16 +6,14 @@ import csv
 import json
 from datetime import datetime
 from pathlib import Path
-
-STATS_FILE = Path(__file__).parent / "data" / "stats.csv"
-REPORT_DIR = Path(__file__).parent / "data"
+from account_context import get_context
 
 
-def load_stats() -> list[dict]:
-    if not STATS_FILE.exists():
+def load_stats(stats_file) -> list[dict]:
+    if not stats_file.exists():
         print("stats.csv がありません。先に stats.py を実行してください。")
         return []
-    with open(STATS_FILE, encoding="utf-8") as f:
+    with open(stats_file, encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
@@ -91,8 +89,11 @@ def generate_directives(top3: list, bottom3: list, all_rows: list) -> list[str]:
     return lines
 
 
-def run():
-    rows = load_stats()
+def run(ctx=None):
+    if ctx is None:
+        ctx = get_context()
+
+    rows = load_stats(ctx.stats_file)
     if not rows:
         return
 
@@ -160,7 +161,7 @@ def run():
     ]
 
     report = "\n".join(report_lines)
-    report_file = REPORT_DIR / f"report_{datetime.now().strftime('%Y-%m-%d')}.md"
+    report_file = ctx.data_dir / f"report_{datetime.now().strftime('%Y-%m-%d')}.md"
     report_file.write_text(report, encoding="utf-8")
 
     print(report)
@@ -168,4 +169,5 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)

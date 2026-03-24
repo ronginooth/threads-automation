@@ -7,20 +7,7 @@ import sys
 import re
 from datetime import datetime, timedelta
 from pathlib import Path
-import yaml
-
-BASE = Path(__file__).parent
-QUEUE_DIR = BASE / "data" / "queue"
-CONFIG_FILE = BASE / "config.yml"
-
-DEFAULT_TIMES = ["07:00", "10:00", "13:00", "17:00", "21:00"]
-
-
-def load_times() -> list[str]:
-    if CONFIG_FILE.exists():
-        config = yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
-        return config.get("times", DEFAULT_TIMES)
-    return DEFAULT_TIMES
+from account_context import get_context
 
 
 def parse_posts(content: str) -> list[dict]:
@@ -39,12 +26,29 @@ def parse_posts(content: str) -> list[dict]:
     return posts
 
 
-def run():
+def run(ctx=None):
+    if ctx is None:
+        ctx = get_context()
+
     if len(sys.argv) < 2:
-        print("使い方: python3 approve.py posts/2026-03-30_week")
+        print("使い方: python3 approve.py --config <config> posts/2026-03-30_week")
         return
 
-    week_dir = Path(sys.argv[1])
+    # --config以外の引数からweek_dirを取得
+    week_dir = None
+    args = sys.argv[1:]
+    i = 0
+    while i < len(args):
+        if args[i] == "--config" and i + 1 < len(args):
+            i += 2
+            continue
+        week_dir = Path(args[i])
+        i += 1
+
+    if week_dir is None:
+        print("使い方: python3 approve.py --config <config> posts/2026-03-30_week")
+        return
+
     all_posts_file = week_dir / "all_posts.md"
 
     if not all_posts_file.exists():
@@ -65,11 +69,11 @@ def run():
     created = 0
     for post in posts:
         date = week_start + timedelta(days=post["day"] - 1)
-        times = load_times()
+        times = ctx.times
         time_str = times[(post["num"] - 1) % len(times)]
         type_slug = post["type"].replace(" ", "_") or f"post{post['num']}"
         filename = f"{date.strftime('%Y-%m-%d')}_{post['num']}_{type_slug}.md"
-        filepath = QUEUE_DIR / filename
+        filepath = ctx.queue_dir / filename
 
         filepath.write_text(
             f"---\nday: {post['day']}\ntype: {post['type']}\nlayer: {post['layer']}\nscheduled: {date.strftime('%Y-%m-%d')} {time_str}\n---\n\n{post['text']}\n",
@@ -83,4 +87,5 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    ctx = get_context()
+    run(ctx)
