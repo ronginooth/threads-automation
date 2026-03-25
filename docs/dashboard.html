@@ -309,7 +309,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-25 23:57 JST</p>
+    <p class="updated">更新: 2026-03-26 07:26 JST</p>
   </div>
 
   <nav class="nav">
@@ -317,7 +317,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (15)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
   </nav>
 
   <!-- 概要 -->
@@ -329,7 +329,7 @@
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">0</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
@@ -740,7 +740,67 @@
   <!-- 返信 -->
   <div id="replies" class="section">
     <div class="section-title">💬 コメント返信</div>
-    <p class="empty">新着コメントはありません</p>
+    
+    <div class="reply-card">
+      <div class="reply-post-ref">
+        <a href="https://www.threads.com/@ronginooth_ai/post/DWTsXUcGrKm" target="_blank">↗ 研究者の皆さんに聞きたい。
+
+論文執筆で一番時間がかかる工程って何ですか？
+
+わたしは圧倒的にDis…</a>
+      </div>
+      <div class="reply-comment">
+        <span class="reply-username">@yuukigousei</span>
+        <p class="reply-text">事実を事実以外に読み取られないように書くのに一番神経と時間を使いました</p>
+        <span class="reply-time">03/26 00:36</span>
+      </div>
+      <div class="reply-drafts">
+        <p class="drafts-title">💬 リプライ案（タップでコピー）</p>
+        
+        <div class="reply-draft" onclick="copyDraft(this)">
+          <span class="draft-label">案1</span>
+          <p>わかります！その神経遣いって本当に大事ですよね。私も経験があります。結果の解釈って一歩間違えると読者に誤解を与えてしまう。その緊張感を持ちながら書く作業、本当に疲れますし時間かかりますよね。丁寧に向き合ってる姿勢、素晴らしいです。</p>
+        </div>
+        <div class="reply-draft" onclick="copyDraft(this)">
+          <span class="draft-label">案2</span>
+          <p>その指摘は深い。実は論文の信頼性って、結果よりもむしろそういう『慎重な記述』が左右する部分が大きい。査読者もそこを見てますし。事実と解釈の境界線を明確にしながら書く訓練って、研究スキルの中でも最も重要な部分だと私も感じます。</p>
+        </div>
+        <div class="reply-draft" onclick="copyDraft(this)">
+          <span class="draft-label">案3</span>
+          <p>それ、Discussion執筆の課題にも通じてますね。事実と解釈の線引きができていないと『だから何？』の説得力が失われる。コメント者さんのその厳密さがあれば、Discussionもより堅牢になるはず。普段からそういう訓練されてるなら、ぜひコツ教えてもらいたいです！</p>
+        </div>
+      </div>
+    </div>
+    <div class="reply-card">
+      <div class="reply-post-ref">
+        <a href="https://www.threads.com/@ronginooth_ai/post/DWTsXUcGrKm" target="_blank">↗ 研究者の皆さんに聞きたい。
+
+論文執筆で一番時間がかかる工程って何ですか？
+
+わたしは圧倒的にDis…</a>
+      </div>
+      <div class="reply-comment">
+        <span class="reply-username">@abcdear.10.4</span>
+        <p class="reply-text">discossionですね。methodとかは数時間で書き終えるんですけど。</p>
+        <span class="reply-time">03/26 00:31</span>
+      </div>
+      <div class="reply-drafts">
+        <p class="drafts-title">💬 リプライ案（タップでコピー）</p>
+        
+        <div class="reply-draft" onclick="copyDraft(this)">
+          <span class="draft-label">案1</span>
+          <p>ですよね！Methodは事実を淡々と書けば済むのに、Discussionは「なぜそうなったのか」「先行研究とどう違うのか」「限界は？」など多次元的な思考が必要。その落差がしんどさの正体かもしれません。共感です。</p>
+        </div>
+        <div class="reply-draft" onclick="copyDraft(this)">
+          <span class="draft-label">案2</span>
+          <p>興味深いですね。Methodが数時間で書ける方は、恐らく実験設計の段階で論理が明確に構築されているのかも。一方Discussionで時間がかかるのは、結果の解釈に複数の可能性が存在するからでは。そこをどう整理するかが鍵かもしれません。</p>
+        </div>
+        <div class="reply-draft" onclick="copyDraft(this)">
+          <span class="draft-label">案3</span>
+          <p>わかります。ところで、Discussionが進まないときってどうされていますか？私は行き詰まったら、「この結果は業界に何をもたらすのか」という視点に立ち戻ることが多いんですが、何か工夫されていることはありますか？</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
