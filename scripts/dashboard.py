@@ -84,6 +84,13 @@ def load_reject_log(reject_log) -> list:
     return []
 
 
+def load_comments(data_dir) -> list[dict]:
+    f = data_dir / "comments.json"
+    if f.exists():
+        return json.loads(f.read_text(encoding="utf-8"))
+    return []
+
+
 def score(row: dict) -> float:
     return (
         int(row.get("likes", 0)) * 3
@@ -320,6 +327,40 @@ def build_actions_section(queue, posted_log, stats_rows, reject_log, kill_switch
     return html
 
 
+def build_replies_section(comments: list[dict]) -> str:
+    if not comments:
+        return '<p class="empty">新着コメントはありません</p>'
+
+    html = ""
+    for block in comments:
+        drafts_html = ""
+        for i, draft in enumerate(block.get("drafts", []), 1):
+            if not draft:
+                continue
+            drafts_html += f"""
+        <div class="reply-draft" onclick="copyDraft(this)">
+          <span class="draft-label">案{i}</span>
+          <p>{draft}</p>
+        </div>"""
+
+        html += f"""
+    <div class="reply-card">
+      <div class="reply-post-ref">
+        <a href="{block['permalink']}" target="_blank">↗ {block['post_text'][:50]}…</a>
+      </div>
+      <div class="reply-comment">
+        <span class="reply-username">@{block['username']}</span>
+        <p class="reply-text">{block['comment_text']}</p>
+        <span class="reply-time">{block['comment_time']}</span>
+      </div>
+      <div class="reply-drafts">
+        <p class="drafts-title">💬 リプライ案（タップでコピー）</p>
+        {drafts_html}
+      </div>
+    </div>"""
+    return html
+
+
 def build_html(ctx) -> str:
     queue = load_queue(ctx.queue_dir)
     posted_log = load_posted_log(ctx.log_file)
@@ -332,6 +373,9 @@ def build_html(ctx) -> str:
     analysis = build_analysis_section(stats_rows)
     queue_html = build_queue_section(queue)
     posted_html = build_posted_section(posted_log, stats_rows)
+    comments = load_comments(ctx.data_dir)
+    replies_html = build_replies_section(comments)
+    replies_badge = f" ({len(comments)})" if comments else ""
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -600,6 +644,44 @@ def build_html(ctx) -> str:
       padding: 16px;
       border: 1px solid #222;
     }}
+
+    /* ===== REPLIES ===== */
+    .reply-card {{
+      background: #161616;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid #222;
+    }}
+    .reply-post-ref {{
+      font-size: 11px;
+      color: #555;
+      margin-bottom: 10px;
+      padding-left: 8px;
+      border-left: 2px solid #333;
+    }}
+    .reply-post-ref a {{ color: #4fc3f7; text-decoration: none; }}
+    .reply-comment {{
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }}
+    .reply-username {{ font-size: 12px; font-weight: 700; color: #aaa; }}
+    .reply-text {{ font-size: 14px; color: #e0e0e0; margin: 4px 0; line-height: 1.6; }}
+    .reply-time {{ font-size: 11px; color: #555; }}
+    .drafts-title {{ font-size: 11px; font-weight: 700; color: #666; margin-bottom: 8px; }}
+    .reply-draft {{
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }}
+    .reply-draft:active, .reply-draft.copied {{ background: #1a2e1a; border-color: #4caf50; }}
+    .draft-label {{ font-size: 10px; font-weight: 700; color: #666; display: block; margin-bottom: 4px; }}
+    .reply-draft p {{ font-size: 13px; color: #ccc; line-height: 1.5; }}
   </style>
 </head>
 <body>
@@ -614,6 +696,7 @@ def build_html(ctx) -> str:
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー ({len(queue)})</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信{replies_badge}</button>
   </nav>
 
   <!-- 概要 -->
@@ -641,12 +724,25 @@ def build_html(ctx) -> str:
     {posted_html}
   </div>
 
+  <!-- 返信 -->
+  <div id="replies" class="section">
+    <div class="section-title">💬 コメント返信</div>
+    {replies_html}
+  </div>
+
   <script>
     function showTab(id) {{
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
       document.getElementById(id).classList.add('active');
       event.target.classList.add('active');
+    }}
+    function copyDraft(el) {{
+      const text = el.querySelector('p').textContent;
+      navigator.clipboard.writeText(text).then(() => {{
+        el.classList.add('copied');
+        setTimeout(() => el.classList.remove('copied'), 1000);
+      }});
     }}
   </script>
 

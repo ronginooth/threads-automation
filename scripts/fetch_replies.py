@@ -307,6 +307,11 @@ def run(ctx=None):
     (DOCS_DIR / "replies.html").write_text(html, encoding="utf-8")
     print(f"✅ {len(comment_blocks)}件のコメントを更新 → docs/replies.html")
 
+    # ダッシュボード用にJSONも保存
+    comments_file = ctx.data_dir / "comments.json"
+    comments_file.write_text(json.dumps(comment_blocks, ensure_ascii=False, indent=2))
+    print(f"✅ コメントデータ保存 → {comments_file}")
+
     save_seen(new_seen, ctx.seen_file)
 
 
