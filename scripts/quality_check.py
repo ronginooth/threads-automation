@@ -6,6 +6,7 @@
 1. Claude APIで10項目×10点の品質スコア採点（7.0未満は棄却）
 2. 過去投稿との類似度チェック（0.85以上は棄却）
 3. 投稿パターンの偏りチェック（同じtypeが4連続なら警告）
+4. 事実確認チェック（専門的な主張・ルール・引用の正確性を検証）
 """
 import os
 import re
@@ -141,7 +142,64 @@ def check_similarity(new_text: str, past_texts: list[str]) -> tuple[float, str]:
 
 
 # ========================================
-# 3. パターンローテーションチェック
+# 3. 事実確認チェック
+# ========================================
+
+def fact_check(text: str) -> dict:
+    """投稿に含まれる専門的な主張・ルール・引用の正確性を検証する"""
+    client = anthropic.Anthropic()
+
+    prompt = f"""以下のSNS投稿に含まれる「事実としての主張」を検証してください。
+
+【投稿文】
+{text}
+
+【チェック観点】
+1. 専門分野のルール・慣習として述べている内容は正確か？
+2. 異なる文脈のルールが混同されていないか？（例: ビジネス英語と学術英語、分野ごとの違い）
+3. 「〜は禁止」「〜が正しい」等の断定が、特定の文脈でしか成り立たないのに一般化されていないか？
+4. 引用・出典への言及があれば、その内容は正確か？
+
+以下のJSON形式で返してください。
+{{
+  "has_claims": true/false,
+  "issues": [
+    {{
+      "claim": "投稿内の主張（該当箇所を引用）",
+      "problem": "何が問題か",
+      "severity": "high/medium/low"
+    }}
+  ],
+  "verdict": "pass/warn/fail"
+}}
+
+- 事実に問題がなければ issues は空配列、verdict は "pass"
+- 軽微な不正確さや文脈依存の話は "warn"
+- 明らかに間違っている場合は "fail"
+- 主観・感想・体験談には事実チェック不要（has_claims: false, verdict: "pass"）"""
+
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=512,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    response_text = message.content[0].text.strip()
+    start = response_text.find("{")
+    end = response_text.rfind("}") + 1
+    if start != -1 and end > start:
+        try:
+            return json.loads(response_text[start:end])
+        except json.JSONDecodeError:
+            # JSONが壊れている場合、verdictだけ抽出
+            if '"fail"' in response_text:
+                return {"has_claims": True, "issues": [{"claim": "（解析失敗）", "problem": response_text[:200], "severity": "medium"}], "verdict": "warn"}
+            return {"has_claims": False, "issues": [], "verdict": "pass"}
+    return {"has_claims": False, "issues": [], "verdict": "pass"}
+
+
+# ========================================
+# 4. パターンローテーションチェック
 # ========================================
 
 def get_recent_types(posted_dir, queue_dir, n: int = 10) -> list[str]:
@@ -253,7 +311,25 @@ def check_file(path: Path, ctx, past_texts: list[str] | None = None) -> dict:
             )
         print(f"  類似度: {max_sim:.2f}（最も似た投稿: {most_similar}…）")
 
-    # 3. パターンローテーション
+    # 3. 事実確認
+    try:
+        fc = fact_check(body)
+        result["fact_check"] = fc
+        if fc.get("verdict") == "fail":
+            result["passed"] = False
+            issues_str = "; ".join(i["claim"] + " → " + i["problem"] for i in fc.get("issues", []))
+            result["reasons"].append(f"事実確認NG: {issues_str}")
+            print(f"  ❌ 事実確認NG: {issues_str}")
+        elif fc.get("verdict") == "warn":
+            issues_str = "; ".join(i["claim"] + " → " + i["problem"] for i in fc.get("issues", []))
+            result["reasons"].append(f"事実確認⚠️: {issues_str}")
+            print(f"  ⚠️ 事実確認注意: {issues_str}")
+        else:
+            print(f"  ✅ 事実確認OK")
+    except Exception as e:
+        print(f"  事実確認エラー: {e}")
+
+    # 4. パターンローテーション
     if post_type:
         rotation = check_pattern_rotation(post_type, ctx.posted_dir, ctx.queue_dir)
         result["rotation"] = rotation
