@@ -10,7 +10,8 @@
 | 機能 | 内容 | 実行場所 |
 |------|------|----------|
 | **自動投稿** | 毎日 07:00 / 10:00 / 13:00 / 17:00 / 21:00 に Threads へ自動投稿 | GitHub Actions |
-| **リプライ取得** | 2時間ごとにコメントを自動取得し、AI返信案を3パターン生成 | GitHub Actions |
+| **リプライ取得** | 2時間ごとにコメントを自動取得し、AI返信案を3パターン生成（未返信は消えない） | GitHub Actions |
+| **ダッシュボードから返信** | 返信案を編集→確認→ワンタップでThreadsに直接投稿 | GitHub Pages → Actions |
 | **統計収集** | 毎日 23:00 にインプレッション・いいね・リプライを自動収集 | GitHub Actions |
 | **HTMLダッシュボード** | 統計・TOP/BOTTOM分析・キュー管理・返信案を1画面で確認 | GitHub Pages |
 | **投稿生成** | 3層構造（共感60%/教育29%/導線11%）で1週間35本を一括生成 | Claude Code |
@@ -28,13 +29,16 @@
 │  ├── post.py      … 15分ごとチェック→投稿    │
 │  ├── fetch_replies … 2時間ごとリプ取得+返信案 │
 │  ├── stats.py     … 毎日23時に統計収集       │
-│  └── dashboard.py … 統計後にHTML更新          │
+│  ├── dashboard.py … 統計後にHTML更新          │
+│  └── reply.py     … ダッシュボードから返信投稿│
 └───────────────┬─────────────────────────────┘
                 │ git push（自動）
                 ▼
 ┌─────────────────────────────────────────────┐
 │  GitHub Pages                                │
-│  └── docs/dashboard.html（ブラウザで確認）    │
+│  └── docs/dashboard.html                     │
+│      ├── 統計・分析・キュー管理               │
+│      └── 返信案を編集→確認→Threadsに投稿 🆕  │
 └─────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────┐
@@ -148,6 +152,7 @@ threads-automation/
 │   ├── buzz_analysis.py        # トップ投稿パターン抽出（Claude Code）
 │   ├── discover_accounts.py    # トップアカウント発掘（Claude Code）
 │   ├── trends.py               # トレンド分析（Claude Code）
+│   ├── reply.py                # ダッシュボードからリプライ投稿（GitHub Actions）
 │   ├── weekly.py               # 週次バッチ（stats + dashboard）
 │   └── scheduler.py            # ローカルスケジューラ
 │
@@ -167,6 +172,7 @@ threads-automation/
     ├── post.yml                # 自動投稿（15分ごと）
     ├── fetch-replies.yml       # リプライ取得（2時間ごと）
     ├── stats.yml               # 統計収集（毎日23時）
+    ├── reply.yml               # ダッシュボードからリプライ投稿
     └── buzz-analysis.yml       # バズ分析（手動実行）
 ```
 
@@ -190,7 +196,7 @@ threads-automation/
   - 1日5回、自動投稿
   - 2時間ごと、リプライ取得+返信案生成
   - ダッシュボードで状況確認（スマホからもOK）
-  - 返信案をタップしてコピー → Threadsアプリで返信
+  - 返信案を編集→確認→ダッシュボードから直接返信
 ```
 
 ---
@@ -202,7 +208,33 @@ GitHub Pages で公開される HTML ダッシュボード（`docs/dashboard.htm
 - **概要タブ**：キュー残数・累計投稿・平均インプレッション + やることリスト
 - **分析タブ**：TOP3 / BOTTOM3 投稿のランキング（スコア付き）
 - **キュータブ**：予定投稿一覧（GitHub上で編集・削除可能）
-- **返信タブ**：新着コメント + AI返信案3パターン（タップでコピー）
+- **返信タブ**：未返信コメント + AI返信案3パターン + 編集→確認→直接投稿
+
+### 返信タブの使い方
+
+```
+コメントが届く（2時間ごと自動取得）
+  ↓
+返信案3つが自動生成される（50〜80文字の短い案）
+  ↓
+案をタップ → テキストエリアに反映（自由に編集OK）
+  ↓
+「返信する」→「この内容で返信しますか？」確認
+  ↓
+Threadsに直接投稿される（1〜2分で反映）
+```
+
+未返信のコメントは時間が経っても消えません。返信済みは薄く表示されます。
+
+### 初回設定：GitHub PAT
+
+ダッシュボードからの返信にはGitHub PATが必要です（初回のみ）：
+
+1. GitHub → 右上アイコン → **Settings** → **Developer settings**
+2. **Personal access tokens** → **Fine-grained tokens** → Generate new token
+3. Repository access: **threads-automation のみ**
+4. Permissions: **Actions → Read and write**
+5. 生成されたトークンをダッシュボードの返信タブで入力（ブラウザに保存されます）
 
 ---
 
