@@ -455,15 +455,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-26 15:57 JST</p>
+    <p class="updated">更新: 2026-03-26 17:43 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (12)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (11)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (1)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
   </nav>
 
   <!-- 概要 -->
@@ -479,15 +479,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">12</div>
+        <div class="stat-num">11</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">15</div>
+        <div class="stat-num">16</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -588,17 +588,6 @@
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
     
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-26 17:00</span>
-            <span class="queue-type type-気づき">気づき</span>
-          </div>
-          <p class="queue-body">論文を書くとき「完璧に仕上げてから出す」と思ってた。<br><br>でも実は、60%の段階で共著者に見せたほうが<br>最終的なクオリティは上がる。<br><br>理由は簡単で、<br>自分の頭の中だけで考え続けると<br>「穴」に気づけなくなるから。<br><br>早く見せる勇気、大事でした。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-26_4_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-26_4_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
         <div class="queue-card">
           <div class="queue-header">
             <span class="queue-time">2026-03-26 21:00</span>
@@ -726,6 +715,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-26T08:40</div>
+          <p class="posted-text">論文を書くとき「完璧に仕上げてから出す」と思ってた。<br><br>でも実は、60%の段階で共著者に見せたほうが<br>最終的なクオリティは上がる。<br><br>理由は簡単で、<br>自分の頭の中だけで考え続けると<br>「穴」に気づけなくなるから。<br><br>早く見せる勇気、大事でした。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-26T06:54</div>
           <p class="posted-text">研究アイデアが生まれるのはどこ？<br><br>文献の矛盾を読んでいるとき → ❤️<br>シャワー中・移動中・寝る前 → 🔥<br><br>私は圧倒的に🔥です。<br><br>一番いいアイデアはメモできないタイミングに限って出てくる。</p>
@@ -882,7 +876,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (1件)</div>
+    <div class="section-subtitle">未返信 (2件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -913,6 +907,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17895053220288275')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17895053220288275')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18065161742661420">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWTsXUcGrKm" target="_blank">↗ 研究者の皆さんに聞きたい。<br><br>論文執筆で一番時間がかかる工程って何ですか？<br><br>わたしは圧倒的にDis…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@yukonikebe</span>
+            <p class="reply-text">introduction。<br>オチはだいたいいけるんやけど、そこにもってくためのつかみがいっつも定まらん…</p>
+            <span class="reply-time">03/26 16:55</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18065161742661420')">
+              <span class="draft-label">案1</span>
+              <p>わかります！Introductionは読者を納得させる必要があるから難しいですよね。逆算で『この結果を引き出すには、どんな問題提起が必要か』から始めると、つかみが定まりやすい気がします。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18065161742661420')">
+              <span class="draft-label">案2</span>
+              <p>あ〜それめっちゃ分かる。結果ありきで書くから、そこまでの道のりが曖昧になっちゃうんですよね。最後に『この問題を解くために研究した』という流れを強引に作るのがコツかも。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18065161742661420')">
+              <span class="draft-label">案3</span>
+              <p>Introductionのつかみ難しいですよね。個人的には先に『この結果が新しい理由』を1文で書いて、そこに読者をどう導くかを考えると、話の筋が通りやすくなった。試してみてください。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18065161742661420" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18065161742661420" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18065161742661420')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18065161742661420')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (1件)</div>
