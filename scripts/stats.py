@@ -80,7 +80,7 @@ def run(ctx=None):
 def collect_account_insights(ctx):
     """ユーザーレベルInsightsを取得してaccount_insights.csvに追記"""
     account_stats_file = ctx.data_dir / "account_insights.csv"
-    account_headers = ["collected_at", "views", "likes", "replies", "reposts", "quotes", "followers_count"]
+    account_headers = ["collected_at", "views", "clicks", "likes", "replies", "reposts", "quotes", "followers_count"]
 
     print("\nアカウント全体のインサイトを収集中...")
     try:
@@ -88,6 +88,7 @@ def collect_account_insights(ctx):
         row = {
             "collected_at": datetime.now().isoformat(),
             "views": insights.get("views", 0),
+            "clicks": insights.get("clicks", 0),
             "likes": insights.get("likes", 0),
             "replies": insights.get("replies", 0),
             "reposts": insights.get("reposts", 0),
@@ -102,7 +103,7 @@ def collect_account_insights(ctx):
                 writer.writeheader()
             writer.writerow(row)
 
-        print(f"  views={row['views']} followers={row['followers_count']}")
+        print(f"  views={row['views']} clicks={row['clicks']} followers={row['followers_count']}")
         print(f"✅ account_insights.csv に保存しました")
     except Exception as e:
         print(f"  ⚠️ アカウントInsights取得失敗: {e}")

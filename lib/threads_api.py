@@ -79,7 +79,7 @@ def get_user_insights(token: str, user_id: str) -> dict:
     res = requests.get(
         f"{BASE_URL}/{user_id}/threads_insights",
         params={
-            "metric": "views,likes,replies,reposts,quotes,followers_count",
+            "metric": "views,likes,replies,reposts,quotes,followers_count,clicks",
             "access_token": token,
         },
     )
