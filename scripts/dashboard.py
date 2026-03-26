@@ -328,36 +328,70 @@ def build_actions_section(queue, posted_log, stats_rows, reject_log, kill_switch
 
 
 def build_replies_section(comments: list[dict]) -> str:
-    if not comments:
-        return '<p class="empty">新着コメントはありません</p>'
+    unreplied = [c for c in comments if not c.get("replied", False)]
+    replied = [c for c in comments if c.get("replied", False)]
+
+    if not unreplied and not replied:
+        return '<p class="empty">コメントはありません</p>'
 
     html = ""
-    for block in comments:
-        drafts_html = ""
-        for i, draft in enumerate(block.get("drafts", []), 1):
-            if not draft:
-                continue
-            drafts_html += f"""
-        <div class="reply-draft" onclick="copyDraft(this)">
-          <span class="draft-label">案{i}</span>
-          <p>{draft}</p>
+
+    # 未返信セクション
+    if unreplied:
+        html += f'<div class="section-subtitle">未返信 ({len(unreplied)}件)</div>'
+        for block in unreplied:
+            comment_id = block.get("comment_id", "")
+            drafts_html = ""
+            for i, draft in enumerate(block.get("drafts", []), 1):
+                if not draft:
+                    continue
+                escaped_draft = escape(draft)
+                drafts_html += f"""
+            <div class="reply-draft" onclick="selectDraft(this, '{comment_id}')">
+              <span class="draft-label">案{i}</span>
+              <p>{escaped_draft}</p>
+            </div>"""
+
+            html += f"""
+        <div class="reply-card" id="card-{comment_id}">
+          <div class="reply-post-ref">
+            <a href="{block['permalink']}" target="_blank">↗ {escape(block['post_text'][:50])}…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@{block['username']}</span>
+            <p class="reply-text">{escape(block['comment_text'])}</p>
+            <span class="reply-time">{block['comment_time']}</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            {drafts_html}
+          </div>
+          <div class="reply-editor" id="editor-{comment_id}" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-{comment_id}" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('{comment_id}')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('{comment_id}')">返信する</button>
+            </div>
+          </div>
         </div>"""
 
-        html += f"""
-    <div class="reply-card">
-      <div class="reply-post-ref">
-        <a href="{block['permalink']}" target="_blank">↗ {block['post_text'][:50]}…</a>
-      </div>
-      <div class="reply-comment">
-        <span class="reply-username">@{block['username']}</span>
-        <p class="reply-text">{block['comment_text']}</p>
-        <span class="reply-time">{block['comment_time']}</span>
-      </div>
-      <div class="reply-drafts">
-        <p class="drafts-title">💬 リプライ案（タップでコピー）</p>
-        {drafts_html}
-      </div>
-    </div>"""
+    # 返信済みセクション
+    if replied:
+        html += f'<div class="section-subtitle replied-header">返信済み ({len(replied)}件)</div>'
+        for block in replied:
+            replied_text = block.get("replied_text", "")
+            html += f"""
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="{block['permalink']}" target="_blank">↗ {escape(block['post_text'][:50])}…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@{block['username']}</span>
+            <p class="reply-text">{escape(block['comment_text'])}</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: {escape(replied_text[:80])}</div>
+        </div>"""
+
     return html
 
 
@@ -375,7 +409,8 @@ def build_html(ctx) -> str:
     posted_html = build_posted_section(posted_log, stats_rows)
     comments = load_comments(ctx.data_dir)
     replies_html = build_replies_section(comments)
-    replies_badge = f" ({len(comments)})" if comments else ""
+    unreplied_count = sum(1 for c in comments if not c.get("replied", False))
+    replies_badge = f" ({unreplied_count})" if unreplied_count else ""
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -682,6 +717,152 @@ def build_html(ctx) -> str:
     .reply-draft:active, .reply-draft.copied {{ background: #1a2e1a; border-color: #4caf50; }}
     .draft-label {{ font-size: 10px; font-weight: 700; color: #666; display: block; margin-bottom: 4px; }}
     .reply-draft p {{ font-size: 13px; color: #ccc; line-height: 1.5; }}
+    .reply-draft.selected {{ background: #1a2e1a; border-color: #4caf50; }}
+
+    /* ===== REPLY EDITOR ===== */
+    .reply-editor {{
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #2a2a2a;
+    }}
+    .reply-textarea {{
+      width: 100%;
+      background: #1a1a1a;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-family: -apple-system, sans-serif;
+      line-height: 1.5;
+      resize: vertical;
+    }}
+    .reply-textarea:focus {{ border-color: #4fc3f7; outline: none; }}
+    .reply-actions {{
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      justify-content: flex-end;
+    }}
+    .btn-cancel {{ color: #888; border-color: #444; }}
+    .btn-send {{
+      color: #fff;
+      background: #1976d2;
+      border-color: #1976d2;
+    }}
+    .btn-send:active {{ background: #1565c0; }}
+    .btn-sending {{
+      background: #555 !important;
+      border-color: #555 !important;
+      pointer-events: none;
+    }}
+
+    /* ===== SECTION SUBTITLE ===== */
+    .section-subtitle {{
+      font-size: 13px;
+      font-weight: 700;
+      color: #888;
+      margin: 16px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #222;
+    }}
+    .replied-header {{ color: #555; }}
+
+    /* ===== REPLIED ===== */
+    .reply-card.replied {{
+      opacity: 0.5;
+    }}
+    .replied-badge {{
+      font-size: 12px;
+      color: #4caf50;
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: #1a2e1a;
+      border-radius: 6px;
+    }}
+
+    /* ===== CONFIRM MODAL ===== */
+    .modal-overlay {{
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }}
+    .modal-overlay.show {{ display: flex; }}
+    .modal {{
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 400px;
+      width: 90%;
+      border: 1px solid #333;
+    }}
+    .modal h3 {{ font-size: 16px; color: #fff; margin-bottom: 12px; }}
+    .modal .preview {{
+      background: #111;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      max-height: 120px;
+      overflow-y: auto;
+    }}
+    .modal-buttons {{
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }}
+    .btn-confirm {{
+      color: #fff;
+      background: #4caf50;
+      border-color: #4caf50;
+      font-weight: 700;
+    }}
+
+    /* ===== SETUP BANNER ===== */
+    .setup-banner {{
+      background: #1a1a2e;
+      border: 1px solid #4fc3f7;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #ccc;
+    }}
+    .setup-banner input {{
+      width: 100%;
+      background: #111;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 8px;
+      margin: 8px 0;
+      font-size: 13px;
+    }}
+    .setup-banner .btn {{ margin-top: 4px; }}
+
+    /* ===== STATUS TOAST ===== */
+    .toast {{
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      z-index: 200;
+      display: none;
+    }}
+    .toast.show {{ display: block; }}
+    .toast.success {{ background: #2e7d32; }}
+    .toast.error {{ background: #c62828; }}
   </style>
 </head>
 <body>
@@ -727,23 +908,168 @@ def build_html(ctx) -> str:
   <!-- 返信 -->
   <div id="replies" class="section">
     <div class="section-title">💬 コメント返信</div>
+    <div id="setup-banner" class="setup-banner" style="display:none;">
+      ⚙️ 初回設定: GitHub PATを入力するとダッシュボードから直接返信できます
+      <input type="password" id="pat-input" placeholder="ghp_xxxx...（fine-grained token / repo scope）">
+      <button class="btn btn-edit" onclick="savePAT()">保存</button>
+      <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
+    </div>
     {replies_html}
   </div>
 
+  <!-- 確認モーダル -->
+  <div class="modal-overlay" id="confirm-modal">
+    <div class="modal">
+      <h3>この内容で返信しますか？</h3>
+      <div class="preview" id="modal-preview"></div>
+      <div class="modal-buttons">
+        <button class="btn btn-cancel" onclick="closeModal()">やめる</button>
+        <button class="btn btn-confirm" id="modal-confirm" onclick="sendReply()">返信する</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ステータス通知 -->
+  <div class="toast" id="toast"></div>
+
   <script>
+    const REPO = '{GITHUB_REPO}';
+    const CONFIG = 'ronginooth_ai';
+    let pendingCommentId = null;
+
+    // --- Tab navigation ---
     function showTab(id) {{
       document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
       document.getElementById(id).classList.add('active');
       event.target.classList.add('active');
+      if (id === 'replies') checkSetup();
     }}
-    function copyDraft(el) {{
+
+    // --- PAT setup ---
+    function checkSetup() {{
+      const pat = localStorage.getItem('gh_pat');
+      const banner = document.getElementById('setup-banner');
+      if (!pat && banner) banner.style.display = 'block';
+      else if (banner) banner.style.display = 'none';
+    }}
+    function savePAT() {{
+      const val = document.getElementById('pat-input').value.trim();
+      if (val) {{
+        localStorage.setItem('gh_pat', val);
+        document.getElementById('setup-banner').style.display = 'none';
+        showToast('GitHub PAT を保存しました', 'success');
+      }}
+    }}
+
+    // --- Draft selection ---
+    function selectDraft(el, commentId) {{
+      const card = document.getElementById('card-' + commentId);
+      card.querySelectorAll('.reply-draft').forEach(d => d.classList.remove('selected'));
+      el.classList.add('selected');
+
       const text = el.querySelector('p').textContent;
-      navigator.clipboard.writeText(text).then(() => {{
-        el.classList.add('copied');
-        setTimeout(() => el.classList.remove('copied'), 1000);
-      }});
+      const textarea = document.getElementById('textarea-' + commentId);
+      textarea.value = text;
+
+      const editor = document.getElementById('editor-' + commentId);
+      editor.style.display = 'block';
     }}
+
+    function cancelReply(commentId) {{
+      document.getElementById('editor-' + commentId).style.display = 'none';
+      const card = document.getElementById('card-' + commentId);
+      card.querySelectorAll('.reply-draft').forEach(d => d.classList.remove('selected'));
+    }}
+
+    // --- Confirm modal ---
+    function confirmReply(commentId) {{
+      const text = document.getElementById('textarea-' + commentId).value.trim();
+      if (!text) return;
+
+      const pat = localStorage.getItem('gh_pat');
+      if (!pat) {{
+        showToast('先にGitHub PATを設定してください', 'error');
+        checkSetup();
+        return;
+      }}
+
+      pendingCommentId = commentId;
+      document.getElementById('modal-preview').textContent = text;
+      document.getElementById('confirm-modal').classList.add('show');
+    }}
+
+    function closeModal() {{
+      document.getElementById('confirm-modal').classList.remove('show');
+      pendingCommentId = null;
+    }}
+
+    // --- Send reply via GitHub Actions ---
+    async function sendReply() {{
+      const commentId = pendingCommentId;
+      const text = document.getElementById('textarea-' + commentId).value.trim();
+      const pat = localStorage.getItem('gh_pat');
+
+      closeModal();
+
+      const btn = document.querySelector('#editor-' + commentId + ' .btn-send');
+      btn.textContent = '送信中…';
+      btn.classList.add('btn-sending');
+
+      try {{
+        const res = await fetch(
+          `https://api.github.com/repos/${{REPO}}/actions/workflows/reply.yml/dispatches`,
+          {{
+            method: 'POST',
+            headers: {{
+              'Authorization': `Bearer ${{pat}}`,
+              'Accept': 'application/vnd.github.v3+json',
+            }},
+            body: JSON.stringify({{
+              ref: 'main',
+              inputs: {{
+                config: CONFIG,
+                comment_id: commentId,
+                reply_text: text,
+              }}
+            }})
+          }}
+        );
+
+        if (res.status === 204) {{
+          showToast('✅ 返信を送信しました（反映まで1〜2分）', 'success');
+          const card = document.getElementById('card-' + commentId);
+          card.style.opacity = '0.4';
+          btn.textContent = '送信済み ✓';
+        }} else if (res.status === 401 || res.status === 403) {{
+          showToast('GitHub PATが無効です。再設定してください', 'error');
+          localStorage.removeItem('gh_pat');
+          checkSetup();
+          btn.textContent = '返信する';
+          btn.classList.remove('btn-sending');
+        }} else {{
+          const body = await res.text();
+          showToast(`エラー: ${{res.status}} ${{body.slice(0, 100)}}`, 'error');
+          btn.textContent = '返信する';
+          btn.classList.remove('btn-sending');
+        }}
+      }} catch (e) {{
+        showToast('通信エラー: ' + e.message, 'error');
+        btn.textContent = '返信する';
+        btn.classList.remove('btn-sending');
+      }}
+    }}
+
+    // --- Toast ---
+    function showToast(msg, type) {{
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast show ' + (type || '');
+      setTimeout(() => t.className = 'toast', 3500);
+    }}
+
+    // Check setup on load
+    document.addEventListener('DOMContentLoaded', checkSetup);
   </script>
 
 </body>

@@ -2,7 +2,7 @@
 コメント取得 & リプライ案生成スクリプト
 - 直近25投稿のコメントを取得
 - 各コメントに対してClaude APIでリプライ案×3を生成
-- docs/replies.html を更新する
+- 未返信のコメントは次回以降も保持する（消えない）
 """
 import os
 import json
@@ -74,162 +74,43 @@ def save_seen(seen: set, seen_file):
     seen_file.write_text(json.dumps(list(seen), ensure_ascii=False))
 
 
+def load_existing_comments(data_dir) -> list[dict]:
+    """既存のcomments.jsonを読み込む"""
+    f = data_dir / "comments.json"
+    if f.exists():
+        return json.loads(f.read_text(encoding="utf-8"))
+    return []
+
+
 def generate_reply_drafts(post_text: str, comment_text: str) -> list[str]:
-    """Claude APIでリプライ案を3つ生成"""
+    """Claude APIでリプライ案を3つ生成（短め）"""
     client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
     prompt = f"""あなたはThreadsで研究×AIの情報発信をしている研究者です。
-研究歴20年以上の視点で、フォロワーからのコメントに丁寧かつ自然に返信してください。
+研究歴20年以上の視点で、フォロワーからのコメントに返信してください。
 
-【自分の投稿内容】
+【自分の投稿】
 {post_text[:300]}
 
 【相手のコメント】
 {comment_text}
 
-上記コメントへのリプライ案を3つ考えてください。
-- パターン1：共感・感謝ベース（温かみのある返し）
-- パターン2：深掘り・追加情報ベース（知的な返し）
-- パターン3：会話を広げるベース（次の対話につながる返し）
-
-各案は100〜150文字以内。番号なし。JSON配列で返してください。
-["リプライ案1", "リプライ案2", "リプライ案3"]"""
+リプライ案を3つ。各案50〜80文字。自然な口語で。
+JSON配列で返してください。
+["案1", "案2", "案3"]"""
 
     message = client.messages.create(
         model="claude-haiku-4-5-20251001",
-        max_tokens=512,
+        max_tokens=400,
         messages=[{"role": "user", "content": prompt}],
     )
 
     text = message.content[0].text.strip()
-    # JSONを抽出
     start = text.find("[")
     end = text.rfind("]") + 1
     if start != -1 and end > start:
         return json.loads(text[start:end])
     return [text, "", ""]
-
-
-def build_html(comment_blocks: list) -> str:
-    now_str = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
-
-    if not comment_blocks:
-        body = '<p class="empty">新着コメントはありません</p>'
-    else:
-        cards = ""
-        for block in comment_blocks:
-            drafts_html = ""
-            for i, draft in enumerate(block["drafts"], 1):
-                drafts_html += f"""
-                <div class="draft">
-                  <span class="draft-label">案{i}</span>
-                  <p>{draft}</p>
-                </div>"""
-
-            cards += f"""
-            <div class="card">
-              <div class="post-ref">
-                <span class="label">投稿</span>
-                <a href="{block['permalink']}" target="_blank">{block['post_text'][:60]}…</a>
-              </div>
-              <div class="comment-box">
-                <span class="username">@{block['username']}</span>
-                <p class="comment-text">{block['comment_text']}</p>
-                <span class="time">{block['comment_time']}</span>
-              </div>
-              <div class="drafts-section">
-                <p class="drafts-title">リプライ案</p>
-                {drafts_html}
-              </div>
-            </div>"""
-        body = cards
-
-    return f"""<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Threads コメント一覧</title>
-  <style>
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{
-      font-family: -apple-system, sans-serif;
-      background: #f5f5f5;
-      padding: 16px;
-      max-width: 640px;
-      margin: 0 auto;
-    }}
-    h1 {{ font-size: 18px; margin-bottom: 4px; color: #111; }}
-    .updated {{ font-size: 12px; color: #888; margin-bottom: 16px; }}
-    .card {{
-      background: white;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }}
-    .post-ref {{
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 10px;
-      border-left: 3px solid #ddd;
-      padding-left: 8px;
-    }}
-    .post-ref .label {{
-      font-weight: bold;
-      margin-right: 6px;
-    }}
-    .post-ref a {{ color: #555; text-decoration: none; }}
-    .comment-box {{
-      background: #f9f9f9;
-      border-radius: 8px;
-      padding: 10px 12px;
-      margin-bottom: 12px;
-    }}
-    .username {{ font-weight: bold; font-size: 13px; color: #333; }}
-    .comment-text {{ font-size: 14px; color: #222; margin: 4px 0; line-height: 1.5; }}
-    .time {{ font-size: 11px; color: #aaa; }}
-    .drafts-title {{ font-size: 12px; font-weight: bold; color: #555; margin-bottom: 8px; }}
-    .draft {{
-      border: 1px solid #e8e8e8;
-      border-radius: 8px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: background 0.15s;
-    }}
-    .draft:active {{ background: #f0f0f0; }}
-    .draft-label {{
-      font-size: 11px;
-      font-weight: bold;
-      color: #888;
-      display: block;
-      margin-bottom: 4px;
-    }}
-    .draft p {{ font-size: 14px; color: #222; line-height: 1.5; }}
-    .empty {{ text-align: center; color: #aaa; padding: 40px 0; font-size: 14px; }}
-  </style>
-  <script>
-    // タップでテキストをクリップボードにコピー
-    document.addEventListener('DOMContentLoaded', () => {{
-      document.querySelectorAll('.draft').forEach(el => {{
-        el.addEventListener('click', () => {{
-          const text = el.querySelector('p').textContent;
-          navigator.clipboard.writeText(text).then(() => {{
-            el.style.background = '#e8f5e9';
-            setTimeout(() => el.style.background = '', 800);
-          }});
-        }});
-      }});
-    }});
-  </script>
-</head>
-<body>
-  <h1>📩 Threads コメント</h1>
-  <p class="updated">更新: {now_str}</p>
-  {body}
-</body>
-</html>"""
 
 
 def run(ctx=None):
@@ -247,7 +128,11 @@ def run(ctx=None):
     seen = load_seen(ctx.seen_file)
     posts = get_my_posts(ctx.token, ctx.user_id, limit=25)
 
-    comment_blocks = []
+    # 既存コメントを読み込み（未返信のものを保持）
+    existing = load_existing_comments(ctx.data_dir)
+    existing_ids = {c["comment_id"] for c in existing if "comment_id" in c}
+
+    new_comments = []
     new_seen = set(seen)
 
     for post in posts:
@@ -274,9 +159,12 @@ def run(ctx=None):
                 new_seen.add(reply_id)
                 continue
 
-            ts = reply.get("timestamp", "")
+            # 既に処理済みならスキップ
+            if reply_id in existing_ids:
+                new_seen.add(reply_id)
+                continue
 
-            # JSTに変換
+            ts = reply.get("timestamp", "")
             try:
                 dt = datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(JST)
                 comment_time = dt.strftime("%m/%d %H:%M")
@@ -290,27 +178,38 @@ def run(ctx=None):
                 print(f"  リプライ案生成完了: {len(drafts)}件")
             except Exception as e:
                 print(f"  リプライ案生成エラー: {e}")
-                drafts = [f"（生成失敗: {e}）", "（手動で入力してください）", ""]
+                drafts = [f"（生成失敗: {e}）", "", ""]
 
-            comment_blocks.append({
+            new_comments.append({
+                "comment_id": reply_id,
+                "post_id": post_id,
                 "post_text": post_text,
                 "permalink": permalink,
                 "username": username,
                 "comment_text": comment_text,
                 "comment_time": comment_time,
                 "drafts": drafts,
+                "replied": False,
             })
             new_seen.add(reply_id)
 
-    DOCS_DIR.mkdir(exist_ok=True)
-    html = build_html(comment_blocks)
-    (DOCS_DIR / "replies.html").write_text(html, encoding="utf-8")
-    print(f"✅ {len(comment_blocks)}件のコメントを更新 → docs/replies.html")
+    # マージ: 未返信の既存コメントを保持 + 新着を追加
+    unreplied = [c for c in existing if not c.get("replied", False)]
+    # 重複排除（comment_idベース）
+    unreplied_ids = {c["comment_id"] for c in unreplied if "comment_id" in c}
+    for nc in new_comments:
+        if nc["comment_id"] not in unreplied_ids:
+            unreplied.append(nc)
 
-    # ダッシュボード用にJSONも保存
+    # 返信済みも別途保持（直近20件）
+    replied = [c for c in existing if c.get("replied", False)][-20:]
+
+    all_comments = unreplied + replied
+
+    # 保存
     comments_file = ctx.data_dir / "comments.json"
-    comments_file.write_text(json.dumps(comment_blocks, ensure_ascii=False, indent=2))
-    print(f"✅ コメントデータ保存 → {comments_file}")
+    comments_file.write_text(json.dumps(all_comments, ensure_ascii=False, indent=2))
+    print(f"✅ コメント保存: 未返信{len(unreplied)}件 + 返信済{len(replied)}件")
 
     save_seen(new_seen, ctx.seen_file)
 

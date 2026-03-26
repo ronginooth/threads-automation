@@ -32,6 +32,7 @@ COMMANDS = {
     "quality": "scripts/quality_check.py",
     "fetch": "scripts/fetch_replies.py",
     "pivot": "scripts/buzz_pivot.py",
+    "reply": "scripts/reply.py",
 }
 
 

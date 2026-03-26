@@ -59,6 +59,21 @@ def get_my_posts(token: str, user_id: str, limit: int = 25) -> list:
     return res.json().get("data", [])
 
 
+def create_reply(text: str, reply_to_id: str, token: str, user_id: str) -> str:
+    """リプライコンテナを作成してpost_idを返す"""
+    res = requests.post(
+        f"{BASE_URL}/{user_id}/threads",
+        params={
+            "media_type": "TEXT",
+            "text": text,
+            "reply_to_id": reply_to_id,
+            "access_token": token,
+        },
+    )
+    res.raise_for_status()
+    return res.json()["id"]
+
+
 def get_user_posts(target_user_id: str, token: str, limit: int = 25) -> list:
     """公開ユーザーの投稿一覧を取得（バズ分析用）"""
     res = requests.get(
