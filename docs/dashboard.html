@@ -455,7 +455,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-27 00:03 JST</p>
+    <p class="updated">更新: 2026-03-27 07:19 JST</p>
   </div>
 
   <nav class="nav">
@@ -463,7 +463,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (10)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (3)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (1)</button>
   </nav>
 
   <!-- 概要 -->
@@ -905,7 +905,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (3件)</div>
+    <div class="section-subtitle">未返信 (1件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -938,73 +938,27 @@
               <button class="btn btn-send" onclick="confirmReply('17895053220288275')">返信する</button>
             </div>
           </div>
-        </div>
-        <div class="reply-card" id="card-18065161742661420">
+        </div><div class="section-subtitle replied-header">返信済み (3件)</div>
+        <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTsXUcGrKm" target="_blank">↗ 研究者の皆さんに聞きたい。<br><br>論文執筆で一番時間がかかる工程って何ですか？<br><br>わたしは圧倒的にDis…</a>
           </div>
           <div class="reply-comment">
             <span class="reply-username">@yukonikebe</span>
             <p class="reply-text">introduction。<br>オチはだいたいいけるんやけど、そこにもってくためのつかみがいっつも定まらん…</p>
-            <span class="reply-time">03/26 16:55</span>
           </div>
-          <div class="reply-drafts">
-            <p class="drafts-title">💬 案をタップして編集</p>
-            
-            <div class="reply-draft" onclick="selectDraft(this, '18065161742661420')">
-              <span class="draft-label">案1</span>
-              <p>わかります！Introductionは読者を納得させる必要があるから難しいですよね。逆算で『この結果を引き出すには、どんな問題提起が必要か』から始めると、つかみが定まりやすい気がします。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18065161742661420')">
-              <span class="draft-label">案2</span>
-              <p>あ〜それめっちゃ分かる。結果ありきで書くから、そこまでの道のりが曖昧になっちゃうんですよね。最後に『この問題を解くために研究した』という流れを強引に作るのがコツかも。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18065161742661420')">
-              <span class="draft-label">案3</span>
-              <p>Introductionのつかみ難しいですよね。個人的には先に『この結果が新しい理由』を1文で書いて、そこに読者をどう導くかを考えると、話の筋が通りやすくなった。試してみてください。</p>
-            </div>
-          </div>
-          <div class="reply-editor" id="editor-18065161742661420" style="display:none;">
-            <textarea class="reply-textarea" id="textarea-18065161742661420" rows="3" placeholder="返信を入力…"></textarea>
-            <div class="reply-actions">
-              <button class="btn btn-cancel" onclick="cancelReply('18065161742661420')">キャンセル</button>
-              <button class="btn btn-send" onclick="confirmReply('18065161742661420')">返信する</button>
-            </div>
-          </div>
+          <div class="replied-badge">✅ 返信済み: わかります！Introductionは読者を納得させる必要があるから難しいですよね。逆算で『この結果を引き出すには、どんな問題提起が必要か』から始めると、つかみ</div>
         </div>
-        <div class="reply-card" id="card-18097753048822844">
+        <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWVWVPhEYKH" target="_blank">↗ 査読で「この引用元を確認してください」と言われた。<br><br>確認したら、私が引用した論文が、<br>さらに古い論…</a>
           </div>
           <div class="reply-comment">
             <span class="reply-username">@junming.lai.35</span>
             <p class="reply-text">すごいレビュアーです</p>
-            <span class="reply-time">03/26 21:09</span>
           </div>
-          <div class="reply-drafts">
-            <p class="drafts-title">💬 案をタップして編集</p>
-            
-            <div class="reply-draft" onclick="selectDraft(this, '18097753048822844')">
-              <span class="draft-label">案1</span>
-              <p>本当にそうですね。厳しい指摘のおかげで研究の質が上がりました。査読者の存在ってやっぱり大事だなと改めて感じます。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18097753048822844')">
-              <span class="draft-label">案2</span>
-              <p>良いレビュアーに出会えるのって幸運です。その時は悔しかったですが、今となっては感謝しかないですね。研究の基本を思い出させてくれました。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18097753048822844')">
-              <span class="draft-label">案3</span>
-              <p>こういう丁寧な指摘がないと、気づかずに進んじゃうんですよね。研究の信頼性って、こういう小さな積み重ねで作られるんだと痛感しました。</p>
-            </div>
-          </div>
-          <div class="reply-editor" id="editor-18097753048822844" style="display:none;">
-            <textarea class="reply-textarea" id="textarea-18097753048822844" rows="3" placeholder="返信を入力…"></textarea>
-            <div class="reply-actions">
-              <button class="btn btn-cancel" onclick="cancelReply('18097753048822844')">キャンセル</button>
-              <button class="btn btn-send" onclick="confirmReply('18097753048822844')">返信する</button>
-            </div>
-          </div>
-        </div><div class="section-subtitle replied-header">返信済み (1件)</div>
+          <div class="replied-badge">✅ 返信済み: こういう丁寧な指摘がないと、気づかずに進んじゃうんですよね。研究の信頼性って、こういう小さな積み重ねで作られるんだと痛感しました。</div>
+        </div>
         <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
