@@ -309,15 +309,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-26 07:26 JST</p>
+    <p class="updated">更新: 2026-03-26 10:21 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (15)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (14)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信</button>
   </nav>
 
   <!-- 概要 -->
@@ -325,7 +325,7 @@
     
     <div class="stats-row">
       <div class="stat-card">
-        <div class="stat-num">15</div>
+        <div class="stat-num">14</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
@@ -333,7 +333,7 @@
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">12</div>
+        <div class="stat-num">13</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -434,17 +434,6 @@
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
     
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-26 08:00</span>
-            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
-          </div>
-          <p class="queue-body">論文を引用した著者の約7割は、その論文を読んでいない。<br><br>引用エラーの「伝播パターン」から逆算した研究がある。<br>（Simkin &amp; Roychowdhury, 2003, Complex Systems）<br><br>同じ誤字・誤記が複数の論文に連鎖している現象から、<br>実際に原文を読んでいるのは全体の20〜30%と推計された。<br><br>「よく引用されている＝正しい」ではなく、<br>「よく引用されている＝よく孫引きされ</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-26_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-26_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
         <div class="queue-card">
           <div class="queue-header">
             <span class="queue-time">2026-03-26 12:00</span>
@@ -606,6 +595,11 @@
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
         <div class="posted-card">
+          <div class="posted-time">2026-03-25T23:06</div>
+          <p class="posted-text">論文を引用した著者の約7割は、その論文を読んでいない。<br><br>引用エラーの「伝播パターン」から逆算した研究がある。<br>（Simkin &amp; Roychowdhury, 2003, Complex Systems）<br><br>同じ誤字・誤記が複数の論文に連鎖している現象から、<br>実際に原文を読んでいるのは全体の20〜30%と推計された。<br><br>「よく引用されている＝正しい」ではなく、<br>「よく引用されている＝よく孫引きされ</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
+        <div class="posted-card">
           <div class="posted-time">2026-03-25T12:38</div>
           <p class="posted-text">研究者の皆さんに聞きたい。<br><br>論文執筆で一番時間がかかる工程って何ですか？<br><br>わたしは圧倒的にDiscussion。<br><br>結果は出てるのに「だから何？」を書くのが<br>毎回しんどい。<br><br>皆さんはどこで詰まりますか？</p>
           
@@ -740,67 +734,7 @@
   <!-- 返信 -->
   <div id="replies" class="section">
     <div class="section-title">💬 コメント返信</div>
-    
-    <div class="reply-card">
-      <div class="reply-post-ref">
-        <a href="https://www.threads.com/@ronginooth_ai/post/DWTsXUcGrKm" target="_blank">↗ 研究者の皆さんに聞きたい。
-
-論文執筆で一番時間がかかる工程って何ですか？
-
-わたしは圧倒的にDis…</a>
-      </div>
-      <div class="reply-comment">
-        <span class="reply-username">@yuukigousei</span>
-        <p class="reply-text">事実を事実以外に読み取られないように書くのに一番神経と時間を使いました</p>
-        <span class="reply-time">03/26 00:36</span>
-      </div>
-      <div class="reply-drafts">
-        <p class="drafts-title">💬 リプライ案（タップでコピー）</p>
-        
-        <div class="reply-draft" onclick="copyDraft(this)">
-          <span class="draft-label">案1</span>
-          <p>わかります！その神経遣いって本当に大事ですよね。私も経験があります。結果の解釈って一歩間違えると読者に誤解を与えてしまう。その緊張感を持ちながら書く作業、本当に疲れますし時間かかりますよね。丁寧に向き合ってる姿勢、素晴らしいです。</p>
-        </div>
-        <div class="reply-draft" onclick="copyDraft(this)">
-          <span class="draft-label">案2</span>
-          <p>その指摘は深い。実は論文の信頼性って、結果よりもむしろそういう『慎重な記述』が左右する部分が大きい。査読者もそこを見てますし。事実と解釈の境界線を明確にしながら書く訓練って、研究スキルの中でも最も重要な部分だと私も感じます。</p>
-        </div>
-        <div class="reply-draft" onclick="copyDraft(this)">
-          <span class="draft-label">案3</span>
-          <p>それ、Discussion執筆の課題にも通じてますね。事実と解釈の線引きができていないと『だから何？』の説得力が失われる。コメント者さんのその厳密さがあれば、Discussionもより堅牢になるはず。普段からそういう訓練されてるなら、ぜひコツ教えてもらいたいです！</p>
-        </div>
-      </div>
-    </div>
-    <div class="reply-card">
-      <div class="reply-post-ref">
-        <a href="https://www.threads.com/@ronginooth_ai/post/DWTsXUcGrKm" target="_blank">↗ 研究者の皆さんに聞きたい。
-
-論文執筆で一番時間がかかる工程って何ですか？
-
-わたしは圧倒的にDis…</a>
-      </div>
-      <div class="reply-comment">
-        <span class="reply-username">@abcdear.10.4</span>
-        <p class="reply-text">discossionですね。methodとかは数時間で書き終えるんですけど。</p>
-        <span class="reply-time">03/26 00:31</span>
-      </div>
-      <div class="reply-drafts">
-        <p class="drafts-title">💬 リプライ案（タップでコピー）</p>
-        
-        <div class="reply-draft" onclick="copyDraft(this)">
-          <span class="draft-label">案1</span>
-          <p>ですよね！Methodは事実を淡々と書けば済むのに、Discussionは「なぜそうなったのか」「先行研究とどう違うのか」「限界は？」など多次元的な思考が必要。その落差がしんどさの正体かもしれません。共感です。</p>
-        </div>
-        <div class="reply-draft" onclick="copyDraft(this)">
-          <span class="draft-label">案2</span>
-          <p>興味深いですね。Methodが数時間で書ける方は、恐らく実験設計の段階で論理が明確に構築されているのかも。一方Discussionで時間がかかるのは、結果の解釈に複数の可能性が存在するからでは。そこをどう整理するかが鍵かもしれません。</p>
-        </div>
-        <div class="reply-draft" onclick="copyDraft(this)">
-          <span class="draft-label">案3</span>
-          <p>わかります。ところで、Discussionが進まないときってどうされていますか？私は行き詰まったら、「この結果は業界に何をもたらすのか」という視点に立ち戻ることが多いんですが、何か工夫されていることはありますか？</p>
-        </div>
-      </div>
-    </div>
+    <p class="empty">新着コメントはありません</p>
   </div>
 
   <script>
