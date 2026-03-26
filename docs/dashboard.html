@@ -455,15 +455,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-26 19:43 JST</p>
+    <p class="updated">更新: 2026-03-26 21:52 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (11)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (10)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (3)</button>
   </nav>
 
   <!-- 概要 -->
@@ -479,15 +479,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">11</div>
+        <div class="stat-num">10</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">3</div>
+        <div class="stat-num">4</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">16</div>
+        <div class="stat-num">17</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -588,17 +588,6 @@
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
     
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-26 21:00</span>
-            <span class="queue-type type-あるある">あるある</span>
-          </div>
-          <p class="queue-body">共同研究者に「いつ出せる？」って聞かれて<br>「来月には…」と答える。<br><br>3ヶ月後、まだ書いてる。<br><br>6ヶ月後、データを追加実験してる。<br><br>研究者の「来月」は信用してはいけない。<br>自分が一番分かってる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-26_5_aruaru.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-26_5_aruaru.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
         <div class="queue-card">
           <div class="queue-header">
             <span class="queue-time">2026-03-27 08:00</span>
@@ -715,6 +704,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-26T12:38</div>
+          <p class="posted-text">共同研究者に「いつ出せる？」って聞かれて<br>「来月には…」と答える。<br><br>3ヶ月後、まだ書いてる。<br><br>6ヶ月後、データを追加実験してる。<br><br>研究者の「来月」は信用してはいけない。<br>自分が一番分かってる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-26T08:40</div>
           <p class="posted-text">論文を書くとき「完璧に仕上げてから出す」と思ってた。<br><br>でも実は、60%の段階で共著者に見せたほうが<br>最終的なクオリティは上がる。<br><br>理由は簡単で、<br>自分の頭の中だけで考え続けると<br>「穴」に気づけなくなるから。<br><br>早く見せる勇気、大事でした。</p>
@@ -890,7 +884,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (2件)</div>
+    <div class="section-subtitle">未返信 (3件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -954,6 +948,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18065161742661420')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18065161742661420')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18097753048822844">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWVWVPhEYKH" target="_blank">↗ 査読で「この引用元を確認してください」と言われた。<br><br>確認したら、私が引用した論文が、<br>さらに古い論…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@junming.lai.35</span>
+            <p class="reply-text">すごいレビュアーです</p>
+            <span class="reply-time">03/26 21:09</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18097753048822844')">
+              <span class="draft-label">案1</span>
+              <p>本当にそうですね。厳しい指摘のおかげで研究の質が上がりました。査読者の存在ってやっぱり大事だなと改めて感じます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18097753048822844')">
+              <span class="draft-label">案2</span>
+              <p>良いレビュアーに出会えるのって幸運です。その時は悔しかったですが、今となっては感謝しかないですね。研究の基本を思い出させてくれました。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18097753048822844')">
+              <span class="draft-label">案3</span>
+              <p>こういう丁寧な指摘がないと、気づかずに進んじゃうんですよね。研究の信頼性って、こういう小さな積み重ねで作られるんだと痛感しました。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18097753048822844" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18097753048822844" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18097753048822844')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18097753048822844')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (1件)</div>
