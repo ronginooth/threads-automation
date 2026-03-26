@@ -455,15 +455,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-26 12:22 JST</p>
+    <p class="updated">更新: 2026-03-26 13:25 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (14)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (13)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
   </nav>
 
   <!-- 概要 -->
@@ -471,15 +471,15 @@
     
     <div class="stats-row">
       <div class="stat-card">
-        <div class="stat-num">14</div>
+        <div class="stat-num">13</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">13</div>
+        <div class="stat-num">14</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -580,17 +580,6 @@
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
     
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-26 12:00</span>
-            <span class="queue-type type-体験談">体験談</span>
-          </div>
-          <p class="queue-body">査読で「この引用元を確認してください」と言われた。<br><br>確認したら、私が引用した論文が、<br>さらに古い論文の言い換えだったと気づいた。<br><br>誰かの孫引きを、また孫引きしていた。<br><br>「有名な論文だから大丈夫」で済ませた自分のミス。<br>一次文献に当たるのを面倒くさがった結果だった。<br><br>それ以来、重要な引用は必ず原文を確認している。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-26_2_failure.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-26_2_failure.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
         <div class="queue-card">
           <div class="queue-header">
             <span class="queue-time">2026-03-26 15:00</span>
@@ -741,6 +730,11 @@
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
         <div class="posted-card">
+          <div class="posted-time">2026-03-26T04:04</div>
+          <p class="posted-text">査読で「この引用元を確認してください」と言われた。<br><br>確認したら、私が引用した論文が、<br>さらに古い論文の言い換えだったと気づいた。<br><br>誰かの孫引きを、また孫引きしていた。<br><br>「有名な論文だから大丈夫」で済ませた自分のミス。<br>一次文献に当たるのを面倒くさがった結果だった。<br><br>それ以来、重要な引用は必ず原文を確認している。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
+        <div class="posted-card">
           <div class="posted-time">2026-03-25T23:06</div>
           <p class="posted-text">論文を引用した著者の約7割は、その論文を読んでいない。<br><br>引用エラーの「伝播パターン」から逆算した研究がある。<br>（Simkin &amp; Roychowdhury, 2003, Complex Systems）<br><br>同じ誤字・誤記が複数の論文に連鎖している現象から、<br>実際に原文を読んでいるのは全体の20〜30%と推計された。<br><br>「よく引用されている＝正しい」ではなく、<br>「よく引用されている＝よく孫引きされ</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
@@ -886,7 +880,73 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <p class="empty">コメントはありません</p>
+    <div class="section-subtitle">未返信 (2件)</div>
+        <div class="reply-card" id="card-18308773234257008">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@ndlmna</span>
+            <p class="reply-text">実験結果や考察の受動態征伐は正しいですけどね。</p>
+            <span class="reply-time">03/26 12:12</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18308773234257008')">
+              <span class="draft-label">案1</span>
+              <p>そうですね。Results と Discussion では能動態が入ってもいいんです。むしろ自分の解釈を主張する場面では「we found」の方が説得力あります。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18308773234257008')">
+              <span class="draft-label">案2</span>
+              <p>ちょうどそこです。Methods は客観性重視で受動態、Results/Discussion は自分の主張を前に出す能動態。セクションで使い分けるのが正解ですよ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18308773234257008')">
+              <span class="draft-label">案3</span>
+              <p>正確な指摘。Methods の受動態は再現性を強調するため。でも結果の解釈は「私たちが見つけた」と能動態で主張する方が、むしろ科学的です。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18308773234257008" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18308773234257008" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18308773234257008')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18308773234257008')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17895053220288275">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@kumasan1969</span>
+            <p class="reply-text">留学一年目で留学生向けの英語のクラスで割と厳しく教わったのをよく覚えています。<br>タバコで潰れたしゃがれた声の女性の先生。卒業してからfbで交流してとても優しい方なのを知りました。授業はあんな厳しかったのにw</p>
+            <span class="reply-time">03/26 10:34</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17895053220288275')">
+              <span class="draft-label">案1</span>
+              <p>厳しい指導って、実は学生のためなんですよね。その先生も「正しいルール」だと信じて教えてたんだと思う。でも時代とともに学問的規範も変わる。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17895053220288275')">
+              <span class="draft-label">案2</span>
+              <p>授業の厳しさと人間の優しさは別物。むしろ厳しく指導できる先生こそ、学生の成長を本気で考えてる証拠かもしれません。FB交流できてよかった。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17895053220288275')">
+              <span class="draft-label">案3</span>
+              <p>留学初期は特に「ルール」に頼りたくなりますよね。でも重要なのは背景理解。その先生も、当時の教育トレンドの中で最善を尽くしてたんだと思います。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17895053220288275" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17895053220288275" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17895053220288275')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17895053220288275')">返信する</button>
+            </div>
+          </div>
+        </div>
   </div>
 
   <!-- 確認モーダル -->
