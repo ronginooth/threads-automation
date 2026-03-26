@@ -1,12 +1,26 @@
 .env
 __pycache__/
 *.pyc
+
+# 旧構造（移行済み・無視）
+data/queue/
+data/posted/
+data/account_profile.md
+data/rejected_log.json
+data/seen_comments.json
+data/stats.csv
+data/posted_log.json
+data/report_*.md
 data/scheduler.log
 data/scheduler_error.log
 data/trends_raw_*.json
-data/stats.csv
-data/posted_log.json
-data/queue/*.md
-!data/queue/sample_post.md
-data/posted/*.md
-data/report_*.md
+
+# アカウントデータ（個人データは追跡しない）
+data/*/queue/*.md
+data/*/posted/*.md
+data/*/stats.csv
+data/*/account_insights.csv
+data/*/posted_log.json
+data/*/comments.json
+data/*/seen_comments.json
+data/*/rejected_log.json

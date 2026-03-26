@@ -37,8 +37,8 @@ class AccountContext:
         self.kill_switch = self.data_dir / "KILL_SWITCH"
         self.posts_dir = BASE / "posts" / self.name
 
-        # バズ分析（全アカウント共有）
-        self.buzz_dir = BASE / "data" / "buzz"
+        # バズ分析（アカウントごと）
+        self.buzz_dir = self.data_dir / "buzz"
         niche = self.config.get("niche", "general")
         self.buzz_patterns_file = self.buzz_dir / "patterns" / f"{niche}.md"
 
@@ -66,7 +66,7 @@ class AccountContext:
         self.queue_dir.mkdir(parents=True, exist_ok=True)
         self.posted_dir.mkdir(parents=True, exist_ok=True)
         self.posts_dir.mkdir(parents=True, exist_ok=True)
-        self.data_dir.mkdir(parents=True, exist_ok=True)
+        self.buzz_dir.mkdir(parents=True, exist_ok=True)
 
 
 def get_context() -> AccountContext:
