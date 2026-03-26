@@ -91,6 +91,14 @@ def load_comments(data_dir) -> list[dict]:
     return []
 
 
+def load_account_insights(data_dir) -> list[dict]:
+    f = data_dir / "account_insights.csv"
+    if not f.exists():
+        return []
+    with open(f, encoding="utf-8") as fp:
+        return list(csv.DictReader(fp))
+
+
 def score(row: dict) -> float:
     return (
         int(row.get("likes", 0)) * 3
@@ -114,7 +122,7 @@ def escape(text: str) -> str:
             .replace("\n", "<br>"))
 
 
-def build_summary_cards(queue, posted_log, stats_rows, kill_switch) -> str:
+def build_summary_cards(queue, posted_log, stats_rows, kill_switch, account_insights=None) -> str:
     queue_count = len(queue)
     posted_today = 0
     today_str = datetime.now(JST).strftime("%Y-%m-%d")
@@ -134,10 +142,26 @@ def build_summary_cards(queue, posted_log, stats_rows, kill_switch) -> str:
         avg_likes = sum(int(r.get("likes", 0)) for r in stats_rows) / len(stats_rows)
         avg_replies = sum(int(r.get("replies", 0)) for r in stats_rows) / len(stats_rows)
 
+    # アカウントインサイト（最新）
+    followers = 0
+    account_views = 0
+    if account_insights:
+        latest = account_insights[-1]
+        followers = int(latest.get("followers_count", 0))
+        account_views = int(latest.get("views", 0))
+
     kill_html = '<div class="stat-card kill">🛑 停止中</div>' if kill_active else ''
 
     return f"""
     <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">{followers}</div>
+        <div class="stat-label">フォロワー</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">{account_views:,}</div>
+        <div class="stat-label">プロフィール表示</div>
+      </div>
       <div class="stat-card">
         <div class="stat-num">{queue_count}</div>
         <div class="stat-label">キュー残数</div>
@@ -402,7 +426,8 @@ def build_html(ctx) -> str:
     reject_log = load_reject_log(ctx.reject_log)
     now_str = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
 
-    summary = build_summary_cards(queue, posted_log, stats_rows, ctx.kill_switch)
+    account_insights = load_account_insights(ctx.data_dir)
+    summary = build_summary_cards(queue, posted_log, stats_rows, ctx.kill_switch, account_insights)
     actions = build_actions_section(queue, posted_log, stats_rows, reject_log, ctx.kill_switch)
     analysis = build_analysis_section(stats_rows)
     queue_html = build_queue_section(queue)
@@ -493,7 +518,7 @@ def build_html(ctx) -> str:
     /* ===== STATS ROW ===== */
     .stats-row {{
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       margin-bottom: 16px;
     }}

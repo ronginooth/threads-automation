@@ -74,6 +74,29 @@ def create_reply(text: str, reply_to_id: str, token: str, user_id: str) -> str:
     return res.json()["id"]
 
 
+def get_user_insights(token: str, user_id: str) -> dict:
+    """ユーザーレベルのインサイト（プロフィールviews、リンクclicks等）を取得"""
+    res = requests.get(
+        f"{BASE_URL}/{user_id}/threads_insights",
+        params={
+            "metric": "views,likes,replies,reposts,quotes,followers_count",
+            "access_token": token,
+        },
+    )
+    res.raise_for_status()
+    data = res.json().get("data", [])
+    result = {}
+    for item in data:
+        name = item["name"]
+        # total_value がある場合（followers_count等）
+        if "total_value" in item:
+            result[name] = item["total_value"].get("value", 0)
+        # values 配列がある場合
+        elif "values" in item and item["values"]:
+            result[name] = item["values"][0].get("value", 0)
+    return result
+
+
 def get_user_posts(target_user_id: str, token: str, limit: int = 25) -> list:
     """公開ユーザーの投稿一覧を取得（バズ分析用）"""
     res = requests.get(
