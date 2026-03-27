@@ -455,15 +455,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-27 10:21 JST</p>
+    <p class="updated">更新: 2026-03-27 13:26 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (9)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (8)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (1)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
   </nav>
 
   <!-- 概要 -->
@@ -479,15 +479,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">9</div>
+        <div class="stat-num">8</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">18</div>
+        <div class="stat-num">19</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -510,7 +510,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り9件。今週中に補充を検討</div>
+            <div class="action-desc">残り8件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -595,17 +595,6 @@
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
     
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-27 12:00</span>
-            <span class="queue-type type-体験談">体験談</span>
-          </div>
-          <p class="queue-body">学振に落ちた。かなり落ち込んでいた。<br><br>研究室の先輩に話したら、<br><br>「採択率何パーセントか知ってる？」<br><br>——20〜30%くらいですか<br><br>「落ちた人の方が圧倒的に多い世界で、<br>なんで自分のせいだと思うの？」<br><br>それから、不採択通知が来るたびに<br>まず採択率を調べることにしている。<br><br>比べる相手は同期じゃなくて、数字でいい。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-27_2_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-27_2_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
         <div class="queue-card">
           <div class="queue-header">
             <span class="queue-time">2026-03-27 15:00</span>
@@ -700,6 +689,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-27T04:05</div>
+          <p class="posted-text">学振に落ちた。かなり落ち込んでいた。<br><br>研究室の先輩に話したら、<br><br>「採択率何パーセントか知ってる？」<br><br>——20〜30%くらいですか<br><br>「落ちた人の方が圧倒的に多い世界で、<br>なんで自分のせいだと思うの？」<br><br>それから、不採択通知が来るたびに<br>まず採択率を調べることにしている。<br><br>比べる相手は同期じゃなくて、数字でいい。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-26T23:19</div>
           <p class="posted-text">博士課程学生の41%が、不安または抑うつの症状を経験している。<br><br>一般人口と比べて2.43倍の高さ。<br><br>これはNature Biotechnologyに掲載された研究の数字。<br>（Evans et al., 2018, Nature Biotechnology）<br><br>「研究に向いていないのかも」「自分だけ苦しい」ではなく、<br>構造的にそうなりやすい環境に置かれているという話。<br><br>個人の問題ではなく、シス</p>
@@ -906,7 +900,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (1件)</div>
+    <div class="section-subtitle">未返信 (2件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -937,6 +931,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17895053220288275')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17895053220288275')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17915682009147951">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWWRJKoGsEA" target="_blank">↗ 共同研究者に「いつ出せる？」って聞かれて<br>「来月には…」と答える。<br><br>3ヶ月後、まだ書いてる。<br><br>6…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@fuku5435</span>
+            <p class="reply-text">なので自分でできる様に内製化に努めています。<br>(作る⇔アッセイの繰り返し)</p>
+            <span class="reply-time">03/27 11:34</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17915682009147951')">
+              <span class="draft-label">案1</span>
+              <p>それですよ。内製化が最強です。他者に頼ると待つだけで終わっちゃう。作る⇔検証のサイクル回してたら、自分のペースで研究が進むし、新しい知見も生まれやすい。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17915682009147951')">
+              <span class="draft-label">案2</span>
+              <p>めっちゃ分かります。内製化すると研究のテンポ感が全然違いますよね。依存関係減らすだけで、思考と実行がダイレクトに繋がる感覚。やっぱり自分でやるのが一番早い。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17915682009147951')">
+              <span class="draft-label">案3</span>
+              <p>本当にそれ。「来月」の約束に振り回されるより、自分で作って検証するサイクル構築した方が、結果的に次の論文も早くなります。独立性高めるのが研究の加速度に繋がりますよね。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17915682009147951" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17915682009147951" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17915682009147951')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17915682009147951')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (3件)</div>
