@@ -455,15 +455,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-27 19:38 JST</p>
+    <p class="updated">更新: 2026-03-27 21:40 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (6)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (5)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (3)</button>
   </nav>
 
   <!-- 概要 -->
@@ -479,15 +479,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">6</div>
+        <div class="stat-num">5</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">3</div>
+        <div class="stat-num">4</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">21</div>
+        <div class="stat-num">22</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -510,7 +510,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り6件。今週中に補充を検討</div>
+            <div class="action-desc">残り5件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -597,17 +597,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-03-27 21:00</span>
-            <span class="queue-type type-失敗談">失敗談</span>
-          </div>
-          <p class="queue-body">AIに「論文書いて」と丸投げしたことがある。<br><br>出てきたのは、<br>もっともらしいけど中身のない文章だった。<br><br>そこで気づいた。<br>AIに渡すべきは「書いて」じゃなくて<br>「この構造で埋めて」だった。<br><br>設計図がないと、人間もAIも迷子になる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-27_5_failure.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-27_5_failure.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-03-28 08:00</span>
             <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
           </div>
@@ -667,6 +656,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-27T12:37</div>
+          <p class="posted-text">AIに「論文書いて」と丸投げしたことがある。<br><br>出てきたのは、<br>もっともらしいけど中身のない文章だった。<br><br>そこで気づいた。<br>AIに渡すべきは「書いて」じゃなくて<br>「この構造で埋めて」だった。<br><br>設計図がないと、人間もAIも迷子になる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-27T08:37</div>
           <p class="posted-text">研究でAIを使ってる人に聞きたい。<br><br>一番「これは助かった」って場面はどれ？<br><br>① 文献検索・要約<br>② 英文校正・翻訳<br>③ データ分析・可視化<br>④ アイデア出し・壁打ち<br><br>わたしは④が圧倒的に変わりました。<br>一人で考えるより3倍速い。</p>
@@ -867,11 +861,6 @@
               <span class="score">スコア 6</span>
             </div>
         </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-03-24T05:14</div>
-          <p class="posted-text">論文を書くのが遅い人と速い人、<br>何が違うか20年かけてやっと分かった。<br><br>速い人は「書く前に構造を決めている」。<br>遅い人は「書きながら構造を考えている」。<br><br>たったこれだけの差なのに、<br>かかる時間は3倍以上違う。<br><br>わたしは10年間ずっと遅い側でした。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
-        </div>
   </div>
 
   <!-- 返信 -->
@@ -883,7 +872,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (2件)</div>
+    <div class="section-subtitle">未返信 (3件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -947,6 +936,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18003777800906995')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18003777800906995')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18087221144264493">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWXae1vlmRv" target="_blank">↗ 博士課程学生の41%が、不安または抑うつの症状を経験している。<br><br>一般人口と比べて2.43倍の高さ。…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@hinaping76</span>
+            <p class="reply-text">向き不向きあるから。</p>
+            <span class="reply-time">03/27 19:59</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18087221144264493')">
+              <span class="draft-label">案1</span>
+              <p>向き不向きはもちろんあります。ただこのデータが示してるのは、向いてない人の割合が2倍以上になってるってこと。個人差じゃなく環境要因が大きいということですね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18087221144264493')">
+              <span class="draft-label">案2</span>
+              <p>向き不向きもありますね。でも一般人口比で2.43倍って数字を見ると、適性だけでは説明できない。構造や指導体制に改善の余地があるのでは、という視点です。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18087221144264493')">
+              <span class="draft-label">案3</span>
+              <p>そうですね。ただ向き不向きなら割合は変わらないはず。この倍率の差は、環境や指導方法に改善余地があるサイン。個人の頑張りじゃなくシステム改善が必要という話です。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18087221144264493" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18087221144264493" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18087221144264493')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18087221144264493')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (4件)</div>
