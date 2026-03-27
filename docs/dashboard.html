@@ -455,7 +455,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-27 23:48 JST</p>
+    <p class="updated">更新: 2026-03-28 07:22 JST</p>
   </div>
 
   <nav class="nav">
@@ -463,7 +463,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (5)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (3)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (4)</button>
   </nav>
 
   <!-- 概要 -->
@@ -483,7 +483,7 @@
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">0</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
@@ -907,7 +907,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (3件)</div>
+    <div class="section-subtitle">未返信 (4件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -1004,6 +1004,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18087221144264493')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18087221144264493')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17970029952002051">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWXae1vlmRv" target="_blank">↗ 博士課程学生の41%が、不安または抑うつの症状を経験している。<br><br>一般人口と比べて2.43倍の高さ。…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@garyyoshi0827</span>
+            <p class="reply-text">当たり前の気がするが🤔<br>世界で自分しか考えていない概念とか理論を考えていて、メンタルが正常である方がおかしいと思うのは私だけでしょうか？<br><br>自分の考えを肯定してくれる存在は皆無だし、そういう論文も皆無。それでメンタルが安定してるって 本当に鋼のメンタルだと思いますがね🤣</p>
+            <span class="reply-time">03/28 00:57</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17970029952002051')">
+              <span class="draft-label">案1</span>
+              <p>その通りですね。孤立した環境で自分の考えを検証する過程は、本来的にメンタルが揺らぎやすい。むしろ2.43倍で済んでる方が驚きです。システム改善が急務ですね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17970029952002051')">
+              <span class="draft-label">案2</span>
+              <p>完全に同意です。未踏領域を一人で切り開く苦しさは、ある程度は避けられない。だからこそ、その負荷を緩和する指導体制や環境整備が、個人の資質じゃなく制度設計の問題として必要なんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17970029952002051')">
+              <span class="draft-label">案3</span>
+              <p>本当そう。独創的であるほど孤立しやすい。ただここが大事なんですが、その苦しさが『必然』だと思わせるのがシステムの問題。支援体制があれば、メンタル維持と創造性は両立できるはずなんです。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17970029952002051" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17970029952002051" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17970029952002051')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17970029952002051')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (4件)</div>
