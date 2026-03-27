@@ -455,13 +455,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-27 16:52 JST</p>
+    <p class="updated">更新: 2026-03-27 17:40 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (6)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
   </nav>
@@ -479,15 +479,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">7</div>
+        <div class="stat-num">6</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">20</div>
+        <div class="stat-num">21</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -510,7 +510,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り7件。今週中に補充を検討</div>
+            <div class="action-desc">残り6件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -597,17 +597,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-03-27 17:00</span>
-            <span class="queue-type type-質問">質問</span>
-          </div>
-          <p class="queue-body">研究でAIを使ってる人に聞きたい。<br><br>一番「これは助かった」って場面はどれ？<br><br>① 文献検索・要約<br>② 英文校正・翻訳<br>③ データ分析・可視化<br>④ アイデア出し・壁打ち<br><br>わたしは④が圧倒的に変わりました。<br>一人で考えるより3倍速い。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-27_4_question.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-27_4_question.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-03-27 21:00</span>
             <span class="queue-type type-失敗談">失敗談</span>
           </div>
@@ -678,6 +667,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-27T08:37</div>
+          <p class="posted-text">研究でAIを使ってる人に聞きたい。<br><br>一番「これは助かった」って場面はどれ？<br><br>① 文献検索・要約<br>② 英文校正・翻訳<br>③ データ分析・可視化<br>④ アイデア出し・壁打ち<br><br>わたしは④が圧倒的に変わりました。<br>一人で考えるより3倍速い。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-27T06:54</div>
           <p class="posted-text">科研費、1回落ちた。<br><br>翌年、タイトルだけ変えて出し直した。<br><br>採択された。<br><br>（正確には中身も少しブラッシュアップしたけど）<br><br>審査員は申請書を5〜10分しか見ない。<br>最初に目に入るタイトルで印象が決まる。<br><br>研究の中身より先に「読みたい」と思わせる言葉を選ぶ。<br>それだけで結果が変わることがある。</p>
@@ -876,11 +870,6 @@
         <div class="posted-card">
           <div class="posted-time">2026-03-24T05:14</div>
           <p class="posted-text">論文を書くのが遅い人と速い人、<br>何が違うか20年かけてやっと分かった。<br><br>速い人は「書く前に構造を決めている」。<br>遅い人は「書きながら構造を考えている」。<br><br>たったこれだけの差なのに、<br>かかる時間は3倍以上違う。<br><br>わたしは10年間ずっと遅い側でした。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-03-24T03:41</div>
-          <p class="posted-text">論文の英語、どっちで書いてる？<br><br>最初から英語で書く → ❤️<br>日本語で書いてから翻訳する → 🔥<br><br>わたしは20年間ずっと🔥派だったけど、<br>AIに「型を渡して英語で埋めさせる」方式にしたら<br>最初から英語で書くより速くなりました。<br><br>どっち派か教えてください。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
   </div>
