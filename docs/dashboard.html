@@ -455,15 +455,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-28 07:22 JST</p>
+    <p class="updated">更新: 2026-03-28 08:53 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (5)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (4)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (5)</button>
   </nav>
 
   <!-- 概要 -->
@@ -479,7 +479,7 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">5</div>
+        <div class="stat-num">4</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
@@ -487,7 +487,7 @@
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">22</div>
+        <div class="stat-num">23</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -507,10 +507,10 @@
     <div class="section-title">⚡ やること</div>
     
         <div class="action-item">
-          <span class="action-icon">🟡</span>
+          <span class="action-icon">🔴</span>
           <div>
-            <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り5件。今週中に補充を検討</div>
+            <div class="action-title">キュー残数が少ない</div>
+            <div class="action-desc">残り4件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -597,17 +597,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-03-28 08:00</span>
-            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
-          </div>
-          <p class="queue-body">「初期に研究費の申請で落ちた研究者は、10年後に採択組を上回る」<br><br>2019年、Nature Communicationsに掲載された研究がある。<br>（Wang et al., 2019, Nature Communications）<br><br>NIHの初期申請で惜敗（僅差で不採択）した研究者を追跡すると、<br>10年後の論文数・被引用数が「かろうじて採択」組より高かった。<br><br>失敗直後は落ち込む。でも長期で見る</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-28_1_main.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-28_1_main.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-03-28 12:00</span>
             <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
           </div>
@@ -656,6 +645,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-27T23:26</div>
+          <p class="posted-text">「初期に研究費の申請で落ちた研究者は、10年後に採択組を上回る」<br><br>2019年、Nature Communicationsに掲載された研究がある。<br>（Wang et al., 2019, Nature Communications）<br><br>NIHの初期申請で惜敗（僅差で不採択）した研究者を追跡すると、<br>10年後の論文数・被引用数が「かろうじて採択」組より高かった。<br><br>失敗直後は落ち込む。でも長期で見る</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-27T12:37</div>
           <p class="posted-text">AIに「論文書いて」と丸投げしたことがある。<br><br>出てきたのは、<br>もっともらしいけど中身のない文章だった。<br><br>そこで気づいた。<br>AIに渡すべきは「書いて」じゃなくて<br>「この構造で埋めて」だった。<br><br>設計図がないと、人間もAIも迷子になる。</p>
@@ -884,18 +878,6 @@
               <span class="score">スコア 10</span>
             </div>
         </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-03-24T07:19</div>
-          <p class="posted-text">Introductionを自力で書く → 1日〜1週間<br><br>設計図を用意してAIに「型を埋めさせる」 → 30分〜1時間<br><br>この差、信じられますか？<br><br>でも実際にやってみたら、本当にそうなった。<br><br>ポイントは「AIの性能」じゃなくて「構造」。<br><br>皆さんが「これで論文の効率が劇的に変わった」という<br>方法やツールがあったら教えてください。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 42</span>
-              <span>❤️ 1</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 7</span>
-            </div>
-        </div>
   </div>
 
   <!-- 返信 -->
@@ -907,7 +889,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (4件)</div>
+    <div class="section-subtitle">未返信 (5件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -1037,6 +1019,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17970029952002051')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17970029952002051')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17887538439459503">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWaAEGcDsNN" target="_blank">↗ 「初期に研究費の申請で落ちた研究者は、10年後に採択組を上回る」<br><br>2019年、Nature Com…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@fuku5435</span>
+            <p class="reply-text">頑張るしかないですね<br>時間ができたと思い策を練ります</p>
+            <span class="reply-time">03/28 08:36</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17887538439459503')">
+              <span class="draft-label">案1</span>
+              <p>その心構えが大事です。不採択は時間をくれるチャンス。その間に研究を深掘りして、次の申請をより強くする。その繰り返しが後々効いてきます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17887538439459503')">
+              <span class="draft-label">案2</span>
+              <p>まさにそれ。短期的には悔しいけど、戦略を練り直す期間として使う。むしろ採択組より有利な立場で次に臨める可能性が高い。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17887538439459503')">
+              <span class="draft-label">案3</span>
+              <p>その通り。落ちた時間を無駄にせず、研究をブラッシュアップする。多くの大型成果は、実は初期申請落選組から生まれてるんです。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17887538439459503" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17887538439459503" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17887538439459503')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17887538439459503')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (4件)</div>
