@@ -455,7 +455,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-27 15:56 JST</p>
+    <p class="updated">更新: 2026-03-27 16:52 JST</p>
   </div>
 
   <nav class="nav">
@@ -463,7 +463,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (1)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (2)</button>
   </nav>
 
   <!-- 概要 -->
@@ -894,7 +894,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (1件)</div>
+    <div class="section-subtitle">未返信 (2件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -925,6 +925,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17895053220288275')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17895053220288275')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18003777800906995">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWXae1vlmRv" target="_blank">↗ 博士課程学生の41%が、不安または抑うつの症状を経験している。<br><br>一般人口と比べて2.43倍の高さ。…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@vivashayan</span>
+            <p class="reply-text">今絶賛博士課程学生です。<br>毎日かま不安で仕方ない</p>
+            <span class="reply-time">03/27 16:00</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18003777800906995')">
+              <span class="draft-label">案1</span>
+              <p>その不安は弱さじゃなく、構造の問題です。20年研究してきて思うのは、優秀な学生ほどこの環境で苦しむ傾向がある。無理しすぎず、時には立ち止まることも研究力です。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18003777800906995')">
+              <span class="draft-label">案2</span>
+              <p>毎日の不安、本当に大変ですね。でも統計的には41%が経験してる。決して異常ではなく、むしろシステムが異常。メンタルケア含め、自分を守ることも研究者の責務だと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18003777800906995')">
+              <span class="draft-label">案3</span>
+              <p>それは本当に辛い。ただ、その不安の正体は『あなたの無能さ』じゃなく『博士課程という環境そのもの』かもしれない。指導者や周囲に相談すること、強みじゃなく知恵だと考えてください。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18003777800906995" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18003777800906995" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18003777800906995')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18003777800906995')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (4件)</div>
