@@ -1,14 +1,17 @@
 """
 バズ分析スクリプト
 data/buzz/accounts.json のアカウント情報をもとに
-Claude Web Searchでバズ投稿を検索・分析し、投稿の「型」を抽出する
+ClaudeのWeb検索でバズ投稿を検索・分析し、投稿の「型」を抽出する
 
 使い方:
   python3 buzz_analysis.py --config configs/ronginooth_ai.yml
   python3 buzz_analysis.py --all
   python3 buzz_analysis.py --niche '研究者×AI'
+
+【Claude Codeセッション対応モード】
+API呼び出しは行わず、分析リクエストをファイルに保存する。
+Claude Code がWebSearchを実行してパターンファイルを生成・保存する。
 """
-import os
 import sys
 import json
 import argparse
@@ -17,11 +20,7 @@ from datetime import datetime
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-import anthropic
 import yaml
-from dotenv import load_dotenv
-
-load_dotenv()
 
 BASE = Path(__file__).resolve().parent.parent
 BUZZ_DIR = BASE / "data" / "buzz"
@@ -36,7 +35,6 @@ def load_accounts() -> dict:
 
 
 def get_all_niches() -> list[str]:
-    """configs/内の全ファイルからニッチを収集"""
     niches = set()
     configs_dir = BASE / "configs"
     if configs_dir.exists():
@@ -48,30 +46,33 @@ def get_all_niches() -> list[str]:
     return sorted(niches)
 
 
-def batch_accounts(accounts: list[dict], batch_size: int = 5) -> list[list[dict]]:
-    """アカウントリストをバッチに分割"""
-    return [accounts[i:i + batch_size] for i in range(0, len(accounts), batch_size)]
-
-
-def search_buzz_posts(client: anthropic.Anthropic, accounts_batch: list[dict], niche: str) -> str:
-    """Claude Web Searchでバッチ内アカウントのバズ投稿を検索"""
-    usernames = [a.get("username", "") for a in accounts_batch if a.get("username")]
-    if not usernames:
-        return ""
+def build_analysis_request(niche: str, accounts: list[dict]) -> str:
+    """バズ分析リクエストを組み立てて返す"""
+    safe_name = niche.replace(" ", "_").replace("/", "_").replace("×", "x")
+    output_file = PATTERNS_DIR / f"{safe_name}.md"
 
     accounts_text = "\n".join(
         f"- @{a.get('username', '?')} ({a.get('display_name', '?')}): {a.get('description', '?')}"
-        for a in accounts_batch
+        for a in accounts[:20]
     )
 
-    prompt = f"""以下のThreadsアカウントのバズっている投稿・人気投稿を調べてください。
+    usernames = [a.get("username", "") for a in accounts[:5] if a.get("username")]
+    search_keywords = "\n".join(f'- "threads.net/@{u}" バズ 人気' for u in usernames)
 
-ジャンル: {niche}
+    return f"""# バズ分析リクエスト: {niche}
+生成日時: {datetime.now().strftime('%Y-%m-%d %H:%M')}
+対象アカウント数: {len(accounts)}
+出力先: {output_file}
 
-アカウント一覧:
+## 調査対象アカウント
 {accounts_text}
 
-検索してほしいこと:
+## 検索キーワード例
+{search_keywords}
+- "Threads {niche} バズ投稿"
+- "Threads {niche} 人気 投稿"
+
+## 調査内容
 1. 各アカウントの最もエンゲージメントが高い投稿（いいね数・リプライ数が多いもの）
 2. バズった投稿の具体的な内容・構造
 3. どんな書き出し（フック）を使っているか
@@ -79,53 +80,12 @@ def search_buzz_posts(client: anthropic.Anthropic, accounts_batch: list[dict], n
 5. 文字数の傾向
 6. 絵文字や改行の使い方
 
-検索キーワード例:
-{chr(10).join(f'- "threads.net/@{u}" バズ 人気' for u in usernames[:3])}
-- "Threads {niche} バズ投稿"
-- "Threads {niche} 人気 投稿"
-
-見つけた情報をできるだけ詳しく報告してください。具体的な投稿内容があればそのまま引用してください。"""
-
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=4096,
-        tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 10}],
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    # テキストブロックを結合して返す
-    texts = []
-    for block in message.content:
-        if hasattr(block, "text"):
-            texts.append(block.text)
-    return "\n".join(texts)
-
-
-def analyze_patterns(client: anthropic.Anthropic, search_results: list[str], niche: str, account_count: int) -> str:
-    """収集した検索結果からバズパターンを分析・抽出"""
-    combined = "\n\n---\n\n".join(r for r in search_results if r)
-
-    if not combined.strip():
-        return ""
-
-    prompt = f"""あなたはSNSマーケティングの専門家です。
-以下はThreadsの「{niche}」ジャンルのバズ投稿に関する調査結果です。
-
-この情報を分析し、投稿の「型」（パターン）を抽出してください。
-
----
-{combined}
----
-
-以下のフォーマットで出力してください（Markdown形式）:
-
+## 出力フォーマット（このフォーマットで {output_file} に保存してください）
 # バズパターン分析: {niche}
-更新日: {datetime.now().strftime("%Y-%m-%d")}
-分析アカウント数: {account_count}
+更新日: {datetime.now().strftime('%Y-%m-%d')}
+分析アカウント数: {len(accounts)}
 
 ## 投稿の型 TOP 10
-
-各パターンについて以下を書いてください:
 ### 1. {{パターン名}}型
 - **構造**: このパターンの投稿構造（書き出し→展開→締め）
 - **例**: 具体的な投稿例（見つかったものをベースに）
@@ -138,13 +98,11 @@ def analyze_patterns(client: anthropic.Anthropic, search_results: list[str], nic
 - このジャンルで好まれる口調・文体の特徴
 - 一人称の使い方
 - 敬語 vs タメ口の比率
-- 専門用語の使用度合い
 
 ## エンゲージメントのトリガー
 - いいねが増える要素
 - リプライが増える要素
 - 保存されやすい要素
-- フォローにつながる要素
 
 ## フック（書き出し）パターン
 - 効果的な1行目のパターンを5つ以上
@@ -152,71 +110,29 @@ def analyze_patterns(client: anthropic.Anthropic, search_results: list[str], nic
 
 ## フォーマットの傾向
 - 改行の入れ方
-- 絵文字の使い方（種類・頻度）
-- リスト形式の使い方
-- 文字数の分布（短文 vs 長文）
-
-## 投稿タイミング
-- バズりやすい時間帯（情報があれば）
-- 曜日の傾向（情報があれば）
-- 情報が見つからなければ「データなし」と明記
-
-重要:
-- 具体的なデータや例を必ず含めること
-- 推測の場合は「推測」と明記すること
-- generate.pyが投稿生成の参考にできる実用的な内容にすること"""
-
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=8192,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    return message.content[0].text
-
-
-def save_patterns(content: str, niche: str):
-    """パターン分析結果をファイルに保存"""
-    PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
-    # ニッチ名をファイル名に使う（スペースや特殊文字を置換）
-    safe_name = niche.replace(" ", "_").replace("/", "_").replace("×", "x")
-    output_file = PATTERNS_DIR / f"{safe_name}.md"
-    output_file.write_text(content, encoding="utf-8")
-    return output_file
+- 絵文字の使い方
+- 文字数の分布
+"""
 
 
 def analyze_niche(niche: str, accounts_data: dict):
-    """1つのニッチのバズ分析を実行"""
     accounts = accounts_data.get(niche, [])
     if not accounts:
         print(f"  アカウントが見つかりません。先に discover_accounts.py を実行してください。")
         return
 
     print(f"  対象アカウント数: {len(accounts)}")
-    client = anthropic.Anthropic()
-    batches = batch_accounts(accounts, batch_size=5)
-    search_results = []
+    request = build_analysis_request(niche, accounts)
 
-    for i, batch in enumerate(batches, 1):
-        usernames = [a.get("username", "?") for a in batch]
-        print(f"  バッチ {i}/{len(batches)} を検索中... ({', '.join(usernames[:3])}{'...' if len(usernames) > 3 else ''})")
-        result = search_buzz_posts(client, batch, niche)
-        if result:
-            search_results.append(result)
+    safe_name = niche.replace(" ", "_").replace("/", "_").replace("×", "x")
+    PATTERNS_DIR.mkdir(parents=True, exist_ok=True)
+    request_file = BUZZ_DIR / f"analysis_request_{safe_name}.md"
+    request_file.write_text(request, encoding="utf-8")
 
-    if not search_results:
-        print(f"  バズ投稿の情報が見つかりませんでした。")
-        return
-
-    print(f"  {len(search_results)}件の検索結果を分析中...")
-    analysis = analyze_patterns(client, search_results, niche, len(accounts))
-
-    if not analysis:
-        print(f"  分析結果の生成に失敗しました。")
-        return
-
-    output_file = save_patterns(analysis, niche)
-    print(f"  保存: {output_file}")
+    output_file = PATTERNS_DIR / f"{safe_name}.md"
+    print(f"  ✅ リクエスト保存: {request_file}")
+    print(f"  【Claude Codeセッション対応】")
+    print(f"  リクエストを読んでWebSearchを実行し、{output_file} を保存してください。")
 
 
 def run():
@@ -235,12 +151,9 @@ def run():
         niches = [config.get("niche", "general")]
     else:
         print("使い方: python3 buzz_analysis.py --config configs/xxx.yml")
-        print("        python3 buzz_analysis.py --all")
-        print("        python3 buzz_analysis.py --niche '研究者×AI'")
         return
 
     accounts_data = load_accounts()
-
     if not accounts_data:
         print("accounts.json が見つかりません。先に discover_accounts.py を実行してください。")
         return

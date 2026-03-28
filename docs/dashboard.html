@@ -508,7 +508,7 @@
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (0)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (22)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (29)</button>
   </nav>
@@ -526,7 +526,7 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">22</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
@@ -554,12 +554,6 @@
     <div class="section-title">⚡ やること</div>
     
         <div class="action-item">
-          <span class="action-icon">🔴</span>
-          <div>
-            <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り0件。<code>python3 weekly.py</code> で補充してください</div>
-          </div>
-        </div>
         <div class="action-item">
           <span class="action-icon">🟢</span>
           <div>
@@ -700,7 +694,238 @@
   <!-- キュー -->
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
-    <p class="empty">キューは空です</p>
+    
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-28 21:00</span>
+            <span class="queue-type type-気づき">気づき</span>
+          </div>
+          <p class="queue-body">「忙しくて論文が書けない」は、<br>実は「書き始めるハードルが高すぎる」だった。<br><br>わたしは毎朝15分だけ、<br>昨日の続きを1段落だけ書くルールにした。<br><br>たった15分でも、5日で1セクション進む。<br><br>書けない問題の正体は時間じゃなくて<br>「始められない」だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-28_5_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-28_5_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-31 07:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">指導教員に「この仮説、実験する前に捨てなさい」と言われた。<br><br>1ヶ月かけて立てた仮説だった。<br><br>悔しかった。でも言われた通りにした。<br><br>半年後、別の切り口で論文になった。<br>あの判断がなければ、今でも迷走していたと思う。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_1_experience.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_1_experience.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-31 10:00</span>
+            <span class="queue-type type-データ">データ</span>
+          </div>
+          <p class="queue-body">研究者の70%以上が「他者の実験を再現できなかった経験がある」と答えている。<br><br>2016年にNatureが1,576名の研究者に調査した結果だ。<br><br>「再現できない」は恥ずかしいことだと思っていた。<br>でもそれは、科学が正直に機能している証拠だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_2_data.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_2_data.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-31 13:00</span>
+            <span class="queue-type type-あるある">あるある</span>
+          </div>
+          <p class="queue-body">査読コメントで一番きつい一文がある。<br><br>「この研究の貢献が、明確ではありません」<br><br>否定でも批判でもない。<br>でも何を足せばいいか、分からない。<br><br>（あれを読んだ夜だけは、いつも長い）</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_3_aruaru.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_3_aruaru.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-31 17:00</span>
+            <span class="queue-type type-失敗談">失敗談</span>
+          </div>
+          <p class="queue-body">論文がAcceptされオンライン版が公開された翌日、共著者からメッセージが来た。<br><br>「グラフィカルアブストラクトが間違ってます」<br><br>確認した。間違っていた。間違ったままXにも載ってしまっていた。。。最後の最後で凡ミス。<br>結論は変わらない。でも著者全員に連絡した。<br><br>（今でも悔やまれます）</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_4_failure.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_4_failure.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-03-31 21:00</span>
+            <span class="queue-type type-考察">考察</span>
+          </div>
+          <p class="queue-body">著名な研究者の論文が査読を通る確率と、<br>無名の研究者の論文が通る確率は、大きく違う。<br><br>同じクオリティでも、名前が見えるだけで評価が変わる。<br><br>「研究は中身で評価される」と思っていた。<br>でも、そこには人間の判断が入っている。<br><br>それが「不公平だ」なのか、<br>「経験に基づく合理的な判断だ」なのか。<br><br>どちらにも、一理ある。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_5_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_5_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-01 07:00</span>
+            <span class="queue-type type-本音">本音</span>
+          </div>
+          <p class="queue-body">研究者同士で会うと、いつの間にか<br>「学振は？」「科研費どうだった？」<br>という会話になる。<br><br>聞いてしまう自分がいる。<br>でも毎回、少し後悔する。<br><br>挨拶が、採択実績の確認になっている。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_1_honne.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_1_honne.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-01 10:00</span>
+            <span class="queue-type type-あるある">あるある</span>
+          </div>
+          <p class="queue-body">学生の頃、学会発表の質疑応答で、頭が真っ白になったことがある。<br><br>鋭い質問ではなかった。<br>自分が答えを持っていなかっただけだった。<br><br>（あの3秒間は、今でも思い出す）</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_2_aruaru.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_2_aruaru.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-01 13:00</span>
+            <span class="queue-type type-二択">二択</span>
+          </div>
+          <p class="queue-body">査読コメントが届いたとき、最初にやること。<br><br>全部読んでから整理する → ❤️<br>ざっと流し見してコーヒーを飲む → 🔥<br><br>私は完全に🔥です。まずは心を落ち着かせる。<br>ガッツリ読んでしまうと、その日のメンタルが終わる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_3_twochoice.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_3_twochoice.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-01 17:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">ゼミの前日、<br>スライドを直す手が止まらなくなる。<br><br>「この説明で伝わるか」<br>「この考察は甘くないか」<br><br>完璧にしようとすると、永遠に終わらない。<br><br>どこかで「これでいく」と決める。<br>それも、研究者の仕事だと思う。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_4_experience.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_4_experience.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-01 21:00</span>
+            <span class="queue-type type-考察">考察</span>
+          </div>
+          <p class="queue-body">再現されにくい研究ほど、引用数が多い。<br><br>これはUCSDの2023年の研究で示された逆説。<br><br>「再現性が低い＝信頼できない」はずなのに、<br>なぜか広く引用される。<br><br>理由のひとつは、インパクトがある主張ほど引用されやすいから。<br>再現性よりも「面白さ」が広まる。<br><br>科学の情報伝達って、<br>思ったより感情で動いているのかもしれない。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_5_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_5_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-02 07:00</span>
+            <span class="queue-type type-データ">データ</span>
+          </div>
+          <p class="queue-body">世界の学術論文数は、2000年から2020年の20年で約1.6倍になった。<br><br>競争が激しくなったのか、科学が進歩したのか。<br><br>どちらも正解だと思う。<br>でも論文が増えるほど、1本が読まれる確率は下がっていく。<br>「書く」より「届ける」が、難しい時代になってきた。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_1_data.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_1_data.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-02 10:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">英語論文の書き方を、誰かに教わったことはなかった。<br><br>人の論文を真似して、<br>指導教員の赤を入れてもらう。<br>それだけで、1年かかった。<br><br>「型」を知っていたら、半年で書けていたと思う。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_2_experience.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_2_experience.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-02 13:00</span>
+            <span class="queue-type type-データ">データ</span>
+          </div>
+          <p class="queue-body">1960年代、学術論文の平均著者数は1〜2名だった。<br>2020年代、それは5名を超えている。<br><br>「一人の研究」は、もう成立しないのかもしれない。<br>それが豊かさなのか、複雑さなのか、まだ分からない。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_3_data.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_3_data.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-02 17:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">はじめて論文を投稿したとき、<br>submitボタンを押すのに時間がかかった。<br><br>内容は正しいか。<br>誰かに笑われないか。<br>もう少し直した方がいいんじゃないか。<br><br>結果はRejectionだった。<br><br>でも、「出せた」という事実の方が、<br>その結果より大事だと今でも思っている。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_4_experience.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_4_experience.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-02 21:00</span>
+            <span class="queue-type type-考察">考察</span>
+          </div>
+          <p class="queue-body">FDAに登録された臨床試験のうち、<br>「有効だった」のは51%。<br><br>でも、論文として出版されたものを見ると、<br>「有効だった」と報告されているのは94%。<br><br>（NEJM 2008 / Turnerら）<br><br>ポジティブな結果は出版されやすく、<br>ネガティブな結果は埋もれる。<br><br>これを「出版バイアス」という。<br><br>論文の数が増えても、<br>世界全体の知識が正確になっているとは限らない。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_5_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_5_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-03 07:00</span>
+            <span class="queue-type type-本音">本音</span>
+          </div>
+          <p class="queue-body">博士課程で一番きつかったのは、<br>実験が上手くいかない時じゃなかった。<br><br>「最近どう？」と聞かれて、<br>答えられなかった時だった。<br><br>進んでいるのか、止まっているのか。<br>自分でもよく分からなかった。<br><br>その「分からなさ」を、<br>誰かに話したことはなかった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_1_honne.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_1_honne.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-03 10:00</span>
+            <span class="queue-type type-本音">本音</span>
+          </div>
+          <p class="queue-body">博士課程に入ってから、<br>「自分だけが遅れている」と感じる夜が増えた。<br><br>同期は論文を出している。<br>先輩は学会で発表している。<br>自分は今日も同じ実験をしている。<br><br>それは「遅れている」のではなく、<br>研究がそういうものだと、後から分かった。<br><br>でも渦中にいる時は、そう思えない。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_2_honne.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_2_honne.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-03 13:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">卒業した先輩に連絡したとき、<br>「悩み、全部一緒だよ」と言われた。<br><br>孤独だと思っていたけど、<br>そうじゃなかったらしい。<br><br>誰も言わないから、<br>みんな一人で抱えているだけだった。<br><br>博士課程の悩みって、<br>もっと話していい話だと思う。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_3_experience.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_3_experience.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-03 17:00</span>
+            <span class="queue-type type-体験談">体験談</span>
+          </div>
+          <p class="queue-body">指導教員に「この研究の意義は？」と聞かれた。<br><br>そのとき、うまく答えられなかった。<br><br>「答えられないなら研究するな」じゃなくて、<br>「答えを探しながら進むのが研究だ」と、<br>後から気づいた。<br><br>意義は最初から決まっているものじゃなくて、<br>やりながら見えてくるものだと思う。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_4_experience.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_4_experience.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-03 21:00</span>
+            <span class="queue-type type-考察">考察</span>
+          </div>
+          <p class="queue-body">ヒッグス粒子の存在を予言した論文は、<br>最初に投稿したジャーナルに却下された。<br><br>理由は「物理学的に関係がない」。<br><br>後に、その理論でノーベル賞を受賞した。<br><br>「重要な発見は最初に認められない」という話は珍しくない。<br><br>査読は完璧じゃない。<br>でも、そのフィルターを通すことで科学は信頼されてきた。<br><br>矛盾してるようで、両方本当の話だと思う。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_5_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_5_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
   </div>
 
   <!-- 投稿済み -->

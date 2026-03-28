@@ -4,23 +4,21 @@ config.yml のnote URLとXアカウントを分析し、
 投稿生成に必要なプロフィール情報を data/account_profile.md に保存する
 
 使い方:
-  python3 prepare.py          → config.yml を読んで分析
-  python3 prepare.py --force  → キャッシュを無視して再分析
+  python3 prepare.py --config configs/ronginooth_ai.yml
+  python3 prepare.py --config configs/ronginooth_ai.yml --force
+
+【Claude Codeセッション対応モード】
+API呼び出しは行わず、分析プロンプトをファイルに保存する。
+Claude Code がプロンプトを読んでaccount_profile.mdを生成・保存する。
 """
-import os
 import re
 import subprocess
-import json
 from pathlib import Path
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from dotenv import load_dotenv
-import anthropic
 from lib.account_context import get_context
-
-load_dotenv()
 
 
 def find_note_content(note_url: str, search_paths: list[str]) -> str:
@@ -29,7 +27,6 @@ def find_note_content(note_url: str, search_paths: list[str]) -> str:
         path = Path(search_path)
         if not path.exists():
             continue
-        # .mdファイルを再帰検索し、URLが含まれるファイルを探す
         for md_file in path.rglob("*.md"):
             try:
                 content = md_file.read_text(encoding="utf-8")
@@ -53,7 +50,6 @@ async def fetch():
         page = await browser.new_page()
         await page.goto("{note_url}", wait_until="networkidle", timeout=30000)
         await page.wait_for_timeout(3000)
-        # 記事本文を取得
         content = await page.evaluate('''() => {{
             const article = document.querySelector('article') || document.querySelector('[class*="note-body"]') || document.body;
             return article ? article.innerText : document.body.innerText;
@@ -90,19 +86,16 @@ def find_x_posts(x_account: str, search_paths: list[str]) -> str:
                 name_lower = md_file.name.lower()
                 if account_clean.lower() in name_lower or "ronginooth" in name_lower:
                     content = md_file.read_text(encoding="utf-8")
-                    # SNSトーン.mdやXの投稿ログを優先
                     if "トーン" in md_file.name or "Thread by" in md_file.name or account_clean in content:
                         texts.append(f"--- {md_file.name} ---\n{content[:3000]}")
             except (UnicodeDecodeError, PermissionError):
                 continue
-    return "\n\n".join(texts[:5])  # 最大5ファイル
+    return "\n\n".join(texts[:5])
 
 
-def analyze_with_claude(config: dict, note_content: str, x_posts: str) -> str:
-    """Claude APIでアカウントプロフィールを分析・生成"""
-    client = anthropic.Anthropic()
-
-    prompt = f"""以下の情報を分析して、Threads自動投稿のためのアカウントプロフィールを生成してください。
+def build_profile_prompt(config: dict, note_content: str, x_posts: str) -> str:
+    """アカウントプロフィール生成プロンプトを組み立てて返す"""
+    return f"""以下の情報を分析して、Threads自動投稿のためのアカウントプロフィールを生成してください。
 
 ## 入力情報
 
@@ -149,16 +142,8 @@ def analyze_with_claude(config: dict, note_content: str, x_posts: str) -> str:
 （ペルソナと矛盾する表現、やってはいけないこと）
 """
 
-    message = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=2048,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return message.content[0].text
-
 
 def run(ctx=None):
-    import sys
     force = "--force" in sys.argv
 
     if ctx is None:
@@ -169,12 +154,11 @@ def run(ctx=None):
 
     if profile_file.exists() and not force:
         print(f"✅ プロフィールは既に存在します: {profile_file}")
-        print("   再分析するには: python3 prepare.py --config <config> --force")
+        print("   再分析するには --force オプションを追加してください")
         return
 
     print(f"アカウント分析開始: {config['account']}")
 
-    # 1. note記事の内容を取得
     print("\n① note記事を検索中...")
     note_content = find_note_content(
         config["note_url"],
@@ -186,7 +170,6 @@ def run(ctx=None):
     if not note_content:
         print("  ⚠️ 記事内容を取得できませんでした。手動で data/note_article.md に保存してください。")
 
-    # 2. Xアカウントの投稿・トーン情報を取得
     print("\n② Xアカウントの情報を検索中...")
     x_posts = find_x_posts(
         config.get("x_account", ""),
@@ -197,16 +180,16 @@ def run(ctx=None):
     else:
         print("  ⚠️ X投稿の情報が見つかりませんでした")
 
-    # 3. Claude APIで分析
-    print("\n③ AIがプロフィールを分析中...")
-    profile = analyze_with_claude(config, note_content, x_posts)
+    print("\n③ プロフィール生成プロンプトを保存中...")
+    prompt = build_profile_prompt(config, note_content, x_posts)
+    prompt_file = ctx.data_dir / "prepare_prompt.md"
+    prompt_file.write_text(prompt, encoding="utf-8")
 
-    # 4. 保存
-    profile_file.parent.mkdir(parents=True, exist_ok=True)
-    profile_file.write_text(profile, encoding="utf-8")
-    print(f"\n✅ プロフィール保存: {profile_file}")
-    print("   内容を確認して、必要なら手動で修正してください。")
-    print("   次回の generate.py はこのプロフィールを使います。")
+    print(f"\n✅ プロンプト保存: {prompt_file}")
+    print(f"\n【Claude Codeセッション対応】")
+    print(f"プロンプトを読んでアカウントプロフィールを生成し、以下に保存してください:")
+    print(f"  prompt: {prompt_file}")
+    print(f"  output: {profile_file}")
 
 
 if __name__ == "__main__":
