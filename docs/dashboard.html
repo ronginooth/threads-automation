@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-28 23:49 JST</p>
+    <p class="updated">更新: 2026-03-29 07:19 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (40)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (30)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (31)</button>
   </nav>
 
   <!-- 概要 -->
@@ -530,7 +530,7 @@
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">0</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
@@ -710,7 +710,7 @@
             <span class="queue-time">2026-03-30 07:00</span>
             <span class="queue-type type-失敗談型">失敗談型</span>
           </div>
-          <p class="queue-body">査読者から「図3の軸ラベルが読めない」とコメントが来た。<br><br>拡大してみたら、確かに読めなかった。<br><br>「フォント6ptで作るな」とは誰にも教わらなかった。<br>論文の「見えないルール」、私は誰かに教わったことがほぼない。<br><br>あなたは誰かに教わりましたか？</p>
+          <p class="queue-body">論文がアクセプトになった。喜んでいたのも束の間、共著者から「Xに載っているグラフィカルアブストラクトが間違っている」とコメントが来た。<br><br>見てみると確かに間違っていた。オンライン版のサムネにも使われている図だから論文の顔なのに、恥ずかしい。<br>アクセプト後に慌てて作ってチェックを怠った。<br><br>勝って兜の緒を締めよ、まさにこのことだ。</p>
           <div class="queue-actions">
             <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-30_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
             <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-30_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
@@ -1391,7 +1391,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (30件)</div>
+    <div class="section-subtitle">未返信 (31件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2379,6 +2379,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17865131352529534')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17865131352529534')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18080281925381846">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@24dyshr</span>
+            <p class="reply-text">自分の医局の先輩は査読もしてましたが、日本人の論文とわかると（と言うか、英語論文だと書き方で日本人の論文とわかりやすい&amp;研究内容が日本人っぽいので）全部落としてた（と自慢していた）ヤバいやつでしたw</p>
+            <span class="reply-time">03/29 07:12</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18080281925381846')">
+              <span class="draft-label">案1</span>
+              <p>それは本当にヤバい。査読は科学の質を担保する重要な役割なのに、個人的な感情を持ち込むのは学問への背信行為。そういう人もいるから、余計に「人間関係」が大事になるんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18080281925381846')">
+              <span class="draft-label">案2</span>
+              <p>そういう人も確かにいますね。だからこそ、礼節を尽くして信頼関係を作ることが自分の身を守る手段になる。査読者の人間性まで見極める必要が出てくるのは悲しいですが。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18080281925381846')">
+              <span class="draft-label">案3</span>
+              <p>査読という権力を濫用するのは最低です。ただ逆に言えば、そんな人間に引っかからないためにも、きちんと人間関係を築いておく価値がある。学問の理想と現実のギャップですね。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18080281925381846" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18080281925381846" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18080281925381846')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18080281925381846')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (6件)</div>
