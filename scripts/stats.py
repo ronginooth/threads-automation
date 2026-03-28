@@ -51,6 +51,9 @@ def run(ctx=None):
 
         for entry in log:
             thread_id = entry["thread_id"]
+            if thread_id in existing:
+                print(f"スキップ（収集済み）: {thread_id}")
+                continue
             print(f"収集中: {thread_id} ({entry['file']})")
             try:
                 insights = get_insights(thread_id, ctx.token)

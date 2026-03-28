@@ -18,7 +18,14 @@ def load_stats(stats_file) -> list[dict]:
         print("stats.csv がありません。先に stats.py を実行してください。")
         return []
     with open(stats_file, encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    # thread_id の重複を除去（collected_at が最新のものを残す）
+    seen: dict[str, dict] = {}
+    for row in rows:
+        tid = row["thread_id"]
+        if tid not in seen or row["collected_at"] > seen[tid]["collected_at"]:
+            seen[tid] = row
+    return list(seen.values())
 
 
 def score(row: dict) -> float:

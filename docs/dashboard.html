@@ -252,6 +252,52 @@
       font-style: italic;
     }
 
+    /* ===== CHART ===== */
+    .chart-wrap {
+      background: #161616;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #222;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chart-section-lbl {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .metric-btns {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .metric-btn {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #333;
+      background: #1a1a1a;
+      color: #888;
+      cursor: pointer;
+    }
+    .metric-btn.active {
+      background: #4fc3f7;
+      border-color: #4fc3f7;
+      color: #000;
+    }
+    .chart-canvas-wrap {
+      position: relative;
+      height: 180px;
+    }
+
     /* ===== COMMON ===== */
     .empty {
       text-align: center;
@@ -450,12 +496,13 @@
     .toast.success { background: #2e7d32; }
     .toast.error { background: #c62828; }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-28 17:28 JST</p>
+    <p class="updated">更新: 2026-03-28 17:30 JST</p>
   </div>
 
   <nav class="nav">
@@ -491,15 +538,15 @@
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">323</div>
+        <div class="stat-num">438</div>
         <div class="stat-label">平均インプ</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">5.9</div>
+        <div class="stat-num">8.7</div>
         <div class="stat-label">平均いいね</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">1.2</div>
+        <div class="stat-num">1.4</div>
         <div class="stat-label">平均リプライ</div>
       </div>
       
@@ -525,7 +572,66 @@
   <!-- 分析 -->
   <div id="analysis" class="section">
     <div class="section-title">📈 バズ分析</div>
-    
+    <div class="chart-wrap">
+      <div class="chart-header">
+        <span class="chart-section-lbl">📊 日別推移</span>
+        <div class="metric-btns">
+          <button class="metric-btn active" onclick="switchMetric(this,'views')">インプ</button>
+          <button class="metric-btn" onclick="switchMetric(this,'likes')">いいね</button>
+          <button class="metric-btn" onclick="switchMetric(this,'replies')">リプライ</button>
+          <button class="metric-btn" onclick="switchMetric(this,'reposts')">リポスト</button>
+          <button class="metric-btn" onclick="switchMetric(this,'score')">スコア</button>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap"><canvas id="statsChart"></canvas></div>
+    </div>
+    <script>
+    (function() {
+      var D = {"labels": ["2026-03-24", "2026-03-25", "2026-03-26", "2026-03-27"], "views": [687, 3479, 3504, 1097], "likes": [17, 47, 89, 21], "replies": [0, 20, 9, 0], "reposts": [0, 2, 4, 1], "score": [119.7, 596.9, 690.4, 176.7]};
+      var C = {views:'#4fc3f7',likes:'#ef5350',replies:'#66bb6a',reposts:'#ffa726',score:'#ab47bc'};
+      var L = {views:'インプレッション',likes:'いいね',replies:'リプライ',reposts:'リポスト',score:'スコア'};
+      var cur = 'views', ch = null;
+      function init() {
+        var el = document.getElementById('statsChart');
+        if (!el || typeof Chart === 'undefined') { setTimeout(init, 100); return; }
+        ch = new Chart(el, {
+          type: 'bar',
+          data: {
+            labels: D.labels,
+            datasets: [{
+              label: L[cur], data: D[cur],
+              backgroundColor: C[cur] + '55',
+              borderColor: C[cur], borderWidth: 1, borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: {display: false} },
+            scales: {
+              x: {ticks:{color:'#666',font:{size:10}},grid:{color:'#1e1e1e'}},
+              y: {beginAtZero:true,ticks:{color:'#666',font:{size:10}},grid:{color:'#1e1e1e'}}
+            }
+          }
+        });
+      }
+      window.switchMetric = function(btn, metric) {
+        cur = metric;
+        document.querySelectorAll('.metric-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        if (ch) {
+          ch.data.datasets[0].data = D[metric];
+          ch.data.datasets[0].label = L[metric];
+          ch.data.datasets[0].backgroundColor = C[metric] + '55';
+          ch.data.datasets[0].borderColor = C[metric];
+          ch.update();
+        }
+      };
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', init) : init();
+    })();
+    </script>
+    <div class="section-title" style="margin-top:20px">📋 バズランキング</div>
+
         <div class="rank-card top">
           <div class="rank-badge">🥇 TOP1</div>
           <p class="rank-text">セミナーで「英語論文の受動態は禁止」と言われた。 Methodsを全部書き直して指導教員に渡した。 </p>
@@ -539,54 +645,54 @@
         </div>
         <div class="rank-card top">
           <div class="rank-badge">🥈 TOP2</div>
-          <p class="rank-text">セミナーで「英語論文の受動態は禁止」と言われた。 Methodsを全部書き直して指導教員に渡した。 </p>
+          <p class="rank-text">博士課程学生の41%が、不安または抑うつの症状を経験している。  一般人口と比べて2.43倍の高さ。</p>
           <div class="rank-metrics">
-            <span>👁 3016</span>
-            <span>❤️ 27</span>
-            <span>💬 10</span>
-            <span>🔄 2</span>
-            <span class="score">スコア 441</span>
+            <span>👁 2100</span>
+            <span>❤️ 54</span>
+            <span>💬 5</span>
+            <span>🔄 4</span>
+            <span class="score">スコア 421</span>
           </div>
         </div>
         <div class="rank-card top">
           <div class="rank-badge">🥉 TOP3</div>
-          <p class="rank-text">セミナーで「英語論文の受動態は禁止」と言われた。 Methodsを全部書き直して指導教員に渡した。 </p>
+          <p class="rank-text">査読で「この引用元を確認してください」と言われた。  確認したら、私が引用した論文が、 さらに古い論</p>
           <div class="rank-metrics">
-            <span>👁 2910</span>
-            <span>❤️ 27</span>
-            <span>💬 10</span>
-            <span>🔄 2</span>
-            <span class="score">スコア 430</span>
+            <span>👁 803</span>
+            <span>❤️ 20</span>
+            <span>💬 2</span>
+            <span>🔄 0</span>
+            <span class="score">スコア 150</span>
           </div>
         </div>
         <div class="rank-card bottom">
           <div class="rank-badge">⬇️ BOTTOM1</div>
+          <p class="rank-text">火曜の朝、先週書いた自分の論文原稿を読み返す。  「これ誰が書いたの？」ってなる。  丸2日かけた文</p>
+          <div class="rank-metrics">
+            <span>👁 105</span>
+            <span>❤️ 0</span>
+            <span>💬 0</span>
+            <span class="score">スコア 10</span>
+          </div>
+        </div>
+        <div class="rank-card bottom">
+          <div class="rank-badge">⬇️ BOTTOM2</div>
+          <p class="rank-text">Introductionを自力で書く → 1日〜1週間  設計図を用意してAIに「型を埋めさせる」 </p>
+          <div class="rank-metrics">
+            <span>👁 42</span>
+            <span>❤️ 1</span>
+            <span>💬 0</span>
+            <span class="score">スコア 7</span>
+          </div>
+        </div>
+        <div class="rank-card bottom">
+          <div class="rank-badge">⬇️ BOTTOM3</div>
           <p class="rank-text">研究でAIを使ってる人に聞きたい。  一番「これは助かった」って場面はどれ？  ① 文献検索・要約 </p>
           <div class="rank-metrics">
             <span>👁 29</span>
             <span>❤️ 1</span>
             <span>💬 0</span>
             <span class="score">スコア 6</span>
-          </div>
-        </div>
-        <div class="rank-card bottom">
-          <div class="rank-badge">⬇️ BOTTOM2</div>
-          <p class="rank-text">「この実験が失敗するとしたら、原因は何か？」  これを実験開始前に全員で考えるのが「プレモーテム」。</p>
-          <div class="rank-metrics">
-            <span>👁 23</span>
-            <span>❤️ 1</span>
-            <span>💬 0</span>
-            <span class="score">スコア 5</span>
-          </div>
-        </div>
-        <div class="rank-card bottom">
-          <div class="rank-badge">⬇️ BOTTOM3</div>
-          <p class="rank-text">Introductionを自力で書く → 1日〜1週間  設計図を用意してAIに「型を埋めさせる」 </p>
-          <div class="rank-metrics">
-            <span>👁 25</span>
-            <span>❤️ 0</span>
-            <span>💬 0</span>
-            <span class="score">スコア 2</span>
           </div>
         </div>
   </div>

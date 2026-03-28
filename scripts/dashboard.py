@@ -68,7 +68,14 @@ def load_stats(stats_file) -> list[dict]:
     if not stats_file.exists():
         return []
     with open(stats_file, encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f))
+    # thread_id の重複を除去（collected_at が最新のものを残す）
+    seen: dict[str, dict] = {}
+    for row in rows:
+        tid = row["thread_id"]
+        if tid not in seen or row["collected_at"] > seen[tid]["collected_at"]:
+            seen[tid] = row
+    return list(seen.values())
 
 
 def load_latest_report(data_dir) -> str:
@@ -197,6 +204,89 @@ def build_analysis_section(stats_rows) -> str:
     for row in stats_rows:
         row["_score"] = score(row)
 
+    # グラフ用データ: 投稿日ごとに集計
+    daily: dict = {}
+    for row in stats_rows:
+        date = row.get("posted_at", "")[:10]
+        if not date:
+            continue
+        if date not in daily:
+            daily[date] = {"views": 0, "likes": 0, "replies": 0, "reposts": 0, "score": 0.0}
+        daily[date]["views"] += int(row.get("views", 0))
+        daily[date]["likes"] += int(row.get("likes", 0))
+        daily[date]["replies"] += int(row.get("replies", 0))
+        daily[date]["reposts"] += int(row.get("reposts", 0))
+        daily[date]["score"] += row["_score"]
+
+    sorted_dates = sorted(daily.keys())
+    chart_json = json.dumps({
+        "labels": sorted_dates,
+        "views":   [daily[d]["views"] for d in sorted_dates],
+        "likes":   [daily[d]["likes"] for d in sorted_dates],
+        "replies": [daily[d]["replies"] for d in sorted_dates],
+        "reposts": [daily[d]["reposts"] for d in sorted_dates],
+        "score":   [round(daily[d]["score"], 1) for d in sorted_dates],
+    }, ensure_ascii=False)
+
+    chart_html = f"""<div class="chart-wrap">
+      <div class="chart-header">
+        <span class="chart-section-lbl">📊 日別推移</span>
+        <div class="metric-btns">
+          <button class="metric-btn active" onclick="switchMetric(this,'views')">インプ</button>
+          <button class="metric-btn" onclick="switchMetric(this,'likes')">いいね</button>
+          <button class="metric-btn" onclick="switchMetric(this,'replies')">リプライ</button>
+          <button class="metric-btn" onclick="switchMetric(this,'reposts')">リポスト</button>
+          <button class="metric-btn" onclick="switchMetric(this,'score')">スコア</button>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap"><canvas id="statsChart"></canvas></div>
+    </div>
+    <script>
+    (function() {{
+      var D = {chart_json};
+      var C = {{views:'#4fc3f7',likes:'#ef5350',replies:'#66bb6a',reposts:'#ffa726',score:'#ab47bc'}};
+      var L = {{views:'インプレッション',likes:'いいね',replies:'リプライ',reposts:'リポスト',score:'スコア'}};
+      var cur = 'views', ch = null;
+      function init() {{
+        var el = document.getElementById('statsChart');
+        if (!el || typeof Chart === 'undefined') {{ setTimeout(init, 100); return; }}
+        ch = new Chart(el, {{
+          type: 'bar',
+          data: {{
+            labels: D.labels,
+            datasets: [{{
+              label: L[cur], data: D[cur],
+              backgroundColor: C[cur] + '55',
+              borderColor: C[cur], borderWidth: 1, borderRadius: 4
+            }}]
+          }},
+          options: {{
+            responsive: true, maintainAspectRatio: false,
+            plugins: {{ legend: {{display: false}} }},
+            scales: {{
+              x: {{ticks:{{color:'#666',font:{{size:10}}}},grid:{{color:'#1e1e1e'}}}},
+              y: {{beginAtZero:true,ticks:{{color:'#666',font:{{size:10}}}},grid:{{color:'#1e1e1e'}}}}
+            }}
+          }}
+        }});
+      }}
+      window.switchMetric = function(btn, metric) {{
+        cur = metric;
+        document.querySelectorAll('.metric-btn').forEach(function(b) {{ b.classList.remove('active'); }});
+        btn.classList.add('active');
+        if (ch) {{
+          ch.data.datasets[0].data = D[metric];
+          ch.data.datasets[0].label = L[metric];
+          ch.data.datasets[0].backgroundColor = C[metric] + '55';
+          ch.data.datasets[0].borderColor = C[metric];
+          ch.update();
+        }}
+      }};
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', init) : init();
+    }})();
+    </script>"""
+
     sorted_rows = sorted(stats_rows, key=lambda r: r["_score"], reverse=True)
     top3 = sorted_rows[:3]
     bottom3 = sorted_rows[-3:] if len(sorted_rows) >= 6 else []
@@ -230,7 +320,7 @@ def build_analysis_section(stats_rows) -> str:
           </div>
         </div>"""
 
-    return cards
+    return chart_html + '\n    <div class="section-title" style="margin-top:20px">📋 バズランキング</div>\n' + cards
 
 
 def build_queue_section(queue) -> str:
@@ -691,6 +781,52 @@ def build_html(ctx) -> str:
       font-style: italic;
     }}
 
+    /* ===== CHART ===== */
+    .chart-wrap {{
+      background: #161616;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 1px solid #222;
+    }}
+    .chart-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }}
+    .chart-section-lbl {{
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }}
+    .metric-btns {{
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }}
+    .metric-btn {{
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #333;
+      background: #1a1a1a;
+      color: #888;
+      cursor: pointer;
+    }}
+    .metric-btn.active {{
+      background: #4fc3f7;
+      border-color: #4fc3f7;
+      color: #000;
+    }}
+    .chart-canvas-wrap {{
+      position: relative;
+      height: 180px;
+    }}
+
     /* ===== COMMON ===== */
     .empty {{
       text-align: center;
@@ -889,6 +1025,7 @@ def build_html(ctx) -> str:
     .toast.success {{ background: #2e7d32; }}
     .toast.error {{ background: #c62828; }}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
