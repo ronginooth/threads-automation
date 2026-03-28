@@ -455,15 +455,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-28 15:46 JST</p>
+    <p class="updated">更新: 2026-03-28 17:28 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (2)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (1)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (5)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (11)</button>
   </nav>
 
   <!-- 概要 -->
@@ -479,15 +479,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">25</div>
+        <div class="stat-num">26</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -510,7 +510,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り2件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り1件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -597,17 +597,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-03-28 17:00</span>
-            <span class="queue-type type-あるある">あるある</span>
-          </div>
-          <p class="queue-body">金曜日の夕方に論文を投稿する。<br><br>「よし、週末は休むぞ」と思う。<br><br>土曜の朝、エディターから<br>「Your manuscript has been received」のメール。<br><br>そこから査読結果が来るまで<br>毎日メールを開くたびにドキドキする生活が始まる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-28_4_aruaru.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-28_4_aruaru.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-03-28 21:00</span>
             <span class="queue-type type-気づき">気づき</span>
           </div>
@@ -623,6 +612,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-28T08:26</div>
+          <p class="posted-text">金曜日の夕方に論文を投稿する。<br><br>「よし、週末は休むぞ」と思う。<br><br>土曜の朝、エディターから<br>「Your manuscript has been received」のメール。<br><br>そこから査読結果が来るまで<br>毎日メールを開くたびにドキドキする生活が始まる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-28T06:10</div>
           <p class="posted-text">教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着いたら座長に挨拶しろ。<br>他の演者の発表には質問しろ。<br>うまく答えられなかった相手には、後で声をかけろ。<br>帰る前に座長にお礼を言え」<br><br>——それって研究と関係ありますか？<br><br>「その人が来年、お前の論文を査読するかもしれない。<br>ポストが空いたとき、陰でお前を推してくれるかもしれない。<br>科学者の前に、人間だ</p>
@@ -830,18 +824,6 @@
               <span class="score">スコア 11</span>
             </div>
         </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-03-24T15:17</div>
-          <p class="posted-text">論文の参考文献、どっちで管理してる？<br><br>Zotero / Mendeley 等のツール → ❤️<br>Wordに直接打ち込んでる → 🔥<br><br>わたしは恥ずかしながら最初の5年間🔥でした。<br><br>ツールに変えた瞬間、参考文献の修正地獄から解放されました。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 157</span>
-              <span>❤️ 2</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 22</span>
-            </div>
-        </div>
   </div>
 
   <!-- 返信 -->
@@ -853,7 +835,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (5件)</div>
+    <div class="section-subtitle">未返信 (11件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -1016,6 +998,204 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17887538439459503')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17887538439459503')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17949104892134063">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">普通国際学会では、Thank you chairperson から始める</p>
+            <span class="reply-time">03/28 17:21</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17949104892134063')">
+              <span class="draft-label">案1</span>
+              <p>その通り。国際学会ではフォーマルな挨拶が必須ですね。ただ僕の教授は、その形式の中でも『誠実さが大事』と繰り返してた。感謝の言葉も、心がこもってるかどうかで相手の受け取り方が変わる。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17949104892134063')">
+              <span class="draft-label">案2</span>
+              <p>いい指摘。国際学会でのプロトコルは重要です。僕も最初はThank youから始める作法を学びました。でも教授が言いたかったのは、マナー以上に『相手を尊重する姿勢』。形式と心、両方ですね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17949104892134063')">
+              <span class="draft-label">案3</span>
+              <p>その通りです。僕も若い頃は形式重視でしたが、20年の中で気づいたのは、Thank youの後の『その人への向き合い方』が長期的な信頼につながるということ。プロトコルは基本、その上での人間関係構築が大事。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17949104892134063" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17949104892134063" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17949104892134063')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17949104892134063')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18079553327381898">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@harurucat</span>
+            <p class="reply-text">人として、研究者としての姿勢、礼儀ですね。名刺交換する際には、座ったまま受け取らず起立する、もそうですね。</p>
+            <span class="reply-time">03/28 17:14</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18079553327381898')">
+              <span class="draft-label">案1</span>
+              <p>そうですね。名刺交換は基本ですが、実は学会での人間関係って、そうした細かい気配りの積み重ねなんです。相手を尊重する姿勢が、後々の信頼につながっていく。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18079553327381898')">
+              <span class="draft-label">案2</span>
+              <p>まさにそれ。立って受け取る、目を見て挨拶する。こうした当たり前のことが、実は研究の世界では大きな違いになるんです。人間関係が研究機会を生み出すから。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18079553327381898')">
+              <span class="draft-label">案3</span>
+              <p>本当にそう。礼儀は単なるマナーじゃなくて、相手への尊重を表す行動。学会は発表の場じゃなく、仲間を作る場。その感覚を持つ人が、結果的に道も開けるんですよ。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18079553327381898" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18079553327381898" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18079553327381898')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18079553327381898')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17930092764068428">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@khuntakbn</span>
+            <p class="reply-text">わかる。</p>
+            <span class="reply-time">03/28 17:04</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17930092764068428')">
+              <span class="draft-label">案1</span>
+              <p>本当にそうですよね。学会って論文の評価だけじゃなく、信頼関係を築く場なんだと気づくまで時間がかかりました。人間関係が研究のキャリアを大きく左右する。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17930092764068428')">
+              <span class="draft-label">案2</span>
+              <p>ですよね。最初は気づきませんでしたが、業界って本当に狭い。ちょっとした丁寧さが、数年後に予期しない形で返ってくることがたくさんあります。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17930092764068428')">
+              <span class="draft-label">案3</span>
+              <p>そこですよ。査読者選定とか人事評価って、実績だけじゃなく『この人と一緒に研究したいか』という信頼が大事。学会での振る舞いはその入口。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17930092764068428" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17930092764068428" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17930092764068428')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17930092764068428')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17864527185610945">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@same.eaton</span>
+            <p class="reply-text">私これ真似する</p>
+            <span class="reply-time">03/28 16:34</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17864527185610945')">
+              <span class="draft-label">案1</span>
+              <p>いいね。学会は人脈作りの場でもあるんだよ。丁寧な態度が積み重なると、後々思わぬ形で返ってくる。やってて損はない。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17864527185610945')">
+              <span class="draft-label">案2</span>
+              <p>そう。それにね、他の研究者の発表に真摯に向き合うことで、自分の研究視点も広がる。一石二鳥だよ。ぜひ試してみて。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17864527185610945')">
+              <span class="draft-label">案3</span>
+              <p>良い選択だと思う。最初は気恥ずかしいかもだけど、こういう『当たり前のこと』を続ける人が、結果的に信頼を得てる。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17864527185610945" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17864527185610945" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17864527185610945')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17864527185610945')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18186065128369260">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWYaWK5lfXK" target="_blank">↗ 研究でAIを使ってる人に聞きたい。<br><br>一番「これは助かった」って場面はどれ？<br><br>① 文献検索・要約<br>…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@same.eaton</span>
+            <p class="reply-text">②。<br>④は言語化しにくいことをよくまとめてくれました</p>
+            <span class="reply-time">03/28 16:38</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18186065128369260')">
+              <span class="draft-label">案1</span>
+              <p>わかります。英文校正は本当に時間が浮きますよね。特に投稿直前の「あ、ここ変だ」みたいな細かい修正に重宝します。④での言語化支援も興味深い。モヤモヤを形にしてくれるのは本当に貴重です。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18186065128369260')">
+              <span class="draft-label">案2</span>
+              <p>②で時短、④で思考の整理ですね。この組み合わせ強い。言語化の部分って自分では気づきにくいから、AIに問い直してもらうことで新しい視点が生まれるんだと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18186065128369260')">
+              <span class="draft-label">案3</span>
+              <p>②のスピード感は確かに。でも④での言語化支援の話、これ地味に大事ですよ。漠然とした違和感がクリアになると、その後の実験設計とか論文執筆が全然違う。20年やってても新しい感覚です。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18186065128369260" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18186065128369260" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18186065128369260')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18186065128369260')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18130999573551470">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWYOmwNlQ-V" target="_blank">↗ 科研費、1回落ちた。<br><br>翌年、タイトルだけ変えて出し直した。<br><br>採択された。<br><br>（正確には中身も少し…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">違うね、発表論文、業績だね。</p>
+            <span class="reply-time">03/28 16:21</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18130999573551470')">
+              <span class="draft-label">案1</span>
+              <p>確かに業績も重要ですよね。ただ審査員が最初に見るのはタイトルなんです。業績が同程度なら、『読みたい』と思わせるタイトルが審査開始時点での心理状態を左右する。そこが意外と大事だと20年で気づきました。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18130999573551470')">
+              <span class="draft-label">案2</span>
+              <p>その通り業績は大前提です。ただ業績が似たレベルの申請が多い中で、タイトルで一瞬の『興味』を引けるかが、審査員の読み込み深度を変える。そこの工夫の話なんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18130999573551470')">
+              <span class="draft-label">案3</span>
+              <p>業績ももちろん大切。でも実感として、業績が同じくらいの申請者が複数いたとき、タイトルの『ひと工夫』で審査員の入り込み方が変わるんですよ。そういう経験からの話です。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18130999573551470" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18130999573551470" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18130999573551470')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18130999573551470')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (4件)</div>
