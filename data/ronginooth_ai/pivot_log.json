@@ -1,0 +1,13 @@
+[
+  {
+    "source_thread_id": "claude_code",
+    "source_text": "セミナーで「英語論文の受動態は禁止」と言われた。",
+    "generated_at": "2026-03-28T20:28:30.495176",
+    "files": [
+      "2026-03-29_pivot_深掘り.md",
+      "2026-03-30_pivot_反転.md",
+      "2026-03-31_pivot_実践.md"
+    ],
+    "response_file": "data/ronginooth_ai/buzz/pivot_response_17904122.json"
+  }
+]

@@ -1,0 +1,275 @@
+[
+  {
+    "file": "2026-03-28_5_insight.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":8,"persona":8,"original":7,"emotion":8,"action":7,"length":8,"natural":9},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-29_pivot_深掘り.md",
+    "scores": {"hook":7,"useful":8,"specific":8,"rhythm":8,"persona":8,"original":7,"emotion":7,"action":6,"length":8,"natural":8},
+    "average": 7.5,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "行動喚起の問いかけがない。バズ派生なので許容範囲。"
+  },
+  {
+    "file": "2026-03-30_1_失敗談型.md",
+    "scores": {"hook":8,"useful":7,"specific":8,"rhythm":9,"persona":9,"original":8,"emotion":8,"action":8,"length":8,"natural":9},
+    "average": 8.2,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-30_2_あるある型.md",
+    "scores": {"hook":8,"useful":7,"specific":8,"rhythm":8,"persona":8,"original":7,"emotion":8,"action":8,"length":8,"natural":9},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-30_3_教育型.md",
+    "scores": {"hook":8,"useful":9,"specific":8,"rhythm":8,"persona":8,"original":8,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-30_4_本音型.md",
+    "scores": {"hook":9,"useful":8,"specific":7,"rhythm":9,"persona":8,"original":7,"emotion":8,"action":6,"length":8,"natural":9},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "行動喚起の問いかけなし。本音型は感情完結型でもOK。"
+  },
+  {
+    "file": "2026-03-30_5_導線型.md",
+    "scores": {"hook":9,"useful":7,"specific":7,"rhythm":8,"persona":8,"original":8,"emotion":8,"action":7,"length":8,"natural":8},
+    "average": 7.8,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-30_pivot_反転.md",
+    "scores": {"hook":7,"useful":7,"specific":7,"rhythm":8,"persona":7,"original":7,"emotion":7,"action":6,"length":8,"natural":8},
+    "average": 7.2,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "スコアがボーダーライン付近。問いかけがなく行動喚起が弱い。バズ派生なので許容。"
+  },
+  {
+    "file": "2026-03-31_1_失敗談型.md",
+    "scores": {"hook":9,"useful":9,"specific":8,"rhythm":9,"persona":9,"original":8,"emotion":9,"action":7,"length":8,"natural":9},
+    "average": 8.5,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "今週のベスト候補。会話引用フックが非常に強い。"
+  },
+  {
+    "file": "2026-03-31_2_教育型.md",
+    "scores": {"hook":9,"useful":9,"specific":8,"rhythm":8,"persona":8,"original":8,"emotion":8,"action":7,"length":8,"natural":8},
+    "average": 8.1,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-31_3_あるある型.md",
+    "scores": {"hook":8,"useful":7,"specific":7,"rhythm":8,"persona":8,"original":7,"emotion":7,"action":8,"length":8,"natural":9},
+    "average": 7.7,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-31_4_教育型.md",
+    "scores": {"hook":9,"useful":9,"specific":9,"rhythm":8,"persona":9,"original":9,"emotion":8,"action":7,"length":8,"natural":8},
+    "average": 8.4,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "Zotero MCP言及が独自性高く、具体性も最高水準。"
+  },
+  {
+    "file": "2026-03-31_5_気づき型.md",
+    "scores": {"hook":8,"useful":7,"specific":7,"rhythm":8,"persona":8,"original":7,"emotion":8,"action":6,"length":8,"natural":9},
+    "average": 7.6,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-03-31_pivot_実践.md",
+    "scores": {"hook":8,"useful":9,"specific":8,"rhythm":9,"persona":8,"original":7,"emotion":7,"action":7,"length":8,"natural":9},
+    "average": 8.0,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-04-01_1_常識覆し型.md",
+    "scores": {"hook":9,"useful":9,"specific":8,"rhythm":8,"persona":8,"original":8,"emotion":8,"action":8,"length":8,"natural":8},
+    "average": 8.2,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-04-01_2_二択型.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":8,"persona":8,"original":7,"emotion":8,"action":9,"length":8,"natural":8},
+    "average": 8.0,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "❤️/🔥のエンゲージメント設計が効果的。"
+  },
+  {
+    "file": "2026-04-01_3_導線型.md",
+    "scores": {"hook":8,"useful":7,"specific":7,"rhythm":8,"persona":8,"original":7,"emotion":8,"action":7,"length":8,"natural":8},
+    "average": 7.6,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-04-01_4_本音型.md",
+    "scores": {"hook":8,"useful":8,"specific":7,"rhythm":8,"persona":8,"original":7,"emotion":7,"action":6,"length":8,"natural":8},
+    "average": 7.5,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "感情訴求が他の本音型より弱め。"
+  },
+  {
+    "file": "2026-04-01_5_教育型.md",
+    "scores": {"hook":7,"useful":9,"specific":9,"rhythm":8,"persona":8,"original":7,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 7.8,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "フックが弱いが、段落設計の例示が非常に具体的。"
+  },
+  {
+    "file": "2026-04-02_1_教育型.md",
+    "scores": {"hook":8,"useful":9,"specific":9,"rhythm":8,"persona":8,"original":7,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "①②③④の4段落構造が明確で保存価値高い。"
+  },
+  {
+    "file": "2026-04-02_2_体験談型.md",
+    "scores": {"hook":8,"useful":7,"specific":7,"rhythm":9,"persona":9,"original":6,"emotion":7,"action":6,"length":8,"natural":9},
+    "average": 7.6,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "TOP1バズ投稿（受動態vs能動態）と内容が近い。類似度チェックで引っかかる可能性あり。独自性スコアが低め。"
+  },
+  {
+    "file": "2026-04-02_3_あるある型.md",
+    "scores": {"hook":8,"useful":7,"specific":7,"rhythm":9,"persona":9,"original":8,"emotion":9,"action":8,"length":8,"natural":9},
+    "average": 8.2,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "查読コメントの感情描写が非常にリアル。エンゲージメント高期待。"
+  },
+  {
+    "file": "2026-04-02_4_教育型.md",
+    "scores": {"hook":8,"useful":9,"specific":9,"rhythm":8,"persona":8,"original":8,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 8.0,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "Discussion3つの問いの枠組みが実用的で保存価値高い。"
+  },
+  {
+    "file": "2026-04-02_5_問いかけ型.md",
+    "scores": {"hook":9,"useful":8,"specific":7,"rhythm":8,"persona":9,"original":8,"emotion":8,"action":9,"length":8,"natural":8},
+    "average": 8.2,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "「研究者の本当の仕事」という問いが強力。リプライ誘導が自然。"
+  },
+  {
+    "file": "2026-04-03_1_本音×損失回避型.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":9,"persona":9,"original":8,"emotion":9,"action":7,"length":8,"natural":9},
+    "average": 8.3,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "損失回避の感情設計が秀逸。「誰かが最初に教えてくれていたら」の一文が刺さる。"
+  },
+  {
+    "file": "2026-04-03_2_教育型.md",
+    "scores": {"hook":8,"useful":9,"specific":9,"rhythm":8,"persona":8,"original":9,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 8.1,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "「解釈には揺れがある、読み取りには揺れがない」という対比が独自性高く明快。"
+  },
+  {
+    "file": "2026-04-03_3_数字×常識覆し型.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":8,"persona":8,"original":8,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 7.8,
+    "fact_check": {"verdict": "warn", "issues": [{"claim": "Nature論文の平均査読期間は約6ヶ月", "problem": "Natureは通常より長く、ジャーナルによって大きく異なる。「主要ジャーナルの平均」として提示するなら要注意。ただしbioRxiv引用の文脈で使われているため致命的ではない。"}]},
+    "comment": "数値の出典が明示されていないため事実確認warn。内容は概ね正確。"
+  },
+  {
+    "file": "2026-04-03_4_体験談型.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":8,"persona":8,"original":7,"emotion":8,"action":7,"length":8,"natural":8},
+    "average": 7.8,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-04-03_5_導線型.md",
+    "scores": {"hook":9,"useful":7,"specific":7,"rhythm":8,"persona":8,"original":8,"emotion":8,"action":7,"length":8,"natural":9},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "「過去の自分への手紙」形式が独特。導線としても機能している。"
+  },
+  {
+    "file": "2026-04-04_1_失敗談型.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":8,"persona":9,"original":8,"emotion":8,"action":6,"length":8,"natural":8},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-04-04_2_あるある型.md",
+    "scores": {"hook":8,"useful":7,"specific":7,"rhythm":9,"persona":9,"original":8,"emotion":8,"action":8,"length":8,"natural":9},
+    "average": 8.1,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "「設計図という概念を30秒で説明するのは難しい」がリアル。ヘルプリクエストでリプライ誘導が自然。"
+  },
+  {
+    "file": "2026-04-04_3_教育型.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":8,"persona":8,"original":8,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 7.8,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "Antigravity言及が具体的で良い。"
+  },
+  {
+    "file": "2026-04-04_4_気づき型.md",
+    "scores": {"hook":8,"useful":8,"specific":8,"rhythm":9,"persona":8,"original":7,"emotion":7,"action":6,"length":8,"natural":9},
+    "average": 7.8,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-04-04_5_教育型.md",
+    "scores": {"hook":8,"useful":9,"specific":8,"rhythm":8,"persona":8,"original":8,"emotion":7,"action":7,"length":8,"natural":8},
+    "average": 7.9,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "「型はコミュニケーションの設計」という言語化が秀逸。"
+  },
+  {
+    "file": "2026-04-05_1_AI_vs_人間の問いかけ型.md",
+    "scores": {"hook":9,"useful":8,"specific":7,"rhythm":8,"persona":9,"original":8,"emotion":8,"action":9,"length":8,"natural":8},
+    "average": 8.2,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "トレンド型の中で最も強い問いかけ。コメント誘発力が高い。"
+  },
+  {
+    "file": "2026-04-05_2_二択型.md",
+    "scores": {"hook":8,"useful":8,"specific":7,"rhythm":8,"persona":8,"original":7,"emotion":7,"action":8,"length":8,"natural":8},
+    "average": 7.7,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  },
+  {
+    "file": "2026-04-05_3_導線型.md",
+    "scores": {"hook":9,"useful":8,"specific":7,"rhythm":9,"persona":8,"original":9,"emotion":8,"action":7,"length":8,"natural":9},
+    "average": 8.2,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "「論文はCSVと同じ構造」という比喩が今週の独自性最高峰。"
+  },
+  {
+    "file": "2026-04-05_4_教育型.md",
+    "scores": {"hook":8,"useful":9,"specific":8,"rhythm":9,"persona":8,"original":7,"emotion":8,"action":7,"length":8,"natural":8},
+    "average": 8.0,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": "「週末が溶けるループ」の構造可視化が効果的。"
+  },
+  {
+    "file": "2026-04-05_5_あるある型.md",
+    "scores": {"hook":8,"useful":8,"specific":7,"rhythm":8,"persona":9,"original":7,"emotion":8,"action":8,"length":8,"natural":9},
+    "average": 8.0,
+    "fact_check": {"verdict": "pass", "issues": []},
+    "comment": ""
+  }
+]
