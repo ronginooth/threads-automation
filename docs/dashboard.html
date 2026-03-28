@@ -455,13 +455,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-28 10:15 JST</p>
+    <p class="updated">更新: 2026-03-28 13:11 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (5)</button>
   </nav>
@@ -479,15 +479,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">23</div>
+        <div class="stat-num">24</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -510,7 +510,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り4件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -597,17 +597,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-03-28 12:00</span>
-            <span class="queue-type type-びっくり_根拠">びっくり+根拠</span>
-          </div>
-          <p class="queue-body">撤回された論文の多くは、撤回後も引用され続けている。<br><br>Retraction Watchのデータ分析によると、<br>撤回後5年以上が経過しても年間引用数がほとんど変わらないケースが多い。<br><br>「引用されている＝正確」ではなく、<br>「引用されている＝広まっている」にすぎない。<br><br>論文を引用する前にRetraction Watchで確認する。<br>これを習慣にすると、間違った根拠を使うリスクが下がる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-28_2_insight.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-28_2_insight.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-03-28 15:00</span>
             <span class="queue-type type-体験談">体験談</span>
           </div>
@@ -645,6 +634,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-03-28T03:44</div>
+          <p class="posted-text">撤回された論文の多くは、撤回後も引用され続けている。<br><br>Retraction Watchのデータ分析によると、<br>撤回後5年以上が経過しても年間引用数がほとんど変わらないケースが多い。<br><br>「引用されている＝正確」ではなく、<br>「引用されている＝広まっている」にすぎない。<br><br>論文を引用する前にRetraction Watchで確認する。<br>これを習慣にすると、間違った根拠を使うリスクが下がる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-03-27T23:26</div>
           <p class="posted-text">「初期に研究費の申請で落ちた研究者は、10年後に採択組を上回る」<br><br>2019年、Nature Communicationsに掲載された研究がある。<br>（Wang et al., 2019, Nature Communications）<br><br>NIHの初期申請で惜敗（僅差で不採択）した研究者を追跡すると、<br>10年後の論文数・被引用数が「かろうじて採択」組より高かった。<br><br>失敗直後は落ち込む。でも長期で見る</p>
@@ -864,18 +858,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 11</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-03-24T09:06</div>
-          <p class="posted-text">火曜の朝、先週書いた自分の論文原稿を読み返す。<br><br>「これ誰が書いたの？」ってなる。<br><br>丸2日かけた文章を全消しして、<br>また白紙から書き直したことが3回あります。<br><br>同じ経験ある人いますか？</p>
-          
-            <div class="posted-metrics">
-              <span>👁 105</span>
-              <span>❤️ 0</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 10</span>
             </div>
         </div>
   </div>
