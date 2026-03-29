@@ -46,11 +46,14 @@ jobs:
             --comment-id "${{ inputs.comment_id }}" \
             --text "${{ inputs.reply_text }}"
 
+      - name: ダッシュボード更新
+        run: python scripts/dashboard.py --config configs/${{ inputs.config }}.yml
+
       - name: comments.json を更新
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git pull --rebase origin main || true
-          git add -A data/
+          git add -A data/ docs/dashboard.html
           git commit -m "reply: ${{ inputs.config }} リプライ投稿 $(date +'%Y-%m-%d %H:%M UTC')" || echo "変更なし"
           git push || echo "pushスキップ"
