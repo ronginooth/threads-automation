@@ -551,7 +551,8 @@
       </div>
       
     </div>
-    <div style="text-align:right; margin: 8px 0 16px;">
+    <div style="text-align:right; margin: 8px 0 16px; display:flex; gap:8px; justify-content:flex-end;">
+      <button class="btn btn-edit" id="post-now-btn" onclick="triggerPostNow()">🚀 今すぐ投稿</button>
       <button class="btn btn-edit" id="stats-update-btn" onclick="triggerStatsUpdate()">📊 統計を更新</button>
     </div>
     <div class="section-title">⚡ やること</div>
@@ -2584,6 +2585,44 @@
       document.getElementById(id).classList.add('active');
       event.target.classList.add('active');
       if (id === 'replies') checkSetup();
+    }
+
+    // --- Post now ---
+    async function triggerPostNow() {
+      const pat = localStorage.getItem('gh_pat');
+      if (!pat) {
+        showToast('先にGitHub PATを設定してください（返信タブで設定できます）', 'error');
+        return;
+      }
+      const btn = document.getElementById('post-now-btn');
+      btn.textContent = '実行中…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(
+          `https://api.github.com/repos/${REPO}/actions/workflows/post.yml/dispatches`,
+          {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${pat}`,
+              'Accept': 'application/vnd.github.v3+json',
+            },
+            body: JSON.stringify({ ref: 'main' })
+          }
+        );
+        if (res.status === 204) {
+          showToast('✅ 投稿を実行しました（反映まで1〜2分）', 'success');
+        } else if (res.status === 401 || res.status === 403) {
+          showToast('GitHub PATが無効です。返信タブで再設定してください', 'error');
+          localStorage.removeItem('gh_pat');
+        } else {
+          showToast(`エラー: ${res.status}`, 'error');
+        }
+      } catch (e) {
+        showToast('通信エラー: ' + e.message, 'error');
+      } finally {
+        btn.textContent = '🚀 今すぐ投稿';
+        btn.disabled = false;
+      }
     }
 
     // --- Stats update ---
