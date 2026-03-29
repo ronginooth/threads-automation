@@ -39,10 +39,13 @@ jobs:
           THREADS_APP_ID: ${{ secrets.THREADS_APP_ID }}
         run: python scripts/post.py --config configs/${{ matrix.config }}.yml
 
+      - name: ダッシュボード更新
+        run: python scripts/dashboard.py --config configs/${{ matrix.config }}.yml
+
       - name: 投稿済みファイルをGitHubから削除
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A data/${{ matrix.config }}/
+          git add -A data/${{ matrix.config }}/ docs/dashboard.html
           git commit -m "post: ${{ matrix.config }} 投稿済み $(date +'%Y-%m-%d %H:%M UTC')" || echo "変更なし"
           git push || echo "pushスキップ"
