@@ -24,15 +24,6 @@ def load_log(log_file) -> list:
     return json.loads(log_file.read_text())
 
 
-def load_existing_stats(stats_file) -> set:
-    """すでに記録済みのthread_idセット"""
-    if not stats_file.exists():
-        return set()
-    with open(stats_file, encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        return {row["thread_id"] for row in reader}
-
-
 def run(ctx=None):
     if ctx is None:
         ctx = get_context()
@@ -41,38 +32,33 @@ def run(ctx=None):
     if not log:
         return
 
-    existing = load_existing_stats(ctx.stats_file)
-    is_new_file = not ctx.stats_file.exists()
+    rows = []
+    for entry in log:
+        thread_id = entry["thread_id"]
+        print(f"収集中: {thread_id} ({entry['file']})")
+        try:
+            insights = get_insights(thread_id, ctx.token)
+            row = {
+                "thread_id": thread_id,
+                "file": entry["file"],
+                "text_preview": entry["text"][:50].replace("\n", " "),
+                "posted_at": entry["posted_at"],
+                "collected_at": datetime.now().isoformat(),
+                "views": insights.get("views", 0),
+                "likes": insights.get("likes", 0),
+                "replies": insights.get("replies", 0),
+                "reposts": insights.get("reposts", 0),
+                "quotes": insights.get("quotes", 0),
+            }
+            rows.append(row)
+            print(f"  views={row['views']} likes={row['likes']} replies={row['replies']}")
+        except Exception as e:
+            print(f"  ❌ 取得失敗: {e}")
 
-    with open(ctx.stats_file, "a", newline="", encoding="utf-8") as f:
+    with open(ctx.stats_file, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=HEADERS)
-        if is_new_file:
-            writer.writeheader()
-
-        for entry in log:
-            thread_id = entry["thread_id"]
-            if thread_id in existing:
-                print(f"スキップ（収集済み）: {thread_id}")
-                continue
-            print(f"収集中: {thread_id} ({entry['file']})")
-            try:
-                insights = get_insights(thread_id, ctx.token)
-                row = {
-                    "thread_id": thread_id,
-                    "file": entry["file"],
-                    "text_preview": entry["text"][:50].replace("\n", " "),
-                    "posted_at": entry["posted_at"],
-                    "collected_at": datetime.now().isoformat(),
-                    "views": insights.get("views", 0),
-                    "likes": insights.get("likes", 0),
-                    "replies": insights.get("replies", 0),
-                    "reposts": insights.get("reposts", 0),
-                    "quotes": insights.get("quotes", 0),
-                }
-                writer.writerow(row)
-                print(f"  views={row['views']} likes={row['likes']} replies={row['replies']}")
-            except Exception as e:
-                print(f"  ❌ 取得失敗: {e}")
+        writer.writeheader()
+        writer.writerows(rows)
 
     print(f"\n✅ stats.csv に保存しました")
 
