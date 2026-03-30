@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-30 21:38 JST</p>
+    <p class="updated">更新: 2026-03-30 21:55 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (31)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (39)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (40)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1250,7 +1250,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (39件)</div>
+    <div class="section-subtitle">未返信 (40件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2535,6 +2535,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17945323794135777')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17945323794135777')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18578016469015559">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWgM6jflIQq" target="_blank">↗ 正直に言う。<br><br>論文執筆でAIを使い始めてから、「書けない」という感覚がほとんどなくなった。<br><br>ただ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@still_your_turn</span>
+            <p class="reply-text">設計ファーストね。</p>
+            <span class="reply-time">03/30 19:59</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18578016469015559')">
+              <span class="draft-label">案1</span>
+              <p>そう！設計ファーストという言い方、好きです。20年研究してて思うのは、書くスキルより「何を言うか決めるスキル」の方が圧倒的に重要だってこと。AIはそこを加速させる道具に過ぎない。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18578016469015559')">
+              <span class="draft-label">案2</span>
+              <p>まさにそれ。多くの人が『AIに書かせる』と思ってるけど、実は『構造設計が90%、執筆が10%』なんですよね。逆が得意な人ほど、AIを使いこなせていない気がします。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18578016469015559')">
+              <span class="draft-label">案3</span>
+              <p>その通り。実は論文執筆で一番難しいのは『何を伝えるか』の設計フェーズ。AIはそこを済ませた後の、手作業を減らすだけ。設計できれば、あとはツール選びの問題になる。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18578016469015559" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18578016469015559" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18578016469015559')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18578016469015559')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (6件)</div>
