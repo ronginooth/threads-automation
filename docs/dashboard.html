@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-03-30 16:59 JST</p>
+    <p class="updated">更新: 2026-03-30 18:03 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (33)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (38)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (39)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1286,7 +1286,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (38件)</div>
+    <div class="section-subtitle">未返信 (39件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2538,6 +2538,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18096960533094486')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18096960533094486')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17945323794135777">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWf4KA-llSB" target="_blank">↗ 「AIに丸投げすると論文が書けない」理由を一言で言うと、<br><br>「設計図なしに職人に仕事を頼んでいるから…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@yoohkan</span>
+            <p class="reply-text">同じくです<br>領域は全く異なりますが、こちらもシステムの設計や仕様、テストなどをAIと詰めに詰めてから作業をお願いしてます。<br>これだと齟齬も起きないし、各フェーズでの文書も残っているためズレたときにももとに戻しやすい。<br>丸投げではなく並走、言語化ができるといいですよね。</p>
+            <span class="reply-time">03/30 17:16</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17945323794135777')">
+              <span class="draft-label">案1</span>
+              <p>そうですね。設計段階で言語化する手間が、後の修正コストを劇的に減らすんですよね。AIとの並走は、実は人間の思考を鍛える修行にもなってる気がします。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17945323794135777')">
+              <span class="draft-label">案2</span>
+              <p>まさにそれです。仕様書が曖昧なまま始めると、後から『ここ違う』の無限ループ。最初の詰めが全てですね。領域問わず同じ原理が働くのは興味深い。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17945323794135777')">
+              <span class="draft-label">案3</span>
+              <p>完全同意です。ドキュメント化も含めた並走だから、トレーサビリティが残るんですよね。これ人間のチームワークでも同じ。AIはツールに過ぎないってのが本質ですね。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17945323794135777" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17945323794135777" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17945323794135777')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17945323794135777')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (6件)</div>
