@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-03 15:55 JST</p>
+    <p class="updated">更新: 2026-04-03 15:57 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (12)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (43)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (44)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1062,7 +1062,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (43件)</div>
+    <div class="section-subtitle">未返信 (44件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2479,6 +2479,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18075132926178348')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18075132926178348')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18058884872446825">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWn4fObFXdz" target="_blank">↗ Discussionが薄くなる原因はほぼ同じだと思っている。<br><br>Resultsを言い換えているだけ。…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@anishitanidr</span>
+            <p class="reply-text">論文の適切な、的確な書き方を、システマティックに考察していらっしゃいますね。こういった具体的な、何をどこにどう入れ込むかを教えてくれる方は少ない。</p>
+            <span class="reply-time">04/03 13:58</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18058884872446825')">
+              <span class="draft-label">案1</span>
+              <p>ありがとうございます。多くの指導は『深く書け』で止まるんですよね。でも具体的に『どの段落に何を入れるか』までテンプレート化すると、誰でも実践できるようになると思うんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18058884872446825')">
+              <span class="draft-label">案2</span>
+              <p>そう言ってもらえると嬉しいです。実は研究20年やってて気づいたのは、優れた論文って構成が決まってるんですよ。その型さえ習得すれば、ぐっと質が上がる。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18058884872446825')">
+              <span class="draft-label">案3</span>
+              <p>こちらこそ。正直、これ大学院での指導に組み込みたいくらいです。議論の薄さは努力不足じゃなく、『何をすべきか知らない』ことが大半。手順化することが重要だと痛感してます。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18058884872446825" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18058884872446825" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18058884872446825')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18058884872446825')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (15件)</div>
