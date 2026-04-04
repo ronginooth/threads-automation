@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-04 16:35 JST</p>
+    <p class="updated">更新: 2026-04-04 17:06 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (6)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">7</div>
+        <div class="stat-num">6</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">60</div>
+        <div class="stat-num">61</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り7件。今週中に補充を検討</div>
+            <div class="action-desc">残り6件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-04-04 17:00</span>
-            <span class="queue-type type-気づき型">気づき型</span>
-          </div>
-          <p class="queue-body">「うまく書けない」と感じるとき、たいてい2つのどちらかだった。<br><br>「何を書くか決まっていない」か「誰に向けて書くか決まっていない」か。<br><br>AIを使っても使わなくても、この2つが先に決まっていないと書けない。<br>道具の問題ではなく、設計の問題だった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-04_4_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-04_4_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-04-04 21:00</span>
             <span class="queue-type type-教育型">教育型</span>
           </div>
@@ -784,6 +773,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-04-04T08:06</div>
+          <p class="posted-text">「うまく書けない」と感じるとき、たいてい2つのどちらかだった。<br><br>「何を書くか決まっていない」か「誰に向けて書くか決まっていない」か。<br><br>AIを使っても使わなくても、この2つが先に決まっていないと書けない。<br>道具の問題ではなく、設計の問題だった。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-04T05:17</div>
           <p class="posted-text">Antigravityを使う前と後で、何が一番変わったかというと「待つ時間」だ。<br><br>以前は「生成→コピー→確認→修正→貼り付け」を手作業でやっていた。<br><br>自動化エンジンとチャット画面の違いは、<br>「一回指示するか、フローを設計するか」の違いだった。<br><br>設計図がある仕事は、自動化できる。これも同じ原則だった。</p>
@@ -989,18 +983,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 50</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-03-31T08:08</div>
-          <p class="posted-text">Zotero MCPを使い始めてから、論文内の架空文献がゼロになった。<br><br>以前は「AIが参考文献を作り上げる」問題が頻発していた。<br>原因は「AIに文献を探させていた」こと。<br><br>文献は自分で管理する。AIには「この文献を使って書け」と渡す。<br>ハルシネーションは「探させる」から起きる。「確認させる」に変えた。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 362</span>
-              <span>❤️ 3</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 45</span>
             </div>
         </div>
   </div>
