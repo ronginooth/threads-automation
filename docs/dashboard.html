@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-04 15:33 JST</p>
+    <p class="updated">更新: 2026-04-04 15:48 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (47)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1014,7 +1014,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (47件)</div>
+    <div class="section-subtitle">未返信 (48件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2563,6 +2563,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17954707182116703')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17954707182116703')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18099763945786513">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWr6IjJFBD9" target="_blank">↗ 論文投稿後、Rejectが来た。<br><br>「研究の新規性が不明確」とのコメントだった。<br><br>後から気づいたの…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@junming.lai.35</span>
+            <p class="reply-text">書き方次第、相手次第という部分は大きいです。</p>
+            <span class="reply-time">04/04 13:45</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18099763945786513')">
+              <span class="draft-label">案1</span>
+              <p>それはそうですね。ただ僕の場合、何が新しいかが自分の中で曖昧だったのが根本原因だったんです。書き方の問題じゃなく、思考の詰めが甘かった。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18099763945786513')">
+              <span class="draft-label">案2</span>
+              <p>確かに相手によるところもあります。でも正直、新規性が本当に明確なら、多くのレビュアーに届くはず。今回はそこが欠けてました。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18099763945786513')">
+              <span class="draft-label">案3</span>
+              <p>おっしゃる通り部分もあります。ただ20年やってて思うのは、通らない時は大抵、自分の設計段階での甘さです。相手のせいにするのは楽ですが。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18099763945786513" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18099763945786513" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18099763945786513')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18099763945786513')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (15件)</div>
