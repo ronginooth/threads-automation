@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-05 08:51 JST</p>
+    <p class="updated">更新: 2026-04-05 10:14 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">63</div>
+        <div class="stat-num">64</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り4件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-04-05 10:00</span>
-            <span class="queue-type type-二択型">二択型</span>
-          </div>
-          <p class="queue-body">英語論文のチェック、どちらに近い？<br><br>AIで文体を整えてから先生に見せる → ❤️<br>まず先生に赤を入れてもらってからAIで修正 → 🔥<br><br>私はずっと🔥だった。<br><br>型を使い始めてから❤️になった。出力の段階で文体がある程度整っているので、<br>先生の時間を「構造の確認」に使えるようになった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-05_2_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-05_2_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-04-05 13:00</span>
             <span class="queue-type type-導線型">導線型</span>
           </div>
@@ -751,6 +740,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-04-05T01:14</div>
+          <p class="posted-text">英語論文のチェック、どちらに近い？<br><br>AIで文体を整えてから先生に見せる → ❤️<br>まず先生に赤を入れてもらってからAIで修正 → 🔥<br><br>私はずっと🔥だった。<br><br>型を使い始めてから❤️になった。出力の段階で文体がある程度整っているので、<br>先生の時間を「構造の確認」に使えるようになった。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-04T22:00</div>
           <p class="posted-text">AIが文献調査・要約・英文化をやる時代、<br>研究者の仕事って何が残ると思う？<br><br>「問いを立てる」「仮説をつくる」「解釈する」——<br>今のところ、この3つはまだ人間の仕事だと思っている。<br><br>でも10年前に「英文校正は人間の仕事」と言われていた。<br>あなたは何が残ると思いますか？</p>
@@ -970,18 +964,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 2</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-01T01:19</div>
-          <p class="posted-text">論文執筆でAIを使うとき、どちらに近い？<br><br>「まずChatGPTに投げてみる、うまくいかなければ修正」→ ❤️<br>「先に何を書くか決めてから、AIに渡す」→ 🔥<br><br>私はずっと❤️だった。<br><br>🔥に変えたのは、修正地獄に3度落ちてからだった。<br>あなたはどっちですか？</p>
-          
-            <div class="posted-metrics">
-              <span>👁 84</span>
-              <span>❤️ 0</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 8</span>
             </div>
         </div>
   </div>
