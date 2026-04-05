@@ -9,5 +9,71 @@
       "2026-03-31_pivot_実践.md"
     ],
     "response_file": "data/ronginooth_ai/buzz/pivot_response_17904122.json"
+  },
+  {
+    "source_thread_id": "claude_code",
+    "source_text": "教授に言われた言葉。「学会は発表して終わりじゃない」——どういうことですか？",
+    "generated_at": "2026-04-05T11:46:11.756677",
+    "files": [
+      "2026-04-06_pivot_深掘り.md",
+      "2026-04-07_pivot_反転.md",
+      "2026-04-08_pivot_実践.md"
+    ],
+    "response_file": "data/ronginooth_ai/buzz/pivot_response_18082981.json"
+  },
+  {
+    "source_thread_id": "claude_code",
+    "source_text": "博士課程学生の41%が、不安または抑うつの症状を経験している。一般人口と比べて2.43倍の高さ。",
+    "generated_at": "2026-04-05T11:46:17.306555",
+    "files": [
+      "2026-04-06_pivot_深掘り.md",
+      "2026-04-07_pivot_反転.md",
+      "2026-04-08_pivot_実践.md"
+    ],
+    "response_file": "data/ronginooth_ai/buzz/pivot_response_17935079.json"
+  },
+  {
+    "source_thread_id": "claude_code",
+    "source_text": "セミナーで「英語論文の受動態は禁止」と言われた。Methodsを全部書き直して指導教員に",
+    "generated_at": "2026-04-05T11:46:21.838054",
+    "files": [
+      "2026-04-06_pivot_深掘り.md",
+      "2026-04-07_pivot_反転.md",
+      "2026-04-08_pivot_実践.md"
+    ],
+    "response_file": "data/ronginooth_ai/buzz/pivot_response_17904122.json"
+  },
+  {
+    "source_thread_id": "claude_code",
+    "source_text": "セミナーで「英語論文の受動態は禁止」と言われた。Methodsを全部書き直して",
+    "generated_at": "2026-04-05T12:02:23.216445",
+    "files": [
+      "2026-04-06_pivot_深掘り.md",
+      "2026-04-07_pivot_反転.md",
+      "2026-04-08_pivot_実践.md"
+    ],
+    "response_file": "data/ronginooth_ai/buzz/pivot_response_17904122.json"
+  },
+  {
+    "source_thread_id": "claude_code",
+    "source_text": "教授に言われた言葉。「学会は発表して終わりじゃない」——どういうことですか？",
+    "generated_at": "2026-04-05T12:03:53.052399",
+    "files": [
+      "2026-04-06_pivot_深掘り.md",
+      "2026-04-07_pivot_反転.md",
+      "2026-04-08_pivot_実践.md"
+    ],
+    "response_file": "data/ronginooth_ai/buzz/pivot_response_18082981.json"
+  },
+  {
+    "source_thread_id": "claude_code",
+    "source_text": "博士課程学生の41%が、不安または抑うつの症状を経験している。一般人口と比べて2.43倍の高さ。",
+    "generated_at": "2026-04-05T12:04:11.445669",
+    "files": [
+      "2026-04-06_pivot_深掘り.md",
+      "2026-04-07_pivot_反転.md",
+      "2026-04-08_pivot_実践.md"
+    ],
+    "response_file": "data/ronginooth_ai/buzz/pivot_response_17935079.json"
   }
 ]
