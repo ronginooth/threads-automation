@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-07 21:57 JST</p>
+    <p class="updated">更新: 2026-04-07 22:23 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (29)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (49)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1228,7 +1228,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (49件)</div>
+    <div class="section-subtitle">未返信 (48件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2812,40 +2812,17 @@
               <button class="btn btn-send" onclick="confirmReply('18085967972350964')">返信する</button>
             </div>
           </div>
-        </div>
-        <div class="reply-card" id="card-18519414979073900">
+        </div><div class="section-subtitle replied-header">返信済み (21件)</div>
+        <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWylXSCoJdm" target="_blank">↗ 「AIに自由を与えると、AIは失敗する」<br><br>これがAI論文執筆の鉄則。<br><br>「Introduction…</a>
           </div>
           <div class="reply-comment">
             <span class="reply-username">@airlie_hyndland</span>
             <p class="reply-text">じゃあ、生命科学なんか止めて失敗しないAIをつくったら？儲かるよ。</p>
-            <span class="reply-time">04/06 22:23</span>
           </div>
-          <div class="reply-drafts">
-            <p class="drafts-title">💬 案をタップして編集</p>
-            
-            <div class="reply-draft" onclick="selectDraft(this, '18519414979073900')">
-              <span class="draft-label">案1</span>
-              <p>そこなんですよね笑。失敗しないAIは、実は何もしてないのと同じ。生命科学の複雑さに挑むから、AIも本当の価値を生み出せるんです。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18519414979073900')">
-              <span class="draft-label">案2</span>
-              <p>確かに儲かるかもですが、それって退屈じゃないですか。失敗と創意工夫の繰り返しが研究の醍醐味だと思うんです。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18519414979073900')">
-              <span class="draft-label">案3</span>
-              <p>面白い視点ですが、失敗しないAIは結局つまらないタスクしかできない。生命科学みたいに複雑だからこそ、AIも本領を発揮できるんですよ。</p>
-            </div>
-          </div>
-          <div class="reply-editor" id="editor-18519414979073900" style="display:none;">
-            <textarea class="reply-textarea" id="textarea-18519414979073900" rows="3" placeholder="返信を入力…"></textarea>
-            <div class="reply-actions">
-              <button class="btn btn-cancel" onclick="cancelReply('18519414979073900')">キャンセル</button>
-              <button class="btn btn-send" onclick="confirmReply('18519414979073900')">返信する</button>
-            </div>
-          </div>
-        </div><div class="section-subtitle replied-header">返信済み (20件)</div>
+          <div class="replied-badge">✅ 返信済み: 確かに儲かるかもですが笑。失敗しないAIは、実は何もしてないのと同じ。生命科学の複雑さに挑むから、AIも本当の価値を生み出せると思います。</div>
+        </div>
         <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWvj55zljBs" target="_blank">↗ 査読の依頼がきた<br><br>共著者の論文だった。<br><br>正直に編集者にそのように伝えて<br>辞退した。公正に判断でき…</a>
