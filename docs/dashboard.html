@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-11 13:56 JST</p>
+    <p class="updated">更新: 2026-04-11 14:20 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (11)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (10)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (49)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">11</div>
+        <div class="stat-num">10</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">1</div>
+        <div class="stat-num">2</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">97</div>
+        <div class="stat-num">98</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -696,17 +696,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-04-11 13:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">英語論文を読んでいて「この文、AIが書いたな」とわかる瞬間がある。<br><br>&quot;Furthermore,&quot; &quot;Moreover,&quot; &quot;It is important to note that&quot;<br><br>これらが並んでいたら、ほぼ確実にAI生成。<br><br>自分の論文も確認してみると、ぞっとする。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-11_3_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-11_3_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-04-11 17:00</span>
             <span class="queue-type type-教育型（構造化リスト・新型）">教育型（構造化リスト・新型）</span>
           </div>
@@ -821,6 +810,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-04-11T05:20</div>
+          <p class="posted-text">英語論文を読んでいて「この文、AIが書いたな」とわかる瞬間がある。<br><br>&quot;Furthermore,&quot; &quot;Moreover,&quot; &quot;It is important to note that&quot;<br><br>これらが並んでいたら、ほぼ確実にAI生成。<br><br>自分の論文も確認してみると、ぞっとする。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T01:09</div>
           <p class="posted-text">「Introduction全部書いて」は失敗する。<br><br>「段落1：研究背景（3文、一般論から始める）」は成功する。<br><br>AIに渡す粒度が細かいほど、出力が安定する。<br><br>これが「プロンプトの工夫」ではなく「構造の設計」が大事な理由。</p>
@@ -1033,18 +1027,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 27</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-07T08:18</div>
-          <p class="posted-text">「AIが文献を捏造した」という報告を何度も聞く。<br><br>原因はプロンプトではなく、文献情報を渡していないこと。<br><br>Zotero MCPを使えば、AIは手元のライブラリからしか引用できなくなる。<br><br>ハルシネーションは防ぐものではなく、構造的に起こせなくする。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 136</span>
-              <span>❤️ 1</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 17</span>
             </div>
         </div>
   </div>
