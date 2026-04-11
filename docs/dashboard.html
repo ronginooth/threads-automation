@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-11 16:36 JST</p>
+    <p class="updated">更新: 2026-04-11 17:07 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (10)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (9)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (49)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">10</div>
+        <div class="stat-num">9</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">98</div>
+        <div class="stat-num">99</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -553,6 +553,13 @@
     </div>
     <div class="section-title">⚡ やること</div>
     
+        <div class="action-item">
+          <span class="action-icon">🟡</span>
+          <div>
+            <div class="action-title">キュー残数に注意</div>
+            <div class="action-desc">残り9件。今週中に補充を検討</div>
+          </div>
+        </div>
         <div class="action-item">
           <span class="action-icon">🟢</span>
           <div>
@@ -696,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-04-11 17:00</span>
-            <span class="queue-type type-教育型（構造化リスト・新型）">教育型（構造化リスト・新型）</span>
-          </div>
-          <p class="queue-body">Introduction執筆の構造は「逆三角形」。<br><br>①一般的な問題提起（広い）<br>②先行研究のレビュー（絞る）<br>③先行研究の限界（さらに絞る）<br>④本研究の目的（焦点）<br>⑤本研究の貢献（意義）<br><br>この5段階を知っていれば「何を書けばいいか分からない」は起きない。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-11_4_教育型（構造化リスト・新型）.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-11_4_教育型（構造化リスト・新型）.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-04-11 21:00</span>
             <span class="queue-type type-失敗談型">失敗談型</span>
           </div>
@@ -810,6 +806,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-04-11T08:07</div>
+          <p class="posted-text">Introduction執筆の構造は「逆三角形」。<br><br>①一般的な問題提起（広い）<br>②先行研究のレビュー（絞る）<br>③先行研究の限界（さらに絞る）<br>④本研究の目的（焦点）<br>⑤本研究の貢献（意義）<br><br>この5段階を知っていれば「何を書けばいいか分からない」は起きない。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T05:20</div>
           <p class="posted-text">英語論文を読んでいて「この文、AIが書いたな」とわかる瞬間がある。<br><br>&quot;Furthermore,&quot; &quot;Moreover,&quot; &quot;It is important to note that&quot;<br><br>これらが並んでいたら、ほぼ確実にAI生成。<br><br>自分の論文も確認してみると、ぞっとする。</p>
@@ -1015,18 +1016,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 28</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-07T12:41</div>
-          <p class="posted-text">「最新モデルに変えれば論文の質が上がる」<br><br>ずっとそう信じていた。<br><br>GPT-4から次々と変えた。何も変わらなかった。<br><br>変えるべきはモデルではなく、渡す構造だった。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 271</span>
-              <span>❤️ 0</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 27</span>
             </div>
         </div>
   </div>
