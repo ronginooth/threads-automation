@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-12 21:38 JST</p>
+    <p class="updated">更新: 2026-04-12 21:39 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (55)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">3</div>
+        <div class="stat-num">4</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">104</div>
+        <div class="stat-num">105</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り4件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-04-12 21:00</span>
-            <span class="queue-type type-反転型（新型・実は逆だった）">反転型（新型・実は逆だった）</span>
-          </div>
-          <p class="queue-body">「論文は長く書いた方が採択されやすい」と思っていた。<br><br>実際に査読者に聞いたら、全員が言った。「短い方がいい」と。<br><br>Methodsが長い＝実験設計が複雑すぎる、と読まれる。<br>Discussionが長い＝自信がない、と読まれる。<br><br>伝えたいことが1つなら、1段落で書ける。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-12_5_反転型（新型・実は逆だった）.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-12_5_反転型（新型・実は逆だった）.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-04-13 14:00</span>
             <span class="queue-type type-pivot_深掘り">pivot_深掘り</span>
           </div>
@@ -751,6 +740,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-04-12T12:39</div>
+          <p class="posted-text">「論文は長く書いた方が採択されやすい」と思っていた。<br><br>実際に査読者に聞いたら、全員が言った。「短い方がいい」と。<br><br>Methodsが長い＝実験設計が複雑すぎる、と読まれる。<br>Discussionが長い＝自信がない、と読まれる。<br><br>伝えたいことが1つなら、1段落で書ける。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-12T08:37</div>
           <p class="posted-text">AIで論文を書くとき「このセクションを全部書いて」と依頼するのをやめた。<br><br>代わりに「この段落に入れるべき3要素を箇条書きで出して」と聞く。<br><br>確認してOKなら「この3点を元に段落を書いて」と続ける。<br><br>これだけで、ハルシネーションと方向ズレが激減した。</p>
@@ -949,18 +943,6 @@
               <span>💬 1</span>
               <span>🔄 1</span>
               <span class="score">スコア 235</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-08T14:13</div>
-          <p class="posted-text">論文執筆で「ここだけはAIに任せられない」と感じる工程って、どこですか？<br><br>私はずっとDiscussionの解釈部分だと思っていた。<br><br>今は、問いの設定とデータの意味づけだと思っている。<br><br>AIが一番苦手なのは「これは何を意味するのか」を判断すること。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 610</span>
-              <span>❤️ 3</span>
-              <span>💬 3</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 85</span>
             </div>
         </div>
   </div>
