@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-12 19:06 JST</p>
+    <p class="updated">更新: 2026-04-12 19:30 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (54)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (55)</button>
   </nav>
 
   <!-- 概要 -->
@@ -974,7 +974,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (54件)</div>
+    <div class="section-subtitle">未返信 (55件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2754,6 +2754,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18076503287248719')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18076503287248719')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18008517089895433">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXBnCktFB0D" target="_blank">↗ AIで論文を書くとき「このセクションを全部書いて」と依頼するのをやめた。<br><br>代わりに「この段落に入れ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">畳の上でいくら水泳の練習をしても、泳げないやつは泳げない。</p>
+            <span class="reply-time">04/12 18:55</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18008517089895433')">
+              <span class="draft-label">案1</span>
+              <p>確かに。ただ僕の経験では、AIって『泳ぎ方を細かく指示されるほど』上手くなるツールなんです。最初から大きな指示より、段階的な方が精度上がるんですよ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18008517089895433')">
+              <span class="draft-label">案2</span>
+              <p>その通り。だからこそ方法論なんです。完全に頼るんじゃなく、人間が『ここまで細かく指示すればいける』という実験をしてる。研究の再現性と同じ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18008517089895433')">
+              <span class="draft-label">案3</span>
+              <p>笑。でもね、20年研究してると気づくのは『正しい指示≠正しい結果』なんです。AIも人間の部下も同じ。段階的に確認する癖が、実は最強なんですよ。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18008517089895433" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18008517089895433" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18008517089895433')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18008517089895433')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
