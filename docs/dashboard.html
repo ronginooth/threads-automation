@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-12 11:32 JST</p>
+    <p class="updated">更新: 2026-04-12 13:39 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (6)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (53)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (54)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1010,7 +1010,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (53件)</div>
+    <div class="section-subtitle">未返信 (54件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2759,47 +2759,40 @@
               <button class="btn btn-send" onclick="confirmReply('18200472496351952')">返信する</button>
             </div>
           </div>
-        </div><div class="section-subtitle replied-header">返信済み (24件)</div>
-        <div class="reply-card replied">
+        </div>
+        <div class="reply-card" id="card-18076503287248719">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
           </div>
           <div class="reply-comment">
-            <span class="reply-username">@yoshikazu3466</span>
-            <p class="reply-text">研究がうまくいかない時に、良い方法を思いついた時ですかね。</p>
+            <span class="reply-username">@n.0605.o</span>
+            <p class="reply-text">人の感情など見えないものを言語化する研究領域ですが、それらが言語化できて、うまくフィットした時です。<br>思いもしなかった関連性が出てきた時とか、地味なのですが　あ、これって‥ と1人ニヤニヤしてます。</p>
+            <span class="reply-time">04/12 11:00</span>
           </div>
-          <div class="replied-badge">✅ 返信済み: わかります。試行錯誤の中で『ああ、こうやればいけるかも』って思える瞬間は研究の醍醐味ですね。</div>
-        </div>
-        <div class="reply-card replied">
-          <div class="reply-post-ref">
-            <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18076503287248719')">
+              <span class="draft-label">案1</span>
+              <p>わかります！その『あ、これって…』の瞬間、研究20年やってても毎回興奮します。見えないものを言語化する過程で予期しない繋がりが見える。その1人ニヤニヤ、それが研究の本質ですよね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18076503287248719')">
+              <span class="draft-label">案2</span>
+              <p>感情の言語化、難しい領域ですね。でも逆にそこが面白い。関連性が浮かぶ時って、それまでの試行錯誤が脳で繋がった瞬間。その地味なニヤニヤこそが、実は大発見の予兆だと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18076503287248719')">
+              <span class="draft-label">案3</span>
+              <p>その『あ、これって…』って瞬間、最高ですね。見えないものほど言語化した時のインパクトが大きい。僕も予想外の繋がりが出た時が一番楽しい。その感覚を大事にしてください、それが新しい視点ですから。</p>
+            </div>
           </div>
-          <div class="reply-comment">
-            <span class="reply-username">@yoshikazu3466</span>
-            <p class="reply-text">論文の査読者から厳しいけど、良いアドバイスをいただいた時にそんな考えもあるか、思った時。</p>
+          <div class="reply-editor" id="editor-18076503287248719" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18076503287248719" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18076503287248719')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18076503287248719')">返信する</button>
+            </div>
           </div>
-          <div class="replied-badge">✅ 返信済み: それありますね。査読者のコメントって最初は悔しいけど、後で見直すと自分の思考の盲点が見える。そういう『他者の視点』が研究を深くするんだと思います。</div>
-        </div>
-        <div class="reply-card replied">
-          <div class="reply-post-ref">
-            <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
-          </div>
-          <div class="reply-comment">
-            <span class="reply-username">@takatsuda_note</span>
-            <p class="reply-text">「発見」以上にワクワクすることはないですね。<br>次に、実験で行き詰まってどうしよかと悩んでいた時、解決策のアイデアが脳内でパーンっと輝く時ですかね。</p>
-          </div>
-          <div class="replied-badge">✅ 返信済み: その『パーン』の瞬間、たまりませんよね。むしろ行き詰まったからこそ生まれるアイデアって、深掘りされた良い発想になることが多い。試行錯誤の苦労が報われる瞬間だと思</div>
-        </div>
-        <div class="reply-card replied">
-          <div class="reply-post-ref">
-            <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
-          </div>
-          <div class="reply-comment">
-            <span class="reply-username">@fuku5435</span>
-            <p class="reply-text">『そんなん絶対に無理、夢を語るな』と言われてたのを見返した時<br>順番に裏付けデータ提示するごとに言った本人の目の色がどんどん変わる瞬間がたまらない</p>
-          </div>
-          <div class="replied-badge">✅ 返信済み: わかります。むしろ反対意見がある方が燃えるタイプなんですね。データで順序立てて説明する過程で、相手だけじゃなく自分も仮説の本質が見えてくる。そういう対話の中に研</div>
-        </div>
+        </div><div class="section-subtitle replied-header">返信済み (20件)</div>
         <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWvj55zljBs" target="_blank">↗ 査読の依頼がきた<br><br>共著者の論文だった。<br><br>正直に編集者にそのように伝えて<br>辞退した。公正に判断でき…</a>
