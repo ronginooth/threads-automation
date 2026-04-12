@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-12 10:30 JST</p>
+    <p class="updated">更新: 2026-04-12 11:02 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (6)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (57)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">7</div>
+        <div class="stat-num">6</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">101</div>
+        <div class="stat-num">102</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り7件。今週中に補充を検討</div>
+            <div class="action-desc">残り6件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-04-12 10:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">論文を提出した後、すぐ「あそこ直せばよかった」が来る。<br><br>リジェクト通知が来て、査読コメントを読むと、全部そこを指摘されている。<br><br>提出前に気づいていた。それでも直さなかった。<br><br>「もう十分書いた」という疲労感が判断を鈍らせる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-12_2_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-12_2_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-04-12 13:00</span>
             <span class="queue-type type-導線型">導線型</span>
           </div>
@@ -784,6 +773,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-04-12T02:02</div>
+          <p class="posted-text">論文を提出した後、すぐ「あそこ直せばよかった」が来る。<br><br>リジェクト通知が来て、査読コメントを読むと、全部そこを指摘されている。<br><br>提出前に気づいていた。それでも直さなかった。<br><br>「もう十分書いた」という疲労感が判断を鈍らせる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T22:18</div>
           <p class="posted-text">研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき、急に楽しくなった。<br><br>「間違い」が「発見」に変わる瞬間が研究の醍醐味だと思う。<br><br>あなたはどんなとき、研究が楽しいと感じますか？</p>
@@ -1003,18 +997,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 63</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-08T04:08</div>
-          <p class="posted-text">論文の「考察」を書こうとして、「結果の繰り返し」になっている。<br><br>査読者に「これはResultsです」と言われる。<br><br>Discussionは「なぜ起きたのか」「何を意味するのか」を書く場所。<br><br>わかっているけど、できない。最初は全員そう。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 1994</span>
-              <span>❤️ 22</span>
-              <span>💬 3</span>
-              <span>🔄 1</span>
-              <span class="score">スコア 284</span>
             </div>
         </div>
   </div>
