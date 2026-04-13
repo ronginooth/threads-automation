@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-13 13:51 JST</p>
+    <p class="updated">更新: 2026-04-13 14:14 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (2)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (56)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">3</div>
+        <div class="stat-num">2</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">105</div>
+        <div class="stat-num">106</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り2件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-04-13 14:00</span>
-            <span class="queue-type type-pivot_深掘り">pivot_深掘り</span>
-          </div>
-          <p class="queue-body">学会で挨拶した人が翌年の査読者になった経験、実際にある。<br><br>ブラインドレビューのはずが、発表スタイルや質問の仕方で誰だか分かることも多い。<br><br>科学の世界でも「人が人を評価する」という事実は変わらない。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-13_pivot_深掘り.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-13_pivot_深掘り.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-04-14 14:00</span>
             <span class="queue-type type-pivot_反転">pivot_反転</span>
           </div>
@@ -740,6 +729,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-04-13T05:14</div>
+          <p class="posted-text">学会で挨拶した人が翌年の査読者になった経験、実際にある。<br><br>ブラインドレビューのはずが、発表スタイルや質問の仕方で誰だか分かることも多い。<br><br>科学の世界でも「人が人を評価する」という事実は変わらない。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-12T12:39</div>
           <p class="posted-text">「論文は長く書いた方が採択されやすい」と思っていた。<br><br>実際に査読者に聞いたら、全員が言った。「短い方がいい」と。<br><br>Methodsが長い＝実験設計が複雑すぎる、と読まれる。<br>Discussionが長い＝自信がない、と読まれる。<br><br>伝えたいことが1つなら、1段落で書ける。</p>
@@ -966,18 +960,6 @@
               <span>💬 2</span>
               <span>🔄 0</span>
               <span class="score">スコア 71</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-08T22:06</div>
-          <p class="posted-text">博士課程中に燃え尽き症候群を経験した研究者は43%。<br><br>これはNature Index（2023）の調査。<br><br>「研究に向いていない」のではなく「そうなりやすい環境」に置かれているだけだ。<br><br>個人の問題ではなく、構造の問題として対処する必要がある。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 1542</span>
-              <span>❤️ 24</span>
-              <span>💬 1</span>
-              <span>🔄 1</span>
-              <span class="score">スコア 235</span>
             </div>
         </div>
   </div>
