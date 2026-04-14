@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "file": "2026-04-15_pivot_学会_反転.md",
+    "checked_at": "2026-04-13T16:03:11.739995",
+    "reasons": [
+      "品質スコア 6.8 < 7.0"
+    ],
+    "scores": {
+      "hook": 6,
+      "useful": 7,
+      "specific": 7,
+      "rhythm": 8,
+      "persona": 5,
+      "original": 7,
+      "emotion": 6,
+      "action": 6,
+      "length": 9,
+      "natural": 7
+    },
+    "average": 6.8
+  }
+]
