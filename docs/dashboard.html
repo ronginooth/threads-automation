@@ -502,15 +502,15 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-13 13:31 JST</p>
+    <p class="updated">更新: 2026-04-14 14:48 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (36)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (1)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (37)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (56)</button>
   </nav>
 
   <!-- 概要 -->
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">36</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">31</div>
+        <div class="stat-num">107</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -553,6 +553,13 @@
     </div>
     <div class="section-title">⚡ やること</div>
     
+        <div class="action-item">
+          <span class="action-icon">🔴</span>
+          <div>
+            <div class="action-title">キュー残数が少ない</div>
+            <div class="action-desc">残り1件。<code>python3 weekly.py</code> で補充してください</div>
+          </div>
+        </div>
         <div class="action-item">
           <span class="action-icon">🟢</span>
           <div>
@@ -696,398 +703,13 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-03-30 10:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">初投稿のとき、Rejectionまで3ヶ月かかった。<br><br>「3ヶ月で結果が出た」と思うか「3ヶ月も待たされた」と思うか。<br><br>研究を始めた頃は後者だった。今は前者になっている。<br><br>何かひとつの経験が、見方を変えたんだと思う。<br>あなたはそういう転換点、ありましたか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-30_2_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-30_2_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-30 13:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">「AIに丸投げすると論文が書けない」理由を一言で言うと、<br><br>「設計図なしに職人に仕事を頼んでいるから」だと思っている。<br><br>AIが設計図を作ることはできない。<br>自分の実験・文脈・主張——それを決めるのは人間だけ。<br><br>AIには「穴埋め」だけさせる。<br>その役割分担を決めた日から、修正地獄が消えた。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-30_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-30_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-30 17:00</span>
-            <span class="queue-type type-本音型">本音型</span>
-          </div>
-          <p class="queue-body">正直に言う。<br><br>論文執筆でAIを使い始めてから、「書けない」という感覚がほとんどなくなった。<br><br>ただ、それは「AIが書いてくれる」からではない。<br>「何を書くかを先に決めている」からだ。<br><br>構造が先にある。だから書ける。AIはそれを英文にするだけ。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-30_4_本音型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-30_4_本音型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-30 21:00</span>
-            <span class="queue-type type-導線型">導線型</span>
-          </div>
-          <p class="queue-body">週末2日かけてAIと格闘して、できたのは半ページだった。<br><br>プロンプトが悪かったのかと思っていた。<br><br>違った。プロンプトより先に渡すものがあった。<br>「設計図」という考え方に行き着くまで、1年かかった。<br><br>同じ時間を無駄にしてほしくないので、プロフにまとめています。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-30_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-30_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-30 14:00</span>
-            <span class="queue-type type-pivot_反転">pivot_反転</span>
-          </div>
-          <p class="queue-body">「間違ったルールを教えられた」話をすると、たまに反論が来る。<br><br>「現場では受動態で統一している」<br>「指導教員がそう言っている」<br><br>それも正しい。ジャーナルによって、分野によって、慣習は違う。<br><br>「正解は一つ」と思い込むことが、一番危ない。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-30_pivot_反転.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-30_pivot_反転.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-31 07:00</span>
-            <span class="queue-type type-失敗談型">失敗談型</span>
-          </div>
-          <p class="queue-body">指導教員に「この Introduction、誰のための論文？」と聞かれた。<br><br>言葉に詰まった。<br><br>「誰のための論文か」を考えずに書いていた。<br>2週間分の原稿が、その一言でひっくり返った。<br><br>読者を決めてから書く。その順番を間違えていた。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-31 10:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">「AIに自由を与えるな」が、私が論文執筆で学んだ最大の教訓。<br><br>自由に書かせると、それっぽい文章が出てくる。<br>ただし、私の実験のデータは1つも入っていない。<br><br>「何を書くか」を先に決める。そのリストをAIに渡す。<br>AIは設計図を解釈するエンジンであって、設計者ではない。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_2_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_2_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-31 13:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">研究室の後輩に「AI使って論文書くコツは？」と聞かれた。<br><br>「プロンプトよりCSVが大事」と答えたら、「なんで？」と返ってきた。<br><br>うまく説明できなかった。<br><br>「型に当てはめると品質が安定する」という話、<br>研究者の間でもっと広まってほしいと思う。あなたはどう感じますか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_3_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_3_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-31 17:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">Zotero MCPを使い始めてから、論文内の架空文献がゼロになった。<br><br>以前は「AIが参考文献を作り上げる」問題が頻発していた。<br>原因は「AIに文献を探させていた」こと。<br><br>文献は自分で管理する。AIには「この文献を使って書け」と渡す。<br>ハルシネーションは「探させる」から起きる。「確認させる」に変えた。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_4_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_4_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-31 21:00</span>
-            <span class="queue-type type-気づき型">気づき型</span>
-          </div>
-          <p class="queue-body">「週末が溶ける」感覚を最後に持ったのはいつだろうと考えた。<br><br>気づいたら、なくなっていた。<br><br>「溶ける」のは時間ではなく、「設計なしに書こうとする時間」だった。<br>設計が先にある仕事は、土日に持ち越さない。<br><br>仕組みを変えると、感覚が変わる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_5_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_5_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-03-31 14:00</span>
+            <span class="queue-time">2026-04-15 14:00</span>
             <span class="queue-type type-pivot_実践">pivot_実践</span>
           </div>
-          <p class="queue-body">論文を書く前にやること、ひとつ追加した。<br><br>投稿先ジャーナルの「Author Guidelines」を読む。<br>能動態か受動態か、一人称の使い方、これが書いてある。<br><br>書き終わってから「直してください」と言われると1日潰れる。<br>最初の30分が、あとの数時間を守る。</p>
+          <p class="queue-body">学会で「挨拶が苦手」な人は、発表後の質疑で1問だけ手を挙げるところから始めると動きやすい。<br><br>質問は事前に「自分の研究と関連する疑問」を1つだけ用意しておくだけでいい。<br><br>これだけで、座長の記憶には残る。</p>
           <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-03-31_pivot_実践.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-03-31_pivot_実践.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-01 07:00</span>
-            <span class="queue-type type-常識覆し型">常識覆し型</span>
-          </div>
-          <p class="queue-body">「ChatGPTに良いプロンプトを渡せば良い論文が書ける」は思い込みだった。<br><br>GPT-4oでも Claude 3.5でも、設計図なしに渡すと結果は変わらない。<br><br>モデルの性能より、渡す構造の方が出力に影響する。<br>プロンプトへの投資より、設計図への投資が先だった。<br><br>あなたはどちらに時間をかけていますか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_1_常識覆し型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_1_常識覆し型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-01 10:00</span>
-            <span class="queue-type type-二択型">二択型</span>
-          </div>
-          <p class="queue-body">論文執筆でAIを使うとき、どちらに近い？<br><br>「まずChatGPTに投げてみる、うまくいかなければ修正」→ ❤️<br>「先に何を書くか決めてから、AIに渡す」→ 🔥<br><br>私はずっと❤️だった。<br><br>🔥に変えたのは、修正地獄に3度落ちてからだった。<br>あなたはどっちですか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_2_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_2_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-01 13:00</span>
-            <span class="queue-type type-導線型">導線型</span>
-          </div>
-          <p class="queue-body">後輩から「週末に初稿できました」とメッセージが来た。<br><br>渡したのはプロンプトではなく、1枚のCSVファイルだった。<br><br>「型があれば穴埋めだけ」という考え方がそこにある。<br>詳しくはプロフのリンクに書いています。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_3_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_3_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-01 17:00</span>
-            <span class="queue-type type-本音型">本音型</span>
-          </div>
-          <p class="queue-body">「論文は書くもの」と思っていた時期が長かった。<br><br>今は「設計するもの、あとはAIが穴を埋める」と思っている。<br><br>設計という作業は、正直かなり地味だ。<br>表を埋めて、段落の役割を決めて、主張を一文で書く。<br><br>でもその1時間が、あとの10時間を節約する。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_4_本音型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_4_本音型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-01 21:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">「1段落に1メッセージ」というルールを意識するようになってから、<br>AIに渡す前に段落リストを作るようになった。<br><br>「段落1: 現状の問題を述べる」<br>「段落2: 先行研究のギャップを示す」<br><br>この粒度で設計すると、AIの出力がそのまま使えることが増えた。<br>段落の役割を人間が決める。それだけで品質が変わる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-01_5_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-01_5_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-02 07:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">Introductionで一番失敗しやすいのは「書きすぎ」だ。<br><br>背景を丁寧に書こうとして、「本研究の目的」が後ろに追いやられる。<br><br>理想の構造: ①現状→②ギャップ→③本研究の目的→④構成の予告。<br>この4段落で収まる。<br><br>「詳しく書くほど良い」は、Introductionには当てはまらない。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_1_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_1_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-02 10:00</span>
-            <span class="queue-type type-体験談型">体験談型</span>
-          </div>
-          <p class="queue-body">セミナーで「能動態で書け」と言われた。<br>「The results showed」を「We found」に直して提出した。<br><br>「なぜweばっかり使ってるの？ Methodsは受動態が標準だよ」<br><br>どちらのルールも「正しい」。<br>ジャーナルごとに違う。<br><br>論文の「正解」は、投稿規程を読むまで分からない。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_2_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_2_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-02 13:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">査読コメントが届く日の朝、少し憂鬱になる。<br><br>「今日のメンタルが終わるかもしれない」という感覚。<br><br>全部読むより、まずコーヒーを飲む。<br>そして「最悪でもMajor Revisionで済む」と思ってから開く。<br><br>査読コメントの開け方、ルーティンがある人いますか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_3_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_3_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-02 17:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">Discussionが薄くなる原因はほぼ同じだと思っている。<br><br>Resultsを言い換えているだけ。<br><br>「〜という結果が得られた。これは〜を示す」は言い換えに近い。<br><br>「なぜこの結果が出たか」「先行研究と何が違うか」「どこに使えるか」<br>この3つを各段落に1つずつ割り当てる。それだけで厚みが変わる。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_4_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_4_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-02 21:00</span>
-            <span class="queue-type type-問いかけ型">問いかけ型</span>
-          </div>
-          <p class="queue-body">AIが論文の文献調査をする時代、研究者の「本当の仕事」って何だと思う？<br><br>私の答えは「問いを立てること」。<br><br>AIは既存の知識を整理する。<br>「何を問うか」はまだ人間にしかできない、と今は思っている。<br><br>10年後に答えが変わっているかもしれないけど。あなたはどう思いますか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-02_5_問いかけ型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-02_5_問いかけ型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-03 07:00</span>
-            <span class="queue-type type-本音×損失回避型">本音×損失回避型</span>
-          </div>
-          <p class="queue-body">大学院3年目で気づいた。<br><br>指導教員に毎回修正される原稿、実は「問いの立て方」が間違っていただけだった。<br><br>文章力の問題じゃなかった。<br>構造の問題でもなかった。<br><br>最初の一歩——「何を明らかにするか」——を間違えていた。<br>誰かが最初に教えてくれていたら、と今でも思う。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_1_本音×損失回避型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_1_本音×損失回避型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-03 10:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">「プロンプトよりCSVテーブルが強い理由」を一言で言うと、<br><br>構造データに「解釈の余地」がないから。<br><br>プロンプト（自然言語）はAIが解釈する。<br>CSVはAIが読み取る。解釈には揺れがある。読み取りには揺れがない。<br><br>同じ入力で毎回安定した出力を得たいなら、構造化された入力が必要だった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_2_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_2_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-03 13:00</span>
-            <span class="queue-type type-数字×常識覆し型">数字×常識覆し型</span>
-          </div>
-          <p class="queue-body">Nature論文の平均査読期間は約6ヶ月。<br>bioRxivに出した瞬間から引用が始まることがある。<br><br>「完成してから出す」という常識が、少しずつ変わっている。<br><br>プレプリントを「ドラフトを公開する行為」と見るか「研究を始める行為」と見るか。<br>この2つは全然違う話だと思う。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_3_数字×常識覆し型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_3_数字×常識覆し型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-03 17:00</span>
-            <span class="queue-type type-体験談型">体験談型</span>
-          </div>
-          <p class="queue-body">Methodsを書くのが一番嫌いだった。<br><br>「全部書いたのにまた修正」が何度も続いたから。<br><br>型を使うと、まず「この段落の読者は誰か」が決まっている。<br>再現できる粒度で書くのか、概要だけでいいのか。<br><br>読者が決まると、修正の方向性も決まる。<br>修正の回数が、明らかに減った。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_4_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_4_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-03 21:00</span>
-            <span class="queue-type type-導線型">導線型</span>
-          </div>
-          <p class="queue-body">「最新モデルに変えれば論文の質が上がる」と信じていた頃の私へ。<br><br>モデルより先に渡すものがある。<br>それが設計図という考え方だった。<br><br>ChatGPT-4oでも Claude でも、設計図がなければ結果は変わらない。<br>その話をもう少し詳しくプロフのリンクに書いています。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-03_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-03_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-04 07:00</span>
-            <span class="queue-type type-失敗談型">失敗談型</span>
-          </div>
-          <p class="queue-body">論文投稿後、Rejectが来た。<br><br>「研究の新規性が不明確」とのコメントだった。<br><br>後から気づいたのだが、Introductionを書く時点で「何が新しいか」を定義していなかった。<br>書き終えてから定義しようとしたから、通らなかった。<br><br>設計の段階でそこを決める習慣が、なかった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-04_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-04_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-04 10:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">「AIで論文書けますか？」と聞かれると、毎回少し困る。<br><br>「書けます」と答えると「どんなプロンプト？」と続く。<br><br>プロンプトの話じゃないんです——と言いたいけど、<br>「設計図という概念」を30秒で説明するのは難しい。<br><br>うまく説明できる人がいたら教えてください。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-04_2_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-04_2_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-04 13:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">Antigravityを使う前と後で、何が一番変わったかというと「待つ時間」だ。<br><br>以前は「生成→コピー→確認→修正→貼り付け」を手作業でやっていた。<br><br>自動化エンジンとチャット画面の違いは、<br>「一回指示するか、フローを設計するか」の違いだった。<br><br>設計図がある仕事は、自動化できる。これも同じ原則だった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-04_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-04_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-04 17:00</span>
-            <span class="queue-type type-気づき型">気づき型</span>
-          </div>
-          <p class="queue-body">「うまく書けない」と感じるとき、たいてい2つのどちらかだった。<br><br>「何を書くか決まっていない」か「誰に向けて書くか決まっていない」か。<br><br>AIを使っても使わなくても、この2つが先に決まっていないと書けない。<br>道具の問題ではなく、設計の問題だった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-04_4_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-04_4_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-04 21:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">「なぜ査読論文はほぼ同じ骨格なのか」という問いに、こう答えることがある。<br><br>査読者が「どこに何があるか」を事前に知っているから読める。<br><br>型から外れると、読む側の認知負荷が上がる。<br>読む気が下がる。評価が下がる。<br><br>型は慣習ではなく、コミュニケーションの設計だった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-04_5_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-04_5_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-05 07:00</span>
-            <span class="queue-type type-AI_vs_人間の問いかけ型">AI vs 人間の問いかけ型</span>
-          </div>
-          <p class="queue-body">AIが文献調査・要約・英文化をやる時代、<br>研究者の仕事って何が残ると思う？<br><br>「問いを立てる」「仮説をつくる」「解釈する」——<br>今のところ、この3つはまだ人間の仕事だと思っている。<br><br>でも10年前に「英文校正は人間の仕事」と言われていた。<br>あなたは何が残ると思いますか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-05_1_AI_vs_人間の問いかけ型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-05_1_AI_vs_人間の問いかけ型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-05 10:00</span>
-            <span class="queue-type type-二択型">二択型</span>
-          </div>
-          <p class="queue-body">英語論文のチェック、どちらに近い？<br><br>AIで文体を整えてから先生に見せる → ❤️<br>まず先生に赤を入れてもらってからAIで修正 → 🔥<br><br>私はずっと🔥だった。<br><br>型を使い始めてから❤️になった。出力の段階で文体がある程度整っているので、<br>先生の時間を「構造の確認」に使えるようになった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-05_2_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-05_2_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-05 13:00</span>
-            <span class="queue-type type-導線型">導線型</span>
-          </div>
-          <p class="queue-body">「論文はCSVと同じ構造をしている」と気づいた日から、書くことへの恐怖が消えた。<br><br>セル＝段落。ヘッダー＝各段落の役割。<br>設計が先にあれば、あとは穴埋めだけ。<br><br>その考え方をもう少し詳しくまとめたので、プロフのリンクから読んでみてください。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-05_3_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-05_3_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-05 17:00</span>
-            <span class="queue-type type-教育型">教育型</span>
-          </div>
-          <p class="queue-body">「週末が溶けるループ」には構造がある。<br><br>AIに自由に書かせる。<br>それっぽいが的外れな文章が出る。<br>修正する。また的外れ。また修正。<br><br>このループは、AIの性能の問題ではない。<br>設計図なしにAIを動かしているから起きる。<br><br>設計図を先に作る。それだけでループが消えた。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-05_4_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-05_4_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-04-05 21:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">論文の結論を書いた後、「で、何が言いたかったんだっけ」となる瞬間がある。<br><br>書いた本人が迷子になっている。<br><br>読む側はもっと迷子になる。<br>「言いたいことは最初に決める」は、<br>AIに書かせる時代になっても変わらない原則だと思う。<br><br>同じ経験ありますか？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-05_5_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-05_5_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-15_pivot_実践.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-15_pivot_実践.md" target="_blank" class="btn btn-delete">🗑 削除</a>
           </div>
         </div>
   </div>
@@ -1097,244 +719,104 @@
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
         <div class="posted-card">
-          <div class="posted-time">2026-03-29T22:17</div>
-          <p class="posted-text">論文がアクセプトになった。喜んでいたのも束の間、共著者から「Xに載っているグラフィカルアブストラクトが間違っている」とコメントが来た。<br><br>見てみると確かに間違っていた。オンライン版のサムネにも使われている図だから論文の顔なのに、恥ずかしい。<br>アクセプト後に慌てて作ってチェックを怠った。<br><br>勝って兜の緒を締めよ、まさにこのことだ。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 1119</span>
-              <span>❤️ 22</span>
-              <span>💬 3</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 193</span>
-            </div>
+          <div class="posted-time">2026-04-14T05:48</div>
+          <p class="posted-text">一方で、ネットワーキングが得意な人が有利になる構造は問題でもある。<br><br>内向的な研究者、英語が母語でない人、マイノリティが不当に評価される温床になりやすい。<br><br>だから近年、ブラインド査読やオープンレビューへの移行が進んでいる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-29T12:28</div>
-          <p class="posted-text">発表5分前、緊張で顔が青かった。<br><br>教授に「大丈夫か」と声をかけられた。<br><br>「緊張してます」と言ったら、<br><br>「俺でもするよ」<br><br>——え。<br><br>「緊張は、自分以上を出そうとするからだ。<br>よく思われたいだろ。<br>でも今日のお前が全部だ。<br>自分以上は出せない」<br><br>少し、楽になった。<br><br>発表が終わって戻ったら、<br><br>「今までで一番良かったぞ」<br><br>嬉しかった。今でも覚えている。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 587</span>
-              <span>❤️ 38</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 173</span>
-            </div>
+          <div class="posted-time">2026-04-13T05:14</div>
+          <p class="posted-text">学会で挨拶した人が翌年の査読者になった経験、実際にある。<br><br>ブラインドレビューのはずが、発表スタイルや質問の仕方で誰だか分かることも多い。<br><br>科学の世界でも「人が人を評価する」という事実は変わらない。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-29T09:26</div>
-          <p class="posted-text">学会の質疑、内心「質問が来なければいい」と思っていた。<br><br>教授に話したら、<br><br>「それは逆だ。<br>わざわざ手を挙げてくれる人は、<br>ちゃんと聞いてくれた人だ。ありがたいと思え」<br><br>——でも答えられなかったら。<br><br>「『大事な質問ありがとうございます』と言って、<br>わからなければわからないと言っていい。<br>でも発表が終わったら、その先生のところに行け。<br>『教えてください』って」<br><br>それだけですか、と聞いたら、<br></p>
-          
-            <div class="posted-metrics">
-              <span>👁 1308</span>
-              <span>❤️ 96</span>
-              <span>💬 1</span>
-              <span>🔄 3</span>
-              <span class="score">スコア 436</span>
-            </div>
+          <div class="posted-time">2026-04-12T12:39</div>
+          <p class="posted-text">「論文は長く書いた方が採択されやすい」と思っていた。<br><br>実際に査読者に聞いたら、全員が言った。「短い方がいい」と。<br><br>Methodsが長い＝実験設計が複雑すぎる、と読まれる。<br>Discussionが長い＝自信がない、と読まれる。<br><br>伝えたいことが1つなら、1段落で書ける。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-29T04:03</div>
-          <p class="posted-text">「Methodsは受動態が標準」とはいえ、例外もある。<br><br>Actives voices推奨のジャーナルが増えてきた。<br>PLOS ONEやeLifeは「we」を明示的に推奨している。<br><br>つまり「受動態が正しい」も「能動態が正しい」も、どちらも正解になりうる。<br>ジャーナルの投稿規程を読むのが最初の一歩だった。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 201</span>
-              <span>❤️ 2</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 26</span>
-            </div>
+          <div class="posted-time">2026-04-12T08:37</div>
+          <p class="posted-text">AIで論文を書くとき「このセクションを全部書いて」と依頼するのをやめた。<br><br>代わりに「この段落に入れるべき3要素を箇条書きで出して」と聞く。<br><br>確認してOKなら「この3点を元に段落を書いて」と続ける。<br><br>これだけで、ハルシネーションと方向ズレが激減した。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-28T12:28</div>
-          <p class="posted-text">「忙しくて論文が書けない」は、<br>実は「書き始めるハードルが高すぎる」だった。<br><br>わたしは毎朝15分だけ、<br>昨日の続きを1段落だけ書くルールにした。<br><br>たった15分でも、5日で1セクション進む。<br><br>書けない問題の正体は時間じゃなくて<br>「始められない」だった。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 859</span>
-              <span>❤️ 20</span>
-              <span>💬 2</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 156</span>
-            </div>
+          <div class="posted-time">2026-04-12T05:05</div>
+          <p class="posted-text">子どもに「今日は公園行ける？」と聞かれて答えられなかった週末があった。<br><br>論文が終わらなくて。<br><br>それが変わったのは、論文をある方法で構造化した日から。<br><br>同じ思いをしている方へ——プロフにリンクあります。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-28T08:26</div>
-          <p class="posted-text">金曜日の夕方に論文を投稿する。<br><br>「よし、週末は休むぞ」と思う。<br><br>土曜の朝、エディターから<br>「Your manuscript has been received」のメール。<br><br>そこから査読結果が来るまで<br>毎日メールを開くたびにドキドキする生活が始まる。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 660</span>
-              <span>❤️ 11</span>
-              <span>💬 1</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 104</span>
-            </div>
+          <div class="posted-time">2026-04-12T02:02</div>
+          <p class="posted-text">論文を提出した後、すぐ「あそこ直せばよかった」が来る。<br><br>リジェクト通知が来て、査読コメントを読むと、全部そこを指摘されている。<br><br>提出前に気づいていた。それでも直さなかった。<br><br>「もう十分書いた」という疲労感が判断を鈍らせる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-28T06:10</div>
-          <p class="posted-text">教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着いたら座長に挨拶しろ。<br>他の演者の発表には質問しろ。<br>うまく答えられなかった相手には、後で声をかけろ。<br>帰る前に座長にお礼を言え」<br><br>——それって研究と関係ありますか？<br><br>「その人が来年、お前の論文を査読するかもしれない。<br>ポストが空いたとき、陰でお前を推してくれるかもしれない。<br>科学者の前に、人間だ</p>
-          
-            <div class="posted-metrics">
-              <span>👁 139514</span>
-              <span>❤️ 3898</span>
-              <span>💬 53</span>
-              <span>🔄 70</span>
-              <span class="score">スコア 26214</span>
-            </div>
+          <div class="posted-time">2026-04-11T22:18</div>
+          <p class="posted-text">研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき、急に楽しくなった。<br><br>「間違い」が「発見」に変わる瞬間が研究の醍醐味だと思う。<br><br>あなたはどんなとき、研究が楽しいと感じますか？</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-28T03:44</div>
-          <p class="posted-text">撤回された論文の多くは、撤回後も引用され続けている。<br><br>Retraction Watchのデータ分析によると、<br>撤回後5年以上が経過しても年間引用数がほとんど変わらないケースが多い。<br><br>「引用されている＝正確」ではなく、<br>「引用されている＝広まっている」にすぎない。<br><br>論文を引用する前にRetraction Watchで確認する。<br>これを習慣にすると、間違った根拠を使うリスクが下がる。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 456</span>
-              <span>❤️ 7</span>
-              <span>💬 0</span>
-              <span>🔄 1</span>
-              <span class="score">スコア 71</span>
-            </div>
+          <div class="posted-time">2026-04-11T12:52</div>
+          <p class="posted-text">英語が得意な共著者に頼んで、Discussionを全部書き直してもらったことがある。<br><br>戻ってきた原稿を読んで「自分の研究の解釈が変わっていた」ことに気づいた。<br><br>英語化は外注できても、解釈は外注できない。<br><br>そこだけは自分でやる必要があると、その日学んだ。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-27T23:26</div>
-          <p class="posted-text">「初期に研究費の申請で落ちた研究者は、10年後に採択組を上回る」<br><br>2019年、Nature Communicationsに掲載された研究がある。<br>（Wang et al., 2019, Nature Communications）<br><br>NIHの初期申請で惜敗（僅差で不採択）した研究者を追跡すると、<br>10年後の論文数・被引用数が「かろうじて採択」組より高かった。<br><br>失敗直後は落ち込む。でも長期で見る</p>
-          
-            <div class="posted-metrics">
-              <span>👁 2041</span>
-              <span>❤️ 38</span>
-              <span>💬 5</span>
-              <span>🔄 1</span>
-              <span class="score">スコア 351</span>
-            </div>
+          <div class="posted-time">2026-04-11T08:07</div>
+          <p class="posted-text">Introduction執筆の構造は「逆三角形」。<br><br>①一般的な問題提起（広い）<br>②先行研究のレビュー（絞る）<br>③先行研究の限界（さらに絞る）<br>④本研究の目的（焦点）<br>⑤本研究の貢献（意義）<br><br>この5段階を知っていれば「何を書けばいいか分からない」は起きない。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-27T12:37</div>
-          <p class="posted-text">AIに「論文書いて」と丸投げしたことがある。<br><br>出てきたのは、<br>もっともらしいけど中身のない文章だった。<br><br>そこで気づいた。<br>AIに渡すべきは「書いて」じゃなくて<br>「この構造で埋めて」だった。<br><br>設計図がないと、人間もAIも迷子になる。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 486</span>
-              <span>❤️ 10</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 79</span>
-            </div>
+          <div class="posted-time">2026-04-11T05:20</div>
+          <p class="posted-text">英語論文を読んでいて「この文、AIが書いたな」とわかる瞬間がある。<br><br>&quot;Furthermore,&quot; &quot;Moreover,&quot; &quot;It is important to note that&quot;<br><br>これらが並んでいたら、ほぼ確実にAI生成。<br><br>自分の論文も確認してみると、ぞっとする。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-27T08:37</div>
-          <p class="posted-text">研究でAIを使ってる人に聞きたい。<br><br>一番「これは助かった」って場面はどれ？<br><br>① 文献検索・要約<br>② 英文校正・翻訳<br>③ データ分析・可視化<br>④ アイデア出し・壁打ち<br><br>わたしは④が圧倒的に変わりました。<br>一人で考えるより3倍速い。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 193</span>
-              <span>❤️ 3</span>
-              <span>💬 2</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 38</span>
-            </div>
+          <div class="posted-time">2026-04-11T01:09</div>
+          <p class="posted-text">「Introduction全部書いて」は失敗する。<br><br>「段落1：研究背景（3文、一般論から始める）」は成功する。<br><br>AIに渡す粒度が細かいほど、出力が安定する。<br><br>これが「プロンプトの工夫」ではなく「構造の設計」が大事な理由。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-27T06:54</div>
-          <p class="posted-text">科研費、1回落ちた。<br><br>翌年、タイトルだけ変えて出し直した。<br><br>採択された。<br><br>（正確には中身も少しブラッシュアップしたけど）<br><br>審査員は申請書を5〜10分しか見ない。<br>最初に目に入るタイトルで印象が決まる。<br><br>研究の中身より先に「読みたい」と思わせる言葉を選ぶ。<br>それだけで結果が変わることがある。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 616</span>
-              <span>❤️ 10</span>
-              <span>💬 4</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 112</span>
-            </div>
+          <div class="posted-time">2026-04-10T22:38</div>
+          <p class="posted-text">「論文は謎解きだ」と気づいた日から、書くのが怖くなくなった。<br><br>Introduction：なぜこの研究をするのか<br>Results：何が起きたか<br>Discussion：なぜそうなったのか<br><br>この順番が分かれば、何をどこに書けばいいかは自動的に決まる。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-27T04:05</div>
-          <p class="posted-text">学振に落ちた。かなり落ち込んでいた。<br><br>研究室の先輩に話したら、<br><br>「採択率何パーセントか知ってる？」<br><br>——20〜30%くらいですか<br><br>「落ちた人の方が圧倒的に多い世界で、<br>なんで自分のせいだと思うの？」<br><br>それから、不採択通知が来るたびに<br>まず採択率を調べることにしている。<br><br>比べる相手は同期じゃなくて、数字でいい。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 933</span>
-              <span>❤️ 12</span>
-              <span>💬 0</span>
-              <span>🔄 2</span>
-              <span class="score">スコア 137</span>
-            </div>
+          <div class="posted-time">2026-04-10T12:32</div>
+          <p class="posted-text">論文執筆のAI活用、あなたはどちら派？<br><br>A: まず書いてみてからAIに修正してもらう<br>B: 構造を決めてからAIに書かせる<br><br>私はずっとAだった。Bに変えてから週末が戻ってきた。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-26T23:19</div>
-          <p class="posted-text">博士課程学生の41%が、不安または抑うつの症状を経験している。<br><br>一般人口と比べて2.43倍の高さ。<br><br>これはNature Biotechnologyに掲載された研究の数字。<br>（Evans et al., 2018, Nature Biotechnology）<br><br>「研究に向いていないのかも」「自分だけ苦しい」ではなく、<br>構造的にそうなりやすい環境に置かれているという話。<br><br>個人の問題ではなく、シス</p>
-          
-            <div class="posted-metrics">
-              <span>👁 3899</span>
-              <span>❤️ 84</span>
-              <span>💬 8</span>
-              <span>🔄 6</span>
-              <span class="score">スコア 714</span>
-            </div>
+          <div class="posted-time">2026-04-10T08:21</div>
+          <p class="posted-text">Antigravityとチャット型AIの決定的な違いは「再現性」にある。<br><br>チャットは毎回ゼロから始まる。<br><br>Antigravityはワークフローを定義でき、毎回同じ手順で動く。<br><br>「作業」ではなく「仕組み」にできるかどうかの差。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-26T12:38</div>
-          <p class="posted-text">共同研究者に「いつ出せる？」って聞かれて<br>「来月には…」と答える。<br><br>3ヶ月後、まだ書いてる。<br><br>6ヶ月後、データを追加実験してる。<br><br>研究者の「来月」は信用してはいけない。<br>自分が一番分かってる。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 440</span>
-              <span>❤️ 7</span>
-              <span>💬 2</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 75</span>
-            </div>
+          <div class="posted-time">2026-04-10T05:07</div>
+          <p class="posted-text">「最新モデルに変えれば論文の質が上がる」と信じていた頃の自分へ。<br><br>モデルより先に変えるべきものがあった。<br><br>AIに渡す「設計図」だ。<br><br>その設計図の話、noteに書きました。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-26T08:40</div>
-          <p class="posted-text">論文を書くとき「完璧に仕上げてから出す」と思ってた。<br><br>でも実は、60%の段階で共著者に見せたほうが<br>最終的なクオリティは上がる。<br><br>理由は簡単で、<br>自分の頭の中だけで考え続けると<br>「穴」に気づけなくなるから。<br><br>早く見せる勇気、大事でした。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 294</span>
-              <span>❤️ 6</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 51</span>
-            </div>
+          <div class="posted-time">2026-04-10T02:03</div>
+          <p class="posted-text">AIで書いた英語を、英語ネイティブの共著者に送る前に一晩悩む。<br><br>「これはAIが書いたとバレる」<br><br>でも送ってみたら「Very nicely written」と返ってきた。<br><br>AIの英語を心配するより、論理を心配した方がいい。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-26T06:54</div>
-          <p class="posted-text">研究アイデアが生まれるのはどこ？<br><br>文献の矛盾を読んでいるとき → ❤️<br>シャワー中・移動中・寝る前 → 🔥<br><br>私は圧倒的に🔥です。<br><br>一番いいアイデアはメモできないタイミングに限って出てくる。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 155</span>
-              <span>❤️ 3</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 24</span>
-            </div>
+          <div class="posted-time">2026-04-09T23:23</div>
+          <p class="posted-text">「この論文3日で書けます」と教授に言った。<br><br>Results書き終わって気づいた。<br><br>Discussionに必要な文献を全部読み直す必要があった。<br><br>設計の甘さは執筆に入ってから気づく。それが一番コストが高い。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-26T04:04</div>
-          <p class="posted-text">査読で「この引用元を確認してください」と言われた。<br><br>確認したら、私が引用した論文が、<br>さらに古い論文の言い換えだったと気づいた。<br><br>誰かの孫引きを、また孫引きしていた。<br><br>「有名な論文だから大丈夫」で済ませた自分のミス。<br>一次文献に当たるのを面倒くさがった結果だった。<br><br>それ以来、重要な引用は必ず原文を確認している。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 881</span>
-              <span>❤️ 21</span>
-              <span>💬 2</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 161</span>
-            </div>
+          <div class="posted-time">2026-04-09T12:44</div>
+          <p class="posted-text">「論文は書くものだ」<br><br>この思い込みを捨てた日から、書くのが楽になった。<br><br>論文は「設計するもの」で、英語は「出力させるもの」だった。<br><br>設計さえできれば、英語は道具に過ぎない。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-25T23:06</div>
-          <p class="posted-text">論文を引用した著者の約7割は、その論文を読んでいない。<br><br>引用エラーの「伝播パターン」から逆算した研究がある。<br>（Simkin &amp; Roychowdhury, 2003, Complex Systems）<br><br>同じ誤字・誤記が複数の論文に連鎖している現象から、<br>実際に原文を読んでいるのは全体の20〜30%と推計された。<br><br>「よく引用されている＝正しい」ではなく、<br>「よく引用されている＝よく孫引きされ</p>
-          
-            <div class="posted-metrics">
-              <span>👁 194</span>
-              <span>❤️ 9</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 46</span>
-            </div>
+          <div class="posted-time">2026-04-09T08:09</div>
+          <p class="posted-text">週末が論文に溶けるのは、意志が弱いからじゃない。<br><br>「書きながら考える」設計になっているからだ。<br><br>考える工程と書く工程を分離すれば、書く時間は劇的に短くなる。<br><br>考える＝構造を作る。書く＝AIに穴を埋めさせる。この分業だけでいい。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-03-25T12:38</div>
-          <p class="posted-text">研究者の皆さんに聞きたい。<br><br>論文執筆で一番時間がかかる工程って何ですか？<br><br>わたしは圧倒的にDiscussion。<br><br>結果は出てるのに「だから何？」を書くのが<br>毎回しんどい。<br><br>皆さんはどこで詰まりますか？</p>
-          
-            <div class="posted-metrics">
-              <span>👁 216</span>
-              <span>❤️ 7</span>
-              <span>💬 9</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 88</span>
-            </div>
+          <div class="posted-time">2026-04-09T05:25</div>
+          <p class="posted-text">「先生、週末ちゃんと休めた上に初稿できました！」<br><br>後輩がそう言って来た日がある。<br><br>私が渡したのは新しいプロンプトじゃない。<br><br>ある1枚のCSVファイルだった。何が入っていたか、プロフのリンクから。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
   </div>
 
@@ -1347,7 +829,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (37件)</div>
+    <div class="section-subtitle">未返信 (56件)</div>
         <div class="reply-card" id="card-17895053220288275">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWTAJ76FlCf" target="_blank">↗ セミナーで「英語論文の受動態は禁止」と言われた。<br>Methodsを全部書き直して指導教員に渡した。<br>…</a>
@@ -2437,39 +1919,6 @@
             </div>
           </div>
         </div>
-        <div class="reply-card" id="card-18578204197057980">
-          <div class="reply-post-ref">
-            <a href="https://www.threads.com/@ronginooth_ai/post/DWYOmwNlQ-V" target="_blank">↗ 科研費、1回落ちた。<br><br>翌年、タイトルだけ変えて出し直した。<br><br>採択された。<br><br>（正確には中身も少し…</a>
-          </div>
-          <div class="reply-comment">
-            <span class="reply-username">@anishitanidr</span>
-            <p class="reply-text">いまも同じシステムかどうか不明ですが‥‥。かつて、一段審査も数回、二段審査も二年間担当しました。<br><br>ronginoothさまは審査員をなさっていらっしゃるかと思います。ご指摘のように、一段審査では申請書を一回読むだけで、5〜10分です。50くらい見るので、二回読む時間的余裕がまったくありません。一回読んだだけで、申請の意図が頭に入るように書かれているか、否かが、非常に重要かな、と思います。タイトルもたしかに重要ですね。<br><br>国語力、文章力、タイトルの命名力は、間違いなく、科研費獲得の重要なカギのひとつです。</p>
-            <span class="reply-time">03/29 10:32</span>
-          </div>
-          <div class="reply-drafts">
-            <p class="drafts-title">💬 案をタップして編集</p>
-            
-            <div class="reply-draft" onclick="selectDraft(this, '18578204197057980')">
-              <span class="draft-label">案1</span>
-              <p>審査員経験者からのご指摘、ありがとうございます。やはり一回読みで判断されるんですね。50件を5～10分で見るとなると、最初の数秒で「読む価値あり」と思わせることが本当に重要だと改めて実感します。国語力、舐めちゃいけませんね。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18578204197057980')">
-              <span class="draft-label">案2</span>
-              <p>貴重なご経験をお聞かせいただき、感謝です。一段審査の時間的制約の実態を知ると、タイトルと冒頭の数行への投資がいかに大切かが本当によく分かります。研究の質より『伝え方』が勝負を左右することもあると、改めて痛感します。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18578204197057980')">
-              <span class="draft-label">案3</span>
-              <p>実際の審査経験に基づくコメント、ありがとうございます。50件を一回読みというのは想像以上に時間がない。つまり申請者側は『いかに素早く理解させるか』という視点を持つべきなんですね。研究力と表現力、両方が要るということですね。</p>
-            </div>
-          </div>
-          <div class="reply-editor" id="editor-18578204197057980" style="display:none;">
-            <textarea class="reply-textarea" id="textarea-18578204197057980" rows="3" placeholder="返信を入力…"></textarea>
-            <div class="reply-actions">
-              <button class="btn btn-cancel" onclick="cancelReply('18578204197057980')">キャンセル</button>
-              <button class="btn btn-send" onclick="confirmReply('18578204197057980')">返信する</button>
-            </div>
-          </div>
-        </div>
         <div class="reply-card" id="card-17908513056374418">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2568,7 +2017,807 @@
               <button class="btn btn-send" onclick="confirmReply('18112117444783825')">返信する</button>
             </div>
           </div>
-        </div><div class="section-subtitle replied-header">返信済み (6件)</div>
+        </div>
+        <div class="reply-card" id="card-18096960533094486">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWdpgkvFsNS" target="_blank">↗ 学会の質疑、内心「質問が来なければいい」と思っていた。<br><br>教授に話したら、<br><br>「それは逆だ。<br>わざわ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@blue_hedgehog79</span>
+            <p class="reply-text">教授の仰る通りです。<br>発表に慣れてきたら「質問カモ〜ン」てなりますよ。質問がなかったらガッカリしちゃうくらい。</p>
+            <span class="reply-time">03/30 15:41</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18096960533094486')">
+              <span class="draft-label">案1</span>
+              <p>そこに辿り着くまでの道のりが長かった…。でも今思うと、質問されるってのは研究が評価されてる証拠ですよね。その心境の変化、本当に大事な成長だと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18096960533094486')">
+              <span class="draft-label">案2</span>
+              <p>わかります！今は質問が来ないと物足りなく感じます。当時の自分を思い出すと、いかに視野が狭かったか。若い時の『教えてください』は本当に貴重な機会だったな。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18096960533094486')">
+              <span class="draft-label">案3</span>
+              <p>まさにそれ。年重ねると『質問が来ない=興味持たれてない』って感じて悔しくなる。当時ビビってた自分に、質問こそが対話の始まりだって教えてやりたい。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18096960533094486" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18096960533094486" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18096960533094486')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18096960533094486')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17945323794135777">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWf4KA-llSB" target="_blank">↗ 「AIに丸投げすると論文が書けない」理由を一言で言うと、<br><br>「設計図なしに職人に仕事を頼んでいるから…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@yoohkan</span>
+            <p class="reply-text">同じくです<br>領域は全く異なりますが、こちらもシステムの設計や仕様、テストなどをAIと詰めに詰めてから作業をお願いしてます。<br>これだと齟齬も起きないし、各フェーズでの文書も残っているためズレたときにももとに戻しやすい。<br>丸投げではなく並走、言語化ができるといいですよね。</p>
+            <span class="reply-time">03/30 17:16</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17945323794135777')">
+              <span class="draft-label">案1</span>
+              <p>そうですね。設計段階で言語化する手間が、後の修正コストを劇的に減らすんですよね。AIとの並走は、実は人間の思考を鍛える修行にもなってる気がします。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17945323794135777')">
+              <span class="draft-label">案2</span>
+              <p>まさにそれです。仕様書が曖昧なまま始めると、後から『ここ違う』の無限ループ。最初の詰めが全てですね。領域問わず同じ原理が働くのは興味深い。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17945323794135777')">
+              <span class="draft-label">案3</span>
+              <p>完全同意です。ドキュメント化も含めた並走だから、トレーサビリティが残るんですよね。これ人間のチームワークでも同じ。AIはツールに過ぎないってのが本質ですね。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17945323794135777" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17945323794135777" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17945323794135777')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17945323794135777')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18578016469015559">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWgM6jflIQq" target="_blank">↗ 正直に言う。<br><br>論文執筆でAIを使い始めてから、「書けない」という感覚がほとんどなくなった。<br><br>ただ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@still_your_turn</span>
+            <p class="reply-text">設計ファーストね。</p>
+            <span class="reply-time">03/30 19:59</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18578016469015559')">
+              <span class="draft-label">案1</span>
+              <p>そう！設計ファーストという言い方、好きです。20年研究してて思うのは、書くスキルより「何を言うか決めるスキル」の方が圧倒的に重要だってこと。AIはそこを加速させる道具に過ぎない。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18578016469015559')">
+              <span class="draft-label">案2</span>
+              <p>まさにそれ。多くの人が『AIに書かせる』と思ってるけど、実は『構造設計が90%、執筆が10%』なんですよね。逆が得意な人ほど、AIを使いこなせていない気がします。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18578016469015559')">
+              <span class="draft-label">案3</span>
+              <p>その通り。実は論文執筆で一番難しいのは『何を伝えるか』の設計フェーズ。AIはそこを済ませた後の、手作業を減らすだけ。設計できれば、あとはツール選びの問題になる。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18578016469015559" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18578016469015559" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18578016469015559')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18578016469015559')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18025374074674307">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWgM6jflIQq" target="_blank">↗ 正直に言う。<br><br>論文執筆でAIを使い始めてから、「書けない」という感覚がほとんどなくなった。<br><br>ただ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@fuku5435</span>
+            <p class="reply-text">ネタ大事、むしろそっちが本質<br>伝えたい中身良ければ下手な英語でも読んでくれる</p>
+            <span class="reply-time">03/31 04:09</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18025374074674307')">
+              <span class="draft-label">案1</span>
+              <p>その通り。AIはツールに過ぎず、何を言うかが全て。20年の研究で気づいたのは、良い論文は構造と内容が明確な時点で既に完成してるってこと。英語は装飾品です。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18025374074674307')">
+              <span class="draft-label">案2</span>
+              <p>本当にそれ。英語が完璧でも中身がないと誰も読まない。逆に言いたいことが明確なら、多少の言語ミスは気にならない。むしろ強さが出ます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18025374074674307')">
+              <span class="draft-label">案3</span>
+              <p>激同。30年やってて気づいたのは、執筆の99%は内容の整理で、言語化は1%の問題だってこと。だからAIが活躍する。でもネタなければAIも動けないんですよね。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18025374074674307" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18025374074674307" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18025374074674307')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18025374074674307')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18178725649376635">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWgM6jflIQq" target="_blank">↗ 正直に言う。<br><br>論文執筆でAIを使い始めてから、「書けない」という感覚がほとんどなくなった。<br><br>ただ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@biomedicalengineeringreseacher</span>
+            <p class="reply-text">「日本人は英語論文が書けない」と欧米人にバカにされる時代は終わりました。</p>
+            <span class="reply-time">03/31 02:03</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18178725649376635')">
+              <span class="draft-label">案1</span>
+              <p>本当にそう。AIは言語の壁を低くしてくれましたね。ただ、大事なのは『何を言うか』で『どう言うか』じゃない。その部分は20年前も今も変わってません。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18178725649376635')">
+              <span class="draft-label">案2</span>
+              <p>むしろ英語の心配より『自分の研究を明確に構造化できるか』が問われるようになった。その意味で、研究の質そのものへの要求は上がってると感じます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18178725649376635')">
+              <span class="draft-label">案3</span>
+              <p>確かに。でも気をつけたいのは、AIが得意になったからこそ『中身のない論文』も増えやすくなった点。言語は道具になった。本勝負は研究内容です。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18178725649376635" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18178725649376635" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18178725649376635')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18178725649376635')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17944318674153588">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWhnQUnGJI5" target="_blank">↗ 指導教員に「この Introduction、誰のための論文？」と聞かれた。<br><br>言葉に詰まった。<br><br>「…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@harurucat</span>
+            <p class="reply-text">あるある。</p>
+            <span class="reply-time">03/31 07:57</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17944318674153588')">
+              <span class="draft-label">案1</span>
+              <p>本当ですよね。僕も若い頃は同じミス繰り返してました。読者像が曖昧だと、どうしても自己満足的な論文になってしまう。そこからの脱却が大事です。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17944318674153588')">
+              <span class="draft-label">案2</span>
+              <p>ですよね。指導教員のその一言は厳しいけど、実は最高のアドバイス。読者を想定するだけで、論文の説得力がガラッと変わります。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17944318674153588')">
+              <span class="draft-label">案3</span>
+              <p>あるあるです。実は研究20年やってても、時々その罠に陥る。でも『誰のための論文か』という問い自体が、論文を磨く最強のフィルターなんですよね。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17944318674153588" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17944318674153588" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17944318674153588')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17944318674153588')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18075132926178348">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWhnQUnGJI5" target="_blank">↗ 指導教員に「この Introduction、誰のための論文？」と聞かれた。<br><br>言葉に詰まった。<br><br>「…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@masaaki1969</span>
+            <p class="reply-text">あるある。</p>
+            <span class="reply-time">03/31 07:28</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18075132926178348')">
+              <span class="draft-label">案1</span>
+              <p>本当ですよね。僕も若い頃、ひたすら「正確さ」だけを追い求めて、肝心の『伝える相手』を見失ってました。その後、論文の質が劇的に変わりました。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18075132926178348')">
+              <span class="draft-label">案2</span>
+              <p>この問いかけは、実は論文作成における最重要ステップだと思います。読者層が決まると、Introduction の深さも難易度も自動的に決まりますから。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18075132926178348')">
+              <span class="draft-label">案3</span>
+              <p>指導教員のこの一言、当時は苦しいけど、長期的には最高のアドバイスです。僕もこの視点から書き直した論文のほうが、圧倒的に受理されやすくなりました。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18075132926178348" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18075132926178348" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18075132926178348')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18075132926178348')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18058884872446825">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWn4fObFXdz" target="_blank">↗ Discussionが薄くなる原因はほぼ同じだと思っている。<br><br>Resultsを言い換えているだけ。…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@anishitanidr</span>
+            <p class="reply-text">論文の適切な、的確な書き方を、システマティックに考察していらっしゃいますね。こういった具体的な、何をどこにどう入れ込むかを教えてくれる方は少ない。</p>
+            <span class="reply-time">04/03 13:58</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18058884872446825')">
+              <span class="draft-label">案1</span>
+              <p>ありがとうございます。多くの指導は『深く書け』で止まるんですよね。でも具体的に『どの段落に何を入れるか』までテンプレート化すると、誰でも実践できるようになると思うんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18058884872446825')">
+              <span class="draft-label">案2</span>
+              <p>そう言ってもらえると嬉しいです。実は研究20年やってて気づいたのは、優れた論文って構成が決まってるんですよ。その型さえ習得すれば、ぐっと質が上がる。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18058884872446825')">
+              <span class="draft-label">案3</span>
+              <p>こちらこそ。正直、これ大学院での指導に組み込みたいくらいです。議論の薄さは努力不足じゃなく、『何をすべきか知らない』ことが大半。手順化することが重要だと痛感してます。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18058884872446825" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18058884872446825" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18058884872446825')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18058884872446825')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17954707182116703">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWr6IjJFBD9" target="_blank">↗ 論文投稿後、Rejectが来た。<br><br>「研究の新規性が不明確」とのコメントだった。<br><br>後から気づいたの…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">あれ？この前論文執筆十箇条みたいなの書いついたじゃん。いきなり転けたわけ？</p>
+            <span class="reply-time">04/04 12:53</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17954707182116703')">
+              <span class="draft-label">案1</span>
+              <p>笑。知ってるよね、だから余計にショックなんだ。頭では分かってても、実践できてない悪い例ってやつ。自分にも甘さがあるってわけ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17954707182116703')">
+              <span class="draft-label">案2</span>
+              <p>あはは。知識と実行は別問題ってやつですよ。十箇条を書いた後だからこそ、自分の失敗がより明確に見える。これも学習だと割り切ろう。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17954707182116703')">
+              <span class="draft-label">案3</span>
+              <p>そこだよ。分かってるのに実行できない。20年以上やってても、工程を飛ばすとこうなる。むしろ基本に立ち返る良い機会だと思ってる。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17954707182116703" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17954707182116703" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17954707182116703')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17954707182116703')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18099763945786513">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWr6IjJFBD9" target="_blank">↗ 論文投稿後、Rejectが来た。<br><br>「研究の新規性が不明確」とのコメントだった。<br><br>後から気づいたの…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@junming.lai.35</span>
+            <p class="reply-text">書き方次第、相手次第という部分は大きいです。</p>
+            <span class="reply-time">04/04 13:45</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18099763945786513')">
+              <span class="draft-label">案1</span>
+              <p>それはそうですね。ただ僕の場合、何が新しいかが自分の中で曖昧だったのが根本原因だったんです。書き方の問題じゃなく、思考の詰めが甘かった。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18099763945786513')">
+              <span class="draft-label">案2</span>
+              <p>確かに相手によるところもあります。でも正直、新規性が本当に明確なら、多くのレビュアーに届くはず。今回はそこが欠けてました。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18099763945786513')">
+              <span class="draft-label">案3</span>
+              <p>おっしゃる通り部分もあります。ただ20年やってて思うのは、通らない時は大抵、自分の設計段階での甘さです。相手のせいにするのは楽ですが。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18099763945786513" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18099763945786513" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18099763945786513')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18099763945786513')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18400836598147948">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWvj55zljBs" target="_blank">↗ 査読の依頼がきた<br><br>共著者の論文だった。<br><br>正直に編集者にそのように伝えて<br>辞退した。公正に判断でき…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@anishitanidr</span>
+            <p class="reply-text">影響ゼロ、とはならないでしょうね。</p>
+            <span class="reply-time">04/05 17:36</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18400836598147948')">
+              <span class="draft-label">案1</span>
+              <p>そうですね。完全にゼロにするのは難しい。だから透明性が大事だと思う。利益相反がありそうなら事前に伝える。それが学問の信頼につながると考えています。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18400836598147948')">
+              <span class="draft-label">案2</span>
+              <p>ですよね。人間だから無意識の偏りはある。だからこそ、明らかな利益相反は避ける。自分たちの誠実さが長期的には評価されると信じてます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18400836598147948')">
+              <span class="draft-label">案3</span>
+              <p>その通り。完全には排除できない。でも気を付けることはできる。黙って査読するより、伝えて判断してもらう方が結果的に査読制度を守ると思います。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18400836598147948" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18400836598147948" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18400836598147948')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18400836598147948')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18085967972350964">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWyGPXhgUOT" target="_blank">↗ 査読論文は、ほぼ30の段落でできている。<br><br>Introduction 5〜7段落<br>Methods 8…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">やっぱりThreadsに入り浸りはいかんな〜。</p>
+            <span class="reply-time">04/06 18:59</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18085967972350964')">
+              <span class="draft-label">案1</span>
+              <p>笑。確かに。でも30分で骨格を決めれば、あとは淡々と埋める作業になるから、全体では時間短縮できるんですよ。効率の話です。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18085967972350964')">
+              <span class="draft-label">案2</span>
+              <p>ほんそれ。ただこの構造を最初に理解するまでが長いんです。一度腑に落ちると、論文執筆がめっちゃ楽になりますよ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18085967972350964')">
+              <span class="draft-label">案3</span>
+              <p>そうなんです。でも研究者の多くがこの骨格を知らないから、ずっと『書く』で苦しむ。若い研究者には特に伝えたいことで。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18085967972350964" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18085967972350964" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18085967972350964')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18085967972350964')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18081259742527847">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DW4wa_cEYzP" target="_blank">↗ 博士課程中に燃え尽き症候群を経験した研究者は43%。<br><br>これはNature Index（2023）の…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">私のスレッズを読めばわかることだが、一部の大学は、ことなかれ主義、厳しく言えば知的に腐敗堕落している。えらせなことを言いながら、中身は空っぽ、自治なんてできやしない。</p>
+            <span class="reply-time">04/09 09:30</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18081259742527847')">
+              <span class="draft-label">案1</span>
+              <p>その通りですね。腐敗した体制下では、個人がいくら優秀でも潰されます。20年見てきて思うのは、燃え尽きた人の多くは『環境が悪い』と気づくまでに時間がかかること。声を上げる研究者の増加が、変化の第一歩だと感じます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18081259742527847')">
+              <span class="draft-label">案2</span>
+              <p>本当に。知識のない権力者が支配する組織ほど危険なものはない。博士課程の若手は特に逃げ場がなく追い詰められやすい。あなたのような内部からの告発が、他の研究者の判断材料になる価値は大きいと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18081259742527847')">
+              <span class="draft-label">案3</span>
+              <p>指摘の通り。学問の自由が失われた環境では、研究の質も人材育成も成り立たない。これは日本の競争力にも関わる問題。個々の対処では限界がある。構造批判を恐れない声が、本当に必要な時代です。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18081259742527847" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18081259742527847" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18081259742527847')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18081259742527847')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18063322424382715">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DW--0VPCbyc" target="_blank">↗ Introduction執筆の構造は「逆三角形」。<br><br>①一般的な問題提起（広い）<br>②先行研究のレビュ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">だから実験結果、データがショボいといくら御託を並べてもrejectされるんだよ。</p>
+            <span class="reply-time">04/11 20:12</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18063322424382715')">
+              <span class="draft-label">案1</span>
+              <p>その通り。構造は必要条件に過ぎない。でも逆に言うと、良い結果があっても構造がダメだと伝わらない。両輪ですね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18063322424382715')">
+              <span class="draft-label">案2</span>
+              <p>本当にそこ。構成がいくら完璧でも、研究の核となるデータが弱けりゃ意味ない。でも多くの人は構成で躓くからまずはそこからかな。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18063322424382715')">
+              <span class="draft-label">案3</span>
+              <p>ですね。ただ多くの研究者が「何を書くか」で悩んでrejectされる前に諦めてる。まずは伝える構造、次にデータの質。順序の問題かもです。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18063322424382715" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18063322424382715" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18063322424382715')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18063322424382715')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18162163543429703">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">誰もやってないことをしたときかな。私の場合、半導体ヘテロ接合の研究で、誰もがpn接合を研究していたが、私はnnヘテロ接合を作りヘテロ接合が理論通りに機能しているかどうかを示した。</p>
+            <span class="reply-time">04/12 07:43</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18162163543429703')">
+              <span class="draft-label">案1</span>
+              <p>それですよ！未開拓の領域に足を踏み入れる瞬間は、本当に興奮が違いますね。nn接合での検証って、理論と現実のギャップを埋める重要な仕事。その確信が得られた瞬間は格別だったんじゃないかな。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18162163543429703')">
+              <span class="draft-label">案2</span>
+              <p>素晴らしい。従来の枠組みを突き破ることで、新しい知見が生まれる。理論通りに機能することを示すってシンプルだけど、それが学問の進展につながる。20年の経験から見ても、そういう研究が結果として残るんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18162163543429703')">
+              <span class="draft-label">案3</span>
+              <p>nn接合という選択肢、面白い視点ですね。多くの人がpnで満足してる中で、別の可能性を追求する勇気。その過程で理論を実装できたなら、それは確かに他にはない成果だ。そういう独創性が研究の原動力なんだと思います。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18162163543429703" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18162163543429703" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18162163543429703')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18162163543429703')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17903906307406646">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@engineervoices</span>
+            <p class="reply-text">シミュレーションとノイズの中から真実に近づいていき手ごたえを感じた時<br>研究開発30年</p>
+            <span class="reply-time">04/12 07:36</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17903906307406646')">
+              <span class="draft-label">案1</span>
+              <p>それですよね。ノイズの向こう側に何かある、という確信が生まれる瞬間。その手ごたえが次の試行錯誤を駆動させる。30年の経験に裏付けられた感覚、素晴らしい。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17903906307406646')">
+              <span class="draft-label">案2</span>
+              <p>シミュレーション×ノイズとの格闘。そこから真実が浮かび上がるプロセスって、本当に没頭できますね。私たちが求めてるのは、その手ごたえなんだと改めて感じます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17903906307406646')">
+              <span class="draft-label">案3</span>
+              <p>ノイズを突き抜けて真実に近づくプロセス、素敵だ。その過程で何度も失敗しながら手ごたえを掴む。それって最高の修行だと思います。30年のキャリアが詰まってる。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17903906307406646" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17903906307406646" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17903906307406646')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17903906307406646')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18200472496351952">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@still_your_turn</span>
+            <p class="reply-text">実験室にもどると、<br>シャーレにいれたガラス玉が綺麗に整列してたとき。<br>これはなぜ？となった思い出</p>
+            <span class="reply-time">04/12 07:34</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18200472496351952')">
+              <span class="draft-label">案1</span>
+              <p>それ、いいですね！秩序が生まれる瞬間って、自然現象の奥深さを感じさせる。その「なぜ？」が研究の入口。20年見てきて、シンプルな疑問ほど大きな発見につながることが多いです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18200472496351952')">
+              <span class="draft-label">案2</span>
+              <p>素敵な観察力。ガラス玉の整列パターンから何を読み取るか、そこが研究者の腕の見せどころですよね。私も実験で『あ、これ何か違う』と感じるあの違和感が好きです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18200472496351952')">
+              <span class="draft-label">案3</span>
+              <p>その現象、徹底的に追求しましたか？見落とされることって、実は宝物なんですよ。私の経験上、『なぜ？』に真摯に向き合った時間が、最高の学びになります。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18200472496351952" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18200472496351952" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18200472496351952')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18200472496351952')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18076503287248719">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXAgQo9gZ2a" target="_blank">↗ 研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@n.0605.o</span>
+            <p class="reply-text">人の感情など見えないものを言語化する研究領域ですが、それらが言語化できて、うまくフィットした時です。<br>思いもしなかった関連性が出てきた時とか、地味なのですが　あ、これって‥ と1人ニヤニヤしてます。</p>
+            <span class="reply-time">04/12 11:00</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18076503287248719')">
+              <span class="draft-label">案1</span>
+              <p>わかります！その『あ、これって…』の瞬間、研究20年やってても毎回興奮します。見えないものを言語化する過程で予期しない繋がりが見える。その1人ニヤニヤ、それが研究の本質ですよね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18076503287248719')">
+              <span class="draft-label">案2</span>
+              <p>感情の言語化、難しい領域ですね。でも逆にそこが面白い。関連性が浮かぶ時って、それまでの試行錯誤が脳で繋がった瞬間。その地味なニヤニヤこそが、実は大発見の予兆だと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18076503287248719')">
+              <span class="draft-label">案3</span>
+              <p>その『あ、これって…』って瞬間、最高ですね。見えないものほど言語化した時のインパクトが大きい。僕も予想外の繋がりが出た時が一番楽しい。その感覚を大事にしてください、それが新しい視点ですから。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18076503287248719" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18076503287248719" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18076503287248719')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18076503287248719')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18008517089895433">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXBnCktFB0D" target="_blank">↗ AIで論文を書くとき「このセクションを全部書いて」と依頼するのをやめた。<br><br>代わりに「この段落に入れ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">畳の上でいくら水泳の練習をしても、泳げないやつは泳げない。</p>
+            <span class="reply-time">04/12 18:55</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18008517089895433')">
+              <span class="draft-label">案1</span>
+              <p>確かに。ただ僕の経験では、AIって『泳ぎ方を細かく指示されるほど』上手くなるツールなんです。最初から大きな指示より、段階的な方が精度上がるんですよ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18008517089895433')">
+              <span class="draft-label">案2</span>
+              <p>その通り。だからこそ方法論なんです。完全に頼るんじゃなく、人間が『ここまで細かく指示すればいける』という実験をしてる。研究の再現性と同じ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18008517089895433')">
+              <span class="draft-label">案3</span>
+              <p>笑。でもね、20年研究してると気づくのは『正しい指示≠正しい結果』なんです。AIも人間の部下も同じ。段階的に確認する癖が、実は最強なんですよ。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18008517089895433" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18008517089895433" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18008517089895433')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18008517089895433')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18194803624360755">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXCC0MflR2K" target="_blank">↗ 「論文は長く書いた方が採択されやすい」と思っていた。<br><br>実際に査読者に聞いたら、全員が言った。「短い…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@anishitanidr</span>
+            <p class="reply-text">分野がまったく違うので、参考になるかわかりませんが‥‥<br>インパクトファクターの高い学術誌の、百編くらいの査読と、数年間の査読者選定・割当をやりました。極端に短い論文でない限り、長さを気にしたことはなかったです。</p>
+            <span class="reply-time">04/12 22:54</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18194803624360755')">
+              <span class="draft-label">案1</span>
+              <p>貴重なご意見ありがとうございます。確かに分野差は大きいですね。私の経験は生命科学寄りかもしれません。むしろ査読者選定側のご視点は本当に参考になります。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18194803624360755')">
+              <span class="draft-label">案2</span>
+              <p>なるほど。分野によって査読文化が全然違うんですね。高IF誌での実務経験から見ると、無駄な長さより内容の質が優先されるということでしょうか。勉強になります。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18194803624360755')">
+              <span class="draft-label">案3</span>
+              <p>そうなんですね。実は査読者選定側の視点をお持ちなのは珍しい。分野によって「短さ」の価値が異なるのかもしれません。貴重なデータをありがとうございます。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18194803624360755" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18194803624360755" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18194803624360755')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18194803624360755')">返信する</button>
+            </div>
+          </div>
+        </div><div class="section-subtitle replied-header">返信済み (20件)</div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWvj55zljBs" target="_blank">↗ 査読の依頼がきた<br><br>共著者の論文だった。<br><br>正直に編集者にそのように伝えて<br>辞退した。公正に判断でき…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@tdckhd</span>
+            <p class="reply-text">査読されて返ってきた論文（ほんの少し書き直したら掲載）に査読料の領収書が挟まってて、翌日修正した原稿と一緒に「◯◯先生の領収書が入ってましたよ〜」と学会誌の編集部（大学から徒歩10分）へ持って行ったことを思い出しました笑<br><br>研究内容によっては、ほぼ知り合いしか査読出来ないことはありますよね。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: オンラインじゃない！持っていくって今でもそうですか？そのエピソード最高ですね笑 査読者の身元がバレるのはまずいですが、小さな学会だとほぼ必然ですよね。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWvj55zljBs" target="_blank">↗ 査読の依頼がきた<br><br>共著者の論文だった。<br><br>正直に編集者にそのように伝えて<br>辞退した。公正に判断でき…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@junming.lai.35</span>
+            <p class="reply-text">逆に厳しくするケースもあった。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: 好意的になるか逆により厳しく見るか。いずれにせよ何らかの影響はゼロではないですね。査読制度の根本的な課題ですね。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWpV0v-Eqqy" target="_blank">↗ 大学院3年目で気づいた。<br><br>指導教員に毎回修正される原稿、実は「問いの立て方」が間違っていただけだっ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@tengjuanwenxiong</span>
+            <p class="reply-text">指導教員の真意は分かりませんが、文章や構造（論文構成）を自分なりに推敲したので、結果的によかったのではないですか。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: おっしゃる通り結果的にはよかったんです。ただ、若い方に同じ遠回りをさせたくないなって思うんですよ。問いが良ければ、文章や構造の修正も最小限で済むはずで。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWr6IjJFBD9" target="_blank">↗ 論文投稿後、Rejectが来た。<br><br>「研究の新規性が不明確」とのコメントだった。<br><br>後から気づいたの…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@yoshikazu3466</span>
+            <p class="reply-text">私もこの間リジェクト貰いました。たくさん出していればリジェクトもあります。消費税みたいなものだそうです。次行きましょう！！！</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: ありがとうございます！消費税の例え、秀逸ですね笑。おっしゃる通りです。ただ今回は避けられたRejectだったので、次は設計段階で「新規性の定義」を先に決めるプロ</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWuy0IOkZ2B" target="_blank">↗ 英語論文のチェック、どちらに近い？<br><br>AIで文体を整えてから先生に見せる → ❤️<br>まず先生に赤を入…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">スレッズに張付いていて、研究なんかできるの？</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: 率直に言うと、張付き過ぎはNGですね。ただ研究者こそ、発信を通じて思考の整理ができる。朝15分のルーチンにしてます。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWgM6jflIQq" target="_blank">↗ 正直に言う。<br><br>論文執筆でAIを使い始めてから、「書けない」という感覚がほとんどなくなった。<br><br>ただ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@kasuyakou1</span>
+            <p class="reply-text">「構造が先にある。だから書ける」って、これ説明としてすごく簡潔ですよね。AIに任せるのは実行部分で、情報整理と論点の設計は自分でやるという分業がたしかに一番大事な気がします。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: まさに。AIは道具に過ぎないんですよね。大事なのは『言いたいことの地図』を自分で引けるかどうか。賛否はあると思いますが、そこができてれば、あとはAIを使おうが手</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWnhUSllfrZ" target="_blank">↗ 査読コメントが届く日の朝、少し憂鬱になる。<br><br>「今日のメンタルが終わるかもしれない」という感覚。<br><br>…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@airlie_hyndland</span>
+            <p class="reply-text">まず滝行をして身体を清め、比叡山を一周してから封をあける。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: 滝行笑。リジェクトもどんな辛辣なコメントも受け入れられそうです。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWoPIBaFgjf" target="_blank">↗ AIが論文の文献調査をする時代、研究者の「本当の仕事」って何だと思う？<br><br>私の答えは「問いを立てるこ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@still_your_turn</span>
+            <p class="reply-text">うーん、chain of thought<br>が導入されて、そうでもないかと思うこと増えた。<br>当然、人と似た手順で考えるので、質問力みたいなのが垣間見れる。次はどこを深掘りしたい？とか、その現れか？<br>ステップ思考で考えると<br>行き着くさきは誰もが同じかなと。<br>特許の先行例で、やっぱり誰かも同じこと考えてたことよくある。<br>ロジカルなものほど、順に進めてくと同じになるし、分岐も予測不能ではない。<br>問という曖昧さが是に見えてるだけにも思う。<br>エージェントAIでも、ルールベースと推論を組み合わせてるから、<br>見た目、普通に複雑度上がってるし、どこまでルールベースかも分かりにくい。<br>課題と言うレベルの問なら、<br>確実にデータ分析でててくる。<br>哲学的な話の問なら、<br>分からなくもないけど、<br>そう作ればエージェントAIでも<br>問の専門性持たせることもできそう。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: その通りですね。ロジカルな領域ならAIは人間を超えている。でも「何が問題か」を決める段階—つまり問題の枠組みそのものを変える—ここではまだ人間が先行してる気がし</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWoPIBaFgjf" target="_blank">↗ AIが論文の文献調査をする時代、研究者の「本当の仕事」って何だと思う？<br><br>私の答えは「問いを立てるこ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@yurucareer_note</span>
+            <p class="reply-text">私も同じく、「問いを立てること」だと思います。<br>学問の深堀りだけではなく、複数の学問を統合し、それを世界に還元していくことかなと思ってます。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: 同感です。むしろAI時代だからこそ、分野横断的な問い立てがより重要になってくる気がします。既存の枠を超えた視点をどう持つか。そこが研究者の腕の見せ所ですね。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWoPIBaFgjf" target="_blank">↗ AIが論文の文献調査をする時代、研究者の「本当の仕事」って何だと思う？<br><br>私の答えは「問いを立てるこ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@dr_hidey</span>
+            <p class="reply-text">まさしく「何を問うか」が今、1番大切だと私も思います。「問い」を持つことの重要性は学生のときから指導されてきましたが、今はその「問い」について、すでに論文が出ているかすぐに調べられるのが便利ですね。でも、論文がない場合にはチャンスになります！</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: AIで即座に先行研究を確認できるのは、実は研究者にとって最高の環境ですよね。昔なんかは何年かかけてやった仕事が、実はすでに報告されていた、、、なんて笑えない話も</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWp8YRUjaDV" target="_blank">↗ Nature論文の平均査読期間は約6ヶ月。<br>bioRxivに出した瞬間から引用が始まることがある。<br>…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@masaaki1969</span>
+            <p class="reply-text">それな、どうかと思うよな。ドラフトの段階で公開なんて。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: その感覚、20年前の自分もそうでした。今は、早期に研究内容を世界に示す方が、競争に勝つ時代になってるのですかね。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWoPIBaFgjf" target="_blank">↗ AIが論文の文献調査をする時代、研究者の「本当の仕事」って何だと思う？<br><br>私の答えは「問いを立てるこ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@shinjiroitagaki</span>
+            <p class="reply-text">AIが出してきたものが正しいことを確認したりすること。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: 確認作業、本当に大事です。ただ正直、その部分もAIが段々と得意になっていく気がして…。だからこそ、確認の先にある『何を問うか』に僕らの時間を使いたいんです。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWoPIBaFgjf" target="_blank">↗ AIが論文の文献調査をする時代、研究者の「本当の仕事」って何だと思う？<br><br>私の答えは「問いを立てるこ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@akaneda007</span>
+            <p class="reply-text">ウチの学部長さんが卒業式の挨拶でほぼ同じことを話されました…ご本人ではないですよね(ガクブル</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: 別人です！笑 むしろ嬉しいです。教育の最前線にいる学部長さんが同じ結論に達しているなら、研究者の役割が本当にシフトしてるんだと実感できます。</div>
+        </div>
+        <div class="reply-card replied">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DWYOmwNlQ-V" target="_blank">↗ 科研費、1回落ちた。<br><br>翌年、タイトルだけ変えて出し直した。<br><br>採択された。<br><br>（正確には中身も少し…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@anishitanidr</span>
+            <p class="reply-text">いまも同じシステムかどうか不明ですが‥‥。かつて、一段審査も数回、二段審査も二年間担当しました。<br><br>ronginoothさまは審査員をなさっていらっしゃるかと思います。ご指摘のように、一段審査では申請書を一回読むだけで、5〜10分です。50くらい見るので、二回読む時間的余裕がまったくありません。一回読んだだけで、申請の意図が頭に入るように書かれているか、否かが、非常に重要かな、と思います。タイトルもたしかに重要ですね。<br><br>国語力、文章力、タイトルの命名力は、間違いなく、科研費獲得の重要なカギのひとつです。</p>
+          </div>
+          <div class="replied-badge">✅ 返信済み: 貴重なご経験をお聞かせいただき、感謝です。一段審査の時間的制約の実態を知ると、タイトルと冒頭の数行への投資がいかに大切かが本当によく分かります。研究の質より『伝</div>
+        </div>
         <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWXae1vlmRv" target="_blank">↗ 博士課程学生の41%が、不安または抑うつの症状を経験している。<br><br>一般人口と比べて2.43倍の高さ。…</a>
