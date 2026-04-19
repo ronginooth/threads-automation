@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-19 13:44 JST</p>
+    <p class="updated">更新: 2026-04-19 14:51 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (0)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (35)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (58)</button>
   </nav>
@@ -526,7 +526,7 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">35</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
@@ -553,13 +553,6 @@
     </div>
     <div class="section-title">⚡ やること</div>
     
-        <div class="action-item">
-          <span class="action-icon">🔴</span>
-          <div>
-            <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り0件。<code>python3 weekly.py</code> で補充してください</div>
-          </div>
-        </div>
         <div class="action-item">
           <span class="action-icon">🟢</span>
           <div>
@@ -700,7 +693,392 @@
   <!-- キュー -->
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
-    <p class="empty">キューは空です</p>
+    
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-20 07:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">AIにDiscussionを書かせた。<br>完成した。読んだ。<br><br>——これ、どこかで見た文章だ。<br><br>調べたら実在しない論文が5本引用されていた。<br>プロンプトを変えれば防げると思っていた時期があった。<br>防げない。構造が間違っていた。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-20_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-20_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-20 10:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">論文を書く前に「今日こそ集中する」と思って、<br>机を片付けて、<br>コーヒーを入れて、<br>参考文献を並べて——<br><br>気づいたら夜になっていた。<br><br>あれは論文を書く準備ではなく、<br>書かない準備だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-20_2_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-20_2_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-20 13:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">Introductionには「4つの段落の仕事」がある。<br><br>① 分野の重要性（なぜこの研究が必要か）<br>② 先行研究の空白（何がまだわかっていないか）<br>③ 本研究の目的（何をどう解決するか）<br>④ 本稿の構成（この論文で何を読むか）<br><br>この順番が崩れると、査読者に「何の論文か」が伝わらない。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-20_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-20_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-20 17:00</span>
+            <span class="queue-type type-質問型">質問型</span>
+          </div>
+          <p class="queue-body">研究者の皆さんに聞きたい。<br><br>論文執筆で「ここが一番きつい」という場面はどこですか？<br><br>私はDiscussionの冒頭。<br>「So what?」に答える1段落が、毎回3日かかる。<br><br>同じ人いますか？</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-20_4_質問型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-20_4_質問型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-20 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">週末を2日かけてAIと格闘した。<br>できたのは半ページだった。<br><br>あの時に気づいていれば——と今でも思う。<br><br>その「気づき」をnoteにまとめています。<br>プロフのリンクから読めます。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-20_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-20_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-21 07:00</span>
+            <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
+          </div>
+          <p class="queue-body">論文の引用著者のうち、約7割はその論文を実際には読んでいない。<br><br>（Simkin &amp; Roychowdhury, 2003）<br><br>孫引きが連鎖して「定説」になる。<br>自分が引用する文献、一度原文を確認した方がいい。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-21_1_びっくり+根拠型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-21_1_びっくり+根拠型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-21 10:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">ChatGPTで論文を書こうとした。<br><br>「〇〇について書いて」→ それっぽい文が来る。<br>修正する → また修正が必要な文が来る。<br>修正する → また修正が必要な文が来る。<br><br>この沼に3ヶ月いた。<br>抜け出した方法は、プロンプトを変えることではなかった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-21_2_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-21_2_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-21 13:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">AIに文章を書かせるとき「どんな感じで」という指示ではハルシネーションが起きやすい。<br><br>防ぐ方法は一つ。AIに「埋める穴」を与えること。<br><br>「○○について書いて」ではなく<br>「この段落の主張は○○。根拠は○○。この文献を使え」と言う。<br><br>自由度を与えるほど嘘が増える。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-21_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-21_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-21 17:00</span>
+            <span class="queue-type type-二択型">二択型</span>
+          </div>
+          <p class="queue-body">論文執筆AIの使い方として、どちらが近い？<br><br>A：「論文を書いて」と丸投げする派<br>B：「この段落の○○を補完して」と細かく指定する派<br><br>私はずっとAで失敗し続けて、Bに変えてから初稿が出るようになった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-21_4_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-21_4_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-21 21:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">論文の「型」は分野ごとに微妙に違う。<br>でも基本骨格は同じ。<br><br>IMRaD構造（Introduction / Methods / Results / Discussion）は<br>査読論文のほぼすべてに共通する。<br><br>この骨格を先に作ってAIに渡すだけで、<br>修正の回数が激減する。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-21_5_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-21_5_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-22 07:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">指導教員に論文原稿を送った。<br><br>翌日返ってきた。<br>「構成が分からない」と一言だけ書いてあった。<br><br>内容の問題ではなかった。<br>段落の順番と、段落同士のつながりの問題だった。<br><br>文章力の問題ではなく、設計の問題だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-22_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-22_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-22 10:00</span>
+            <span class="queue-type type-気づき型">気づき型</span>
+          </div>
+          <p class="queue-body">論文執筆が怖いのは、「完璧な文章を書かなければ」という誤解から来ている気がする。<br><br>初稿は「完成品」ではなく「素材」でいい。<br>論文は書くものではなく、削るものだ——と気づいてから少し楽になった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-22_2_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-22_2_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-22 13:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">DiscussionとIntroductionは「対応」している。<br><br>Introductionで立てた問いに、Discussionで答える。<br>先行研究の空白に、自分のデータを埋める。<br><br>この対応関係を最初に設計してからAIに渡すと、<br>Discussion全体のロジックがブレなくなる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-22_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-22_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-22 17:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">「今週こそ論文を書く」と毎週月曜に思っている。<br><br>月曜：会議<br>火曜：実験<br>水曜：会議のフォロー<br>木曜：突発タスク<br>金曜：疲れた<br><br>土曜：よし書くか<br><br>これが研究者の1週間だと気づいたとき、<br>「時間が足りない」問題ではないと悟った。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-22_4_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-22_4_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-22 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">後輩が「先生、週末に初稿できました」と報告してきた。<br><br>私が渡したのはプロンプトではなかった。<br>1枚のCSVファイルだった。<br><br>その仕組み、noteに書いています。<br>プロフのリンクから。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-22_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-22_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-23 07:00</span>
+            <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
+          </div>
+          <p class="queue-body">科研費の審査員間の評価一致率は34%。<br><br>（Pier et al., 2018, PNAS）<br><br>つまり採択・不採択の6割以上は、審査員によって変わりうる。<br><br>「なぜ通らなかったか」を個人の実力だけで考えるのは間違っている。<br>あなたの研究が悪かったわけではない可能性がある。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-23_1_びっくり+根拠型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-23_1_びっくり+根拠型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-23 10:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">論文を書きながら「この表現で合ってるかな」とGoogle Scholar検索を始める。<br><br>関連論文が出てくる。読む。面白い。<br>また別の論文を読む。<br><br>2時間後、論文を書いていない。<br><br>あの時間泥棒の正式名称は「参考文献探索ループ」という。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-23_2_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-23_2_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-23 13:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">Zoteroのメモ機能を使うと、ハルシネーションを防げる。<br><br>論文ごとに「この論文の主張」「使えるデータ」をメモしておき、AIに渡すとき添付する。<br><br>AIは提供された情報の範囲でしか書かない。<br>勝手に作られた文献は減る。<br><br>Zotero MCPと組み合わせるとさらに強い。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-23_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-23_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-23 17:00</span>
+            <span class="queue-type type-質問型">質問型</span>
+          </div>
+          <p class="queue-body">論文を書くとき、先に「書く」人と、先に「構造を決める」人がいる。<br><br>あなたはどちら？<br><br>私はずっと先に書く派だった。<br>毎回迷子になって書き直していた。<br>順番を変えてから、迷子にならなくなった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-23_4_質問型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-23_4_質問型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-23 21:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">「1段落＝1メッセージ」というルール。<br><br>守るだけで論文が読みやすくなる。<br><br>段落の最初の文に「主張」を置く。<br>残りの文はその証拠か説明だけ。<br>新しい話題は新しい段落へ。<br><br>これだけで査読者が「何を言いたいか」を迷わなくなる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-23_5_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-23_5_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-24 07:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">AIで書いたResultsを指導教員に送った。<br><br>「自分の言葉で書いたの？」と返ってきた。<br><br>「はい」と答えた。嘘ではなかった。<br>でも、自分の考えが入っていなかった。<br><br>AIに書かせることと、自分が考えることは別の作業だ——と知ったのはそれからだった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-24_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-24_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-24 10:00</span>
+            <span class="queue-type type-気づき型">気づき型</span>
+          </div>
+          <p class="queue-body">研究者が「論文が書けない」という時、たいてい2つのどちらかだ。<br><br>「何を書くか決まっていない」か<br>「どう書くか分からない」か。<br><br>問題を混ぜたまま悩んでも解決しない。<br>どちらの問題かを先に分けることが、最初の一手だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-24_2_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-24_2_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-24 13:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">Methods（実験手法）には「再現性」だけを書けばいい。<br><br>「他の研究者が、この記述だけで同じ実験を再現できるか」——これが唯一の基準。<br><br>個人の感想・考察・理由付けは全部Discussionへ。<br>Methodsをすっきりさせると、査読コメントが減る。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-24_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-24_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-24 17:00</span>
+            <span class="queue-type type-二択型">二択型</span>
+          </div>
+          <p class="queue-body">AIで論文を書くとき、どちらが近い？<br><br>A：「〇〇についての考察を書いて」と頼む<br>B：「この3つのデータから、なぜこの結論が言えるかを1段落で書け」と頼む<br><br>Aは修正地獄になりやすい。<br>Bは意外とそのまま使えることが多い。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-24_4_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-24_4_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-24 21:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">Reviewer 2のコメントへの返し方には型がある。<br><br>① コメントを「批判」ではなく「不明点の指摘」として読む<br>② 変更した箇所を明記（「Line XX to YY」）<br>③ 変更しない場合は根拠を2〜3文で説明する<br><br>感情的に反論するより、淡々と説明する方が通過率が上がる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-24_5_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-24_5_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-25 07:00</span>
+            <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
+          </div>
+          <p class="queue-body">惜敗した研究者（落選経験あり）の10年後を追ったデータがある。<br><br>落選した研究者の方が、採択された研究者より論文生産性が高くなるケースが見られた。<br>（Wang et al., 2019, Nature Communications）<br><br>「落ちた」がその後の質を上げることがある。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-25_1_びっくり+根拠型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-25_1_びっくり+根拠型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-25 10:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">論文のAbstractには「5つの文の仕事」がある。<br><br>① 背景（なぜ重要か）<br>② 目的（何を調べたか）<br>③ 方法（どう調べたか）<br>④ 結果（何がわかったか）<br>⑤ 結論（それが何を意味するか）<br><br>1文1役。これがAbstractを書く前に先に設計しておくべき骨格。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-25_2_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-25_2_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-25 13:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">「今日中に1段落は書く」と決めた土曜日。<br><br>子どもに「遊ぼう」と言われた。<br>「もう少し待って」と言った。<br><br>1時間後、結局1段落書けていなかった。<br><br>その1時間、何もしていなかった。<br>あれは何だったのか、今でも分からない。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-25_3_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-25_3_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-25 17:00</span>
+            <span class="queue-type type-質問型">質問型</span>
+          </div>
+          <p class="queue-body">研究を続けていて「やめようか」と思ったことがある人、どのくらいいますか？<br><br>私は3回ある。<br>博士1年、博士3年、ポスドク2年目。<br><br>全部「論文が書けなかった時期」と重なっていた。<br><br>あの頃の自分に、今なら何か伝えられる気がする。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-25_4_質問型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-25_4_質問型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-25 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">「AIを使えば論文が早く書ける」と信じていた頃の私へ。<br><br>使い方が間違っていた。<br>モデルより先に変えるべきものがあった。<br><br>その話、少し長めにnoteに書きました。<br>プロフから読めます。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-25_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-25_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-26 07:00</span>
+            <span class="queue-type type-気づき型">気づき型</span>
+          </div>
+          <p class="queue-body">博士1年のとき、論文が書けなくて泣いた。<br><br>20年後の自分が言えること。<br><br>「書けなかったのは才能の問題じゃない。<br>型を知らなかっただけだ。」<br><br>あのとき誰かに教えてほしかった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-26_1_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-26_1_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-26 10:00</span>
+            <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
+          </div>
+          <p class="queue-body">論文の著者リストって、貢献度順だと思っている人がいる。<br><br>分野によって違う。<br><br>生命科学は最後の名前が一番偉い（PI）。<br>数学は五十音順が多い。<br>医学は複数のルールが混在する。<br><br>「なんでこの人が筆頭著者？」の答えはここにある。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-26_2_びっくり+根拠型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-26_2_びっくり+根拠型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-26 13:00</span>
+            <span class="queue-type type-教育型">教育型</span>
+          </div>
+          <p class="queue-body">「考察が浅い」と査読されたとき、問題はたいていここにある。<br><br>自分のデータの話だけをしている。<br><br>Discussionには「自分のデータ＋先行研究との比較」が必要。<br>「〇〇という研究と一致する」か「なぜ違うか」を説明することで、<br>議論の深さが変わる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-26_3_教育型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-26_3_教育型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-26 17:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">「文章が下手なんじゃない。構造がないだけだ」<br><br>共著者に言われた一言。<br><br>それまで10回書き直していたDiscussionが、<br>翌日には完成した。<br><br>書けない問題の9割は、表現の問題じゃなかった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-26_4_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-26_4_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-04-26 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">「論文を書くのに才能はいらない」<br><br>これは嘘でも希望論でもなく、<br>構造的にそうなっているという話。<br><br>その仕組みをnoteにまとめています。<br>プロフのリンクから読んでもらえると嬉しいです。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-04-26_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-04-26_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
   </div>
 
   <!-- 投稿済み -->
