@@ -16,8 +16,8 @@ data/scheduler_error.log
 data/trends_raw_*.json
 
 # アカウントデータ（個人データは追跡しない）
-data/*/queue/*.md
-data/*/posted/*.md
+# data/*/queue/*.md
+# data/*/posted/*.md
 data/*/stats.csv
 data/*/account_insights.csv
 data/*/posted_log.json
