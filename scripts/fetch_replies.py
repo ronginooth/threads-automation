@@ -64,6 +64,42 @@ def get_replies(post_id: str, token: str) -> list:
     return res.json().get("data", [])
 
 
+def get_comment_replies(comment_id: str, token: str) -> list:
+    """コメントに対する返信（ネストされたリプライ）を取得"""
+    try:
+        res = requests.get(
+            f"{BASE_URL}/{comment_id}/replies",
+            params={
+                "fields": "id,username",
+                "access_token": token,
+            },
+        )
+        res.raise_for_status()
+        return res.json().get("data", [])
+    except Exception:
+        return []
+
+
+def sync_replied_status(comments: list, token: str, my_username: str) -> int:
+    """APIで各未返信コメントの返信状態を確認し、replied フラグを同期する"""
+    if not my_username:
+        return 0
+    synced = 0
+    unreplied = [c for c in comments if not c.get("replied", False)]
+    for c in unreplied:
+        cid = c.get("comment_id", "")
+        if not cid:
+            continue
+        nested = get_comment_replies(cid, token)
+        for r in nested:
+            if r.get("username") == my_username:
+                c["replied"] = True
+                c["replied_text"] = "(Threadsアプリから返信済み)"
+                synced += 1
+                break
+    return synced
+
+
 def load_seen(seen_file) -> set:
     if seen_file.exists():
         return set(json.loads(seen_file.read_text()))
@@ -203,6 +239,16 @@ def run(ctx=None):
 
     # 返信済みも別途保持（直近20件）
     replied = [c for c in existing if c.get("replied", False)][-20:]
+
+    # APIで返信済み状態を同期（アプリから直接返信した分を検出）
+    all_pre_sync = unreplied + replied
+    synced = sync_replied_status(all_pre_sync, ctx.token, my_username)
+    if synced:
+        print(f"🔄 API同期: {synced}件のコメントが返信済みに更新")
+
+    # 同期後に再分類
+    unreplied = [c for c in all_pre_sync if not c.get("replied", False)]
+    replied = [c for c in all_pre_sync if c.get("replied", False)][-20:]
 
     all_comments = unreplied + replied
 
