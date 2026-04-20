@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-20 21:48 JST</p>
+    <p class="updated">更新: 2026-04-20 22:06 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (65)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (30)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (31)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1631,7 +1631,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (30件)</div>
+    <div class="section-subtitle">未返信 (31件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2619,6 +2619,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17974108212013041')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17974108212013041')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17952704993963821">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXV8Qj9FVhd" target="_blank">↗ Introductionには「4つの段落の仕事」がある。<br><br>① 分野の重要性（なぜこの研究が必要か）…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@anishitanidr</span>
+            <p class="reply-text">科研費審査では、申請書に、この①②③がこの順序で明確に述べられていると、高い点がつきますね。</p>
+            <span class="reply-time">04/20 20:51</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17952704993963821')">
+              <span class="draft-label">案1</span>
+              <p>その通り！科研費と論文は構造が同じなんです。査読者も審査委員も『この研究の必要性と新規性』をこの順番で理解したいんですよ。書き方の基本は共通です。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17952704993963821')">
+              <span class="draft-label">案2</span>
+              <p>まさにそれです。科研費申請書も論文Introductionも、本質は同じ。①②③が明確だと『なるほど、必要な研究だ』と審査委員が納得する。構造って大事ですね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17952704993963821')">
+              <span class="draft-label">案3</span>
+              <p>その通り。実は科研費審査と論文査読の評価基準は驚くほど共通しています。①②③の段階的な説得が、審査委員と査読者の心をつかむんです。基本が最強です。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17952704993963821" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17952704993963821" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17952704993963821')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17952704993963821')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
