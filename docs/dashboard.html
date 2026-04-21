@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-21 18:46 JST</p>
+    <p class="updated">更新: 2026-04-21 18:50 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (61)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (32)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (31)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1594,7 +1594,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (32件)</div>
+    <div class="section-subtitle">未返信 (31件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2617,40 +2617,17 @@
               <button class="btn btn-send" onclick="confirmReply('17952704993963821')">返信する</button>
             </div>
           </div>
-        </div>
-        <div class="reply-card" id="card-18048627959771430">
+        </div><div class="section-subtitle replied-header">返信済み (22件)</div>
+        <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DXXqUwjlCRC" target="_blank">↗ 論文の引用著者のうち、約7割はその論文を実際には読んでいない。<br><br>（Simkin &amp; Roychow…</a>
           </div>
           <div class="reply-comment">
             <span class="reply-username">@king.ckm6</span>
             <p class="reply-text">共著の論文も読んでいない割合が50％ぐらいで<br>First Authorなのに、その論文を読んでもいない割合が2%ぐらいかな（笑）</p>
-            <span class="reply-time">04/21 08:39</span>
           </div>
-          <div class="reply-drafts">
-            <p class="drafts-title">💬 案をタップして編集</p>
-            
-            <div class="reply-draft" onclick="selectDraft(this, '18048627959771430')">
-              <span class="draft-label">案1</span>
-              <p>First Authorで未読2%は良心的ですね（笑）。ただ共著者の50%未読は、実験と執筆の分業が進んだ証だと思います。全員が全部読むのは実際難しい。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18048627959771430')">
-              <span class="draft-label">案2</span>
-              <p>共著論文の未読50%は実感としてわかります。でも最低限、自分の貢献部分と引用文献は確認すべきですね。責任問題にも関わる。</p>
-            </div>
-            <div class="reply-draft" onclick="selectDraft(this, '18048627959771430')">
-              <span class="draft-label">案3</span>
-              <p>First Author2%は誠実ですw。でも共著者の半分が未読というのは、論文の品質保証という点で課題かもしれません。査読側にも影響が。</p>
-            </div>
-          </div>
-          <div class="reply-editor" id="editor-18048627959771430" style="display:none;">
-            <textarea class="reply-textarea" id="textarea-18048627959771430" rows="3" placeholder="返信を入力…"></textarea>
-            <div class="reply-actions">
-              <button class="btn btn-cancel" onclick="cancelReply('18048627959771430')">キャンセル</button>
-              <button class="btn btn-send" onclick="confirmReply('18048627959771430')">返信する</button>
-            </div>
-          </div>
-        </div><div class="section-subtitle replied-header">返信済み (21件)</div>
+          <div class="replied-badge">✅ 返信済み: 共著論文の未読50%は実感としてわかります。でも最低限、自分の貢献部分は確認すべきですね。責任問題にも関わる。貢献部分がお金を取ってきたの場合には読んでない人も</div>
+        </div>
         <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DXXqUwjlCRC" target="_blank">↗ 論文の引用著者のうち、約7割はその論文を実際には読んでいない。<br><br>（Simkin &amp; Roychow…</a>
