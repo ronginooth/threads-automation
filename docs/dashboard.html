@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-23 16:19 JST</p>
+    <p class="updated">更新: 2026-04-23 16:22 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (52)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (33)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (34)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1502,7 +1502,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (33件)</div>
+    <div class="section-subtitle">未返信 (34件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2589,6 +2589,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17922408759324615')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17922408759324615')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18091017179237843">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXc2KUZksUj" target="_blank">↗ 科研費の審査員間の評価一致率は34%。<br><br>（Pier et al., 2018, PNAS）<br><br>つま…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@neurond02</span>
+            <p class="reply-text">審査委員のレベルが低すぎる場合も多い</p>
+            <span class="reply-time">04/23 15:26</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18091017179237843')">
+              <span class="draft-label">案1</span>
+              <p>確かにそれもありますね。ただ同じ論文でも審査員によって評価が変わる統計的事実が大事で、個々の審査員の質というより、システムの限界を認識することが重要だと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18091017179237843')">
+              <span class="draft-label">案2</span>
+              <p>その側面もあると思います。ただ逆に考えると、同じ研究でも審査員次第で採否が決まる現実は、個人の努力だけでは制御できない要素が大きいってことなんですよ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18091017179237843')">
+              <span class="draft-label">案3</span>
+              <p>そういう場合もあるでしょう。でも評価のばらつきは審査員個人の問題というより、査読制度自体の構造的な課題だと捉えたほうが、次の戦略を立てやすいと思います。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18091017179237843" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18091017179237843" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18091017179237843')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18091017179237843')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
