@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-26 07:23 JST</p>
+    <p class="updated">更新: 2026-04-26 07:26 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (39)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (32)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (33)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1373,7 +1373,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (32件)</div>
+    <div class="section-subtitle">未返信 (33件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2429,27 +2429,40 @@
               <button class="btn btn-send" onclick="confirmReply('18091017179237843')">返信する</button>
             </div>
           </div>
-        </div><div class="section-subtitle replied-header">返信済み (22件)</div>
-        <div class="reply-card replied">
+        </div>
+        <div class="reply-card" id="card-18107428415495239">
           <div class="reply-post-ref">
-            <a href="https://www.threads.com/@ronginooth_ai/post/DXipm3Ik6IT" target="_blank">↗ 教授に言われた言葉。<br><br>「とにかく論文を出せ」<br><br>——内容より数ですか？<br><br>「そうじゃない。<br>打席に…</a>
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXjFp_EFH61" target="_blank">↗ 研究を続けていて「やめようか」と思ったことがある人、どのくらいいますか？<br><br>私は3回ある。<br>博士1年…</a>
           </div>
           <div class="reply-comment">
-            <span class="reply-username">@qswr20o11</span>
-            <p class="reply-text">教授選考のときの論文数はかなり重要ですからね</p>
+            <span class="reply-username">@yoshikazu3466</span>
+            <p class="reply-text">やめようと思ったことはないけど論文6連続リジェクトで0勝-6敗の時はきつかった。今は一応勝率が上回っています。</p>
+            <span class="reply-time">04/26 03:00</span>
           </div>
-          <div class="replied-badge">✅ 返信済み: おっしゃる通り。教授選考では論文数は必須条件みたいなもの。当時はそこまでは教えてくれなかったな。</div>
-        </div>
-        <div class="reply-card replied">
-          <div class="reply-post-ref">
-            <a href="https://www.threads.com/@ronginooth_ai/post/DXipm3Ik6IT" target="_blank">↗ 教授に言われた言葉。<br><br>「とにかく論文を出せ」<br><br>——内容より数ですか？<br><br>「そうじゃない。<br>打席に…</a>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18107428415495239')">
+              <span class="draft-label">案1</span>
+              <p>6連続リジェクトは本当にきつい...。でもそこから勝率を上回るまで持ち直したのは本当に素晴らしい。その経験が今の強みになってますよね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18107428415495239')">
+              <span class="draft-label">案2</span>
+              <p>0-6は精神的にかなり来ますね。そこから這い上がった経験って、研究者として本当に貴重な資産だと思います。応援してます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18107428415495239')">
+              <span class="draft-label">案3</span>
+              <p>連続リジェクトを乗り越えて勝率逆転、それ本当にすごい。その過程で論文の書き方とか投稿先の選択眼とか、色々学んだんでしょうね。</p>
+            </div>
           </div>
-          <div class="reply-comment">
-            <span class="reply-username">@always_mathilda</span>
-            <p class="reply-text">自分の師匠はすごい数の論文発表していて、研究発表するわ、テレビに出るわ、本出すわ、、<br>もうどうなってるの？😭<br>本当に同じ人間なの？？</p>
+          <div class="reply-editor" id="editor-18107428415495239" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18107428415495239" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18107428415495239')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18107428415495239')">返信する</button>
+            </div>
           </div>
-          <div class="replied-badge">✅ 返信済み: わかります。そういうすごい人いますよね。でもすごい人も最初は小さく積み重ね、継続してと加速度的に成果を増やしたのだと思います。10年20年続けると、普通の人との</div>
-        </div>
+        </div><div class="section-subtitle replied-header">返信済み (20件)</div>
         <div class="reply-card replied">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWvj55zljBs" target="_blank">↗ 査読の依頼がきた<br><br>共著者の論文だった。<br><br>正直に編集者にそのように伝えて<br>辞退した。公正に判断でき…</a>
