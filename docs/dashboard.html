@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-26 10:24 JST</p>
+    <p class="updated">更新: 2026-04-26 10:47 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (38)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (33)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (34)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1355,7 +1355,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (33件)</div>
+    <div class="section-subtitle">未返信 (34件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2442,6 +2442,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18107428415495239')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18107428415495239')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18120626359628816">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXkj83XE86d" target="_blank">↗ 博士1年のとき、論文が書けなくて泣いた。<br><br>20年後の自分が言えること。<br><br>「書けなかったのは才能の…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@shuzekky</span>
+            <p class="reply-text">型を知らないのは読む量が少なかったからでは</p>
+            <span class="reply-time">04/26 09:35</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18120626359628816')">
+              <span class="draft-label">案1</span>
+              <p>いい指摘ですね。読む量は確かに重要です。ただ、多くの学生は読んでも『どこを見て、何を学べばいいか』の視点がない。その型を持つまでが大変だった記憶があります。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18120626359628816')">
+              <span class="draft-label">案2</span>
+              <p>その通り。読む量が少なかったのは事実です。ただ当時の私は『何を、どう読むか』がわかってなかった。やみくもに読むだけでは、型は習得できないんですよね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18120626359628816')">
+              <span class="draft-label">案3</span>
+              <p>まさにそこです。読む量も必要ですが、同時に『良い論文の構造を意識的に分析する読み方』を知らなかった。両輪が揃ってようやく前に進めた感じです。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18120626359628816" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18120626359628816" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18120626359628816')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18120626359628816')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
