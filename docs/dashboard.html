@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-26 21:37 JST</p>
+    <p class="updated">更新: 2026-04-26 21:42 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (35)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (36)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (37)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1301,7 +1301,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (36件)</div>
+    <div class="section-subtitle">未返信 (37件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2487,6 +2487,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18107617520308551')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18107617520308551')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17939475528198026">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXk4mm0CRST" target="_blank">↗ 論文の著者リストって、貢献度順だと思っている人がいる。<br><br>分野によって違う。<br><br>生命科学は最後の名前…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@abcdear.10.4</span>
+            <p class="reply-text">バンクーバー方式がすべてだと思ってました笑</p>
+            <span class="reply-time">04/26 21:09</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17939475528198026')">
+              <span class="draft-label">案1</span>
+              <p>バンクーバー方式は著者の役割を明記するガイドラインですが、著者順の決定ルール自体は別問題なんです。ジャーナルの投稿規定と分野慣習が絡み合うので複雑ですよね笑</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17939475528198026')">
+              <span class="draft-label">案2</span>
+              <p>良い質問！バンクーバー方式は著者の責任範囲を定めるもので、著者順をどう決めるかは別。だから同じバンクーバー方式でも分野で全然違う順番になるんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17939475528198026')">
+              <span class="draft-label">案3</span>
+              <p>そうなんです、多くの人がそう思ってますよ笑 バンクーバー方式は透明性のためのルールで、著者順そのものは分野の慣習に委ねられてるんです。20年この業界にいますが、今も混乱してる人多いです。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17939475528198026" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17939475528198026" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17939475528198026')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17939475528198026')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
