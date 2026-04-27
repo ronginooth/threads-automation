@@ -570,6 +570,66 @@
     "replied": false
   },
   {
+    "comment_id": "17860214673629413",
+    "post_id": "17892401304334324",
+    "post_text": "研究者の皆さんに聞きたい。\n\n論文の図、何で作ってますか？\n\nExcel？R？Python？Prism？\n\n私は20年Excelだった。\n去年からRに移った。\n理由は「AIにスクリプトを書かせる」という選択肢ができたから。\n\nあなたは何派ですか？",
+    "permalink": "https://www.threads.com/@ronginooth_ai/post/DXoZH2xlVK3",
+    "username": "japaneselacquerwork",
+    "comment_text": "Illustrator",
+    "comment_time": "04/27 23:35",
+    "drafts": [
+      "Illustratorいいですね。最終的な図の完成度は確かに高い。ただ私は「データ→図」の過程を自動化したくて、スクリプト言語に移りました。どっちが効率的かは、論文数や修正頻度で変わりそう。",
+      "Illustratorはプロだ。細部の調整が完璧。ただRだと「AIに『こういう図を作ってくれ』と言うだけ」になってきて、それが20年の手作業より圧倒的に楽。トレードオフですね。",
+      "それだ。Illustratorで最後の仕上げをするのが理想形かもしれません。私も実は、Rで骨組みを作ってからIllustratorで微調整する人も知ってます。何を重視するかで分かれる気がする。"
+    ],
+    "replied": false
+  },
+  {
+    "comment_id": "18111564085859882",
+    "post_id": "17892401304334324",
+    "post_text": "研究者の皆さんに聞きたい。\n\n論文の図、何で作ってますか？\n\nExcel？R？Python？Prism？\n\n私は20年Excelだった。\n去年からRに移った。\n理由は「AIにスクリプトを書かせる」という選択肢ができたから。\n\nあなたは何派ですか？",
+    "permalink": "https://www.threads.com/@ronginooth_ai/post/DXoZH2xlVK3",
+    "username": "biomedicalengineeringreseacher",
+    "comment_text": "WordとExcelとPowerpointだけで、Nature Biomedical Engineeringに通したことがある、というのが私のちょっとした自慢です。",
+    "comment_time": "04/27 23:24",
+    "drafts": [
+      "それはすごい！正直、ツールより中身ですよね。でも私がRに移った理由は、AIとの相性で再現性と効率が上がったから。今後、どのツール使ってますか？",
+      "Nature Biomedical Engineering通すって本当に凄い。ツールは手段に過ぎないって改めて感じます。ただ、AIの時代はスクリプト化できるかが鍵になってくるかもしれません。",
+      "素晴らしい。でも正直、今はAIにコード書かせる時代。Word/Excelでもいいけど、データ処理の再現性って今後重要になると思うんです。あなたのやり方、誰か後継できます？"
+    ],
+    "replied": false
+  },
+  {
+    "comment_id": "18133964941527898",
+    "post_id": "17892401304334324",
+    "post_text": "研究者の皆さんに聞きたい。\n\n論文の図、何で作ってますか？\n\nExcel？R？Python？Prism？\n\n私は20年Excelだった。\n去年からRに移った。\n理由は「AIにスクリプトを書かせる」という選択肢ができたから。\n\nあなたは何派ですか？",
+    "permalink": "https://www.threads.com/@ronginooth_ai/post/DXoZH2xlVK3",
+    "username": "fuelforsub230",
+    "comment_text": "結果の図はExcelで，統計解析後の図はRで作っています． なんてったってRは自由度が高いのでやりやすいです．",
+    "comment_time": "04/27 23:20",
+    "drafts": [
+      "それですよ！Excelと使い分けるのが実務的ですね。Rの自由度は本当に強い。統計解析→図作成まで一気通貫できるのも魅力。AIとの相性も良好です。",
+      "いいバランス感覚。簡単な図はExcel、複雑な図はRって感じですね。私も最初はそうでした。今はほぼRですが、Excelの気軽さは捨てがたい。",
+      "Rの自由度、分かります。複数の図をループで一括生成とか、Excelじゃ難しい。AIにコード書かせるとその良さが倍増しますよね。同志だ。"
+    ],
+    "replied": false
+  },
+  {
+    "comment_id": "17869528542610731",
+    "post_id": "17892401304334324",
+    "post_text": "研究者の皆さんに聞きたい。\n\n論文の図、何で作ってますか？\n\nExcel？R？Python？Prism？\n\n私は20年Excelだった。\n去年からRに移った。\n理由は「AIにスクリプトを書かせる」という選択肢ができたから。\n\nあなたは何派ですか？",
+    "permalink": "https://www.threads.com/@ronginooth_ai/post/DXoZH2xlVK3",
+    "username": "takatsuda_note",
+    "comment_text": "Python, Matlab, R etc…\n共同研究者との兼ね合いでも変わりますね。個人的にはPythonが楽ですが",
+    "comment_time": "04/27 23:14",
+    "drafts": [
+      "そうですね。Pythonは確かに習得しやすくて、データ処理から可視化まで一貫してできるのが強み。共同研究者とのスクリプト共有も楽だと思います。",
+      "Pythonはいいですよね。マットプロットリブの自由度の高さと、データハンドリングの楽さが両立してる。ただ環境構築がネックになる人も多い印象です。",
+      "Pythonに移る研究者、増えてますね。私も検討しましたが、Rの学習コスト考えるとPython最初から学ぶ方が効率いいかもしれません。"
+    ],
+    "replied": false
+  },
+  {
     "comment_id": "18084688331035457",
     "post_id": "17997216572920996",
     "post_text": "査読の依頼がきた\n\n共著者の論文だった。\n\n正直に編集者にそのように伝えて\n辞退した。公正に判断できないから。\n\n教授に聞いたら、黙って査読する人もいるらしい。\n\n共著者じゃなくても学会で顔見知りの人の論文が\n査読で回ってくることはよくあることで\n\n学会でのアピールや立ち振る舞いが\n査読結果に影響しないと思いますか？",
