@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-28 13:48 JST</p>
+    <p class="updated">更新: 2026-04-28 14:31 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (27)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (44)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (46)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1227,7 +1227,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (44件)</div>
+    <div class="section-subtitle">未返信 (46件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2677,6 +2677,72 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18102610000971997')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18102610000971997')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18355695994230395">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXoZH2xlVK3" target="_blank">↗ 研究者の皆さんに聞きたい。<br><br>論文の図、何で作ってますか？<br><br>Excel？R？Python？Pris…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@yaskymuraka</span>
+            <p class="reply-text">結果の図はpython、ベクターグラフはtikzを使っています。元々はInkscapeを使っていましたが、生成AIを使うとtikzコードを吐かせることが出来るので、tikzに移行しました。</p>
+            <span class="reply-time">04/28 13:28</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18355695994230395')">
+              <span class="draft-label">案1</span>
+              <p>tikzへの移行、素敵ですね。版管理もしやすいし、AIとの相性も良い。Pythonとtikzの組み合わせ、まさに現代的だと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18355695994230395')">
+              <span class="draft-label">案2</span>
+              <p>AIがtikzコード生成できるのは強みですね。Inkscapeから移行した理由がよく分かる。Pythonで解析、tikzで仕上げ、そういう棲み分けも効率的。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18355695994230395')">
+              <span class="draft-label">案3</span>
+              <p>あ、tikzをAIに書かせるのいいですね。スクリプトの再現性も高い。Pythonとの組み合わせで、まるごと自動化できそう。参考になります。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18355695994230395" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18355695994230395" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18355695994230395')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18355695994230395')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18102036880973537">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXoZH2xlVK3" target="_blank">↗ 研究者の皆さんに聞きたい。<br><br>論文の図、何で作ってますか？<br><br>Excel？R？Python？Pris…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@tukijune</span>
+            <p class="reply-text">Originで表、絵はpptで、データはExcel</p>
+            <span class="reply-time">04/28 12:46</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18102036880973537')">
+              <span class="draft-label">案1</span>
+              <p>Originいいですね。専門的な図はOriginの方が美しいし、細かい調整も楽。PPTで仕上げるのは定番ですね。データはExcelだと管理しやすい。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18102036880973537')">
+              <span class="draft-label">案2</span>
+              <p>Origin使い、結構多いんです。やっぱり学会誌向けの図作成は専門ツールが強い。今後AIの補助があるとさらに効率上がりそう。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18102036880973537')">
+              <span class="draft-label">案3</span>
+              <p>その組み合わせ、実は効率的だと思います。ツール使い分けの方が、1つのツールで無理してるより結果的に時間短縮になることもあるんですよね。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18102036880973537" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18102036880973537" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18102036880973537')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18102036880973537')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
