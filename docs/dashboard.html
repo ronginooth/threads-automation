@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-30 07:37 JST</p>
+    <p class="updated">更新: 2026-04-30 07:46 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (19)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (46)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (47)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1153,7 +1153,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (46件)</div>
+    <div class="section-subtitle">未返信 (47件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2669,6 +2669,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18102036880973537')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18102036880973537')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17895574458445055">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXsZpqUkm_k" target="_blank">↗ 博士1年の自分へ。<br><br>論文が書けなくて泣いてるね。<br>でも大丈夫、原因は才能じゃなくて「構造」を知らな…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@philocafe</span>
+            <p class="reply-text">誰にもそれを教えてもらえなくて二年も遅れたんですか？！</p>
+            <span class="reply-time">04/30 02:47</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17895574458445055')">
+              <span class="draft-label">案1</span>
+              <p>そうなんです。当時はメンターがいなくて、試行錯誤の連続。だから今、同じ苦しみを味わってる学生さんに少しでも還元したくて情報発信してます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17895574458445055')">
+              <span class="draft-label">案2</span>
+              <p>本当にそうですよ。誰にも聞けずに迷走してました。だからこそ、この知見は共有する責任があると感じてます。後進の時間を無駄にしたくないんです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17895574458445055')">
+              <span class="draft-label">案3</span>
+              <p>正直、もったいなかったなと思います。だから今、Threadsで発信してるんですよ。知識の格差って本当に不公平だから、少しでも埋めたいと思ってて。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17895574458445055" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17895574458445055" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17895574458445055')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17895574458445055')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
