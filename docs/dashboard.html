@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-04-30 22:00 JST</p>
+    <p class="updated">更新: 2026-04-30 22:20 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (15)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (47)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1081,7 +1081,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (47件)</div>
+    <div class="section-subtitle">未返信 (48件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2630,6 +2630,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17895574458445055')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17895574458445055')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18373083628165343">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DXwPpTHoP1P" target="_blank">↗ 論文のFigure、何回作り直しますか？<br><br>私の答え：平均5回。<br><br>データを変えたわけじゃない。<br>「…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@biomedicalengineeringreseacher</span>
+            <p class="reply-text">Figure setのバージョンでいったら毎回 ver. 25 ぐらいは行きます</p>
+            <span class="reply-time">04/30 21:06</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18373083628165343')">
+              <span class="draft-label">案1</span>
+              <p>それはすごい！ver.25ともなると、もはやアート作品ですね。笑 テンプレート化する前は私も似た状態でした。ジャーナルの要件や共著者のフィードバックが何度も入るんですよね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18373083628165343')">
+              <span class="draft-label">案2</span>
+              <p>ver.25！それ、データの質問というより『このfigureの美学』を極めてる段階では。笑 学会投稿とジャーナル投稿で分けるとか、テンプレート統一で減らせるかもです。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18373083628165343')">
+              <span class="draft-label">案3</span>
+              <p>ver.25はもう職人芸。笑 共著者やエディターのフィードバックループですね。うちも同じ経験があります。最後はどの版で落ち着きましたか？</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18373083628165343" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18373083628165343" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18373083628165343')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18373083628165343')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
