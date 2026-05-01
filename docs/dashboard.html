@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-01 15:44 JST</p>
+    <p class="updated">更新: 2026-05-01 17:32 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (12)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (11)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">12</div>
+        <div class="stat-num">11</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">166</div>
+        <div class="stat-num">167</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -696,17 +696,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-01 17:00</span>
-            <span class="queue-type type-気づき型">気づき型</span>
-          </div>
-          <p class="queue-body">「AIに自由を与えるな」<br><br>これが論文執筆でAIを使う鉄則だった。<br><br>「Introduction書いて」と丸投げすると、<br>AIは存在しない文献を引用し、言っていないことを書く。<br><br>でも「この段落の役割はこれ、使うデータはこれ」と縛ると、<br>ハルシネーションがほぼ消える。<br><br>自由度とハルシネーションは比例する。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-01_4_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-01_4_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-01 21:00</span>
             <span class="queue-type type-導線型（R記事予告）">導線型（R記事予告）</span>
           </div>
@@ -832,6 +821,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-01T08:32</div>
+          <p class="posted-text">「AIに自由を与えるな」<br><br>これが論文執筆でAIを使う鉄則だった。<br><br>「Introduction書いて」と丸投げすると、<br>AIは存在しない文献を引用し、言っていないことを書く。<br><br>でも「この段落の役割はこれ、使うデータはこれ」と縛ると、<br>ハルシネーションがほぼ消える。<br><br>自由度とハルシネーションは比例する。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-01T06:44</div>
           <p class="posted-text">Discussionがペラペラになる原因がわかった。<br><br>段落ごとの「仕事」を定義していなかったからだった。<br><br>1段落=1メッセージ。<br><br>「この段落は先行研究との差異を述べる」<br>「この段落は臨床的意義を述べる」<br><br>役割を決めてからAIに書かせると、中身のある考察が出る。</p>
@@ -1037,18 +1031,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 60</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-27T10:05</div>
-          <p class="posted-text">研究者の皆さんに聞きたい。<br><br>論文の図、何で作ってますか？<br><br>Excel？R？Python？Prism？<br><br>私は20年Excelだった。<br>去年からRに移った。<br>理由は「AIにスクリプトを書かせる」という選択肢ができたから。<br><br>あなたは何派ですか？</p>
-          
-            <div class="posted-metrics">
-              <span>👁 4352</span>
-              <span>❤️ 25</span>
-              <span>💬 11</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 565</span>
             </div>
         </div>
   </div>
