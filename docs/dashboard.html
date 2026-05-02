@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-02 08:34 JST</p>
+    <p class="updated">更新: 2026-05-02 10:16 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (9)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (8)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">9</div>
+        <div class="stat-num">8</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">169</div>
+        <div class="stat-num">170</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り9件。今週中に補充を検討</div>
+            <div class="action-desc">残り8件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-02 10:00</span>
-            <span class="queue-type type-失敗談型">失敗談型</span>
-          </div>
-          <p class="queue-body">はじめてAIに論文のDiscussionを書かせた日。<br><br>完成した。読んだ。<br><br>——これ、どこかで見た文章だ。<br><br>調べたら実在しない論文が5本引用されていた。<br><br>あの日から「AIには自由に書かせない」がルールになった。<br>設計図を先に渡して、穴埋めだけさせる。<br>それでハルシネーションは消えた。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-02_2_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-02_2_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-02 13:00</span>
             <span class="queue-type type-教育型（990円記事切り売り）">教育型（990円記事切り売り）</span>
           </div>
@@ -806,6 +795,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-02T01:16</div>
+          <p class="posted-text">はじめてAIに論文のDiscussionを書かせた日。<br><br>完成した。読んだ。<br><br>——これ、どこかで見た文章だ。<br><br>調べたら実在しない論文が5本引用されていた。<br><br>あの日から「AIには自由に書かせない」がルールになった。<br>設計図を先に渡して、穴埋めだけさせる。<br>それでハルシネーションは消えた。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-01T22:31</div>
           <p class="posted-text">「AIに論文書かせてる」と思われがちだけど、<br>実際に使ってるのはそこじゃない。<br><br>AIに任せているのは：<br>・参考文献のフォーマット統一<br>・統計コードのデバッグ<br>・図のスタイル調整<br><br>「考える」部分は全部人間。<br>「作業」部分だけAI。<br><br>この使い分けを知らない人が多い。</p>
@@ -1025,18 +1019,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 14</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-28T01:20</div>
-          <p class="posted-text">投稿直前に気づいた。<br><br>「Source Dataが必要だった」<br><br>図のPDFだけ作って満足していた。<br>CSVの生データを整形し直すのに半日潰れた。<br><br>あの地獄を二度と繰り返さないと決めて、<br>図を出す時点でSource Dataも同時に出力される仕組みに変えた。<br><br>同じ経験ある人、いませんか？</p>
-          
-            <div class="posted-metrics">
-              <span>👁 154</span>
-              <span>❤️ 1</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 18</span>
             </div>
         </div>
   </div>
