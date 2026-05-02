@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-02 16:19 JST</p>
+    <p class="updated">更新: 2026-05-02 17:06 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (6)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">7</div>
+        <div class="stat-num">6</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">171</div>
+        <div class="stat-num">172</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り7件。今週中に補充を検討</div>
+            <div class="action-desc">残り6件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-02 17:00</span>
-            <span class="queue-type type-3ステップだけ型">3ステップだけ型</span>
-          </div>
-          <p class="queue-body">AI×論文ライティング、やることは3つだけ。<br><br>1. 構造テンプレをAIに渡す<br>2. 各段落の主題文だけ自分で書く<br>3. AIに肉付けさせて自分で削る<br><br>この順番だけ守れば、Discussionが1日で書ける。<br><br>逆にこの順番を無視すると、<br>修正ループが永遠に終わらない。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-02_4_3ステップだけ型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-02_4_3ステップだけ型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-02 21:00</span>
             <span class="queue-type type-失敗談型">失敗談型</span>
           </div>
@@ -784,6 +773,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-02T08:06</div>
+          <p class="posted-text">AI×論文ライティング、やることは3つだけ。<br><br>1. 構造テンプレをAIに渡す<br>2. 各段落の主題文だけ自分で書く<br>3. AIに肉付けさせて自分で削る<br><br>この順番だけ守れば、Discussionが1日で書ける。<br><br>逆にこの順番を無視すると、<br>修正ループが永遠に終わらない。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-02T04:32</div>
           <p class="posted-text">プロンプトを何度書き直しても出力が安定しなかった。<br><br>でもCSVテーブルで<br>「段落番号・セクション・役割・データ・キーメッセージ」<br>を渡したら、一発で安定した。<br><br>自然言語は曖昧だが、構造データは曖昧さがない。<br><br>AIへの指示は「うまい言い回し」より<br>「構造化されたデータ」の方が圧倒的に強い。</p>
@@ -989,18 +983,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 416</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-28T11:24</div>
-          <p class="posted-text">論文の図を作る時間。<br><br>A: 自分でスクリプトを書いて完璧にコントロールする<br>B: AIにスクリプトを書かせて、自分は指示だけ出す<br><br>昔はAが正義だと思っていた。<br>今はBでいい。<br><br>どうせ最後に自分で微調整する。<br>最初の95%をAIに任せるだけで、時間が10分の1になった。<br><br>あなたはA派？B派？</p>
-          
-            <div class="posted-metrics">
-              <span>👁 199</span>
-              <span>❤️ 0</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 20</span>
             </div>
         </div>
   </div>
