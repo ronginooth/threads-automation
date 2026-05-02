@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-02 10:51 JST</p>
+    <p class="updated">更新: 2026-05-02 13:32 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (8)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">8</div>
+        <div class="stat-num">7</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">1</div>
+        <div class="stat-num">2</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">170</div>
+        <div class="stat-num">171</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り8件。今週中に補充を検討</div>
+            <div class="action-desc">残り7件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-02 13:00</span>
-            <span class="queue-type type-教育型（990円記事切り売り）">教育型（990円記事切り売り）</span>
-          </div>
-          <p class="queue-body">プロンプトを何度書き直しても出力が安定しなかった。<br><br>でもCSVテーブルで<br>「段落番号・セクション・役割・データ・キーメッセージ」<br>を渡したら、一発で安定した。<br><br>自然言語は曖昧だが、構造データは曖昧さがない。<br><br>AIへの指示は「うまい言い回し」より<br>「構造化されたデータ」の方が圧倒的に強い。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-02_3_教育型（990円記事切り売り）.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-02_3_教育型（990円記事切り売り）.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-02 17:00</span>
             <span class="queue-type type-3ステップだけ型">3ステップだけ型</span>
           </div>
@@ -795,6 +784,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-02T04:32</div>
+          <p class="posted-text">プロンプトを何度書き直しても出力が安定しなかった。<br><br>でもCSVテーブルで<br>「段落番号・セクション・役割・データ・キーメッセージ」<br>を渡したら、一発で安定した。<br><br>自然言語は曖昧だが、構造データは曖昧さがない。<br><br>AIへの指示は「うまい言い回し」より<br>「構造化されたデータ」の方が圧倒的に強い。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-02T01:16</div>
           <p class="posted-text">はじめてAIに論文のDiscussionを書かせた日。<br><br>完成した。読んだ。<br><br>——これ、どこかで見た文章だ。<br><br>調べたら実在しない論文が5本引用されていた。<br><br>あの日から「AIには自由に書かせない」がルールになった。<br>設計図を先に渡して、穴埋めだけさせる。<br>それでハルシネーションは消えた。</p>
@@ -1007,18 +1001,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 20</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-28T04:48</div>
-          <p class="posted-text">Rを挫折した理由の大半は「エラーが出て何が起きているかわからない」だった。<br><br>今は違う。<br><br>エラーメッセージをそのままAIに貼り付けて<br>「これはどういう意味？どう直せばいい？」と聞くだけ。<br><br>日本語で説明が返ってきて、修正コードも出る。<br><br>Rが「難しい」と感じていたのは、<br>エラーの翻訳者がいなかっただけだった。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 112</span>
-              <span>❤️ 1</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 14</span>
             </div>
         </div>
   </div>
