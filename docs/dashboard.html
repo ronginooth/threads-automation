@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-03 10:53 JST</p>
+    <p class="updated">更新: 2026-05-03 11:35 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">174</div>
+        <div class="stat-num">175</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り4件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-03 10:00</span>
-            <span class="queue-type type-あるある型">あるある型</span>
-          </div>
-          <p class="queue-body">論文を書く前に「今日こそ集中する」と思って、<br><br>机を片付けて、<br>コーヒーを入れて、<br>参考文献を並べて——<br><br>気づいたら夜になっていた。<br><br>あれは論文を書く準備ではなく、<br>書かない準備だった。<br><br>同じ人いますよね？</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-03_2_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-03_2_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-03 13:00</span>
             <span class="queue-type type-教育型（R記事切り売り）">教育型（R記事切り売り）</span>
           </div>
@@ -751,6 +740,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-03T02:35</div>
+          <p class="posted-text">論文を書く前に「今日こそ集中する」と思って、<br><br>机を片付けて、<br>コーヒーを入れて、<br>参考文献を並べて——<br><br>気づいたら夜になっていた。<br><br>あれは論文を書く準備ではなく、<br>書かない準備だった。<br><br>同じ人いますよね？</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-02T22:21</div>
           <p class="posted-text">論文の引用著者のうち、約7割はその論文を実際には読んでいない。<br><br>（Simkin &amp; Roychowdhury, 2003）<br><br>孫引きが連鎖して「定説」になる。<br><br>自分が引用する文献、一度原文を確認した方がいい。<br>AIが引用する文献なら、なおさら。</p>
@@ -970,18 +964,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 40</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-29T04:01</div>
-          <p class="posted-text">ChatGPTで論文を書こうとした。<br><br>「Discussionを書いて」<br>→ それっぽい文が来る。<br>→ 修正する。<br>→ またズレた文が来る。<br>→ 修正する。<br><br>この沼に3ヶ月いた。<br><br>抜け出した方法は、プロンプトを変えることではなかった。<br>「先に構造を渡す」。それだけだった。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 338</span>
-              <span>❤️ 0</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 34</span>
             </div>
         </div>
   </div>
