@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-03 16:47 JST</p>
+    <p class="updated">更新: 2026-05-03 18:07 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (2)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (1)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (48)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">176</div>
+        <div class="stat-num">177</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り2件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り1件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-03 17:00</span>
-            <span class="queue-type type-質問ブリッジ型">質問ブリッジ型</span>
-          </div>
-          <p class="queue-body">研究者の皆さんに聞きたい。<br><br>統計ソフト、何を使ってますか？<br><br>SPSS？R？Python？EZR？Prism？<br><br>私はずっとEZRだった。<br>去年からRに移行した。<br>きっかけは「AIが代わりにコードを書いてくれるようになった」こと。<br><br>あなたの統計ソフト遍歴、教えてください。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-03_4_質問ブリッジ型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-03_4_質問ブリッジ型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-03 21:00</span>
             <span class="queue-type type-導線型（R記事予告）">導線型（R記事予告）</span>
           </div>
@@ -729,6 +718,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-03T09:07</div>
+          <p class="posted-text">研究者の皆さんに聞きたい。<br><br>統計ソフト、何を使ってますか？<br><br>SPSS？R？Python？EZR？Prism？<br><br>私はずっとEZRだった。<br>去年からRに移行した。<br>きっかけは「AIが代わりにコードを書いてくれるようになった」こと。<br><br>あなたの統計ソフト遍歴、教えてください。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-03T05:45</div>
           <p class="posted-text">Introductionには「4つの段落の仕事」がある。<br><br>1. 分野の重要性（なぜこの研究が必要か）<br>2. 先行研究の空白（何がまだわかっていないか）<br>3. 本研究の目的（何をどう解決するか）<br>4. 本稿の構成（この論文で何を読むか）<br><br>この順番が崩れると、査読者に「何の論文か」が伝わらない。</p>
@@ -934,18 +928,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 16</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-29T08:59</div>
-          <p class="posted-text">AIに「私の論文のIntroduction、何がダメ？」と聞いてみた。<br><br>返ってきた答え。<br>「主題文が段落の途中に埋もれている」<br><br>20年研究してきて、人間の共著者に一度も言われなかったことをAIに指摘された。<br><br>悔しいけど、的確だった。<br><br>AIは忖度しない。<br>だから添削相手として優秀だった。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 64</span>
-              <span>❤️ 1</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 9</span>
             </div>
         </div>
   </div>
