@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-14 14:31 JST</p>
+    <p class="updated">更新: 2026-05-14 15:40 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (50)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (50)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (51)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1452,7 +1452,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (50件)</div>
+    <div class="section-subtitle">未返信 (51件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -3100,6 +3100,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17867981556618703')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17867981556618703')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18101847737062901">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DYRXe--Ek9R" target="_blank">↗ 教授に言われた言葉。<br><br>「論文は実験を終えてから書くものじゃない」<br><br>——どういうことですか？<br><br>「…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@fuku5435</span>
+            <p class="reply-text">分野によるかもしれませんが…<br>　一部界隈では実験の設計にこだわって想定外の面白しろい結果が棄却されてしまったり再現性ない論文が積み上がってます。</p>
+            <span class="reply-time">05/14 11:35</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18101847737062901')">
+              <span class="draft-label">案1</span>
+              <p>確かにそうですね。設計を固めすぎると、データが語りかけてくることを見落とす危険がある。書く過程で『あ、こっちの解釈もあり得るな』と気づく柔軟性も大事だと思います。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18101847737062901')">
+              <span class="draft-label">案2</span>
+              <p>いい指摘。僕も最近感じるのは、設計と柔軟性のバランスですね。先に構想を書くことで論理的な枠組みができて、その中で予期しない発見も活かせる感じ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18101847737062901')">
+              <span class="draft-label">案3</span>
+              <p>本当ですね。設計に執着すると、データが語りかけてくることを無視しちゃう。僕の教授の言葉も『書きながら再検討する』という意味だったのかも。過度な設計主義は確かに怖い。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18101847737062901" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18101847737062901" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18101847737062901')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18101847737062901')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
