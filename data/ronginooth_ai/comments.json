@@ -672,7 +672,9 @@
       "AIがtikzコード生成できるのは強みですね。Inkscapeから移行した理由がよく分かる。Pythonで解析、tikzで仕上げ、そういう棲み分けも効率的。",
       "あ、tikzをAIに書かせるのいいですね。スクリプトの再現性も高い。Pythonとの組み合わせで、まるごと自動化できそう。参考になります。"
     ],
-    "replied": false
+    "replied": true,
+    "replied_text": "tikzへの移行、素敵ですね。版管理もしやすいし、AIとの相性も良い。Pythonとtikzの組み合わせ、まさに現代的だと思います。",
+    "replied_thread_id": "18107249279301866"
   },
   {
     "comment_id": "18102036880973537",
