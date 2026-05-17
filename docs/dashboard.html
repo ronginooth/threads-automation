@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-17 21:50 JST</p>
+    <p class="updated">更新: 2026-05-17 21:56 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (15)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (50)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (51)</button>
   </nav>
 
   <!-- 概要 -->
@@ -1046,7 +1046,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (50件)</div>
+    <div class="section-subtitle">未返信 (51件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2694,6 +2694,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18136734712542064')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18136734712542064')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17964818579918249">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DYbzYF4lIUG" target="_blank">↗ 査読コメントで一番困るのは、「もう少し丁寧に説明してください」。<br><br>何が足りないのか書いていない。<br>…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@masahiro3294</span>
+            <p class="reply-text">それは丁寧ふうに書くんですよ。そして査読の返答に「これこれこういうふうに&quot;あなたのご指摘に従って&quot;修整しました」と書いてください。</p>
+            <span class="reply-time">05/17 20:04</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17964818579918249')">
+              <span class="draft-label">案1</span>
+              <p>あ、それですね。査読者の指摘を明示的に引用して、『ご指摘ありがとうございます、以下のように改善しました』という形ですね。これで次の査読がスムーズになることが多い気がします。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17964818579918249')">
+              <span class="draft-label">案2</span>
+              <p>なるほど。査読コメントに対する応答を丁寧に見せることで、修正の『意図』と『根拠』が伝わるわけですか。単に直すだけじゃダメなんですね。参考になります。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17964818579918249')">
+              <span class="draft-label">案3</span>
+              <p>そっか、要は査読者に『ちゃんと聞いてますよ』という姿勢を見せることなんですね。あいまいな指摘に対しても、こちら側で解釈して応答する形を取る。やってみます。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17964818579918249" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17964818579918249" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17964818579918249')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17964818579918249')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
