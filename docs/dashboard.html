@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-18 10:32 JST</p>
+    <p class="updated">更新: 2026-05-18 11:16 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (51)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (52)</button>
   </nav>
 
   <!-- 概要 -->
@@ -979,7 +979,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (51件)</div>
+    <div class="section-subtitle">未返信 (52件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -2660,6 +2660,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('17964818579918249')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('17964818579918249')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-17850177372695242">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DYdH0C3CcNw" target="_blank">↗ ゼミで学生が発表していた。<br><br>スライドが30枚。持ち時間は15分。<br><br>案の定、後半を早口で流して終わ…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@k.s_04200921</span>
+            <p class="reply-text">全て話すのではなく、質問させる隙を作るプレゼンがいいんだろうけどね。<br>いっぱい、情報詰め込みたいのよね</p>
+            <span class="reply-time">05/18 08:16</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '17850177372695242')">
+              <span class="draft-label">案1</span>
+              <p>そうなんですよ。学生は『伝えたい』という気持ちが強くて、ついつい詰め込んでしまう。でも聴き手の理解度を考えると、絞り込むことの方が難しいスキルなんですよね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17850177372695242')">
+              <span class="draft-label">案2</span>
+              <p>本当にそれ。むしろ『何を話さないか』を決める方が大事なんです。質問を引き出せるプレゼンって、実は情報量が少ないんじゃなくて、構成が優れてるんですよ。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '17850177372695242')">
+              <span class="draft-label">案3</span>
+              <p>まさに。学生に『30枚中、絶対に伝える部分はどこ？』と問い直すようにしてます。制約を課すと、優先順位がクリアになるんです。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-17850177372695242" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-17850177372695242" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('17850177372695242')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('17850177372695242')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
