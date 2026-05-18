@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-18 23:53 JST</p>
+    <p class="updated">更新: 2026-05-19 01:15 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (52)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">0</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">256</div>
+        <div class="stat-num">257</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り4件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-18 10:00</span>
-            <span class="queue-type type-体験談型">体験談型</span>
-          </div>
-          <p class="queue-body">昨年、5年前に書いたコードを引っ張り出した。<br><br>何をやっているのか、全くわからなかった。<br><br>変数名は「a」「b」「tmp」。コメントは1行もない。<br><br>結果は再現できたが、どうやって再現したのかを説明できない論文になっていた。<br><br>再現性は、コードを書いた瞬間に決まっていた。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-18_2_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-18_2_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-18 13:00</span>
             <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
           </div>
@@ -751,6 +740,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-18T16:15</div>
+          <p class="posted-text">昨年、5年前に書いたコードを引っ張り出した。<br><br>何をやっているのか、全くわからなかった。<br><br>変数名は「a」「b」「tmp」。コメントは1行もない。<br><br>結果は再現できたが、どうやって再現したのかを説明できない論文になっていた。<br><br>再現性は、コードを書いた瞬間に決まっていた。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-18T12:54</div>
           <p class="posted-text">大学院のとき、教授に聞いた。<br><br>「データ解析のコードって、どこまで綺麗に書けばいいんですか？」<br><br>「自分が半年後に読んで理解できるか、それが基準だ」<br><br>——半年後の自分が読める、ということですか？<br><br>「そう。コードを書くのは、未来の自分への手紙だと思え」<br><br>今でもこの基準で書いている。</p>
@@ -900,18 +894,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 61</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-05-16T17:37</div>
-          <p class="posted-text">「とりあえず書いてみて」と言われてから、ずっと手が動かない。<br><br>あの状態、何なのか。<br><br>「書けない」んじゃなくて、「次の文の前に、前の文を直したくなる」という無限ループだと思っている。<br><br>完璧な第1段落を書こうとしているうちに、1時間が過ぎる。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 63</span>
-              <span>❤️ 0</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 6</span>
             </div>
         </div>
   </div>
