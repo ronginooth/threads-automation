@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-19 01:48 JST</p>
+    <p class="updated">更新: 2026-05-19 03:15 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (2)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (52)</button>
   </nav>
@@ -526,7 +526,7 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">3</div>
+        <div class="stat-num">2</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
@@ -534,7 +534,7 @@
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">257</div>
+        <div class="stat-num">258</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り2件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-18 13:00</span>
-            <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
-          </div>
-          <p class="queue-body">論文のアブストラクトだけ読んで引用している研究者は、思っているより多い。<br><br>本文を読まずに引用されたことで、間違った解釈が定説として広まったケースも報告されている。<br><br>（Greenberg, 2009, BMJ）<br><br>アブストラクトに書いてあることと、本文に書いてあることが違う論文は意外と多い。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-18_3_びっくり+根拠型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-18_3_びっくり+根拠型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-18 17:00</span>
             <span class="queue-type type-教育系">教育系</span>
           </div>
@@ -740,6 +729,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-18T18:15</div>
+          <p class="posted-text">論文のアブストラクトだけ読んで引用している研究者は、思っているより多い。<br><br>本文を読まずに引用されたことで、間違った解釈が定説として広まったケースも報告されている。<br><br>（Greenberg, 2009, BMJ）<br><br>アブストラクトに書いてあることと、本文に書いてあることが違う論文は意外と多い。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-18T16:15</div>
           <p class="posted-text">昨年、5年前に書いたコードを引っ張り出した。<br><br>何をやっているのか、全くわからなかった。<br><br>変数名は「a」「b」「tmp」。コメントは1行もない。<br><br>結果は再現できたが、どうやって再現したのかを説明できない論文になっていた。<br><br>再現性は、コードを書いた瞬間に決まっていた。</p>
@@ -966,18 +960,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 27</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-05-16T18:37</div>
-          <p class="posted-text">学会の前日、教授と発表練習をした。<br><br>「何分の発表？」<br><br>——10分です。<br><br>「スライドが20枚あるな。10枚に減らせ」<br><br>——でも話すことがたくさんあって。<br><br>「詰め込んでも聞き手は理解できない。1分1枚が目安」<br><br>分かりやすい発表は、話すことを絞っている。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 463</span>
-              <span>❤️ 6</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 64</span>
             </div>
         </div>
   </div>
