@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-21 22:51 JST</p>
+    <p class="updated">更新: 2026-05-22 01:31 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (0)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (35)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (52)</button>
   </nav>
@@ -526,7 +526,7 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">35</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
@@ -534,7 +534,7 @@
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">260</div>
+        <div class="stat-num">109</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -554,13 +554,6 @@
     <div class="section-title">⚡ やること</div>
     
         <div class="action-item">
-          <span class="action-icon">🔴</span>
-          <div>
-            <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り0件。<code>python3 weekly.py</code> で補充してください</div>
-          </div>
-        </div>
-        <div class="action-item">
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">統計データなし</div>
@@ -578,7 +571,392 @@
   <!-- キュー -->
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
-    <p class="empty">キューは空です</p>
+    
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-25 07:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">「Rを勉強しなければ」と思い始めて、3年が経った。<br><br>そう思いながら、今日もEZRを開く。<br><br>論文の図修正指示が来るたびに、同じ後悔をする。<br><br>あなたはどこで止まりましたか？</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-25_1_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-25_1_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-25 10:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">学会発表の前日、深夜2時。<br><br>スライドの文字が小さいと指摘され、全部打ち直している。<br><br>翌朝7時の新幹線に乗りながら、「もっと早く完成させられたはずだ」と何度も思った。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-25_2_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-25_2_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-25 13:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">発表2年前まで、3群比較の図を作るのに丸1日かかっていた。<br><br>今は30分で出る。変えたのは1つだけ。<br><br>CSVをAIに渡す前に、「出力形式の設計図」を1枚作るようにした。<br><br>Rのコードを書いていない。設計図を渡しただけ。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-25_3_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-25_3_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-25 17:00</span>
+            <span class="queue-type type-気づき型">気づき型</span>
+          </div>
+          <p class="queue-body">研究者が論文を書くのに一番時間がかかる工程は何か。<br><br>聞いてみると、意外と「図を作ること」という答えが多い。<br><br>文章より先に詰まる場所がある。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-25_4_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-25_4_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-25 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">3年間、Rを諦めてEZRで妥協してきた。<br><br>投稿のたびに「図をtiffで」「解像度を上げて」と修正指示が来た。<br><br>変わったのは、AIに作図環境ごと渡した日から。<br><br>その方法、プロフにまとめています。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-25_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-25_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-26 07:00</span>
+            <span class="queue-type type-二択型">二択型</span>
+          </div>
+          <p class="queue-body">学会発表のスライド、何日前に完成させますか？<br><br>①前日　②2〜3日前　③1週間前<br><br>私はずっと①だった。それが問題だというより、そうなってしまう理由があった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-26_1_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-26_1_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-26 10:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">発表3日前、スライドをAIに渡した。<br><br>「1枚に伝えたいことが3つあります。聴衆はどれも覚えません。」<br><br>その指摘を受けて、5枚を10枚に分割した。<br><br>発表の評価が変わった。AIに診断させたのは1分。修正に2時間かかった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-26_2_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-26_2_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-26 13:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">査読者に言われた言葉。<br><br>「Figure 1の3群比較、Rで出してますか？」——そうです、と答えられなかった。<br><br>EZRで出した図が、統計的に問題ない証拠を示せなかった。<br><br>あのとき初めて、「図のツール」が問題だと気づいた。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-26_3_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-26_3_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-26 17:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">CSVファイルを1枚持っている研究者は、もう「Rが使えない」とは言えない。<br><br>AIにCSVと「3群比較の図を出して」という指示を渡すだけで、箱ひげ図が出る。<br><br>必要なのはggplot2の知識ではなく、渡す順番だけだった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-26_4_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-26_4_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-26 21:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">学会から帰ると、いつも同じことを思う。<br><br>「次は発表を聴く側になりたい」<br><br>でも3ヶ月後にはまた、深夜にスライドを作っている。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-26_5_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-26_5_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-27 07:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">スライドを作る前に、AIと「構成表」を先に作るようになってから、深夜作業がなくなった。<br><br>手順は単純。発表時間・伝えたいこと・結論を渡して、「何枚でどの順番に話すか」を先に決める。<br><br>白紙から作らなくなったら、スライドは設計の問題だと気づいた。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-27_1_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-27_1_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-27 10:00</span>
+            <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
+          </div>
+          <p class="queue-body">博士課程学生の41%が、不安または抑うつを経験している。<br><br>一般人口の2.43倍。<br><br>その多くが「研究の進捗が見えない」「論文が書けない」を理由に挙げている。<br><br>技術の問題ではなく、構造の問題だと思う。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-27_2_びっくり+根拠型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-27_2_びっくり+根拠型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-27 13:00</span>
+            <span class="queue-type type-気づき型">気づき型</span>
+          </div>
+          <p class="queue-body">「Rを勉強する時間がない」という研究者は多い。<br><br>でも「Rで図を1枚出す時間がない」という人はもっと少ない。<br><br>勉強と実行を切り離すと、意外と進む。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-27_3_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-27_3_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-27 17:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">学会の質疑で、予想外の質問が来た経験は何回ありますか？<br><br>私は発表のたびに1回は来る。<br><br>最近は、発表前にAIで50問の想定質疑を出すようにした。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-27_4_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-27_4_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-27 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">「先生、CSVから3群比較の図が出ました」<br><br>後輩がそう言いに来たとき、私が渡したのはプロンプトではなかった。<br><br>Rの環境を設定する、ある1枚のファイルだった。<br><br>詳しくはプロフのリンクから。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-27_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-27_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-28 07:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">「Rは勉強してから使おう」<br><br>そう思い続けて、投稿論文のFigure 1はずっとEZRで作ってきた。<br><br>査読から戻ってくるたびに、図の修正だけで2日消える。<br><br>勉強を後回しにしてきたのに、図の修正は先に来た。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-28_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-28_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-28 10:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">「Rを勉強してから使おう」が危険な理由がある。<br><br>環境構築・エラー・tidydata・ggplot2の文法が、最初から一気に来る。<br><br>本業を抱えながら越えるには、コストが高すぎる。<br><br>越え方は1つ。勉強より先に「1枚図を出す」こと。環境はAIが作る。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-28_2_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-28_2_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-28 13:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">論文図の投稿前チェックで、毎回「解像度が足りない」と言われる。<br><br>tiffで出せていればいいのに、EZRはjpegしか出ない。<br><br>「図のツール問題」だと気づいたのは、ずいぶん後になってからだった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-28_3_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-28_3_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-28 17:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">発表10分前、AIに渡したのは論文の要約と「想定される質疑を50問出して」という指示だけ。<br><br>出てきた50問のうち、本番で来た質問は7問だった。<br><br>全部答えられた。<br><br>準備の質が変わったのは、質問の量を変えたからだった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-28_4_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-28_4_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-28 21:00</span>
+            <span class="queue-type type-気づき型">気づき型</span>
+          </div>
+          <p class="queue-body">学会発表で緊張するのは、「質疑が怖い」からだという研究者は多い。<br><br>内容が不安なのではなく、「どんな質問が来るか分からない」不確実性が怖い。<br><br>不確実性は、数で減らせる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-28_5_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-28_5_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-29 07:00</span>
+            <span class="queue-type type-びっくり_根拠型">びっくり+根拠型</span>
+          </div>
+          <p class="queue-body">論文図の修正で最も多い指示は何か。<br><br>「解像度を上げてください」「フォントを大きく」「tiffで提出を」<br><br>これらは全部、ツールを変えれば一度で解決する。<br><br>指摘が繰り返されているなら、ツールの問題を疑うといい。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-29_1_びっくり+根拠型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-29_1_びっくり+根拠型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-29 10:00</span>
+            <span class="queue-type type-二択型">二択型</span>
+          </div>
+          <p class="queue-body">学会スライドを作るとき、どちらから始めますか？<br><br>①PowerPointを開いてから考える<br>②構成（何枚・何を・どの順に）を先に決める<br><br>私はずっと①だった。それが深夜作業の原因だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-29_2_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-29_2_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-29 13:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">「Rで詰まっている」と言う研究者に、共通点がある。<br><br>環境構築・エラー・tidy data・ggplot2。4つの別々の壁が、最初から一気に来る。<br><br>これは設計の問題。あなたのせいじゃない。<br><br>越える順番が変わるだけで、詰まらなくなる。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-29_3_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-29_3_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-29 17:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">論文を書いていると、気づいたら深夜になっている。<br><br>時計を見ると3時。「まだ図ができていない」<br><br>この時間の消え方に、もう慣れてしまっている。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-29_4_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-29_4_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-29 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">「Rを勉強すればいつか使える」と信じていた頃の私へ。<br><br>勉強より先に、1枚図を出す方が早い。<br><br>その話、noteに書きました。プロフのリンクから。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-29_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-29_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-30 07:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">学会発表のスライドを、指導教員に見せた。<br><br>「うーん、どこを見ればいいか分からない」<br><br>1枚に情報を詰め込みすぎていた。構成ではなく、情報量の問題だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-30_1_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-30_1_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-30 10:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">学会スライドをAIと設計するスキルを無料で配布しています。<br><br>「発表時間・伝えたいこと・データ」を渡すだけで、構成から試作・QAまでフローが回る。<br><br>発表準備に毎回追われている方に。プロフのリンクから使えます。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-30_2_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-30_2_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-30 13:00</span>
+            <span class="queue-type type-気づき型">気づき型</span>
+          </div>
+          <p class="queue-body">AIで論文を書こうとして、最初に詰まるのは「何を渡せばいいか分からない」問題。<br><br>ChatGPTに「論文を書いて」と入れても、修正ループが始まる。<br><br>渡すのは文章ではなく、構造だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-30_3_気づき型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-30_3_気づき型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-30 17:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">論文図もスライドも、AIに渡す前に1枚の「設計図」を作ると、出力が変わる。<br><br>設計図とは、AIが埋めるべき穴の一覧。<br><br>AIに自由に書かせるのをやめた日から、修正ループが消えた。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-30_4_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-30_4_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-30 21:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">土曜の朝、論文を書こうとパソコンを開く。<br><br>気づいたら昼になっていて、できたのは図1枚。<br><br>この時間の消え方に、もう慣れてしまっている。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-30_5_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-30_5_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-31 07:00</span>
+            <span class="queue-type type-あるある型">あるある型</span>
+          </div>
+          <p class="queue-body">学会後の懇親会で、初めて会った研究者に名刺を渡す。<br><br>「あの発表の方ですね」と言われると、発表してよかったと思う。<br><br>でもその発表を準備するのに、なぜあれほど時間がかかるのか。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-31_1_あるある型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-31_1_あるある型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-31 10:00</span>
+            <span class="queue-type type-二択型">二択型</span>
+          </div>
+          <p class="queue-body">論文の図を作るツールは何を使っていますか？<br><br>①Excel　②EZR　③R（自力）　④R（AI活用）<br><br>私は長い間①→②だった。今は④。変えたのはツールではなく、渡し方だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-31_2_二択型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-31_2_二択型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-31 13:00</span>
+            <span class="queue-type type-体験談型">体験談型</span>
+          </div>
+          <p class="queue-body">教授に言われた言葉。<br><br>「発表が終わったら研究が終わりじゃない」——どういうことですか？<br><br>「発表室で名刺を交換した人が、3年後の査読者になる。」<br><br>学会の使い方が変わった一言だった。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-31_3_体験談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-31_3_体験談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-31 17:00</span>
+            <span class="queue-type type-失敗談型">失敗談型</span>
+          </div>
+          <p class="queue-body">「この図、何を示したいのか分からない」<br><br>査読コメントでそう言われたとき、図を作り直す前に、まず自分に「何を示したいのか」を聞き直した。<br><br>答えが出なかったとき、設計から間違っていたと気づいた。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-31_4_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-31_4_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
+        <div class="queue-card">
+          <div class="queue-header">
+            <span class="queue-time">2026-05-31 21:00</span>
+            <span class="queue-type type-導線型">導線型</span>
+          </div>
+          <p class="queue-body">投稿論文の図修正指示が来るたびに、Excelで作り直していた。<br><br>RもAIも使えない自分が情けなかった。<br><br>それが変わったのは、AIに作図環境ごと渡した日から。<br><br>同じ思いをしている方へ——プロフにリンクあります。</p>
+          <div class="queue-actions">
+            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-31_5_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
+            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-31_5_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
+          </div>
+        </div>
   </div>
 
   <!-- 投稿済み -->
@@ -586,103 +964,103 @@
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T21:34</div>
-          <p class="posted-text">研究歴20年で気づいたこと。<br><br>「論文が書けない」と悩んでいる人の多くは、書き方ではなく「どこから始めるか」で詰まっている。<br><br>わたしは1on1で、その「最初の詰まり」を一緒に解消しています。<br><br>興味がある方はプロフィールから。今月の枠は残りわずかです。</p>
+          <div class="posted-time">2026-05-08T22:32</div>
+          <p class="posted-text">「Rはいつか勉強しないと」と思い続けて、何年経ちましたか？<br><br>EZRでなんとかなってきた。Excelの図は修正指示が来るけど、まあ通ってはいる。でも「投稿レベルの図を自分で出したい」という気持ちが、ずっと燻っている。<br><br>私がRを後回しにしてきたのは、怠けていたからじゃなかったと今は思っています。環境構築・エラーの読み方・tidy dataの概念・ggplot2の文法。これだけの壁が最初から一気に来</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T20:07</div>
-          <p class="posted-text">データ解析で、わたしが必ずやること。<br><br>解析を始める前に、「もし仮説が正しければ、グラフはこう見えるはずだ」をメモしておく。<br><br>期待した結果が出なかったとき、「解析が間違っているのか」「仮説が間違っているのか」を切り分けやすくなる。<br><br>これをやるだけで、やり直しの回数が減った。</p>
+          <div class="posted-time">2026-04-15T06:20</div>
+          <p class="posted-text">学会で「挨拶が苦手」な人は、発表後の質疑で1問だけ手を挙げるところから始めると動きやすい。<br><br>質問は事前に「自分の研究と関連する疑問」を1つだけ用意しておくだけでいい。<br><br>これだけで、座長の記憶には残る。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T18:15</div>
-          <p class="posted-text">論文のアブストラクトだけ読んで引用している研究者は、思っているより多い。<br><br>本文を読まずに引用されたことで、間違った解釈が定説として広まったケースも報告されている。<br><br>（Greenberg, 2009, BMJ）<br><br>アブストラクトに書いてあることと、本文に書いてあることが違う論文は意外と多い。</p>
+          <div class="posted-time">2026-04-14T05:48</div>
+          <p class="posted-text">一方で、ネットワーキングが得意な人が有利になる構造は問題でもある。<br><br>内向的な研究者、英語が母語でない人、マイノリティが不当に評価される温床になりやすい。<br><br>だから近年、ブラインド査読やオープンレビューへの移行が進んでいる。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T16:15</div>
-          <p class="posted-text">昨年、5年前に書いたコードを引っ張り出した。<br><br>何をやっているのか、全くわからなかった。<br><br>変数名は「a」「b」「tmp」。コメントは1行もない。<br><br>結果は再現できたが、どうやって再現したのかを説明できない論文になっていた。<br><br>再現性は、コードを書いた瞬間に決まっていた。</p>
+          <div class="posted-time">2026-04-13T05:14</div>
+          <p class="posted-text">学会で挨拶した人が翌年の査読者になった経験、実際にある。<br><br>ブラインドレビューのはずが、発表スタイルや質問の仕方で誰だか分かることも多い。<br><br>科学の世界でも「人が人を評価する」という事実は変わらない。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T12:54</div>
-          <p class="posted-text">大学院のとき、教授に聞いた。<br><br>「データ解析のコードって、どこまで綺麗に書けばいいんですか？」<br><br>「自分が半年後に読んで理解できるか、それが基準だ」<br><br>——半年後の自分が読める、ということですか？<br><br>「そう。コードを書くのは、未来の自分への手紙だと思え」<br><br>今でもこの基準で書いている。</p>
+          <div class="posted-time">2026-04-12T12:39</div>
+          <p class="posted-text">「論文は長く書いた方が採択されやすい」と思っていた。<br><br>実際に査読者に聞いたら、全員が言った。「短い方がいい」と。<br><br>Methodsが長い＝実験設計が複雑すぎる、と読まれる。<br>Discussionが長い＝自信がない、と読まれる。<br><br>伝えたいことが1つなら、1段落で書ける。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T09:34</div>
-          <p class="posted-text">「論文の書き方が根本的にわからない」という相談を、ここ1年で何十件と受けてきた。<br><br>共通しているのは、書き方ではなく「構造の考え方」を誰にも教わっていないこと。<br><br>わたしが実践しているパラグラフライティングの型は、プロフィールのリンクに置いてあります。</p>
+          <div class="posted-time">2026-04-12T08:37</div>
+          <p class="posted-text">AIで論文を書くとき「このセクションを全部書いて」と依頼するのをやめた。<br><br>代わりに「この段落に入れるべき3要素を箇条書きで出して」と聞く。<br><br>確認してOKなら「この3点を元に段落を書いて」と続ける。<br><br>これだけで、ハルシネーションと方向ズレが激減した。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T05:54</div>
-          <p class="posted-text">論文の読み方を変えたら、インプットの質が変わった。<br><br>最初からAbstractを読まない。<br><br>① まずFigureとFigure legendだけ見る<br>② 何を発見したのかを自分で考える<br>③ そのあとAbstractとConclusionを読む<br>④ 最後にMethodsを確認する<br><br>この順番だと、批判的に読める。受け身にならない。</p>
+          <div class="posted-time">2026-04-12T05:05</div>
+          <p class="posted-text">子どもに「今日は公園行ける？」と聞かれて答えられなかった週末があった。<br><br>論文が終わらなくて。<br><br>それが変わったのは、論文をある方法で構造化した日から。<br><br>同じ思いをしている方へ——プロフにリンクあります。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-18T01:32</div>
-          <p class="posted-text">コロナ禍のオンライン授業、学生に聞いてみたら<br><br>「対面より分かりやすい」という声が一定数あった。<br><br>教授に話すと、<br><br>「話を聞くだけだと流れていく。図や文字が視覚的に入った方が理解できる人がいる」<br><br>「聴覚で理解する人と、視覚で理解する人、2タイプいる」<br><br>発表も論文も、どちらも取りこぼさない意識が要る。</p>
+          <div class="posted-time">2026-04-12T02:02</div>
+          <p class="posted-text">論文を提出した後、すぐ「あそこ直せばよかった」が来る。<br><br>リジェクト通知が来て、査読コメントを読むと、全部そこを指摘されている。<br><br>提出前に気づいていた。それでも直さなかった。<br><br>「もう十分書いた」という疲労感が判断を鈍らせる。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T23:38</div>
-          <p class="posted-text">英語論文を読み始めると、いつの間にか辞書を引いていて、本文に戻れなくなる。<br><br>1時間で3段落しか進まない日。<br><br>あれは「読んでいる」んじゃなくて、「単語と格闘している」状態だと思う。<br><br>論文の英語は、論文を読み続けるしか慣れる方法がなかった。</p>
+          <div class="posted-time">2026-04-11T22:18</div>
+          <p class="posted-text">研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき、急に楽しくなった。<br><br>「間違い」が「発見」に変わる瞬間が研究の醍醐味だと思う。<br><br>あなたはどんなとき、研究が楽しいと感じますか？</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T21:34</div>
-          <p class="posted-text">ゼミで学生が発表していた。<br><br>スライドが30枚。持ち時間は15分。<br><br>案の定、後半を早口で流して終わった。<br><br>終わった後、学生は「内容が多すぎましたかね」と言った。<br><br>内容じゃなくて、設計の問題だった。</p>
+          <div class="posted-time">2026-04-11T12:52</div>
+          <p class="posted-text">英語が得意な共著者に頼んで、Discussionを全部書き直してもらったことがある。<br><br>戻ってきた原稿を読んで「自分の研究の解釈が変わっていた」ことに気づいた。<br><br>英語化は外注できても、解釈は外注できない。<br><br>そこだけは自分でやる必要があると、その日学んだ。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T19:47</div>
-          <p class="posted-text">科研費の申請書で、採択率を上げるために最初にやること。<br><br>それは「審査員が誰か」を具体的に想像することだった。<br><br>同じ分野の専門家ではなく、少し離れた分野の研究者が読む可能性が高い。<br><br>だから専門用語を1つ使うたびに、「これは説明が必要か」と自問する。それだけで読みやすさが変わる。</p>
+          <div class="posted-time">2026-04-11T08:07</div>
+          <p class="posted-text">Introduction執筆の構造は「逆三角形」。<br><br>①一般的な問題提起（広い）<br>②先行研究のレビュー（絞る）<br>③先行研究の限界（さらに絞る）<br>④本研究の目的（焦点）<br>⑤本研究の貢献（意義）<br><br>この5段階を知っていれば「何を書けばいいか分からない」は起きない。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T18:40</div>
-          <p class="posted-text">科研費の申請書、いつから書き始めますか？<br><br>❤️ 締め切り2ヶ月以上前から<br><br>🔥 締め切り1ヶ月以内から<br><br>「早めに書けばいい」とわかっているのに、毎年ギリギリになるのが研究者のあるある。</p>
+          <div class="posted-time">2026-04-11T05:20</div>
+          <p class="posted-text">英語論文を読んでいて「この文、AIが書いたな」とわかる瞬間がある。<br><br>&quot;Furthermore,&quot; &quot;Moreover,&quot; &quot;It is important to note that&quot;<br><br>これらが並んでいたら、ほぼ確実にAI生成。<br><br>自分の論文も確認してみると、ぞっとする。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T17:38</div>
-          <p class="posted-text">論文の図で、読者が最初に見るのはどこか。<br><br>研究によると、タイトルでも凡例でもなく、「図全体の視覚的パターン」を0.1秒以内に把握している。<br><br>（Ware, 2012, Information Visualization）<br><br>だから図に伝えたいことは1つに絞る。複数のメッセージを1つの図に入れない。</p>
+          <div class="posted-time">2026-04-11T01:09</div>
+          <p class="posted-text">「Introduction全部書いて」は失敗する。<br><br>「段落1：研究背景（3文、一般論から始める）」は成功する。<br><br>AIに渡す粒度が細かいほど、出力が安定する。<br><br>これが「プロンプトの工夫」ではなく「構造の設計」が大事な理由。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T16:36</div>
-          <p class="posted-text">コラボ研究者から図を送ってもらった。<br><br>データはあっている。でも、何も読み取れない。<br><br>色が多すぎて、どこを見ればいいかわからない図。<br><br>「きれいな図」と「伝わる図」は別物だと、そのとき初めて実感した。</p>
+          <div class="posted-time">2026-04-10T22:38</div>
+          <p class="posted-text">「論文は謎解きだ」と気づいた日から、書くのが怖くなくなった。<br><br>Introduction：なぜこの研究をするのか<br>Results：何が起きたか<br>Discussion：なぜそうなったのか<br><br>この順番が分かれば、何をどこに書けばいいかは自動的に決まる。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T15:33</div>
-          <p class="posted-text">実習中、学生に聞かれて答えられなかった。<br><br>恥ずかしくて、その場を取り繕ってしまった。<br><br>隣で教授を見ていると、分からないことがあっても全然臆しない。<br><br>「分からないことは恥ずかしくない」<br><br>「分からない時にどうやって調べるか、その過程を見せる方がいい」<br><br>知らないことより、知ってるふりをする方がずっとダメだった。</p>
+          <div class="posted-time">2026-04-10T12:32</div>
+          <p class="posted-text">論文執筆のAI活用、あなたはどちら派？<br><br>A: まず書いてみてからAIに修正してもらう<br>B: 構造を決めてからAIに書かせる<br><br>私はずっとAだった。Bに変えてから週末が戻ってきた。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T10:45</div>
-          <p class="posted-text">Discussionで詰まる人に、わたしが使っている構造を1つ。<br><br>書く前に「5つの問い」に答えるだけ。<br><br>① この結果は予測通りだったか、それとも意外だったか<br>② なぜそうなったか（メカニズムの仮説）<br>③ 先行研究と何が違うか<br>④ この研究の限界は何か<br>⑤ 次に何を明らかにすべきか<br><br>この問いに答えれば、Discussionの骨格ができる。</p>
+          <div class="posted-time">2026-04-10T08:21</div>
+          <p class="posted-text">Antigravityとチャット型AIの決定的な違いは「再現性」にある。<br><br>チャットは毎回ゼロから始まる。<br><br>Antigravityはワークフローを定義でき、毎回同じ手順で動く。<br><br>「作業」ではなく「仕組み」にできるかどうかの差。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T09:16</div>
-          <p class="posted-text">査読コメントで一番困るのは、「もう少し丁寧に説明してください」。<br><br>何が足りないのか書いていない。<br><br>何回読んでも、自分ではわからない。<br><br>結局、「全部書き直す」しかなくて、また3週間かかる。<br><br>研究者の皆さん、この経験ありますか？</p>
+          <div class="posted-time">2026-04-10T05:07</div>
+          <p class="posted-text">「最新モデルに変えれば論文の質が上がる」と信じていた頃の自分へ。<br><br>モデルより先に変えるべきものがあった。<br><br>AIに渡す「設計図」だ。<br><br>その設計図の話、noteに書きました。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T07:19</div>
-          <p class="posted-text">論文を書いていると、Resultsの次が詰まる。<br><br>教授に聞いた。<br><br>「Discussionって何を書けばいいんですか？」<br><br>「Resultsを繰り返してどうする。読者はすでに知っている」<br><br>——じゃあ何を？<br><br>「あなたが驚いたことを書け。それが考察だ」<br><br>今もこの言葉で書いている。</p>
+          <div class="posted-time">2026-04-10T02:03</div>
+          <p class="posted-text">AIで書いた英語を、英語ネイティブの共著者に送る前に一晩悩む。<br><br>「これはAIが書いたとバレる」<br><br>でも送ってみたら「Very nicely written」と返ってきた。<br><br>AIの英語を心配するより、論理を心配した方がいい。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T04:17</div>
-          <p class="posted-text">プログラミングが得意な教授がいた。<br><br>「コード書くのめんどくさくないですか？」<br><br>「同じ作業を2回目やる自分に腹が立つんだ」<br><br>——え。<br><br>「最初の1回で時間かけても、次から楽できる快感がやめられない」<br><br>コードを書ける人は、天才じゃなかった。<br><br>究極のめんどくさがりだった。</p>
+          <div class="posted-time">2026-04-09T23:23</div>
+          <p class="posted-text">「この論文3日で書けます」と教授に言った。<br><br>Results書き終わって気づいた。<br><br>Discussionに必要な文献を全部読み直す必要があった。<br><br>設計の甘さは執筆に入ってから気づく。それが一番コストが高い。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
         <div class="posted-card">
-          <div class="posted-time">2026-05-17T00:04</div>
-          <p class="posted-text">大学院生のころ、科研費の申請書を初めて書いた。<br><br>A4で15枚。書き終えて指導教員に見せた。<br><br>「専門家しか読まない文章になっている」<br><br>——それの何が問題なのですか？<br><br>「審査員は必ずしもあなたの専門家じゃない」<br><br>そこから全部書き直した。</p>
+          <div class="posted-time">2026-04-09T12:44</div>
+          <p class="posted-text">「論文は書くものだ」<br><br>この思い込みを捨てた日から、書くのが楽になった。<br><br>論文は「設計するもの」で、英語は「出力させるもの」だった。<br><br>設計さえできれば、英語は道具に過ぎない。</p>
           <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
         </div>
   </div>
