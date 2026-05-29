@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-29 23:40 JST</p>
+    <p class="updated">更新: 2026-05-30 02:33 JST</p>
   </div>
 
   <nav class="nav">
@@ -530,7 +530,7 @@
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">5</div>
+        <div class="stat-num">0</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
@@ -538,15 +538,15 @@
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1795</div>
         <div class="stat-label">平均インプ</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0.0</div>
+        <div class="stat-num">43.3</div>
         <div class="stat-label">平均いいね</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0.0</div>
+        <div class="stat-num">1.7</div>
         <div class="stat-label">平均リプライ</div>
       </div>
       
@@ -554,10 +554,10 @@
     <div class="section-title">⚡ やること</div>
     
         <div class="action-item">
-          <span class="action-icon">🟡</span>
+          <span class="action-icon">🟢</span>
           <div>
-            <div class="action-title">統計データなし</div>
-            <div class="action-desc">まだ投稿後の統計が収集されていません。明日のJST 23:00に自動収集されます</div>
+            <div class="action-title">バズピボット候補あり</div>
+            <div class="action-desc">スコア26464の投稿から派生生成できます。<code>python3 buzz_pivot.py</code></div>
           </div>
         </div>
   </div>
@@ -565,7 +565,129 @@
   <!-- 分析 -->
   <div id="analysis" class="section">
     <div class="section-title">📈 バズ分析</div>
-    <div class="card"><p class="empty">統計データがまだありません</p></div>
+    <div class="chart-wrap">
+      <div class="chart-header">
+        <span class="chart-section-lbl">📊 日別推移</span>
+        <div class="metric-btns">
+          <button class="metric-btn active" onclick="switchMetric(this,'views')">インプ</button>
+          <button class="metric-btn" onclick="switchMetric(this,'likes')">いいね</button>
+          <button class="metric-btn" onclick="switchMetric(this,'replies')">リプライ</button>
+          <button class="metric-btn" onclick="switchMetric(this,'reposts')">リポスト</button>
+          <button class="metric-btn" onclick="switchMetric(this,'score')">スコア</button>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap"><canvas id="statsChart"></canvas></div>
+    </div>
+    <script>
+    (function() {
+      var D = {"labels": ["2026-03-24", "2026-03-25", "2026-03-26", "2026-03-27", "2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04", "2026-04-05", "2026-04-06", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-11", "2026-04-12", "2026-04-13", "2026-04-14", "2026-04-15", "2026-05-08", "2026-05-29"], "views": [896, 3775, 5808, 4372, 143361, 3246, 1508, 1741, 758, 3094, 4639, 1319, 4286, 5418, 1505, 4887, 2523, 1325, 3253, 1318, 431, 285, 632, 106, 577], "likes": [20, 48, 121, 76, 3960, 158, 42, 17, 11, 56, 32, 14, 43, 56, 19, 56, 41, 10, 39, 7, 3, 1, 7, 1, 11], "replies": [0, 19, 12, 11, 55, 4, 9, 0, 0, 16, 6, 0, 22, 7, 0, 7, 4, 0, 14, 2, 0, 1, 0, 0, 2], "reposts": [0, 1, 6, 3, 71, 3, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 1, 0, 2, 0, 0, 0, 0, 0, 0], "score": [149.6, 620.5, 1039.8, 736.2, 26799.1, 830.6, 321.8, 225.1, 108.8, 561.4, 589.9, 177.9, 667.6, 756.8, 207.5, 699.7, 399.3, 162.5, 520.3, 162.8, 52.1, 36.5, 84.2, 13.6, 100.7]};
+      var C = {views:'#4fc3f7',likes:'#ef5350',replies:'#66bb6a',reposts:'#ffa726',score:'#ab47bc'};
+      var L = {views:'インプレッション',likes:'いいね',replies:'リプライ',reposts:'リポスト',score:'スコア'};
+      var cur = 'views', ch = null;
+      function init() {
+        var el = document.getElementById('statsChart');
+        if (!el || typeof Chart === 'undefined') { setTimeout(init, 100); return; }
+        ch = new Chart(el, {
+          type: 'bar',
+          data: {
+            labels: D.labels,
+            datasets: [{
+              label: L[cur], data: D[cur],
+              backgroundColor: C[cur] + '55',
+              borderColor: C[cur], borderWidth: 1, borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: {display: false} },
+            scales: {
+              x: {ticks:{color:'#666',font:{size:10}},grid:{color:'#1e1e1e'}},
+              y: {beginAtZero:true,ticks:{color:'#666',font:{size:10}},grid:{color:'#1e1e1e'}}
+            }
+          }
+        });
+      }
+      window.switchMetric = function(btn, metric) {
+        cur = metric;
+        document.querySelectorAll('.metric-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        if (ch) {
+          ch.data.datasets[0].data = D[metric];
+          ch.data.datasets[0].label = L[metric];
+          ch.data.datasets[0].backgroundColor = C[metric] + '55';
+          ch.data.datasets[0].borderColor = C[metric];
+          ch.update();
+        }
+      };
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', init) : init();
+    })();
+    </script>
+    <div class="section-title" style="margin-top:20px">📋 バズランキング</div>
+
+        <div class="rank-card top">
+          <div class="rank-badge">🥇 TOP1</div>
+          <p class="rank-text">教授に言われた言葉。  「学会は発表して終わりじゃない」  ——どういうことですか？  「会場に着い</p>
+          <div class="rank-metrics">
+            <span>👁 141373</span>
+            <span>❤️ 3921</span>
+            <span>💬 52</span>
+            <span>🔄 70</span>
+            <span class="score">スコア 26464</span>
+          </div>
+        </div>
+        <div class="rank-card top">
+          <div class="rank-badge">🥈 TOP2</div>
+          <p class="rank-text">博士課程学生の41%が、不安または抑うつの症状を経験している。  一般人口と比べて2.43倍の高さ。</p>
+          <div class="rank-metrics">
+            <span>👁 4015</span>
+            <span>❤️ 84</span>
+            <span>💬 8</span>
+            <span>🔄 6</span>
+            <span class="score">スコア 726</span>
+          </div>
+        </div>
+        <div class="rank-card top">
+          <div class="rank-badge">🥉 TOP3</div>
+          <p class="rank-text">査読の依頼がきた  共著者の論文だった。  正直に編集者にそのように伝えて 辞退した。公正に判断でき</p>
+          <div class="rank-metrics">
+            <span>👁 3437</span>
+            <span>❤️ 36</span>
+            <span>💬 18</span>
+            <span>🔄 0</span>
+            <span class="score">スコア 542</span>
+          </div>
+        </div>
+        <div class="rank-card bottom">
+          <div class="rank-badge">⬇️ BOTTOM1</div>
+          <p class="rank-text">「論文はCSVと同じ構造をしている」と気づいた日から、書くことへの恐怖が消えた。  セル＝段落。ヘッ</p>
+          <div class="rank-metrics">
+            <span>👁 56</span>
+            <span>❤️ 0</span>
+            <span>💬 0</span>
+            <span class="score">スコア 6</span>
+          </div>
+        </div>
+        <div class="rank-card bottom">
+          <div class="rank-badge">⬇️ BOTTOM2</div>
+          <p class="rank-text">週末2日間、AIと格闘して初稿の半ページしか書けなかった日がある。  「モデルが悪いのか」「プロンプ</p>
+          <div class="rank-metrics">
+            <span>👁 54</span>
+            <span>❤️ 0</span>
+            <span>💬 0</span>
+            <span class="score">スコア 5</span>
+          </div>
+        </div>
+        <div class="rank-card bottom">
+          <div class="rank-badge">⬇️ BOTTOM3</div>
+          <p class="rank-text">後輩から「週末に初稿できました」とメッセージが来た。  渡したのはプロンプトではなく、1枚のCSVフ</p>
+          <div class="rank-metrics">
+            <span>👁 30</span>
+            <span>❤️ 0</span>
+            <span>💬 0</span>
+            <span class="score">スコア 3</span>
+          </div>
+        </div>
   </div>
 
   <!-- キュー -->
@@ -801,102 +923,242 @@
         <div class="posted-card">
           <div class="posted-time">2026-05-29T14:33</div>
           <p class="posted-text">査読と編集の苦労を見たら、論文の書き方が変わった。<br><br>エディターが読むのは、4つだけ：<br><br>カバーレター<br>タイトル<br>アブストラクト<br>図（流し読み）<br><br>ここで「専門家が誰か」が伝わらないと、査読に回らない。<br><br>書く相手が変われば、書き方も変わる。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 106</span>
+              <span>❤️ 2</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 17</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-29T11:54</div>
           <p class="posted-text">AI で論文が書けるようになって、「書けない」という感覚はほとんど消えた。<br><br>でも、書く前に決まっていることがある。<br><br>「誰に読ませるか」「何を専門家に伝えるか」<br><br>ここを設計しないまま AI に書かせると、長くて流し読みされる論文が出てくる。<br><br>あなたは、書く前に何を決めていますか？</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 59</span>
+              <span>❤️ 1</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 9</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-29T08:35</div>
           <p class="posted-text">指導教員に「この Introduction、誰のための論文？」と聞かれた。<br><br>言葉に詰まった。<br><br>自分のための Introduction を、書いていた。<br><br>読者は2段落で離脱する——その前提で書き直したら、論文が変わった。<br><br>あなたは、誰のために書いていますか？</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 138</span>
+              <span>❤️ 3</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 23</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-29T04:49</div>
           <p class="posted-text">査読を依頼されて、断ったこと、ありますか？<br><br>①ある（時間がない）<br>②ある（共著者・利益相反）<br>③ない（来ない）<br><br>エディター側は、断られるたびに次の候補を探している。<br>査読を断った先で、誰かが土曜日を使っている。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 151</span>
+              <span>❤️ 2</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 21</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-29T02:47</div>
           <p class="posted-text">教授がエディターをやっているのは、知らなかった。<br><br>土曜日、研究室にこもっている理由を聞いた。<br><br>「論文を読んで、査読者を探して、メールする」<br><br>先週は、依頼した相手から「共著者なのでできません」と断られたらしい。<br><br>——これで無給ですか？<br><br>「そう、無給」<br><br>論文を出す側にいると、見えない裏側がある。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 123</span>
+              <span>❤️ 3</span>
+              <span>💬 2</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 31</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-08T22:32</div>
           <p class="posted-text">「Rはいつか勉強しないと」と思い続けて、何年経ちましたか？<br><br>EZRでなんとかなってきた。Excelの図は修正指示が来るけど、まあ通ってはいる。でも「投稿レベルの図を自分で出したい」という気持ちが、ずっと燻っている。<br><br>私がRを後回しにしてきたのは、怠けていたからじゃなかったと今は思っています。環境構築・エラーの読み方・tidy dataの概念・ggplot2の文法。これだけの壁が最初から一気に来</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 106</span>
+              <span>❤️ 1</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 14</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-15T06:20</div>
           <p class="posted-text">学会で「挨拶が苦手」な人は、発表後の質疑で1問だけ手を挙げるところから始めると動きやすい。<br><br>質問は事前に「自分の研究と関連する疑問」を1つだけ用意しておくだけでいい。<br><br>これだけで、座長の記憶には残る。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 632</span>
+              <span>❤️ 7</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 84</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-14T05:48</div>
           <p class="posted-text">一方で、ネットワーキングが得意な人が有利になる構造は問題でもある。<br><br>内向的な研究者、英語が母語でない人、マイノリティが不当に評価される温床になりやすい。<br><br>だから近年、ブラインド査読やオープンレビューへの移行が進んでいる。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 285</span>
+              <span>❤️ 1</span>
+              <span>💬 1</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 36</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-13T05:14</div>
           <p class="posted-text">学会で挨拶した人が翌年の査読者になった経験、実際にある。<br><br>ブラインドレビューのはずが、発表スタイルや質問の仕方で誰だか分かることも多い。<br><br>科学の世界でも「人が人を評価する」という事実は変わらない。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 431</span>
+              <span>❤️ 3</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 52</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-12T12:39</div>
           <p class="posted-text">「論文は長く書いた方が採択されやすい」と思っていた。<br><br>実際に査読者に聞いたら、全員が言った。「短い方がいい」と。<br><br>Methodsが長い＝実験設計が複雑すぎる、と読まれる。<br>Discussionが長い＝自信がない、と読まれる。<br><br>伝えたいことが1つなら、1段落で書ける。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 195</span>
+              <span>❤️ 3</span>
+              <span>💬 1</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 34</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-12T08:37</div>
           <p class="posted-text">AIで論文を書くとき「このセクションを全部書いて」と依頼するのをやめた。<br><br>代わりに「この段落に入れるべき3要素を箇条書きで出して」と聞く。<br><br>確認してOKなら「この3点を元に段落を書いて」と続ける。<br><br>これだけで、ハルシネーションと方向ズレが激減した。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 326</span>
+              <span>❤️ 0</span>
+              <span>💬 1</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 38</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-12T05:05</div>
           <p class="posted-text">子どもに「今日は公園行ける？」と聞かれて答えられなかった週末があった。<br><br>論文が終わらなくて。<br><br>それが変わったのは、論文をある方法で構造化した日から。<br><br>同じ思いをしている方へ——プロフにリンクあります。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 218</span>
+              <span>❤️ 1</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 25</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-12T02:02</div>
           <p class="posted-text">論文を提出した後、すぐ「あそこ直せばよかった」が来る。<br><br>リジェクト通知が来て、査読コメントを読むと、全部そこを指摘されている。<br><br>提出前に気づいていた。それでも直さなかった。<br><br>「もう十分書いた」という疲労感が判断を鈍らせる。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 579</span>
+              <span>❤️ 3</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 67</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T22:18</div>
           <p class="posted-text">研究していて「これは面白い」と確信した瞬間ってありますか？<br><br>私はデータが予想と逆の結果を出したとき、急に楽しくなった。<br><br>「間違い」が「発見」に変わる瞬間が研究の醍醐味だと思う。<br><br>あなたはどんなとき、研究が楽しいと感じますか？</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 511</span>
+              <span>❤️ 9</span>
+              <span>💬 13</span>
+              <span>🔄 1</span>
+              <span class="score">スコア 147</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T12:52</div>
           <p class="posted-text">英語が得意な共著者に頼んで、Discussionを全部書き直してもらったことがある。<br><br>戻ってきた原稿を読んで「自分の研究の解釈が変わっていた」ことに気づいた。<br><br>英語化は外注できても、解釈は外注できない。<br><br>そこだけは自分でやる必要があると、その日学んだ。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 292</span>
+              <span>❤️ 5</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 44</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T08:07</div>
           <p class="posted-text">Introduction執筆の構造は「逆三角形」。<br><br>①一般的な問題提起（広い）<br>②先行研究のレビュー（絞る）<br>③先行研究の限界（さらに絞る）<br>④本研究の目的（焦点）<br>⑤本研究の貢献（意義）<br><br>この5段階を知っていれば「何を書けばいいか分からない」は起きない。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 756</span>
+              <span>❤️ 8</span>
+              <span>💬 1</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 105</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T05:20</div>
           <p class="posted-text">英語論文を読んでいて「この文、AIが書いたな」とわかる瞬間がある。<br><br>&quot;Furthermore,&quot; &quot;Moreover,&quot; &quot;It is important to note that&quot;<br><br>これらが並んでいたら、ほぼ確実にAI生成。<br><br>自分の論文も確認してみると、ぞっとする。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 1411</span>
+              <span>❤️ 14</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 183</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-11T01:09</div>
           <p class="posted-text">「Introduction全部書いて」は失敗する。<br><br>「段落1：研究背景（3文、一般論から始める）」は成功する。<br><br>AIに渡す粒度が細かいほど、出力が安定する。<br><br>これが「プロンプトの工夫」ではなく「構造の設計」が大事な理由。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 283</span>
+              <span>❤️ 3</span>
+              <span>💬 0</span>
+              <span>🔄 1</span>
+              <span class="score">スコア 41</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-10T22:38</div>
           <p class="posted-text">「論文は謎解きだ」と気づいた日から、書くのが怖くなくなった。<br><br>Introduction：なぜこの研究をするのか<br>Results：何が起きたか<br>Discussion：なぜそうなったのか<br><br>この順番が分かれば、何をどこに書けばいいかは自動的に決まる。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 478</span>
+              <span>❤️ 4</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 60</span>
+            </div>
         </div>
         <div class="posted-card">
           <div class="posted-time">2026-04-10T12:32</div>
           <p class="posted-text">論文執筆のAI活用、あなたはどちら派？<br><br>A: まず書いてみてからAIに修正してもらう<br>B: 構造を決めてからAIに書かせる<br><br>私はずっとAだった。Bに変えてから週末が戻ってきた。</p>
-          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+          
+            <div class="posted-metrics">
+              <span>👁 280</span>
+              <span>❤️ 1</span>
+              <span>💬 0</span>
+              <span>🔄 0</span>
+              <span class="score">スコア 31</span>
+            </div>
         </div>
   </div>
 
