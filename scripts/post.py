@@ -111,6 +111,9 @@ def run(ctx=None):
     if ctx is None:
         ctx = get_context()
 
+    if not ctx.token or not ctx.user_id:
+        raise RuntimeError("THREADS_ACCESS_TOKEN / THREADS_USER_ID が設定されていません。")
+
     # 安全チェック
     if check_kill_switch(ctx.kill_switch):
         return
@@ -154,8 +157,12 @@ def run(ctx=None):
 
     except Exception as e:
         print(f"❌ 投稿失敗: {e}")
+        raise
 
 
 if __name__ == "__main__":
     ctx = get_context()
-    run(ctx)
+    try:
+        run(ctx)
+    except Exception:
+        sys.exit(1)

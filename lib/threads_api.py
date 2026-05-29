@@ -4,6 +4,34 @@ import requests
 BASE_URL = "https://graph.threads.net/v1.0"
 
 
+class ThreadsApiError(Exception):
+    """Threads API error with a safe, actionable message."""
+
+
+def _raise_for_threads_error(res: requests.Response):
+    if res.ok:
+        return
+
+    try:
+        payload = res.json()
+    except ValueError:
+        payload = {}
+
+    error = payload.get("error", {})
+    if error:
+        parts = [
+            f"Threads API error {res.status_code}",
+            f"code={error.get('code')}",
+            f"type={error.get('type')}",
+            f"subcode={error.get('error_subcode')}",
+            f"message={error.get('message')}",
+            f"fbtrace_id={error.get('fbtrace_id')}",
+        ]
+        raise ThreadsApiError(" | ".join(str(p) for p in parts if p is not None))
+
+    raise ThreadsApiError(f"Threads API error {res.status_code}: {res.text[:500]}")
+
+
 def create_post(text: str, token: str, user_id: str) -> str:
     """投稿コンテナを作成してpost_idを返す"""
     res = requests.post(
@@ -14,7 +42,7 @@ def create_post(text: str, token: str, user_id: str) -> str:
             "access_token": token,
         },
     )
-    res.raise_for_status()
+    _raise_for_threads_error(res)
     return res.json()["id"]
 
 
@@ -27,7 +55,7 @@ def publish_post(creation_id: str, token: str, user_id: str) -> str:
             "access_token": token,
         },
     )
-    res.raise_for_status()
+    _raise_for_threads_error(res)
     return res.json()["id"]
 
 
@@ -40,7 +68,7 @@ def get_insights(thread_id: str, token: str) -> dict:
             "access_token": token,
         },
     )
-    res.raise_for_status()
+    _raise_for_threads_error(res)
     data = res.json().get("data", [])
     return {item["name"]: item["values"][0]["value"] for item in data}
 
@@ -55,7 +83,7 @@ def get_my_posts(token: str, user_id: str, limit: int = 25) -> list:
             "access_token": token,
         },
     )
-    res.raise_for_status()
+    _raise_for_threads_error(res)
     return res.json().get("data", [])
 
 
@@ -70,7 +98,7 @@ def create_reply(text: str, reply_to_id: str, token: str, user_id: str) -> str:
             "access_token": token,
         },
     )
-    res.raise_for_status()
+    _raise_for_threads_error(res)
     return res.json()["id"]
 
 
@@ -83,7 +111,7 @@ def get_user_insights(token: str, user_id: str) -> dict:
             "access_token": token,
         },
     )
-    res.raise_for_status()
+    _raise_for_threads_error(res)
     data = res.json().get("data", [])
     result = {}
     for item in data:
@@ -107,5 +135,5 @@ def get_user_posts(target_user_id: str, token: str, limit: int = 25) -> list:
             "access_token": token,
         },
     )
-    res.raise_for_status()
+    _raise_for_threads_error(res)
     return res.json().get("data", [])
