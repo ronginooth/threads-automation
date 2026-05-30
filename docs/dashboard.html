@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-30 08:40 JST</p>
+    <p class="updated">更新: 2026-05-30 10:29 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (17)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (16)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (53)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">17</div>
+        <div class="stat-num">16</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">117</div>
+        <div class="stat-num">118</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -694,17 +694,6 @@
   <div id="queue" class="section">
     <div class="section-title">📋 投稿キュー</div>
     
-        <div class="queue-card">
-          <div class="queue-header">
-            <span class="queue-time">2026-05-29 17:00</span>
-            <span class="queue-type type-導線型">導線型</span>
-          </div>
-          <p class="queue-body">「先生、CSV から3群比較の図が出ました」<br><br>満面の笑みで来た後輩。<br><br>私が渡したのは、プロンプトではない。<br>R の環境を設定する、ある1枚のファイルだった。<br><br>詳しくは、プロフのリンクから。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-26_4_導線型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-26_4_導線型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
         <div class="queue-card">
           <div class="queue-header">
             <span class="queue-time">2026-05-29 21:00</span>
@@ -887,6 +876,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-30T01:29</div>
+          <p class="posted-text">「先生、CSV から3群比較の図が出ました」<br><br>満面の笑みで来た後輩。<br><br>私が渡したのは、プロンプトではない。<br>R の環境を設定する、ある1枚のファイルだった。<br><br>詳しくは、プロフのリンクから。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-29T23:40</div>
           <p class="posted-text">発表2年前まで、3群比較の図を作るのに丸1日かかっていた。<br><br>今は30分で出る。変えたのは1つだけ。<br><br>CSV を AI に渡す前に、「出力形式の設計図」を1枚作るようにした。<br><br>R のコードを書いていない。設計図を渡しただけ。</p>
@@ -1092,18 +1086,6 @@
               <span>💬 1</span>
               <span>🔄 0</span>
               <span class="score">スコア 105</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-11T05:20</div>
-          <p class="posted-text">英語論文を読んでいて「この文、AIが書いたな」とわかる瞬間がある。<br><br>&quot;Furthermore,&quot; &quot;Moreover,&quot; &quot;It is important to note that&quot;<br><br>これらが並んでいたら、ほぼ確実にAI生成。<br><br>自分の論文も確認してみると、ぞっとする。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 1411</span>
-              <span>❤️ 14</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 183</span>
             </div>
         </div>
   </div>
