@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-05-31 19:07 JST</p>
+    <p class="updated">更新: 2026-05-31 19:22 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (7)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (6)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (62)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">7</div>
+        <div class="stat-num">6</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">127</div>
+        <div class="stat-num">128</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🟡</span>
           <div>
             <div class="action-title">キュー残数に注意</div>
-            <div class="action-desc">残り7件。今週中に補充を検討</div>
+            <div class="action-desc">残り6件。今週中に補充を検討</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-05-31 17:00</span>
-            <span class="queue-type type-対話型">対話型</span>
-          </div>
-          <p class="queue-body">教授に言われた言葉。<br><br>「発表室で名刺を交換した人が、3年後の査読者になる」<br><br>学会の使い方が変わった一言だった。<br><br>発表より、発表後にいる時間の方が長い。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-28_4_対話型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-28_4_対話型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-05-31 21:00</span>
             <span class="queue-type type-気づき型">気づき型</span>
           </div>
@@ -784,6 +773,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-05-31T10:22</div>
+          <p class="posted-text">教授に言われた言葉。<br><br>「発表室で名刺を交換した人が、3年後の査読者になる」<br><br>学会の使い方が変わった一言だった。<br><br>発表より、発表後にいる時間の方が長い。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-31T08:00</div>
           <p class="posted-text">発表10分前、AI に渡したのは論文の要約と「想定される質疑を50問出して」という指示だけ。<br><br>出てきた50問のうち、本番で来た質問は7問だった。<br><br>全部答えられた。<br><br>不確実性は、数で減らせる。</p>
@@ -975,18 +969,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 14</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-04-15T06:20</div>
-          <p class="posted-text">学会で「挨拶が苦手」な人は、発表後の質疑で1問だけ手を挙げるところから始めると動きやすい。<br><br>質問は事前に「自分の研究と関連する疑問」を1つだけ用意しておくだけでいい。<br><br>これだけで、座長の記憶には残る。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 632</span>
-              <span>❤️ 7</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 84</span>
             </div>
         </div>
   </div>
