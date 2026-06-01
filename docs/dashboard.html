@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-06-01 11:41 JST</p>
+    <p class="updated">更新: 2026-06-01 15:57 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (4)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (3)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (62)</button>
   </nav>
@@ -526,15 +526,15 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">4</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">0</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">130</div>
+        <div class="stat-num">131</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り4件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り3件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-06-01 10:00</span>
-            <span class="queue-type type-対話型">対話型</span>
-          </div>
-          <p class="queue-body">統計の先生に言われた言葉。<br><br>「検定の前に、図を見ましたか？」<br><br>見ていなかった。p 値から入っていた。<br><br>「データに聞いてから、数字で確かめる」<br><br>その日から、解析の順番が変わった。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-29_2_対話型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-29_2_対話型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-06-01 13:00</span>
             <span class="queue-type type-二択型">二択型</span>
           </div>
@@ -751,6 +740,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-06-01T06:56</div>
+          <p class="posted-text">統計の先生に言われた言葉。<br><br>「検定の前に、図を見ましたか？」<br><br>見ていなかった。p 値から入っていた。<br><br>「データに聞いてから、数字で確かめる」<br><br>その日から、解析の順番が変わった。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-05-31T22:41</div>
           <p class="posted-text">10年前、論文投稿で必要になった PCA 解析。<br><br>ネットの情報を探り、コードを直し、エラーを潰し——2週間かかった。<br><br>今、同じ解析を AI に頼んでいる。<br><br>指示30秒。完成まで、修正を入れて5分。<br><br>革命だ。</p>
@@ -970,18 +964,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 25</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-05-29T04:49</div>
-          <p class="posted-text">査読を依頼されて、断ったこと、ありますか？<br><br>①ある（時間がない）<br>②ある（共著者・利益相反）<br>③ない（来ない）<br><br>エディター側は、断られるたびに次の候補を探している。<br>査読を断った先で、誰かが土曜日を使っている。</p>
-          
-            <div class="posted-metrics">
-              <span>👁 175</span>
-              <span>❤️ 2</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 24</span>
             </div>
         </div>
   </div>
