@@ -502,13 +502,13 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-06-02 00:48 JST</p>
+    <p class="updated">更新: 2026-06-02 03:23 JST</p>
   </div>
 
   <nav class="nav">
     <button class="nav-tab active" onclick="showTab('overview')">概要</button>
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
-    <button class="nav-tab" onclick="showTab('queue')">キュー (2)</button>
+    <button class="nav-tab" onclick="showTab('queue')">キュー (1)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
     <button class="nav-tab" onclick="showTab('replies')">返信 (62)</button>
   </nav>
@@ -526,7 +526,7 @@
         <div class="stat-label">プロフィール表示</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">2</div>
+        <div class="stat-num">1</div>
         <div class="stat-label">キュー残数</div>
       </div>
       <div class="stat-card">
@@ -534,7 +534,7 @@
         <div class="stat-label">今日の投稿</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">132</div>
+        <div class="stat-num">133</div>
         <div class="stat-label">累計投稿</div>
       </div>
       <div class="stat-card">
@@ -557,7 +557,7 @@
           <span class="action-icon">🔴</span>
           <div>
             <div class="action-title">キュー残数が少ない</div>
-            <div class="action-desc">残り2件。<code>python3 weekly.py</code> で補充してください</div>
+            <div class="action-desc">残り1件。<code>python3 weekly.py</code> で補充してください</div>
           </div>
         </div>
         <div class="action-item">
@@ -703,17 +703,6 @@
     
         <div class="queue-card">
           <div class="queue-header">
-            <span class="queue-time">2026-06-01 17:00</span>
-            <span class="queue-type type-失敗談型">失敗談型</span>
-          </div>
-          <p class="queue-body">査読コメント。<br><br>「統計手法が不適切。Mann-Whitney ではなく、Kruskal-Wallis を使うべき」<br><br>その時、なぜ Mann-Whitney を選んだかすら、説明できなかった。<br><br>統計を「コピペで通過するもの」と思っていた頃の話。<br><br>今は AI に「このデザインで適切な検定は？」と聞いてから入る。</p>
-          <div class="queue-actions">
-            <a href="https://github.com/ronginooth/threads-automation/edit/main/data/queue/2026-05-29_4_失敗談型.md" target="_blank" class="btn btn-edit">✏️ 編集</a>
-            <a href="https://github.com/ronginooth/threads-automation/delete/main/data/queue/2026-05-29_4_失敗談型.md" target="_blank" class="btn btn-delete">🗑 削除</a>
-          </div>
-        </div>
-        <div class="queue-card">
-          <div class="queue-header">
             <span class="queue-time">2026-06-01 21:00</span>
             <span class="queue-type type-導線型">導線型</span>
           </div>
@@ -729,6 +718,11 @@
   <div id="posted" class="section">
     <div class="section-title">✅ 投稿済み（直近20件）</div>
     
+        <div class="posted-card">
+          <div class="posted-time">2026-06-01T18:23</div>
+          <p class="posted-text">査読コメント。<br><br>「統計手法が不適切。Mann-Whitney ではなく、Kruskal-Wallis を使うべき」<br><br>その時、なぜ Mann-Whitney を選んだかすら、説明できなかった。<br><br>統計を「コピペで通過するもの」と思っていた頃の話。<br><br>今は AI に「このデザインで適切な検定は？」と聞いてから入る。</p>
+          <div class="posted-metrics"><span class="no-data">統計未取得</span></div>
+        </div>
         <div class="posted-card">
           <div class="posted-time">2026-06-01T12:30</div>
           <p class="posted-text">研究者の皆さんに聞きたい。<br><br>論文のデータ解析、何でやっていますか？<br><br>① Excel<br>② EZR / SPSS<br>③ R / Python（自力）<br>④ R / Python（AI 活用）<br><br>私は ①→②→④。変えたのはツールではなく、渡し方だった。</p>
@@ -934,18 +928,6 @@
               <span>💬 0</span>
               <span>🔄 0</span>
               <span class="score">スコア 25</span>
-            </div>
-        </div>
-        <div class="posted-card">
-          <div class="posted-time">2026-05-29T11:54</div>
-          <p class="posted-text">AI で論文が書けるようになって、「書けない」という感覚はほとんど消えた。<br><br>でも、書く前に決まっていることがある。<br><br>「誰に読ませるか」「何を専門家に伝えるか」<br><br>ここを設計しないまま AI に書かせると、長くて流し読みされる論文が出てくる。<br><br>あなたは、書く前に何を決めていますか？</p>
-          
-            <div class="posted-metrics">
-              <span>👁 79</span>
-              <span>❤️ 1</span>
-              <span>💬 0</span>
-              <span>🔄 0</span>
-              <span class="score">スコア 11</span>
             </div>
         </div>
   </div>
