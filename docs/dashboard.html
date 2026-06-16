@@ -502,7 +502,7 @@
 
   <div class="header">
     <h1>📊 Threads Dashboard</h1>
-    <p class="updated">更新: 2026-06-16 13:07 JST</p>
+    <p class="updated">更新: 2026-06-16 18:15 JST</p>
   </div>
 
   <nav class="nav">
@@ -510,7 +510,7 @@
     <button class="nav-tab" onclick="showTab('analysis')">分析</button>
     <button class="nav-tab" onclick="showTab('queue')">キュー (0)</button>
     <button class="nav-tab" onclick="showTab('posted')">投稿済</button>
-    <button class="nav-tab" onclick="showTab('replies')">返信 (64)</button>
+    <button class="nav-tab" onclick="showTab('replies')">返信 (65)</button>
   </nav>
 
   <!-- 概要 -->
@@ -958,7 +958,7 @@
       <button class="btn btn-edit" onclick="savePAT()">保存</button>
       <span style="font-size:11px;color:#666;"> ブラウザのlocalStorageに保存されます</span>
     </div>
-    <div class="section-subtitle">未返信 (64件)</div>
+    <div class="section-subtitle">未返信 (65件)</div>
         <div class="reply-card" id="card-17930092764068428">
           <div class="reply-post-ref">
             <a href="https://www.threads.com/@ronginooth_ai/post/DWauUQBFsag" target="_blank">↗ 教授に言われた言葉。<br><br>「学会は発表して終わりじゃない」<br><br>——どういうことですか？<br><br>「会場に着い…</a>
@@ -3068,6 +3068,39 @@
             <div class="reply-actions">
               <button class="btn btn-cancel" onclick="cancelReply('18067160327704839')">キャンセル</button>
               <button class="btn btn-send" onclick="confirmReply('18067160327704839')">返信する</button>
+            </div>
+          </div>
+        </div>
+        <div class="reply-card" id="card-18199163647318715">
+          <div class="reply-post-ref">
+            <a href="https://www.threads.com/@ronginooth_ai/post/DZn12LaEyTS" target="_blank">↗ 査読論文は、だいたい30の段落でできています。<br><br>Introduction 5〜7段落、Method…</a>
+          </div>
+          <div class="reply-comment">
+            <span class="reply-username">@hideyukitakamizawa</span>
+            <p class="reply-text">査読論文は公開されるものが多くずっと残ります。いまは、わからなくても数年後、これはこのバージョンのこのAIで生成されたものとわかるようになるかも知れません。いわゆるネイティブチェックのように使うのは良いけれど『書かせる』のは怖くてできません。特に若い人は将来有名人になったら足元すくわれるかもしれない。<br><br>まあ、古い考え方なのかもしれませんし、将来はディレクションしていればOKという価値観になるかもしれませんが。</p>
+            <span class="reply-time">06/16 17:07</span>
+          </div>
+          <div class="reply-drafts">
+            <p class="drafts-title">💬 案をタップして編集</p>
+            
+            <div class="reply-draft" onclick="selectDraft(this, '18199163647318715')">
+              <span class="draft-label">案1</span>
+              <p>その懸念、すごく分かります。僕も初期は同じ不安がありました。ただ実際には、AIは『下書き』『構成の確認』段階での活用が主で、最終的な責任と創意工夫は研究者にあります。透明性が大事ですね。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18199163647318715')">
+              <span class="draft-label">案2</span>
+              <p>重要な指摘です。実は『生成物と特定される』リスクは、今後むしろ『使わない』ことが不利になる時代がくるかもしれません。大事なのは『どう使ったか』の記録と説明。隠さないことが信用につながると考えます。</p>
+            </div>
+            <div class="reply-draft" onclick="selectDraft(this, '18199163647318715')">
+              <span class="draft-label">案3</span>
+              <p>その慎重さは尊重します。ただ『ディレクションしていればOK』という価値観は、実はすぐそこまで来てると思うんです。若い研究者こそ、今から『責任を持った使い方』を学ぶ方が、将来的には強みになるのでは。</p>
+            </div>
+          </div>
+          <div class="reply-editor" id="editor-18199163647318715" style="display:none;">
+            <textarea class="reply-textarea" id="textarea-18199163647318715" rows="3" placeholder="返信を入力…"></textarea>
+            <div class="reply-actions">
+              <button class="btn btn-cancel" onclick="cancelReply('18199163647318715')">キャンセル</button>
+              <button class="btn btn-send" onclick="confirmReply('18199163647318715')">返信する</button>
             </div>
           </div>
         </div><div class="section-subtitle replied-header">返信済み (20件)</div>
